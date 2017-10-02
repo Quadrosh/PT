@@ -1,0 +1,680 @@
+/*
+
+main blue   #2376A5
+gray back  #E9EBED
+
+*/
+
+@font-face {
+    font-family: "TimesNewRoman";
+    src: url("fonts/TimesNewRoman/TimesNewRoman.eot");
+    src: url("fonts/TimesNewRoman/TimesNewRoman.eot?#iefix") format("embedded-opentype"),
+    url("fonts/TimesNewRoman/TimesNewRoman.woff") format("woff"),
+    url("fonts/TimesNewRoman/TimesNewRoman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "MyriadProRegular";
+    src: url("fonts/MyriadProRegular/MyriadProRegular.eot");
+    src: url("fonts/MyriadProRegular/MyriadProRegular.eot?#iefix") format("embedded-opentype"),
+    url("fonts/MyriadProRegular/MyriadProRegular.woff") format("woff"),
+    url("fonts/MyriadProRegular/MyriadProRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "HelveticaRegular";
+    src: url("fonts/HelveticaRegular/HelveticaRegular.eot");
+    src: url("fonts/HelveticaRegular/HelveticaRegular.eot?#iefix") format("embedded-opentype"),
+    url("fonts/HelveticaRegular/HelveticaRegular.woff") format("woff"),
+    url("fonts/HelveticaRegular/HelveticaRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+
+html,
+body {
+    height: 100%;
+    /*background-color: #30353b;*/
+    background-color: #E9EBED;
+    /*min-height: 100%;*/
+
+}
+.master_body {
+    background-color: #30353b;
+    /*background-color: #DDB09E;*/
+    background-size: cover;
+    background-position: center top;
+    min-height:100%;
+    background-attachment: fixed;
+}
+/* позиционирование*/
+.mt10{
+    margin-top: 10px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mt30{
+    margin-top: 30px;
+}
+.mt50{
+    margin-top: 50px;
+}
+.mt100{
+    margin-top: 100px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+.mb30{
+    margin-bottom: 30px;
+}
+.mb50{
+    margin-bottom: 50px;
+}
+.mb100{
+    margin-bottom: 100px;
+}
+.pt10{
+    padding-top: 10px;
+}
+.pt20{
+    padding-top: 20px;
+}
+.pt30{
+    padding-top: 30px;
+}
+
+
+.wrap, .articleWrap {
+     min-height: 100%;
+     height: 100%;
+     margin: 0 auto 0;
+     padding: 0 0 0;
+}
+
+.wrap > .container {
+    padding: 20px 15px 20px;
+}
+.articleWrap > .container {
+    padding: 0px 15px 20px;
+}
+.articleWrap .navbar-top {
+    margin-bottom: 0px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #777;
+    width: 320px;
+}
+.brandLogo{
+    height: 70px;
+    float: left;
+    position: relative;
+    top:-10px;
+}
+.brandName {
+    display: block;
+    text-transform: uppercase;
+    font-family: 'TimesNewRoman', serif;
+    font-size: 36px;
+    color: #2376A5;
+    margin-top: 6px;
+}
+.brandMotto {
+    display: block;
+    color: #2376A5;
+    margin-left: 80px;
+    position: relative;
+    margin-top: 2px;
+    font-family: "HelveticaRegular", sans-serif;
+    font-size: 18px;
+}
+.navbar-nav {
+    background-color: #E9EBED;
+    /*background-color: rgba(255,255,255,0.9);*/
+}
+.navbar-default {
+    background-color: #E9EBED;
+    border-color: #e7e7e7;
+    height: 80px;
+    /*position: relative;*/
+}
+.navbar-default .navbar-toggle {
+    margin-top: 20px;
+    border-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #2376A5;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #2376A5;
+    display: inline-block;
+    padding: 5px 0px 4px ;
+    margin: 24px 5px 10px;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 18px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #2376A5;
+    background-color: transparent;
+    /*border:1px  #E9EBED solid;*/
+    border-bottom: 1px  #2376A5 solid;
+    display: inline-block;
+
+}
+.masterListItem {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+.masterListItem.regular {
+    height: 100px;
+}
+.masterListItem .masterName {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 0;
+}
+.masterListItem .imageBox{
+    padding: 3px;
+    border: 1px #D1D3D4 solid ;
+    border-radius: 3px;
+    width: 128px;
+}
+.masterListItem .masterProfession{
+    color: #808285;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.capital{
+    text-transform:capitalize;
+}
+.lowercase{
+    text-transform: lowercase;
+}
+.masterListItem .masterPsychotherapy{
+    color: #808285;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-bottom: 0;
+    text-align: right;
+}
+.masterListItem .masterPsychotherapy .circle{
+    display: inline-block;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #808285;
+    margin: 0 5px 2px;
+}
+.masterListItem .masterBtn{
+    margin-left: 0;
+    padding-left: 0;
+}
+.masterListAvatar {
+    width: 120px;
+}
+.masterListItem .masterAddress{
+    color: #808285;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-bottom: 0;
+    text-align: left;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+
+}
+.masterListItem.premium .masterAddress {
+    height: 67px;
+    margin-bottom: 0;
+}
+.masterListItem .masterAddress .masterPhone{
+    display: block;
+}
+.masterListItem .masterAddress .phone_icon{
+    font-size: 10px;
+    margin-right: 3px;
+}
+.masterListItem .masterAddress .site_icon{
+    font-size: 10px;
+}
+.masterListItem .masterPhone{
+    /*word-wrap: normal;*/
+}
+.masterListItem.premium .listDataBox{
+    min-height: 130px;
+}
+
+.masterListItem .disease{
+    padding: 5px;
+    min-height: 35px;
+    background-color: #eee;
+    font-size: 12px;
+    text-transform: lowercase;
+
+}
+
+
+
+.master_body .dark {
+    color: #fff;
+}
+.master_body .bright {
+    color: black;
+}
+
+.master_body .navbar-brand{
+    position: absolute;
+    z-index:1000;
+}
+.masterPtLogo {
+    height: 70px;
+}
+
+.master_body  .wrap > .container {
+    padding: 10px 15px 20px;
+}
+.masterPageAvatar{
+    width: 167px;
+}
+.masterImageBox {
+    margin-top: 100px;
+    /*margin-bottom: 50px;*/
+    margin-left: 120px;
+    background-color: #fff;
+    padding: 5px;
+    width: 177px;
+}
+.masterPageUsername {
+    text-align: left;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 38px;
+    font-weight:normal;
+    margin-top: 150px;
+    margin-bottom: 0;
+}
+.master_body .masterProfession {
+    text-align: left;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 18px;
+    margin-bottom: 0;
+
+}
+.master_body .divider {
+    width: 50%;
+    height: 1px;
+    position: relative;
+    /*margin-left:50%;*/
+}
+.master_body  .dark .divider {
+    /*background-color: #fff;*/
+    background-color: rgba(255,255,255,0.5);
+}
+.master_body  .masterPsychotherapy {
+    text-align: left;
+    /*float: right;*/
+}
+.master_body  .contentBox {
+    background-color: rgba(0,0,0,0.5);
+    padding: 50px;
+    /*margin-top: 50px;*/
+}
+
+.master_body .articleName {
+    text-align: center;
+}
+.master_body .links  {
+    margin-top: 50px;
+
+}
+.master_body .links li  {
+    list-style-type:none;
+    font-size: 18px;
+    font-family: "MyriadProRegular", sans-serif;
+    display: block;
+    margin-top: 10px;
+
+}
+.master_body .links li a {
+    color:white;
+    line-height: 1.0;
+    display: inline-block;
+}
+.master_body .dark .btn-default {
+    background-color: transparent;
+    border: 1px solid white;
+    color:white;
+    padding: 5px 7px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.master_body .dark .btn-default:hover,
+.master_body .dark .btn-link:hover {
+    text-decoration: none;
+}
+
+.master_body .dark .btn-link {
+    background-color: transparent;
+    color:white;
+    padding: 3px 7px;
+    border-bottom: 1px solid white;
+    margin: 5px 0 10px;
+    display: inline-block;
+
+}
+
+.master_body .form-group input {
+    width: 100%;
+}
+.master_body .form-group  {
+    width: 100%;
+    color: grey;
+
+
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+    color: #fff;
+    /*text-shadow: 0px 1px 1px rgba(255,255,255,0.7), 0px -1px 1px rgba(255,255,255,0.7);*/
+    text-shadow: 0 1px 2px #a94442, 0 -1px 2px #a94442;
+}
+
+.master_body .alert{
+    margin-top: 100px;
+}
+
+.master_body  .btn-default:focus,
+.master_body .btn-default.focus,
+.master_body  .btn-default:active,
+.master_body .btn-default.active{
+    border-color: #D3C9C6;
+    color: #D3C9C6;
+    text-decoration: none;
+}
+
+.master_body  .btn-link:focus,
+.master_body .btn-link.focus,
+.master_body  .btn-link:active,
+.master_body .btn-link.active{
+    border-color: #D3C9C6;
+    color: #D3C9C6;
+    text-decoration: none;
+}
+
+/* Articles */
+
+.articleListItem {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+.articleListItem.regular {
+    height: 100px;
+}
+.articleListItem .masterName {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 0;
+}
+.articleListItem .imageBox{
+    padding: 0;
+    border: none ;
+}
+.articleListItem .articlePsychotherapy{
+    text-transform: uppercase;
+    color: #f15c32;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.articleListItem .articleName{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: grey;
+}
+
+.articleListItem .excerptBig{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    /*margin-top: 5px;*/
+    margin-bottom: 5px;
+}
+.articleListItem .articleAuthor{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.articleListItem .articleSite{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.articleListItem .articleSite a:hover{
+    text-decoration: none;
+}
+.articleListItem .articleTag{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    color: lightgrey;
+    margin: 0;
+    text-transform: lowercase;
+}
+.articleListItem .articleName,
+.articleListItem .articleSite a,
+.articleListItem .articleAuthor{
+    color: grey;
+}
+.articleListItem .link2article{
+    /*color: #333;*/
+    color: inherit;
+}
+.articleListItem .link2article:hover{
+    text-decoration: none;
+}
+.articleBox {
+    background-color: #fff;
+    padding: 10px 100px 50px 100px;
+}
+.articleBox .articlePsychotherapy{
+    text-transform: uppercase;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+}
+.articleBox .text{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+}
+
+
+
+
+
+
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .articleBox {
+        background-color: #fff;
+        padding: 10px 45px 50px 45px;
+    }
+    .articleListItem .listDataBox{
+        padding-left: 45px;
+    }
+    .masterImageBox {
+        margin-left: 90px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    /*.articleBox .imageBox img {*/
+        /*width: 630px;*/
+        /*height: 438px;*/
+    /*}*/
+    .articleListItem .listDataBox{
+        padding-left: 25px;
+    }
+    .masterImageBox {
+        margin-left: 40px;
+    }
+    .masterListAvatar {
+        width: 90px;
+    }
+    .masterListItem .imageBox {
+        width: 98px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    .articleListItem .imageBox{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .articleListItem .imageBox img{
+        border-radius: 20px;
+    }
+    .articleListItem .listDataBox{
+        padding-left: 15px;
+    }
+    .articleListItem .articleName{
+        text-align: center;
+    }
+    .articleListItem .articlePsychotherapy{
+        text-align: right;
+    }
+    .navbar-nav {
+        /*background-color: #E9EBED;*/
+        background-color: rgba(255,255,255,0.9);
+    }
+    .masterPageAvatar{
+        width: 111px;
+    }
+    .masterImageBox {
+        margin-left: 40px;
+        padding: 3px;
+        width: 117px;
+        /*width: 177px;*/
+    }
+    .masterPageUsername {
+        margin-top: 110px;
+    }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+    .navbar-default .navbar-brand {
+        width: 235px;
+    }
+    .brandName {
+        font-size: 24px;
+        margin-top: 11px;
+    }
+    .brandMotto {
+        margin-left: 72px;
+        font-size: 12px;
+    }
+    .masterPageAvatar{
+        width: 84px;
+    }
+    .masterImageBox {
+        margin-left: 40px;
+        padding: 2px;
+        width: 88px;
+        /*width: 177px;*/
+    }
+    .masterPageUsername {
+        margin-top: 110px;
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

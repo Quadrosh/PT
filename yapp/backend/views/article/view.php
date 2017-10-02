@@ -1,0 +1,434 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
+use \common\models\Article;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Article */
+
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+
+
+?>
+<div class="article-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'list_name',
+            'list_num',
+            'hrurl:url',
+            'title',
+            'description:ntext',
+            'keywords:ntext',
+            'excerpt',
+            'excerpt_big',
+            'text:html',
+            'pagehead',
+            'topimage',
+            'topimage_alt',
+            'promolink',
+            'promoname',
+            'imagelink',
+            'imagelink_alt',
+            'link2original',
+            'author',
+            'layout',
+            'view',
+            'master_id',
+            'status',
+        ],
+    ]) ?>
+
+</div>
+<section>
+    <div class="row mt50 bt pt50">
+        <h6 class="text-center"><span class="grey">Текущий значение hrurl:</span><br><?= $model['hrurl'] ? $model['hrurl']:'<span class="label label-warning">не заполнено</span>'; ?></h6>
+        <div class="col-xs-9">
+            <?php $form = ActiveForm::begin([
+                'method' => 'post',
+                'action' => ['/article/update?id='.$model['id']],
+                'options' => ['enctype' => 'multipart/form-data'],
+            ]); ?>
+            <?= $form->field($model, 'hrurl')
+                ->textInput(['value'=>Article::cyrillicToLatin($model['title'], 210, true)])
+                ->label(false) ?>
+        </div>
+        <div class="col-xs-3 text-right">
+            <?= Html::submitButton('назначить hrurl', ['class' => 'btn btn-primary']) ?>
+        </div>
+
+            <?php ActiveForm::end() ?>
+
+
+    </div>
+
+    <div class="row mt50 bt pt50">
+        <h6 class="text-center"><span class="grey">Текущий текст малой выдержки:</span><br><?= $model['excerpt'] ? $model['excerpt']:'<span class="label label-warning">не заполнено</span>'; ?></h6>
+        <!--            <h4 class="text-center">title 2 hrurl</h4>-->
+
+        <div class="col-xs-9">
+            <?php $form = ActiveForm::begin([
+                'method' => 'post',
+                'action' => ['/article/update?id='.$model['id']],
+                'options' => ['enctype' => 'multipart/form-data'],
+            ]); ?>
+
+            <?= $form->field($model, 'excerpt')
+                ->textArea(['value'=>Article::excerpt($model['text'], 210),'rows' => 2])
+                ->label(false) ?>
+        </div>
+        <div class="col-xs-3 text-right">
+            <?= Html::submitButton('назначить текст малой выдержки', ['class' => 'btn btn-primary']) ?>
+        </div>
+        <?php ActiveForm::end() ?>
+    </div>
+    <div class="row mt50 bt pt50">
+        <h6 class="text-center"><span class="grey">Текущий текст большой выдержки:</span><br><?= $model['excerpt_big'] ? $model['excerpt_big']:'<span class="label label-warning">не заполнено</span>'; ?></h6>
+        <!--            <h4 class="text-center">title 2 hrurl</h4>-->
+
+        <div class="col-xs-9">
+            <?php $form = ActiveForm::begin([
+                'method' => 'post',
+                'action' => ['/article/update?id='.$model['id']],
+                'options' => ['enctype' => 'multipart/form-data'],
+            ]); ?>
+
+            <?= $form->field($model, 'excerpt_big')
+                ->textArea(['value'=>Article::excerpt($model['text'], 400),'rows' => 3])
+                ->label(false) ?>
+        </div>
+        <div class="col-xs-3 text-right">
+            <?= Html::submitButton('назначить текст большой выдержки', ['class' => 'btn btn-primary']) ?>
+        </div>
+        <?php ActiveForm::end() ?>
+    </div>
+        <div class="row mt50 bt pt50">
+            <div class="col-xs-6 col-xs-offset-3 ">
+                <h4>Статус</h4>
+                <?php $form = yii\bootstrap\ActiveForm::begin([
+                    'method' => 'post',
+                    'action' => ['/article/update?id='.$model['id']],
+                    'layout' => 'horizontal',
+                    'fieldConfig' => [
+                        'template' => "{beginWrapper}\n{input}\n{error}\n{endWrapper}",
+                        'horizontalCssClasses' => [
+//                         'label' => 'col-sm-4',
+//                        'offset' => 'col-sm-offset-3',
+                        'wrapper' => 'col-sm-12',
+                        'error' => '',
+                        'hint' => 'статус',
+                        ],
+                    ],
+                    'options' => ['enctype' => 'multipart/form-data'],
+                ]); ?>
+                <?= $form->field($model, 'status',[
+                    'inputTemplate' => '<div class="input-group"><span class="lRound">{input}</span><span class="input-group-btn">'.
+                        '<button type="submit" class="btn rRound btn-primary">Назначить</button></span></div>',
+                ])->dropDownList([
+                    'unread'=>'Непроверено',
+                    'in_process'=>'В работе',
+                    'publish'=>'Опупликовано',
+                ]) ?>
+<!--                --><?//= Html::submitButton('Изменить', ['class' => 'inline btn btn-danger']) ?>
+                <?php yii\bootstrap\ActiveForm::end() ?>
+            </div>
+        </div>
+        <div class="row mt50 bt pt50">
+            <div class="col-xs-12 text-center">
+                <h4>article image</h4>
+                <?= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
+           <?= cl_image_tag($model->topimagefile['cloudname'], [
+                    "alt" => $model['topimage_alt'],
+//                            "width" => 70,
+                    "height" => 400,
+                    "crop" => "fill"
+                ]); ?>
+            </div>
+
+<!--            <div class="col-xs-12 col-sm-3 ">-->
+<!--                <h4>Image Upload</h4>-->
+<!--                --><?php //$form = ActiveForm::begin([
+//                    'method' => 'post',
+//                    'action' => ['/article/upload'],
+//                    'options' => ['enctype' => 'multipart/form-data'],
+//                ]); ?>
+<!--                --><?//= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
+//                    'topimage'=>'Top Image',
+//                ])->label(false) ?>
+<!--                --><?//= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
+<!--                --><?//= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
+<!---->
+<!---->
+<!--                --><?//= Html::submitButton('Upload', ['class' => 'btn btn-success']) ?>
+<!--                --><?php //ActiveForm::end() ?>
+<!--            </div>-->
+            <div class="col-xs-12 col-sm-3 ">
+                <h4>Image Cloud</h4>
+                <?php $form = ActiveForm::begin([
+                    'method' => 'post',
+                    'action' => ['/article/cloud'],
+                    'options' => ['enctype' => 'multipart/form-data'],
+                ]); ?>
+                <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
+                    'topimage'=>'Top Image',
+                ])->label(false) ?>
+                <?= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
+                <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
+
+
+                <?= Html::submitButton('Cloud', ['class' => 'btn btn-primary']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+            <div class="row">
+<!--                <div class="col-xs-12">-->
+<!--                    --><?//= Html::a('<-^', '/imagefiles/thumb-article-list?image='.$model['topimage'].'&place=leftTop',['class' => 'btn btn-success btn-xs']) ?>
+<!--                    --><?//= Html::a('<^>', '/imagefiles/thumb-article-list?image='.$model['topimage'].'&place=centerTop',['class' => 'btn btn-success btn-xs']) ?>
+<!--                    --><?//= Html::a('^->', '/imagefiles/thumb-article-list?image='.$model['topimage'].'&place=rightTop',['class' => 'btn btn-success btn-xs']) ?>
+<!---->
+<!--                </div>-->
+
+            </div>
+        </div>
+        <div class="row mt50 bt pt50">
+
+            <?php Pjax::begin(['id' => 'tagAssignPjax', 'timeout' => 2000 ]); ?>
+
+            <div class=" col-sm-6">
+                <h4>Назначение меток</h4>
+                <?php $form = ActiveForm::begin([
+
+                    'action' => ['/tagassign/assignxx?type=article&id='.$model['id']],
+                    'options' => ['data-pjax' => true ],
+                ]); ?>
+                <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id','name'))->label(false) ?>
+                <?= $form->field($tagAssign, 'article_id')->hiddenInput(['value' => $model['id']])->label(false) ?>
+                <?= $form->field($tagAssign, 'master_id')->hiddenInput()->label(false) ?>
+
+
+                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+
+            <div class="col-sm-6">
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+
+                        <th>Назначенные метки</th>
+                        <th class="action-column">&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($tags as $tag) : ?>
+                        <tr >
+                            <td><?= $tag['name'] ?></td>
+
+                            <td>
+
+                                <a href="/tagassign/delete?id=<?= $tag['id'] ?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-pjax="0"  data-method="post"><span class="glyphicon glyphicon-trash"></span></a>
+
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <?php Pjax::end(); ?>
+
+        </div>
+
+
+
+
+
+        <div class="row mt50 bt pt50">
+            <?php Pjax::begin([
+                'id' => 'psyAssignPjax',
+                'timeout' => 2000,
+                'enablePushState' => false
+            ]); ?>
+            <?php
+            // вид психотерапии - дата во вьюху
+            $query = \common\models\ItemAssign::find()->where(['item_type'=>'psy','article_id'=>$model['id']]);
+            $proDataProvider = new \yii\data\ActiveDataProvider([
+                'query'=>$query,
+            ]);
+            ?>
+            <div class=" col-sm-6">
+                <h4>Подход психотерапии</h4>
+                <?php $form = ActiveForm::begin([
+                    'id'=>'psyAssign',
+                    'action' => ['/itemassign/assignpsyxx?type=article&id='.$model['id']],
+//                    'method' => 'post',
+                    'options' => ['data-pjax' => true ]
+                ]); ?>
+                <?= $form->field($itemAssign, 'item_type')
+                    ->hiddenInput(['value'=>'psy','id' => 'psy_assign-item_type'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'item_id')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->all(), 'id','name'),['id'=>'psy_assign-item_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'article_id')
+                    ->hiddenInput(['value' => $model['id'],'id' => 'psy_assign-article_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'master_id')
+                    ->hiddenInput(['value' => '','id' => 'psy_assign-master_id'])
+                    ->label(false) ?>
+                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+            <div class="col-sm-6">
+
+                <?php
+                echo yii\grid\GridView::widget([
+                    'dataProvider' => $proDataProvider,
+                    'columns'=>[
+//                        'item_id',
+                        [
+                            'label' => 'Назначено',
+                            'attribute'=>'item_id',
+                            'value' => function($data)
+                            {
+                                $theData = \common\models\PsychotherapyItem::find()->where(['id'=>$data['item_id']])->one();
+                                return $theData['name'];
+                            },
+                        ],
+                        [
+                            'class' => \yii\grid\ActionColumn::className(),
+                            'buttons' => [
+                                'delete'=>function($url,$model){
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
+                                    return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
+//                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => true,]);
+                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                                },
+                                'view'=>function($url,$model){
+                                    return false;
+                                },
+                                'update'=>function($url,$model){
+                                    return false;
+                                },
+
+                            ]
+                        ],
+                    ],
+                ]);
+                ?>
+
+            </div>
+            <?php Pjax::end(); ?>
+        </div>
+
+
+
+
+        <!-- назначение сайта -->
+        <div class="row mt50 bt pt50">
+            <?php Pjax::begin([
+                'id' => 'siteAssignPjax',
+                'timeout' => 2000,
+                'enablePushState' => false
+            ]); ?>
+            <?php
+            // сайт - дата во вьюху
+            $query = \common\models\ItemAssign::find()->where(['item_type'=>'site','article_id'=>$model['id']]);
+            $proDataProvider = new \yii\data\ActiveDataProvider([
+                'query'=>$query,
+            ]);
+            ?>
+            <div class=" col-sm-6">
+                <h4>Сайт</h4>
+                <?php $form = ActiveForm::begin([
+                    'id'=>'siteAssign',
+                    'action' => ['/itemassign/assignsitexx?type=article&id='.$model['id']],
+//                    'method' => 'post',
+                    'options' => ['data-pjax' => true ]
+                ]); ?>
+                <?= $form->field($itemAssign, 'item_type')
+                    ->hiddenInput(['value'=>'site','id' => 'site_assign-item_type'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'item_id')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\SiteItem::find()->all(), 'id','name'),['id'=>'psy_assign-item_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'article_id')
+                    ->hiddenInput(['value' => $model['id'],'id' => 'site_assign-article_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'master_id')
+                    ->hiddenInput(['value' => '','id' => 'site_assign-master_id'])
+                    ->label(false) ?>
+                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+            <div class="col-sm-6">
+
+                <?php
+                echo yii\grid\GridView::widget([
+                    'dataProvider' => $proDataProvider,
+                    'columns'=>[
+//                        'item_id',
+                        [
+                            'label' => 'Назначено',
+                            'attribute'=>'item_id',
+                            'value' => function($data)
+                            {
+                                $theData = \common\models\SiteItem::find()->where(['id'=>$data['item_id']])->one();
+
+                                return  Html::a($theData['name'],$theData['link']);
+                            },
+                            'format' => 'raw',
+                        ],
+                        [
+                            'class' => \yii\grid\ActionColumn::className(),
+                            'buttons' => [
+                                'delete'=>function($url,$model){
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
+                                    return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
+//                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => true,]);
+                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                                },
+                                'view'=>function($url,$model){
+                                    return false;
+                                },
+                                'update'=>function($url,$model){
+                                    return false;
+                                },
+
+                            ]
+                        ],
+                    ],
+                ]);
+                ?>
+
+            </div>
+            <?php Pjax::end(); ?>
+
+
+
+        </div>
+<!--    </div>-->
+
+</section>
