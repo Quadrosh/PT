@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Article;
 use Yii;
 use common\models\Tag;
 use yii\data\ActiveDataProvider;
@@ -65,8 +66,11 @@ class TagController extends Controller
     {
         $model = new Tag();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,

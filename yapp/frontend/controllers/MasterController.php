@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Article;
 use common\models\BtnItem;
+use common\models\DailyCount;
 use common\models\ItemAssign;
 use common\models\Master;
 use common\models\MasterpageItem;
@@ -78,6 +79,23 @@ class MasterController extends Controller
         Url::remember();
         $master = Master::find()->where(['hrurl'=>$hrurl])->one();
 
+        // счетчик просмотров за день
+        $now = time();
+        $todayStart = $now - ($now % 86400);
+        $todayCount = DailyCount::find()
+            ->where(['master_id'=>$master['id']])
+            ->andWhere('created_at > '.$todayStart)
+            ->one();
+        if (!$todayCount) {
+            $todayCount = new DailyCount;
+            $todayCount['count'] = 1;
+            $todayCount['master_id'] = $master['id'];
+        } else {
+            $todayCount['count'] += 1;
+        }
+        $todayCount->save();
+
+        //UTM
         $session = Yii::$app->session;
         if (Yii::$app->request->get('utm_source')!= null) {
             $session['utmSource'] = Yii::$app->request->get('utm_source');

@@ -36,7 +36,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'list_name',
             'list_num',
-            'hrurl:url',
+//            'hrurl:url',
+            [
+                'attribute'=>'hrurl',
+                'value' => function($model)
+                {
+                    if (Yii::$app->request->getHostName() == 'cp.psihotera.dev') {
+                        $theData = '<a  href="http://psihotera.dev/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                    } else {
+                        $theData = '<a  href="http://psihotera.ru/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                    }
+                    return $theData;
+                },
+                'format'=> 'html',
+            ],
             'title',
             'description:ntext',
             'keywords:ntext',
@@ -156,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row mt50 bt pt50">
             <div class="col-xs-12 text-center">
                 <h4>article image</h4>
-                <?= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
+<!--                --><?//= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
            <?= cl_image_tag($model->topimagefile['cloudname'], [
                     "alt" => $model['topimage_alt'],
 //                            "width" => 70,

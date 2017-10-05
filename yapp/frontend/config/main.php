@@ -48,6 +48,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',
+                'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
+                'article/bypsy/<hrurl:[0-9a-z\-\_]+>' => 'article/bypsy',
 
                 'master/<hrurl:[0-9a-z\-\_]+>' => 'master/view',
                 'master/<hrurl:[0-9a-z\-\_]+>/<article:[0-9a-z\-\_]+>' => 'master/view',

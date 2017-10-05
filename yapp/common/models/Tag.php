@@ -27,7 +27,8 @@ class Tag extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 255],
+            [['name'], 'unique'],
+            [['name','hrurl'], 'string', 'max' => 255],
         ];
     }
 
@@ -39,6 +40,27 @@ class Tag extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'hrurl' => 'hrurl',
         ];
     }
+    /**
+     * Статьи
+     */
+    public function getArticles()
+    {
+        return $this->hasMany(Article::className(),['id'=>'article_id'])
+            ->viaTable('tag_assign',['tag_id'=>'id']);
+    }
+
+
+
+
+    /**
+     * метки из Article
+     */
+//    public function getTags()
+//    {
+//        return $this->hasMany(Tag::className(),['id'=>'tag_id'])
+//            ->viaTable('tag_assign',['article_id'=>'id']);
+//    }
 }

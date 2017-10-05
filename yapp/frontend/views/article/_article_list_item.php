@@ -20,7 +20,7 @@ use yii\helpers\HtmlPurifier;
                         <div class="col-xs-12">
                             <?php if (isset($model->psys)) : ?>
                                 <?php foreach ($model->psys as $psy) : ?>
-                                    <h4 class="articlePsychotherapy"><?= Html::encode($psy['name']) ?></h4>
+                                    <h4 class="articlePsychotherapy"><?= Html::a($psy['name'], '/article/bypsy/'.$psy['hrurl'] ) ?></h4>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
@@ -45,7 +45,7 @@ use yii\helpers\HtmlPurifier;
                                 <p class="articleTag">
                                     <?php $count = count($model->tags)?>
                                     <?php foreach ($model->tags as $tag) : ?>
-                                        <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
+                                        <span><?= Html::a($tag['name'], '/article/bytag/'.$tag['hrurl'] ) ?><?php if(--$count>0){echo', ';} ?></span>
                                     <?php endforeach; ?>
 
                                 </p>

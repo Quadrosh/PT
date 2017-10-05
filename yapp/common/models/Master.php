@@ -94,6 +94,15 @@ class Master extends \yii\db\ActiveRecord
         return $this->hasMany(Tag::className(),['id'=>'tag_id'])
             ->viaTable('tag_assign',['master_id'=>'id']);
     }
+
+    /**
+     * image cloud
+     */
+    public function getImagefile()
+    {
+        return $this->hasOne(Imagefiles::className(),['name'=>'image']);
+    }
+
     /**
      * @inheritdoc
      */

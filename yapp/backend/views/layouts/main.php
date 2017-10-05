@@ -39,13 +39,14 @@ AppAsset::register($this);
         ['label' => 'Заявки',
             'items' => [
                 ['label' => 'Заявки', 'url' => ['/feedback']],
-                ['label' => 'UTM', 'url' => ['/tagassign']],
+                ['label' => 'Просмотры', 'url' => ['/count']],
+                ['label' => 'С этим читают', 'url' => ['/read-with-it']],
             ],
         ],
         ['label' => 'Libs',
             'items' => [
                 ['label' => 'Профессия', 'url' => ['/professionitem']],
-                ['label' => 'Психотерапия', 'url' => ['/psychotherapyitem']],
+                ['label' => 'Виды психотерапии', 'url' => ['/psychotherapyitem']],
                 ['label' => 'Сайт', 'url' => ['/siteitem']],
                 ['label' => 'Назначение', 'url' => ['/itemassign']],
                 ['label' => 'Images', 'url' => ['/imagefiles']],
@@ -54,9 +55,9 @@ AppAsset::register($this);
                 ['label' => 'кнопки Мастера', 'url' => ['/btnitem']],
             ],
         ],
-        ['label' => 'Теги',
+        ['label' => 'Метки',
             'items' => [
-                ['label' => 'Теги', 'url' => ['/tag']],
+                ['label' => 'Метки', 'url' => ['/tag']],
                 ['label' => 'Назначение', 'url' => ['/tagassign']],
             ],
         ],

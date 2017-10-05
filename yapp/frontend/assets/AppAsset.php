@@ -15,7 +15,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        'js/cloudinary-jquery.min.js',
+//        'js/cloudinary-jquery.min.js',
         'js/main.js',
     ];
     public $depends = [

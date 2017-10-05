@@ -5,11 +5,20 @@ use \yii\helpers\Html;
     <div class="row">
         <div class="col-sm-12">
             <div class="imageBox text-center">
-                <?= cl_image_tag($article->topimagefile['cloudname'], [
-                    "alt" => $article['topimage_alt'],
-                    "width" => "auto",
-                    "crop" => "fill"
-                ]); ?>
+                <div class="less768">
+                    <div class="backgroundImage"
+                         style="background-image: url(http://res.cloudinary.com/ddw31jew8/c_fill,h_480,w_690/ehkinjsaycv9goxg5jfz)"></div>
+                </div>
+                <div class="more768">
+                    <?= cl_image_tag($article->topimagefile['cloudname'], [
+                        'alt' => $article['topimage_alt']==null?$article['title']:$article['topimage_alt'],
+                        "width" => 690,
+                        "height" => 480,
+                        'crop' => 'fill',
+                    ]); ?>
+                </div>
+
+
             </div>
         </div>
         <div class="col-sm-12 text-right">
@@ -38,6 +47,17 @@ use \yii\helpers\Html;
                 <?php foreach ($article->sites as $site) : ?>
                     <p class="articleSite"><?= Html::a($site['name'],$site['link']) ?> </p>
                 <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <div class="col-sm-12 text-left">
+            <?php if ($article->tags) : ?>
+                <p class="articleTag">
+                    <?php $count = count($article->tags)?>
+                    <?php foreach ($article->tags as $tag) : ?>
+                        <span><?= Html::a($tag['name'], '/article/bytag/'.$tag['hrurl'] ) ?><?php if(--$count>0){echo', ';} ?></span>
+                    <?php endforeach; ?>
+
+                </p>
             <?php endif; ?>
         </div>
 

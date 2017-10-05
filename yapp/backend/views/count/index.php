@@ -2,11 +2,10 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Btnitems';
+$this->title = 'Счетчик просмотров';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="btnitem-index">
@@ -14,18 +13,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Btnitem', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+   <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
 //            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
-            'link',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            'article_id',
+            'master_id',
+            'count',
+            'created_at',
+            'updated_at',
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>

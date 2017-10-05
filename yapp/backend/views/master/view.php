@@ -100,48 +100,82 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <section>
     <div class="container">
+<!-- image cloud -->
         <div class="row mt50 bt pt50">
-
-
-            <div class="col-xs-12 col-sm-9 col-sm-push-3 text-center">
-                <?= Html::img('/img/'. $model->image, ['class'=>'adminArticleImg']) ?>
-                <?= Html::img('/img/th-'. $model->image, ['class'=>'avatarThumb']) ?>
-
+            <div class="col-xs-12 text-center">
+                <h4>Master image</h4>
+                <!--                --><?//= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
+                <?= cl_image_tag($model->imagefile['cloudname'], [
+                    "alt" => $model['image_alt'],
+                    "width" => 200,
+                    "height" => 200,
+                    "crop" => "fill",
+//                    "crop" => "thumb",
+                    "gravity" => "face"
+                ]); ?>
             </div>
-            <div class="col-xs-12 col-sm-3 col-sm-pull-9">
-                <h4>Image Upload</h4>
+
+            <div class="col-xs-12 col-sm-3 ">
+                <h4>Image Cloud</h4>
                 <?php $form = ActiveForm::begin([
                     'method' => 'post',
-                    'action' => ['/master/upload'],
+                    'action' => ['/master/cloud'],
                     'options' => ['enctype' => 'multipart/form-data'],
                 ]); ?>
                 <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
                     'image'=>'Image',
-                    'background_image'=>'Background Image',
-//        'imagelink2'=>'Imagelink 2',
                 ])->label(false) ?>
                 <?= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
                 <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
 
 
-                <?= Html::submitButton('Upload', ['class' => 'btn btn-danger']) ?>
+                <?= Html::submitButton('Cloud', ['class' => 'btn btn-primary']) ?>
                 <?php ActiveForm::end() ?>
             </div>
 
         </div>
+<!--       image old  -->
+<!--        <div class="row mt50 bt pt50">   -->
+<!---->
+<!---->
+<!--            <div class="col-xs-12 col-sm-9 col-sm-push-3 text-center">-->
+<!--                --><?//= Html::img('/img/'. $model->image, ['class'=>'adminArticleImg']) ?>
+<!--                --><?//= Html::img('/img/th-'. $model->image, ['class'=>'avatarThumb']) ?>
+<!---->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-3 col-sm-pull-9">-->
+<!--                <h4>Image Upload</h4>-->
+<!--                --><?php //$form = ActiveForm::begin([
+//                    'method' => 'post',
+//                    'action' => ['/master/upload'],
+//                    'options' => ['enctype' => 'multipart/form-data'],
+//                ]); ?>
+<!--                --><?//= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
+//                    'image'=>'Image',
+//                    'background_image'=>'Background Image',
+//                ])->label(false) ?>
+<!--                --><?//= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
+<!--                --><?//= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
+<!---->
+<!---->
+<!--                --><?//= Html::submitButton('Upload', ['class' => 'btn btn-danger']) ?>
+<!--                --><?php //ActiveForm::end() ?>
+<!--            </div>-->
+<!---->
+<!--        </div>-->
 <!--        --><?//= Html::a('default yii', '/imagefiles/thumbnail?image='.$model['image'],['class' => 'btn btn-success btn-xs']) ?>
-        <div class="row">
-            <div class="col-xs-12">
-                <?= Html::a('обр. big вверх', '/imagefiles/thumb-master?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::a('обр. big в центр', '/imagefiles/thumb-master?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::a('обр. big вниз', '/imagefiles/thumb-master?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
-            </div>
-            <div class="col-xs-12">
-                <?= Html::a('обр. list вверх', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::a('обр. list в центр', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::a('обр. list вниз', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-xs-12">-->
+<!--                --><?//= Html::a('обр. big вверх', '/imagefiles/thumb-master?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
+<!--                --><?//= Html::a('обр. big в центр', '/imagefiles/thumb-master?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
+<!--                --><?//= Html::a('обр. big вниз', '/imagefiles/thumb-master?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
+<!--            </div>-->
+<!--            <div class="col-xs-12">-->
+<!--                --><?//= Html::a('обр. list вверх', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
+<!--                --><?//= Html::a('обр. list в центр', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
+<!--                --><?//= Html::a('обр. list вниз', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
+<!--            </div>-->
+<!--        </div>-->
 
 
 

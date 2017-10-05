@@ -91,8 +91,19 @@ body {
 .pt30{
     padding-top: 30px;
 }
-
-
+a{
+    color: #2376A5;
+}
+a:hover{
+    text-decoration: none;
+}
+.backgroundImage {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+}
 .wrap, .articleWrap {
      min-height: 100%;
      height: 100%;
@@ -468,8 +479,10 @@ body {
 .articleListItem .imageBox{
     padding: 0;
     border: none ;
+    width: 100%;
 }
-.articleListItem .articlePsychotherapy{
+.articleListItem .articlePsychotherapy,
+.articleListItem .articlePsychotherapy a{
     text-transform: uppercase;
     color: #f15c32;
     font-family: "MyriadProRegular", sans-serif;
@@ -509,7 +522,7 @@ body {
 .articleListItem .articleTag{
     font-family: "MyriadProRegular", sans-serif;
     font-size: 14px;
-    color: lightgrey;
+    color: #2376A5;
     margin: 0;
     text-transform: lowercase;
 }
@@ -529,7 +542,8 @@ body {
     background-color: #fff;
     padding: 10px 100px 50px 100px;
 }
-.articleBox .articlePsychotherapy{
+.articleBox .articlePsychotherapy,
+.articleBox .articlePsychotherapy a{
     text-transform: uppercase;
     font-family: "MyriadProRegular", sans-serif;
     font-size: 16px;
@@ -538,6 +552,19 @@ body {
     font-family: "MyriadProRegular", sans-serif;
     font-size: 16px;
 }
+.articleBox .articleTag{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    color: #4f84a1;
+    text-transform: lowercase;
+}
+
+
+
+
+
+
+
 
 
 
@@ -562,10 +589,10 @@ body {
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-    /*.articleBox .imageBox img {*/
-        /*width: 630px;*/
-        /*height: 438px;*/
-    /*}*/
+    .articleBox .imageBox img {
+        width: 630px;
+        height: 438px;
+    }
     .articleListItem .listDataBox{
         padding-left: 25px;
     }
@@ -578,11 +605,17 @@ body {
     .masterListItem .imageBox {
         width: 98px;
     }
+
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+    .more768 {
+        display: none;
+    }
+    .less768 {
+        display: block;
+    }
     .articleListItem .imageBox{
         text-align: center;
         margin-bottom: 10px;
@@ -596,12 +629,15 @@ body {
     .articleListItem .articleName{
         text-align: center;
     }
-    .articleListItem .articlePsychotherapy{
+    .articleListItem .articlePsychotherapy a{
         text-align: right;
     }
-    .navbar-nav {
+    .navbar-collapse .navbar-nav {
         /*background-color: #E9EBED;*/
-        background-color: rgba(255,255,255,0.9);
+        /*background-color: rgba(255,255,255,0.96);*/
+        background-color: rgba(233,235,237,0.96);
+        position: relative;
+        z-index: 100;
     }
     .masterPageAvatar{
         width: 111px;
@@ -665,8 +701,13 @@ body {
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-
+@media only screen and (min-width : 769px) {
+    .more768 {
+        display: block;
+    }
+    .less768 {
+        display: none;
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -677,4 +718,19 @@ body {
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 
+}
+
+
+
+
+
+
+
+
+
+.st0 {
+    fill:#58595B;
+}
+.st0:hover {
+    fill:red;
 }

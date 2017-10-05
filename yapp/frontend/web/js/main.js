@@ -1,4 +1,4 @@
-$.cloudinary.responsive();
+//$.cloudinary.responsive();
 //var contentContainer = document.getElementById('contentBox');
 //var masterBody = document.getElementById('masterBody');
 //var containerHeight = contentContainer.outerHeight;

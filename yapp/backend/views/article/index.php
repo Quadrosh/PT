@@ -22,11 +22,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 //            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\ActionColumn'],
+
 
             'id',
             'list_name',
-            'list_num',
-            'hrurl:url',
+//            'list_num',
+//            'hrurl:url',
+            [
+                'attribute'=>'hrurl',
+                'value' => function($data)
+                {
+                    if (Yii::$app->request->getHostName() == 'cp.psihotera.dev') {
+                        $theData = '<a  href="http://psihotera.dev/article/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                    } else {
+                        $theData = '<a  href="http://psihotera.ru/article/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                    }
+                    return $theData;
+                },
+                'format'=> 'html',
+            ],
 //            'title',
             // 'description:ntext',
             // 'keywords:ntext',

@@ -2,6 +2,10 @@
 namespace frontend\controllers;
 
 use common\models\Article;
+use common\models\DailyCount;
+use common\models\PsychotherapyItem;
+use common\models\ReadWithIt;
+use common\models\Tag;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ArrayDataProvider;
@@ -71,8 +75,54 @@ class ArticleController extends Controller
     public function actionView($hrurl)
     {
         Url::remember();
-        $this->layout = 'article';
         $article = Article::find()->where(['hrurl'=>$hrurl])->with('psys','sites','tags')->one();
+
+        // счетчик просмотров
+        $now = time();
+        $todayStart = $now - ($now % 86400);
+        $todayCount = DailyCount::find()
+            ->where(['article_id'=>$article['id']])
+            ->andWhere('created_at > '.$todayStart)
+            ->one();
+        if (!$todayCount) {
+            $todayCount = new DailyCount;
+            $todayCount['count'] = 1;
+            $todayCount['article_id'] = $article['id'];
+        } else {
+            $todayCount['count'] += 1;
+        }
+        $todayCount->save();
+
+        // с этим читают
+        $session = Yii::$app->session;
+        $articleRead = ['article_id'=>$article['id'],'time'=>$now];
+        if ($session['articles']==null) {
+            $session['articles']=[];
+            $session['articles'] = array_merge($session['articles'], [$articleRead]);
+        } else {
+            $artIds='';
+            foreach ($session['articles'] as $sessArt) {
+                if ($sessArt['article_id']!=$article['id']) {
+                    if ($sessArt['time']>= $now-3*3600) {
+                        if ($artIds == null) {
+                            $artIds = $artIds.$sessArt['article_id'];
+                        } else {
+                            $artIds = $artIds.','.$sessArt['article_id'];
+                        }
+                    }
+                }
+            }
+            if ($artIds!=null) {
+                $readWithIt = new ReadWithIt();
+                $readWithIt['article_id'] = $article['id'];
+                $readWithIt['a_ids'] = $artIds;
+                $readWithIt->save();
+                $session['articles'] = array_merge($session['articles'], [$articleRead]);
+            }
+        }
+
+
+        $this->layout = 'article';
         $this->view->params['title'] = 'Психотера - '. $article['list_name'] .' ('.$article['author'].').';
         $this->view->params['description'] = $article['list_name'].' - '. $article['excerpt'];
         $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
@@ -82,6 +132,51 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function actionBytag($hrurl)
+    {
+        Url::remember();
+//        $this->layout = 'article';
+        $tag = Tag::find()->where(['hrurl'=>$hrurl])->one();
+        $articles = $tag->articles;
+        $this->view->params['title'] = 'Психотера - статьи - '. $tag['name'];
+        $this->view->params['description'] = 'Психотера - статьи - '. $tag['name'];
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+
+        $articleDataProvider = new ArrayDataProvider([
+            'allModels'=>$articles,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+        $filterName = 'метке "'.$tag['name'].'"';
+        return $this->render('filter', [
+            'dataProvider' => $articleDataProvider,
+            'filterName' => $filterName,
+        ]);
+    }
+
+    public function actionBypsy($hrurl)
+    {
+        Url::remember();
+//        $this->layout = 'article';
+        $psy = PsychotherapyItem::find()->where(['hrurl'=>$hrurl])->one();
+        $articles = $psy->articles;
+        $this->view->params['title'] = 'Психотера - статьи - '. $psy['name'];
+        $this->view->params['description'] = 'Психотера - статьи - '. $psy['name'];
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+
+        $articleDataProvider = new ArrayDataProvider([
+            'allModels'=>$articles,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+        $filterName = 'виду "'.$psy['name'].'"';
+        return $this->render('filter', [
+            'dataProvider' => $articleDataProvider,
+            'filterName' => $filterName,
+        ]);
+    }
 
 
 }

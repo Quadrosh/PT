@@ -47,6 +47,14 @@ class ArticleController extends Controller
         Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find(),
+            'pagination'=> [
+                'pageSize' => 100,
+            ],
+            'sort' =>[
+                'defaultOrder'=> [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [

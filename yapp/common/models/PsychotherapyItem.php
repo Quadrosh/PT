@@ -27,7 +27,8 @@ class PsychotherapyItem extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 510],
+            [['name'], 'unique'],
+            [['name','hrurl'], 'string', 'max' => 255],
         ];
     }
 
@@ -39,6 +40,29 @@ class PsychotherapyItem extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'hrurl' => 'hrurl',
         ];
     }
+    /**
+     * Статьи
+     */
+    public function getArticles()
+    {
+        return $this->hasMany(Article::className(),['id'=>'article_id'])
+            ->viaTable('item_assign',['item_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'psy']);
+            });
+    }
+
+    /**
+     * Мастера
+     */
+    public function getMasters()
+    {
+        return $this->hasMany(Master::className(),['id'=>'master_id'])
+            ->viaTable('item_assign',['item_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'psy']);
+            });
+    }
+
 }

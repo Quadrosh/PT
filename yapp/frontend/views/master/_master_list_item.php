@@ -7,7 +7,13 @@ use yii\helpers\HtmlPurifier;
         <div class="row">
                 <div class="col-sm-2">
                     <div class="imageBox">
-                        <?= Html::img('/img/th-list-'.$model['image'],['class'=>'masterListAvatar']) ?>
+                        <?= cl_image_tag($model->imagefile['cloudname'], [
+                            "alt" => $model['image_alt'],
+                            "width" => 120,
+                            "height" => 120,
+                            "crop" => "fill",
+                            "gravity" => "face"
+                        ]); ?>
                     </div>
                 </div>
                 <div class="col-sm-10 listDataBox">
