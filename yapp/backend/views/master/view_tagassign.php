@@ -15,18 +15,14 @@ use yii\widgets\ActiveForm;
         <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id','name'))->label(false) ?>
         <?= $form->field($tagAssign, 'article_id')->hiddenInput()->label(false) ?>
         <?= $form->field($tagAssign, 'master_id')->hiddenInput(['value' => $model['id']])->label(false) ?>
-
-
+        <?= Html::a('Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
-
     <div class="col-sm-6">
-
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-
                 <th>Назначенные метки</th>
                 <th class="action-column">&nbsp;</th>
             </tr>
@@ -35,12 +31,12 @@ use yii\widgets\ActiveForm;
             <?php foreach ($tags as $tag) : ?>
                 <tr >
                     <td><?= $tag['name'] ?></td>
-
                     <td>
-
-                        <a href="/tagassign/delete?id=<?= $tag['id'] ?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-pjax="0"  data-method="post"><span class="glyphicon glyphicon-trash"></span></a>
-
-
+                        <a href="/tagassign/delete?id=<?= $tag['id'] ?>"
+                            title="Delete" aria-label="Delete"
+                            data-confirm="Are you sure you want to delete this item?"
+                            data-pjax="0"
+                            data-method="post"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -30,7 +30,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
             ->hiddenInput(['value'=>'pro','id' => 'pro_assign-item_type'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'item_id')
-            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ProfessionItem::find()->all(), 'id','name'))
+            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ProfessionItem::find()->orderBy('name')->all(), 'id','name'))
             ->label(false) ?>
         <?= $form->field($itemAssign, 'article_id')
             ->hiddenInput()
@@ -38,6 +38,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
         <?= $form->field($itemAssign, 'master_id')
             ->hiddenInput(['value' => $model['id']])
             ->label(false) ?>
+        <?= Html::a('Создать', '/professionitem/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
@@ -46,6 +47,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
         <?php
         echo yii\grid\GridView::widget([
             'dataProvider' => $proDataProvider,
+            'emptyText' => '',
             'columns'=>[
 //                        'item_id',
                 [

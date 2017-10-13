@@ -9,6 +9,7 @@ use common\models\Tag;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ArrayDataProvider;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -47,6 +48,7 @@ class ArticleController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'article_index';
         $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
@@ -67,8 +69,23 @@ class ArticleController extends Controller
 //            ],
         ]);
 
+
+//        popular
+        $query = Article::find()
+            ->select(['article.*', 'SUM(daily_count.count) AS countviews'])
+            ->where(['status'=>'publish'])
+            ->andWhere('link2original != :value',['value'=>'masterpage'])
+            ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
+            ->groupBy('article.id')
+            ->orderBy(['countviews' => SORT_DESC])
+            ->limit(10);
+        $popularArticles = $query->all();
+
+        $topArticle = Article::find()->where(['id'=>7])->one();
         return $this->render('index', [
             'dataProvider' => $articleDataProvider,
+            'popularArticles' => $popularArticles,
+            'topArticle' => $topArticle,
         ]);
     }
 

@@ -18,11 +18,11 @@ use yii\widgets\ActiveForm;
             'action' => ['/tagassign/assignxx?type='.$type.'&id='.$id],
             'options' => ['data-pjax' => true ],
         ]); ?>
-        <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id','name'))->label(false) ?>
+        <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'))->label(false) ?>
         <?= $form->field($tagAssign, 'article_id')->hiddenInput(['value' => $articleId])->label(false) ?>
         <?= $form->field($tagAssign, 'master_id')->hiddenInput(['value' => $masterId])->label(false) ?>
 
-
+        <?= Html::a('Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>

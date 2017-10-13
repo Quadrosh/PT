@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\PsychotherapyItem */
 
-$this->title = 'Create Psychotherapy Item';
-$this->params['breadcrumbs'][] = ['label' => 'Psychotherapy Items', 'url' => ['index']];
+$this->title = 'Создание вида психотерапии';
+$this->params['breadcrumbs'][] = ['label' => 'Виды психотерапии', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="psychotherapy-item-create">

@@ -24,6 +24,8 @@ AppAsset::register($this);
     <title><?= Yii::$app->view->params['title'] ?></title>
     <meta name="description" content="<?= Yii::$app->view->params['description'] ?>">
     <meta name="keywords" content="<?= Yii::$app->view->params['keywords'] ?>">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
     <?php $this->head() ?>
 </head>
 <body>

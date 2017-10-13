@@ -7,7 +7,18 @@ $feedback = new \common\models\Feedback;
 ?>
 <div class="<?= $master['stylekey'] ?>">
     <div class="row ">
-        <div class="col-xs-4 col-sm-4">
+        <div class="col-xs-12 less480">
+            <div class="masterImageBox">
+                <?= cl_image_tag($master->imagefile['cloudname'], [
+                    "alt" => $master['image_alt'],
+                    "width" => 167,
+                    "height" => 180,
+                    "crop" => "fill",
+                    "gravity" => "face"
+                ]); ?>
+            </div>
+        </div>
+        <div class="col-xs-3 col-sm-4 more480">
             <div class="masterImageBox">
                 <?= Html::img('/img/th-'.$master['image'],['class'=>'masterPageAvatar']) ?>
                 <?= cl_image_tag($master->imagefile['cloudname'], [
@@ -18,21 +29,55 @@ $feedback = new \common\models\Feedback;
                     "gravity" => "face"
                 ]); ?>
             </div>
-
         </div>
-        <div class="col-xs-8 col-sm-8">
+        <div class="col-xs-9 col-sm-8">
             <h1 class="masterPageUsername"><?= $master['username'] ?></h1>
+
             <?php if (isset($masterData['professions'])) : ?>
-                <?php foreach ($masterData['professions'] as $profession) : ?>
-                    <p class="masterProfession"><?= Html::encode($profession['name']) ?></p>
-                <?php endforeach; ?>
+                <?php $count = 1?>
+                <p class="masterProfession">
+                    <?php foreach ($masterData['professions'] as $profession) {
+                        if ($count != count($masterData['professions'])) {
+                            echo '<span class="';
+                            echo $count==1 ?' capital':' lowercase';
+                            echo '">'.$profession['name'].'</span>';
+                            echo count($masterData['professions'])>1 ? ', ':'';
+                        } else {
+                            echo '<span class=" lowercase">'.$profession['name'].'</span>';
+                        }
+                        $count++;
+                    } ?>
+                </p>
             <?php endif; ?>
+
+
             <div class="divider"></div>
+
+
             <?php if (isset($masterData['psys'])) : ?>
-                <?php foreach ($masterData['psys'] as $psychotherapyType) : ?>
-                    <i class="masterPsychotherapy"><?= Html::encode($psychotherapyType['name']) ?></i> <br>
-                <?php endforeach; ?>
+                <?php $psyCount = 1?>
+                <p class="masterPsychotherapy">
+                    <?php foreach ($masterData['psys'] as $psychotherapyType) : ?>
+                    <?php if ($psyCount != count($masterData['psys'])) {
+                           echo '<span class="';
+                            echo $psyCount==1 ?' capital':' lowercase';
+                            echo '">'.$psychotherapyType['name'].'</span>';
+                            echo count($masterData['psys'])>1 ? ', ':'';
+                        } else {
+                            echo '<span class=" lowercase">'.$psychotherapyType['name'].'</span>';
+                        }
+                        $psyCount++;
+                        ?>
+                    <?php endforeach; ?>
+                </p>
             <?php endif; ?>
+
+
+<!--            --><?php //if (isset($masterData['psys'])) : ?>
+<!--                --><?php //foreach ($masterData['psys'] as $psychotherapyType) : ?>
+<!--                    <i class="masterPsychotherapy">--><?//= Html::encode($psychotherapyType['name']) ?><!--</i> <br>-->
+<!--                --><?php //endforeach; ?>
+<!--            --><?php //endif; ?>
 
         </div>
     </div>
@@ -46,7 +91,7 @@ $feedback = new \common\models\Feedback;
                 <?php endforeach; ?>
             </ul>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 noPaddingLess480">
             <div id="contentBox" class="contentBox">
 
                 <?php Pjax::begin([
@@ -131,12 +176,6 @@ $feedback = new \common\models\Feedback;
                 <?php if($article==null) : ?>
                     <p><?= $master['hello'] ?></p>
                 <?php endif; ?>
-
-
-
-
-
-
 
 
                 <?php Pjax::end(); ?>

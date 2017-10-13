@@ -34,7 +34,8 @@ class Quote extends \yii\db\ActiveRecord
             [['list_num', 'master_id'], 'integer'],
             [['text'], 'required'],
             [['text', 'addition'], 'string'],
-            [['author', 'status'], 'string', 'max' => 255],
+            [['author', 'status','image'], 'string', 'max' => 255],
+            [['image_alt'], 'string', 'max' => 510],
         ];
     }
 
@@ -47,10 +48,19 @@ class Quote extends \yii\db\ActiveRecord
             'id' => 'ID',
             'list_num' => 'List Num',
             'text' => 'Text',
+            'image' => 'Image',
+            'image_alt' => 'Image Alt',
             'addition' => 'Addition',
             'author' => 'Author',
             'master_id' => 'Master ID',
             'status' => 'Status',
         ];
+    }
+    /**
+     * image cloud
+     */
+    public function getImagefile()
+    {
+        return $this->hasOne(Imagefiles::className(),['name'=>'image']);
     }
 }

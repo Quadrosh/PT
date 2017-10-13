@@ -45,6 +45,7 @@ class MasterController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => Master::find(),
         ]);
@@ -96,23 +97,6 @@ class MasterController extends Controller
             $siteIter++;
         }
 
-        // профессия - дата во вьюху
-//        $proData = ItemAssign::find()->where(['item_type'=>'pro','master_id'=>$id])->all();
-//        $proTypes = ProfessionItem::find()->all();
-//        $proAssigns = [];
-//        $proIter = 0;
-//        foreach ($proData as $proItem) {
-//            $proAssigns[$proIter]['id']=$proItem['id'];
-//            foreach ($proTypes as $proType) {
-//                if($proType['id'] == $proItem['item_id']){
-//                    $proAssigns[$proIter]['name'] = $proType['name'];
-//                }
-//            }
-//            $proIter++;
-//        }
-
-
-
 
         $tagsData = Tagassign::find()->where(['master_id'=>$id])->all();
         $tags = [];
@@ -128,18 +112,13 @@ class MasterController extends Controller
         }
 
 
-
-
-
         $request = Yii::$app->request->post('ItemAssign');
 
         if(Yii::$app->request->isPjax){
 
             if(Yii::$app->request->post('Tagassign')){
                 $tagAssignModel = new Tagassign();
-                $tagAssignModel['tag_id'] = $request['tag_id'];
-                $tagAssignModel['article_id'] = $request['article_id'];
-                $tagAssignModel['master_id'] = $request['master_id'];
+                $tagAssignModel->attributes = Yii::$app->request->post('Tagassign');
                 $tagAssignModel->save();
 
                 $tagsData = Tagassign::find()->where(['master_id'=>$id])->all();
@@ -162,10 +141,7 @@ class MasterController extends Controller
             }
             if($request && $request['item_type'] = 'site') {
                 $itemAssignModel = new ItemAssign();
-                $itemAssignModel['item_type'] = $request['item_type'];
-                $itemAssignModel['item_id'] = $request['item_id'];
-                $itemAssignModel['article_id'] = $request['article_id'];
-                $itemAssignModel['master_id'] = $request['master_id'];
+                $itemAssignModel->attributes = Yii::$app->request->post('ItemAssign');
                 $itemAssignModel->save();
 
                 $siteData = ItemAssign::find()->where(['item_type'=>'site','master_id'=>$id])->all();

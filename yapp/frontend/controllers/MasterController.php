@@ -111,7 +111,7 @@ class MasterController extends Controller
         $masterData['sites'] = $master->sites;
 
         $masterPages = Article::find()->where(['master_id'=>$master['id'],'link2original'=>'masterpage','status'=>'publish'])->all();
-        $this->view->params['background_image'] = $master['background_image'];
+        $this->view->params['background_image'] = $master->backgroundImagefile['cloudname'];
 
         $article = null;
         if(Yii::$app->request->get('article')){
@@ -138,10 +138,19 @@ class MasterController extends Controller
                     ]);
                 }
             }
-
-
         }
-
+        $proCount = 1;
+        $pros2title = '';
+        foreach ($masterData['professions'] as $profession){
+            if ($proCount != count($masterData['professions'])) {
+                $pros2title .= $profession['name'].', ';
+            } else {
+                $pros2title .= $profession['name'];
+            }
+            $proCount++;
+        }
+        $this->view->params['meta']['title'] = $master['username'].' - '.$pros2title;
+        $this->view->params['meta']['description']='';
         return $this->render('view', [
             'master' => $master,
             'masterPages' => $masterPages,

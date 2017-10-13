@@ -8,6 +8,12 @@ body {
 .mt50{
     margin-top: 50px;
 }
+.mt30{
+    margin-top: 30px;
+}
+.mt20{
+    margin-top: 20px;
+}
 .bt{
     border-top: 1px lightgray solid;
 }
@@ -17,7 +23,12 @@ body {
 .pt50{
     padding-top: 50px;
 }
-
+.pt30{
+    padding-top: 30px;
+}
+.pt20{
+    padding-top: 20px;
+}
 .wrap {
     min-height: 100%;
     height: auto;

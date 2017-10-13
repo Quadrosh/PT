@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\PsychotherapyItem */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Psychotherapy Items', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Виды психотерапии', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="psychotherapy-item-view">

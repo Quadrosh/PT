@@ -100,8 +100,9 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <section>
     <div class="container">
-<!-- image cloud -->
-        <div class="row mt50 bt pt50">
+
+        <!-- image cloud -->
+        <div class="row mt20 bt pt20">
             <div class="col-xs-12 text-center">
                 <h4>Master image</h4>
                 <!--                --><?//= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
@@ -124,6 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]); ?>
                 <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
                     'image'=>'Image',
+                    'background_image'=>'Background Image',
                 ])->label(false) ?>
                 <?= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
                 <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
@@ -134,59 +136,11 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
         </div>
-<!--       image old  -->
-<!--        <div class="row mt50 bt pt50">   -->
-<!---->
-<!---->
-<!--            <div class="col-xs-12 col-sm-9 col-sm-push-3 text-center">-->
-<!--                --><?//= Html::img('/img/'. $model->image, ['class'=>'adminArticleImg']) ?>
-<!--                --><?//= Html::img('/img/th-'. $model->image, ['class'=>'avatarThumb']) ?>
-<!---->
-<!--            </div>-->
-<!--            <div class="col-xs-12 col-sm-3 col-sm-pull-9">-->
-<!--                <h4>Image Upload</h4>-->
-<!--                --><?php //$form = ActiveForm::begin([
-//                    'method' => 'post',
-//                    'action' => ['/master/upload'],
-//                    'options' => ['enctype' => 'multipart/form-data'],
-//                ]); ?>
-<!--                --><?//= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
-//                    'image'=>'Image',
-//                    'background_image'=>'Background Image',
-//                ])->label(false) ?>
-<!--                --><?//= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
-<!--                --><?//= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
-<!---->
-<!---->
-<!--                --><?//= Html::submitButton('Upload', ['class' => 'btn btn-danger']) ?>
-<!--                --><?php //ActiveForm::end() ?>
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--        --><?//= Html::a('default yii', '/imagefiles/thumbnail?image='.$model['image'],['class' => 'btn btn-success btn-xs']) ?>
-<!--        <div class="row">-->
-<!--            <div class="col-xs-12">-->
-<!--                --><?//= Html::a('обр. big вверх', '/imagefiles/thumb-master?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
-<!--                --><?//= Html::a('обр. big в центр', '/imagefiles/thumb-master?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
-<!--                --><?//= Html::a('обр. big вниз', '/imagefiles/thumb-master?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
-<!--            </div>-->
-<!--            <div class="col-xs-12">-->
-<!--                --><?//= Html::a('обр. list вверх', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=top',['class' => 'btn btn-success btn-xs']) ?>
-<!--                --><?//= Html::a('обр. list в центр', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=center',['class' => 'btn btn-success btn-xs']) ?>
-<!--                --><?//= Html::a('обр. list вниз', '/imagefiles/thumb-master-list?image='.$model['image'].'&place=bottom',['class' => 'btn btn-success btn-xs']) ?>
-<!--            </div>-->
-<!--        </div>-->
-
-
-
-
-
-
-
+        <!-- /image cloud -->
 
 
         <!-- назначение профессии -->
-        <div class="row mt50 bt pt50">
+        <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'professionAssignPjax',
                 'timeout' => 2000,
@@ -219,6 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id']])
                     ->label(false) ?>
+                <?= Html::a('Создать', '/professionitem/create',['class' => 'btn btn-success btn-xs']) ?>
                 <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
@@ -227,6 +182,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
                 echo yii\grid\GridView::widget([
                     'dataProvider' => $proDataProvider,
+                    'emptyText' => '',
                     'columns'=>[
 //                        'item_id',
                         [
@@ -262,14 +218,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             </div>
             <?php Pjax::end(); ?>
-
-
-
         </div>
         <!-- /назначение профессии -->
 
+
+
         <!-- назначение меток -->
-        <div class="row mt50 bt pt50">
+        <div class="row mt20 bt pt20">
 
             <?php Pjax::begin([
                 'id' => 'tagAssignPjax',
@@ -284,21 +239,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     'action' => ['/tagassign/assignxx?type=master&id='.$model['id']],
                     'options' => ['data-pjax' => true ],
                 ]); ?>
-                <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id','name'))->label(false) ?>
+                <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'))->label(false) ?>
                 <?= $form->field($tagAssign, 'article_id')->hiddenInput()->label(false) ?>
                 <?= $form->field($tagAssign, 'master_id')->hiddenInput(['value' => $model['id']])->label(false) ?>
-
-
+                <?= Html::a('Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
                 <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
-
             <div class="col-sm-6">
-
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-
                         <th>Назначенные метки</th>
                         <th class="action-column">&nbsp;</th>
                     </tr>
@@ -307,34 +258,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php foreach ($tags as $tag) : ?>
                         <tr >
                             <td><?= $tag['name'] ?></td>
-
                             <td>
-
-<!--                                <a href="/tagassign/delete?id=--><?//= $tag['id'] ?><!--" -->
-<!--                                   title="Delete" -->
-<!--                                   aria-label="Delete" -->
-<!--                                   data-confirm="Are you sure you want to delete this item?" -->
-<!--                                   data-pjax="0"  -->
-<!--                                   data-method="post"><span class="glyphicon glyphicon-trash"></span></a>-->
-
-<!--                                <a href="/tagassign/deletexx?id=--><?//= $tag['id'] ?><!--"-->
-<!--                                   title="Delete"-->
-<!--                                   aria-label="Delete"-->
-<!--                                   data-confirm="Are you sure you want to delete this item?"-->
-<!--                                   data-pjax="1"-->
-<!--                                   data-method="post"><span class="glyphicon glyphicon-trash"></span></a>-->
-
-<!--                                'data-confirm' => 'Точно?',-->
-<!--                                /tagassign/deletexx?id=--><?//= $tag['id'] ?>
-<!--                                'data-pjax' => true,-->
-
-
                                 <?php $url = '/tagassign/deletexx?id='. $tag['id'] ?>
                                 <?= Html::a('','#', [
                                     'class' => 'glyphicon glyphicon-trash',
                                     'aria-label' => 'Delete',
                                     'onclick' => "
-                                if (confirm('ok?')) {
+                                if (confirm('точно удалить?')) {
 
                                     $.ajax('$url', {
                                         type: 'POST',
@@ -352,8 +282,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return false;
                             ",
                                 ]) ?>
-
-
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -366,8 +294,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /назначение меток -->
 
+
+
         <!-- назначение вида психотерапии -->
-        <div class="row mt50 bt pt50">
+        <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'psyAssignPjax',
                 'timeout' => 2000,
@@ -376,12 +306,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php
             // вид психотерапии - дата во вьюху
             $query = \common\models\ItemAssign::find()->where(['item_type'=>'psy','master_id'=>$model['id']]);
-            $proDataProvider = new \yii\data\ActiveDataProvider([
+            $psyDataProvider = new \yii\data\ActiveDataProvider([
                 'query'=>$query,
             ]);
             ?>
             <div class=" col-sm-6">
-                <h4>Подход психотерапии</h4>
+                <h4>Вид психотерапии</h4>
                 <?php $form = ActiveForm::begin([
                     'id'=>'psyAssign',
                     'action' => ['/itemassign/assignpsyxx?type=master&id='.$model['id']],
@@ -392,7 +322,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ->hiddenInput(['value'=>'psy','id' => 'psy_assign-item_type'])
                     ->label(false) ?>
                 <?= $form->field($itemAssign, 'item_id')
-                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->all(), 'id','name'),['id'=>'psy_assign-item_id'])
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->orderBy('name')->all(), 'id','name'),['id'=>'psy_assign-item_id'])
                     ->label(false) ?>
                 <?= $form->field($itemAssign, 'article_id')
                     ->hiddenInput(['value' => '','id' => 'psy_assign-article_id'])
@@ -400,6 +330,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id'],'id' => 'psy_assign-master_id'])
                     ->label(false) ?>
+                <?= Html::a('Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
                 <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
@@ -407,7 +338,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php
                 echo yii\grid\GridView::widget([
-                    'dataProvider' => $proDataProvider,
+                    'dataProvider' => $psyDataProvider,
+                    'emptyText' => '',
                     'columns'=>[
 //                        'item_id',
                         [
@@ -446,8 +378,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /назначение вида психотерапии -->
 
+
+
         <!-- назначение сайта -->
-        <div class="row mt50 bt pt50">
+        <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'siteAssignPjax',
                 'timeout' => 2000,
@@ -456,7 +390,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php
             // сайт - дата во вьюху
             $query = \common\models\ItemAssign::find()->where(['item_type'=>'site','master_id'=>$model['id']]);
-            $proDataProvider = new \yii\data\ActiveDataProvider([
+            $siteDataProvider = new \yii\data\ActiveDataProvider([
                 'query'=>$query,
             ]);
             ?>
@@ -480,6 +414,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id'],'id' => 'site_assign-master_id'])
                     ->label(false) ?>
+                <?= Html::a('Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
                 <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
@@ -487,7 +422,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php
                 echo yii\grid\GridView::widget([
-                    'dataProvider' => $proDataProvider,
+                    'dataProvider' => $siteDataProvider,
+                    'emptyText' => '',
                     'columns'=>[
 //                        'item_id',
                         [
@@ -531,8 +467,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /назначение сайта -->
 
+
+
         <!-- назначение кнопок -->
-        <div class="row mt50 bt pt50">
+        <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'btnAssignPjax',
                 'timeout' => 2000,
@@ -573,6 +511,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
                 echo yii\grid\GridView::widget([
                     'dataProvider' => $btnDataProvider,
+                    'emptyText' => '',
                     'columns'=>[
 //                        'item_id',
                         [
@@ -611,8 +550,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /назначение кнопок -->
 
-        <!-- назначение страниц мастера -->
-        <div class="row mt50 bt pt50">
+
+
+        <!-- назначение текстов мастера -->
+        <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'masterPageAssignPjax',
                 'timeout' => 2000,
@@ -628,9 +569,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ]);
             ?>
             <div class=" col-sm-2">
-                <h4>тексты мастера</h4>
+                <h4>Тексты мастера</h4>
 
-                <?= Html::a('Создать текст','/article/mtextcreate?masterid='.$model['id'], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::a('Создать текст','/article/mtextcreate?master_id='.$model['id'], ['class' => 'btn btn-success btn-xs']) ?>
 
             </div>
             <div class="col-sm-10">
@@ -638,21 +579,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
                 echo yii\grid\GridView::widget([
                     'dataProvider' => $masterPageDataProvider,
+                    'emptyText' => '',
                     'columns'=>[
-//                        [
-//                            'label' => 'тексты',
-//                            'attribute'=>'item_id',
-//                            'value' => function($data)
-//                            {
-//                                $theData = \common\models\MasterpageItem::find()->where(['id'=>$data['item_id']])->one();
-//
-//                                return  Html::a($theData['name'],$theData['link']);
-//                            },
-//                            'format' => 'raw',
-//                        ],
+
                         'list_num',
                         'list_name',
-                        'hrurl',
+//                        'hrurl',
+                        [
+                            'attribute'=>'hrurl',
+                            'value' => function($data)
+                            {
+                                $master = \common\models\Master::find()
+                                    ->where(['id'=> Yii::$app->request->get('id')])
+                                    ->one();
+                                if (Yii::$app->request->getHostName() == 'cp.psihotera.dev') {
+                                    $theData = '<a  href="http://psihotera.dev/master/'.$master['hrurl'].'/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                                } else {
+                                    $theData = '<a  href="http://psihotera.ru/master/'.$master['hrurl'].'/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                                }
+                                return $theData;
+                            },
+                            'format'=> 'html',
+                        ],
                         'status',
 
                         [
@@ -665,7 +613,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
                                 },
                                 'view'=>function($url,$model){
-                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/article/view','id'=>$model['id']]);
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/article/view-master-text','id'=>$model['id']]);
                                     return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-eye-open"></span>', $newUrl,
                                         ['title' => Yii::t('yii', 'Просмотр'), 'data-pjax' => '0','data-method'=>'post']);
                                 },
@@ -687,6 +635,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
         <!-- /назначение страниц мастера -->
+
     </div>
 
 </section>

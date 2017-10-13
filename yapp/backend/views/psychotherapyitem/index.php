@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Psychotherapy Items';
+$this->title = 'Виды психотерапии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="psychotherapy-item-index">
@@ -19,8 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+//            ['class' => 'yii\grid\SerialColumn'],
             'id',
             'name',
             'hrurl',

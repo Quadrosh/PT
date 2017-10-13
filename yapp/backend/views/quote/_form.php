@@ -16,6 +16,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'image_alt')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'addition')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>

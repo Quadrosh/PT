@@ -19,7 +19,7 @@ if ($type == 'article') {
     $query = \common\models\ItemAssign::find()->where(['item_type'=>'site','master_id'=>$masterId]);
 }
 
-$proDataProvider = new \yii\data\ActiveDataProvider([
+$siteDataProvider = new \yii\data\ActiveDataProvider([
     'query'=>$query,
 ]);
 ?>
@@ -43,6 +43,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
         <?= $form->field($itemAssign, 'master_id')
             ->hiddenInput(['value' => $masterId,'id' => 'site_assign-master_id'])
             ->label(false) ?>
+        <?= Html::a('Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
@@ -50,7 +51,8 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
 
         <?php
         echo yii\grid\GridView::widget([
-            'dataProvider' => $proDataProvider,
+            'dataProvider' => $siteDataProvider,
+            'emptyText' => '',
             'columns'=>[
 //                        'item_id',
                 [

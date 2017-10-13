@@ -104,6 +104,14 @@ class Master extends \yii\db\ActiveRecord
     }
 
     /**
+     * Background image cloud
+     */
+    public function getBackgroundImagefile()
+    {
+        return $this->hasOne(Imagefiles::className(),['name'=>'background_image']);
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()

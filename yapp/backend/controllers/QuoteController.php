@@ -2,12 +2,16 @@
 
 namespace backend\controllers;
 
+use common\models\Imagefiles;
+use common\models\UploadForm;
 use Yii;
 use common\models\Quote;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * QuoteController implements the CRUD actions for Quote model.
@@ -35,6 +39,7 @@ class QuoteController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => Quote::find(),
         ]);
@@ -51,6 +56,7 @@ class QuoteController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,7 +72,7 @@ class QuoteController extends Controller
         $model = new Quote();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +91,7 @@ class QuoteController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -103,7 +109,7 @@ class QuoteController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Url::previous());
     }
 
     /**
@@ -120,5 +126,37 @@ class QuoteController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    /**
+     * Creates a cloud image
+     *
+     * @return mixed
+     */
+    public function actionCloud()
+    {
+        $uploadmodel = new UploadForm();
+        if (Yii::$app->request->isPost) {
+            $uploadmodel->imageFile = UploadedFile::getInstance($uploadmodel, 'imageFile');
+            $data=Yii::$app->request->post('UploadForm');
+            $toModelProperty = $data['toModelProperty'];
+            $model = Quote::find()->where(['id'=>$data['toModelId']])->one();
+            $fileName = $uploadmodel->imageFile->baseName.'.'.$uploadmodel->imageFile->extension;
+            if ($uploadmodel->uploadtmp()) {
+                $cloud = \Cloudinary\Uploader::upload(Yii::getAlias('@webroot/img/tmp-'. $fileName));
+                $imageListItem = new Imagefiles();
+                $imageListItem['name'] = $fileName;
+                $imageListItem['cloudname'] = $cloud['public_id'];
+                $model->$toModelProperty = $uploadmodel->imageFile->baseName . '.' . $uploadmodel->imageFile->extension;
+                $model->save();
+                if($imageListItem->save()){
+                    unlink(Yii::getAlias('@webroot/img/tmp-' . $fileName));
+                    Yii::$app->session->setFlash('success', 'Файл загружен успешно');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Ошибка сохранения');
+                }
+            }
+            return $this->redirect(Url::previous());
+        }
+
     }
 }

@@ -42,9 +42,35 @@ class ArticleController extends Controller
      * Lists all Article models.
      * @return mixed
      */
+    public function actionMasterTexts($master_id)
+    {
+        Url::remember();
+            $dataProvider = new ActiveDataProvider([
+                'query' => Article::find()
+                    ->where(['master_id'=>$master_id])
+                    ->andWhere(['link2original'=>'masterpage'])
+                    ->orderBy('list_num'),
+                'pagination'=> [
+                    'pageSize' => 100,
+                ],
+                'sort' =>[
+                    'defaultOrder'=> [
+                        'id' => SORT_DESC
+                    ]
+                ]
+            ]);
+        return $this->render('master_text_index', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    /**
+     * Lists all Article models.
+     * @return mixed
+     */
     public function actionIndex()
     {
         Url::remember();
+
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find(),
             'pagination'=> [
@@ -56,6 +82,8 @@ class ArticleController extends Controller
                 ]
             ]
         ]);
+
+
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -116,6 +144,70 @@ class ArticleController extends Controller
         }
 
         return $this->render('view', [
+            'model' => $this->findModel($id),
+            'tagAssign' => $tagAssign,
+            'tags' => $tags,
+            'itemAssign' => $itemAssign,
+            'psyAssigns' => $psyAssigns,
+            'siteAssigns' => $siteAssigns,
+            'uploadmodel' => $uploadmodel,
+        ]);
+    }
+
+    /**
+     * Displays a single MasterText.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewMasterText($id)
+    {
+        Url::remember();
+        $uploadmodel = new UploadForm();
+        $itemAssign = new ItemAssign();
+        $tagAssign = new Tagassign();
+        $psyData = ItemAssign::find()->where(['item_type'=>'psy','article_id'=>$id])->all();
+        $psyTypes = PsychotherapyItem::find()->all();
+        $psyAssigns = [];
+        $psyIter = 0;
+        foreach ($psyData as $psyItem) {
+            $psyAssigns[$psyIter]['id']=$psyItem['id'];
+            foreach ($psyTypes as $psyType) {
+                if($psyType['id'] == $psyItem['item_id']){
+                    $psyAssigns[$psyIter]['name'] = $psyType['name'];
+                }
+            }
+            $psyIter++;
+        }
+
+        $siteData = ItemAssign::find()->where(['item_type'=>'site','article_id'=>$id])->all();
+        $siteTypes = SiteItem::find()->all();
+        $siteAssigns = [];
+        $siteIter = 0;
+        foreach ($siteData as $siteItem) {
+            $siteAssigns[$siteIter]['id']=$siteItem['id'];
+            foreach ($siteTypes as $siteType) {
+                if($siteType['id'] == $siteItem['item_id']){
+                    $siteAssigns[$siteIter]['name'] = $siteType['name'];
+                    $siteAssigns[$siteIter]['link'] = $siteType['link'];
+                }
+            }
+            $siteIter++;
+        }
+
+        $tagsData = Tagassign::find()->where(['article_id'=>$id])->all();
+        $tags = [];
+        $tagIter = 0;
+        foreach ($tagsData as $tag) {
+            $tags[$tagIter]['id'] = $tag['id'];
+            $tags[$tagIter]['tag_id'] = $tag['tag_id'];
+            $tags[$tagIter]['name'] = Tag::find()->where(['id'=>$tag['tag_id']])->one()->name;
+            $tags[$tagIter]['article_id'] = $tag['article_id'];
+            $tags[$tagIter]['master_id'] = $tag['master_id'];
+
+            $tagIter++;
+        }
+
+        return $this->render('view_master_text', [
             'model' => $this->findModel($id),
             'tagAssign' => $tagAssign,
             'tags' => $tags,
@@ -214,6 +306,7 @@ class ArticleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Url::previous());

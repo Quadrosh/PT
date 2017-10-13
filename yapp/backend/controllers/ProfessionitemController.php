@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use common\models\Article;
 use Yii;
 use common\models\ProfessionItem;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,6 +37,7 @@ class ProfessionitemController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => ProfessionItem::find(),
         ]);
@@ -51,6 +54,7 @@ class ProfessionitemController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -65,13 +69,17 @@ class ProfessionitemController extends Controller
     {
         $model = new ProfessionItem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
+            if ($model->save()) {
+                return $this->redirect(Url::previous());
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
+
     }
 
     /**
@@ -85,7 +93,7 @@ class ProfessionitemController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -59,28 +59,28 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'list_name' => 'List Name',
-            'list_num' => 'List Num',
-            'hrurl' => 'Hrurl',
+            'list_name' => 'List Name (mt)',
+            'list_num' => 'List Num (mt)',
+            'hrurl' => 'Hrurl (mt)',
             'title' => 'Title',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'text' => 'Text',
+            'pagehead' => 'Pagehead (mt)',
+            'text' => 'Text (mt)',
             'excerpt' => 'Excerpt',
             'excerpt_big' => 'Excerpt Big',
-            'pagehead' => 'Pagehead',
             'topimage' => 'Topimage',
             'topimage_alt' => 'Topimage Alt',
             'promolink' => 'Promolink',
             'promoname' => 'Promoname',
             'imagelink' => 'Imagelink',
             'imagelink_alt' => 'Imagelink Alt',
-            'link2original' => 'Link2original',
+            'link2original' => 'Link2original (mt)',
             'view' => 'View',
             'layout' => 'Layout',
             'author' => 'Author',
-            'master_id' => 'Master ID',
-            'status' => 'Status',
+            'master_id' => 'Master ID (mt)',
+            'status' => 'Status (mt)',
         ];
     }
     static public function cyrillicToLatin($text, $maxLength, $toLowCase)
@@ -188,12 +188,55 @@ class Article extends \yii\db\ActiveRecord
             return 'А что тут резать то? Коротко все слишком.';
         }
     }
+
+    static public function firstLetters($id)
+    {
+        $article = Article::find()->where(['id'=>$id])->one();
+        $author = '';
+        if ($article['author']!=null) {
+            $author = $article['author'];
+        } else {
+//            $master = $article->master;
+//            $master = Master::find()->where(['id'=>$article['master_id']])->one();
+            $author = $article->master['username'];
+        }
+
+        $latin = Article::cyrillicToLatin($author, 210, true);
+        $words = explode("-", $latin);
+        $abbr = '';
+        foreach ($words as $word) {
+            $abbr .=$word[0];
+        }
+        return $abbr;
+    }
+    static public function latinAuthor($id)
+    {
+        $article = Article::find()->where(['id'=>$id])->one();
+        $author = '';
+        if ($article['author']!=null) {
+            $author = $article['author'];
+        } else {
+            $author = $article->master['username'];
+        }
+
+        $latin = Article::cyrillicToLatin($author, 210, true);
+
+        return $latin;
+    }
     /**
      * top image
      */
     public function getTopimagefile()
     {
         return $this->hasOne(Imagefiles::className(),['name'=>'topimage']);
+    }
+
+    /**
+     * мастер
+     */
+    public function getMaster()
+    {
+        return $this->hasOne(Master::className(),['id'=>'master_id']);
     }
     /**
      * метки

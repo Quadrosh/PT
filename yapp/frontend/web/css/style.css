@@ -32,14 +32,22 @@ gray back  #E9EBED
     font-style: normal;
     font-weight: normal;
 }
-
+@font-face {
+    font-family: "CalligraphiaOne";
+    src: url("fonts/CalligraphiaOne/CalligraphiaOne.eot");
+    src: url("fonts/CalligraphiaOne/CalligraphiaOne.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CalligraphiaOne/CalligraphiaOne.woff") format("woff"),
+    url("fonts/CalligraphiaOne/CalligraphiaOne.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 
 
 html,
 body {
     height: 100%;
-    /*background-color: #30353b;*/
     background-color: #E9EBED;
+    overflow-x: hidden;
     /*min-height: 100%;*/
 
 }
@@ -50,6 +58,9 @@ body {
     background-position: center top;
     min-height:100%;
     background-attachment: fixed;
+}
+.noPadding{
+    padding: 0 !important;
 }
 /* позиционирование*/
 .mt10{
@@ -96,7 +107,9 @@ a{
 }
 a:hover{
     text-decoration: none;
+    color: inherit;
 }
+
 .backgroundImage {
     background-size: cover;
     background-position: center;
@@ -223,7 +236,8 @@ a:hover{
     border-radius: 3px;
 }
 .masterListItem.regular {
-    height: 100px;
+    /*height: 100px;*/
+    height: auto;
 }
 .masterListItem .masterName {
     font-family: "MyriadProRegular", sans-serif;
@@ -244,8 +258,13 @@ a:hover{
     margin-bottom: 0;
 }
 .capital{
+    display: inline-block;
+}
+
+.capital:first-letter{
     text-transform:capitalize;
 }
+
 .lowercase{
     text-transform: lowercase;
 }
@@ -291,7 +310,6 @@ a:hover{
 }
 .masterListItem .masterAddress .phone_icon{
     font-size: 10px;
-    margin-right: 3px;
 }
 .masterListItem .masterAddress .site_icon{
     font-size: 10px;
@@ -311,9 +329,10 @@ a:hover{
     text-transform: lowercase;
 
 }
-
-
-
+.masterListItem .masterAddress .phone_icon,
+.masterListItem .masterAddressIcon{
+    margin-right: 5px;
+}
 .master_body .dark {
     color: #fff;
 }
@@ -489,6 +508,7 @@ a:hover{
     font-size: 12px;
     margin-top: 0;
     margin-bottom: 5px;
+    text-align: right;
 }
 .articleListItem .articleName{
     font-family: "MyriadProRegular", sans-serif;
@@ -503,6 +523,7 @@ a:hover{
     font-size: 14px;
     /*margin-top: 5px;*/
     margin-bottom: 5px;
+    line-height: 1.2;
 }
 .articleListItem .articleAuthor{
     font-family: "MyriadProRegular", sans-serif;
@@ -528,11 +549,13 @@ a:hover{
 }
 .articleListItem .articleName,
 .articleListItem .articleSite a,
-.articleListItem .articleAuthor{
+.articleListItem .articleAuthor,
+.popArtItem .articleName,
+.popArtItem .articleSite a,
+.popArtItem .articleAuthor{
     color: grey;
 }
-.articleListItem .link2article{
-    /*color: #333;*/
+.link2article{
     color: inherit;
 }
 .articleListItem .link2article:hover{
@@ -559,11 +582,209 @@ a:hover{
     text-transform: lowercase;
 }
 
+.popArtItem .articlePsychotherapy,
+.popArtItem .articlePsychotherapy a{
+    text-transform: uppercase;
+    color: #f15c32;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.popArtItem .articleName {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: grey;
+    line-height: 1;
+}
+.popArtItem .excerpt {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
 
+/* carousel */
+.carouselControl {
+    position: absolute;
+    cursor: pointer;
+    display: block;
 
+}
+.popArt .carouselControl {
+    top:264px;
+    margin-top: -30px;
 
+}
+.carouselControl svg{
+    width: 40px;
+    height: 40px;
+}
+.popArtPrev{
+    left:-40px;
+}
+.popArtNext{
+    right:-40px;
+}
+.popMasPrev{
+    left:50%;
+    margin-left: -20px;
+    top:0;
+}
+.popMasNext{
+    left: 50%;
+    margin-left: -20px;
+    bottom:0;
+}
+.popVertWrap{
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+.popArtPrev,
+.popArtNext,
+.popMasPrev,
+.popMasNext{
+    stroke:#30353b;
+}
+.popArtPrev:hover,
+.popArtNext:hover,
+.popMasPrev:hover,
+.popMasNext:hover{
+    stroke:#838e9a;
+}
 
+.popArtItem{
+    background-color: #fff;
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+.popularArticles{
+    width: 960px;
+    height: 400px;
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    /*background-color: #5e5e5e;*/
+}
 
+.popularArticles .slick-slide{
+    height: 366px;
+}
+.popArtItem .articleAuthor {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: grey;
+}
+.popArtItem .articleTag {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    color: #2376A5;
+    text-transform: lowercase;
+}
+.popArtItem .articleSite {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: grey;
+}
+.indexHead {
+    color: #58595b;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+.topItem {
+    background-color: #fff;
+    position: relative;
+    /*top:200px;*/
+    width: 100%;
+    min-height: 400px;
+    margin-left: 0px;
+}
+.articleIndex .navbar-top {
+    margin-bottom: 0;
+}
+.topItem .imageBox {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 400px;
+}
+.topItem .articlePsychotherapy,
+.topItem .articlePsychotherapy a{
+    text-transform: uppercase;
+    color: #58595b;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+}
+.topItem .articleName {
+    margin-top: 100px;
+}
+
+.topItem .excerpt {
+    margin-top: 50px;
+}
+.topItem .articleAuthor,
+.topItem .articleSite a{
+    color: #58595b;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+}
+.topItem .articleTag {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    color: #2376A5;
+    text-transform: lowercase;
+}
+
+.home .topText{
+    color: #58595b;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+.home .topText .signature{
+    display: block;
+    text-align: right;
+    color: #58595b;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+}
+.home .quoteBox{
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 3px;
+}
+.home .quoteBox .quoteText{
+    font-family: "CalligraphiaOne", sans-serif;
+    font-size: 38px;
+    line-height:1.2;
+    text-align: left;
+    margin-top: 50px;
+}
+.home .quoteBox .author{
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 16px;
+    text-align: right;
+}
+.link2master {
+    position: relative;
+    z-index: 10;
+}
+.popularMasters .masterListItem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 
 
@@ -588,7 +809,17 @@ a:hover{
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 991px) {
+    .popularArticles {
+        width: 640px;
+        margin-left: -320px;
+    }
+    .popArtPrev {
+        left: 0;
+    }
+    .popArtNext {
+        right: 0;
+    }
     .articleBox .imageBox img {
         width: 630px;
         height: 438px;
@@ -605,16 +836,57 @@ a:hover{
     .masterListItem .imageBox {
         width: 98px;
     }
+    .masterListItem .imageBox img{
+        width: 90px;
+        height: 90px;
+    }
 
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
     .more768 {
         display: none;
     }
     .less768 {
         display: block;
+    }
+
+
+    .popularArticles {
+        width: 320px;
+        margin-left: -160px;
+    }
+    .popArtPrev {
+        left: 95px;
+    }
+    .popArtNext {
+        right: 95px;
+    }
+    .master_body .links,
+    .navbar-brand {
+        padding-left: 0;
+    }
+
+    .masterListItem .masterPsychotherapy{
+        text-align: left;
+    }
+    .masterListItem .masterProfession{
+        color: #000;
+    }
+    .masterListItem.premium .masterAddress{
+        height:auto;
+        /*margin-top: 10px;*/
+    }
+    .masterListItem.regular {
+        height: auto;
+    }
+    .masterListItem .imageBox img {
+        width: 120px;
+        height: 120px;
+    }
+    .masterListItem .imageBox {
+        width: 128px;
     }
     .articleListItem .imageBox{
         text-align: center;
@@ -642,21 +914,62 @@ a:hover{
     .masterPageAvatar{
         width: 111px;
     }
+    .masterImageBox img{
+        width: 111px;
+        height: 120px;
+    }
     .masterImageBox {
-        margin-left: 40px;
+        margin-left: 0px;
         padding: 3px;
+        /*width: 117px;*/
         width: 117px;
-        /*width: 177px;*/
     }
     .masterPageUsername {
         margin-top: 110px;
     }
 
 }
-
+@media only screen and (max-width : 650px) {
+    .masterImageBox {
+        /*margin-left: 40px;*/
+        padding: 3px;
+        width: 117px;
+        /*width: 173px;*/
+    }
+    .masterImageBox img{
+        width: 111px;
+        height: 120px;
+    }
+    .popArtPrev {
+        left: 20px;
+    }
+    .popArtNext {
+        right: 20px;
+    }
+}
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-
+@media only screen and (max-width : 479px) {
+    .noPaddingLess480 {
+        padding:0;
+    }
+    .more480 {
+        display: none;
+    }
+    .less480 {
+        display: block;
+    }
+    .topItem .articleName {
+        margin-top: 50px;
+    }
+    .topItem .excerpt {
+        margin-top: 30px;
+    }
+    .popArtPrev {
+        left: 0px;
+    }
+    .popArtNext {
+        right: 0px;
+    }
     .navbar-default .navbar-brand {
         width: 235px;
     }
@@ -672,10 +985,27 @@ a:hover{
         width: 84px;
     }
     .masterImageBox {
-        margin-left: 40px;
+        margin-left: 0px;
         padding: 2px;
-        width: 88px;
-        /*width: 177px;*/
+        /*width: 92px;*/
+        width: 171px;
+    }
+    .masterImageBox img {
+        width: 167px;
+        height: 180px;
+    }
+    .master_body .masterPageUsername {
+        margin-top: 10px;
+    }
+    .master_body .contentBox {
+        padding: 20px;
+    }
+    .master_body .links {
+        margin-top: 10px;
+        padding-left: 0;
+    }
+    .navbar-brand {
+        padding-left: 0;
     }
     .masterPageUsername {
         margin-top: 110px;
@@ -697,27 +1027,54 @@ a:hover{
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-
+    .more480 {
+        display: block;
+    }
+    .less480 {
+        display: none;
+    }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 769px) {
+@media only screen and (min-width : 768px) {
     .more768 {
         display: block;
     }
     .less768 {
         display: none;
     }
+    .masterListItem.premium .listDataBox,
+    .masterListItem.regular .listDataBox{
+        padding-left: 60px;
+    }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+    .masterListItem.premium .listDataBox,
+    .masterListItem.regular .listDataBox{
+        padding-left: 75px;
+    }
+    .popArtPrev {
+        left: -26px;
+    }
+    .popArtNext {
+        right: -26px;
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+    .masterListItem.premium .listDataBox,
+    .masterListItem.regular .listDataBox{
+        padding-left: 60px;
+    }
+    .popArtPrev {
+        left: 40px;
+    }
+    .popArtNext {
+        right: 40px;
+    }
 }
 
 
@@ -728,9 +1085,9 @@ a:hover{
 
 
 
-.st0 {
-    fill:#58595B;
-}
-.st0:hover {
-    fill:red;
-}
+/*.st0 {*/
+    /*fill:#58595B;*/
+/*}*/
+/*.st0:hover {*/
+    /*fill:red;*/
+/*}*/

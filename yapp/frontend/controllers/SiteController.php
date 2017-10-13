@@ -1,8 +1,13 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Article;
+use common\models\DailyCount;
+use common\models\Master;
+use common\models\Quote;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\data\ArrayDataProvider;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -75,7 +80,45 @@ class SiteController extends Controller
         $this->view->params['title'] = 'Психотера - все о психотерапии';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
-        return $this->render('index');
+        $quote = Quote::find()->where(['id'=>1])->one();
+
+//        popular
+        $popArtQuery = Article::find()
+            ->select(['article.*', 'SUM(daily_count.count) AS countviews'])
+            ->where(['status'=>'publish'])
+            ->andWhere('link2original != :value',['value'=>'masterpage'])
+            ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
+            ->groupBy('article.id')
+            ->orderBy(['countviews' => SORT_DESC])
+            ->limit(10);
+        $popularArticles = $popArtQuery->all();
+
+        $popMasterQuery = Master::find()
+            ->select(['master.*', 'SUM(daily_count.count) AS countviews'])
+            ->where(['status'=>'premium'])
+            ->join('LEFT JOIN', DailyCount::tableName(), 'master.id=daily_count.master_id')
+            ->groupBy('master.id')
+            ->orderBy(['countviews' => SORT_DESC])
+            ->limit(10);
+        $popularMasters = $popMasterQuery->all();
+
+        $masterDataProvider = new ArrayDataProvider([
+            'allModels'=>$popularMasters,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+//            'sort' => [
+//                'attributes' => ['id', 'username'],
+//            ],
+        ]);
+
+
+
+        return $this->render('index', [
+            'quote' => $quote,
+            'popularArticles' => $popularArticles,
+            'popMasterDataProvider' => $masterDataProvider,
+        ]);
     }
 
     /**

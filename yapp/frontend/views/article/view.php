@@ -7,7 +7,7 @@ use \yii\helpers\Html;
             <div class="imageBox text-center">
                 <div class="less768">
                     <div class="backgroundImage"
-                         style="background-image: url(http://res.cloudinary.com/ddw31jew8/c_fill,h_480,w_690/ehkinjsaycv9goxg5jfz)"></div>
+                         style=" background-image: url(http://res.cloudinary.com/ddw31jew8/c_fill,h_480,w_690/<?= $article->topimagefile['cloudname'] ?>)"></div>
                 </div>
                 <div class="more768">
                     <?= cl_image_tag($article->topimagefile['cloudname'], [

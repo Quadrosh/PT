@@ -22,8 +22,8 @@ AppAsset::register($this);
     <link href="https://fonts.googleapis.com/css?family=Tinos" rel="stylesheet">
     <?= Html::csrfMetaTags() ?>
 
-<!--    <title> --><?//= Yii::$app->view->params['meta']['title'] ?><!-- </title>-->
-<!--    <meta name="description" content="--><?//= Yii::$app->view->params['meta']['description'] ?><!--">-->
+    <title> <?= Yii::$app->view->params['meta']['title'] ?> </title>
+    <meta name="description" content="<?= Yii::$app->view->params['meta']['description'] ?>">
 
 
     <?php $this->head() ?>
@@ -34,9 +34,10 @@ AppAsset::register($this);
 <div class="wrap">
 
 
-    <section id="masterBody" class="master_body" style=" background-image: url(/img/<?= Yii::$app->view->params['background_image'] ?>)">
 
-
+    <section id="masterBody"
+             class="master_body"
+             style=" background-image: url(http://res.cloudinary.com/ddw31jew8/<?= Yii::$app->view->params['background_image'] ?>)">
 
         <div class="container">
             <a class="navbar-brand" href="/master">

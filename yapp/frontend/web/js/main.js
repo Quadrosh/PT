@@ -21,16 +21,70 @@ $(document).on('click', '.pjax_btn', function(e){
     return false;
 });
 
-//$(document).on('pjax:complete', function() {
-//    var newWindowHeight = window.outerHeight;
-//    var newContainerHeight = contentContainer.outerHeight;
-//    var newHeight2load = newWindowHeight - containerHeight + newContainerHeight;
-//    document.body.style.height = newHeight2load;
-//    //var width = window.outerWidth;
-//
-//    //masterBody.resizeTo(width,newHeight2load);
-//    //alert(newHeight2load);
-//});
+
+
+
+$(document).ready(function() {
+
+    //Slick
+    $('.popularArticles').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        easing:'easeInOutSine',
+        prevArrow:'.popArtPrev',
+        nextArrow:'.popArtNext',
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ],
+    });
+
+
+    //$('.masterListItem').match_height().parent('.popularMasters').slick({
+    //    vertical:true,
+    //
+    //});
+
+    //var maxHeight = -1;
+    //$('.masterListItem').each(function() {
+    //    if ($(this).height() > maxHeight) {
+    //        maxHeight = $(this).height();
+    //    }
+    //});
+    //$('.masterListItem').each(function() {
+    //    if ($(this).height() < maxHeight) {
+    //        $(this).css('margin', Math.ceil((maxHeight-$(this).height())/2) + 'px 0');
+    //    }
+    //});
+
+
+    //$('.popularMasters').slick({
+    //    infinite: true,
+    //    slidesToShow: 3,
+    //    slidesToScroll: 1,
+    //    easing:'easeInOutSine',
+    //    prevArrow:'.popMasPrev',
+    //    nextArrow:'.popMasNext',
+    //    vertical: true,
+    //    verticalSwiping: true,
+    //    variableHeight: true,
+    //});
+
+
+
+
+});
 
 
 

@@ -6,6 +6,7 @@ use common\models\Article;
 use Yii;
 use common\models\PsychotherapyItem;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -36,6 +37,7 @@ class PsychotherapyitemController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => PsychotherapyItem::find(),
         ]);
@@ -52,6 +54,7 @@ class PsychotherapyitemController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -69,7 +72,7 @@ class PsychotherapyitemController extends Controller
         if ($model->load(Yii::$app->request->post()) ) {
             $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
             if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(Url::previous());
             }
         } else {
             return $this->render('create', [
@@ -89,7 +92,7 @@ class PsychotherapyitemController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -7,12 +7,14 @@ use yii\helpers\HtmlPurifier;
         <div class="row">
                 <div class="col-sm-3 col-md-2">
                     <div class="imageBox">
-                        <?= cl_image_tag($model->topimagefile['cloudname'], [
-                            "alt" => $model['topimage_alt'],
-                            "width" => 180,
-                            "height" => 135,
-                            "crop" => "fill"
-                        ]); ?>
+                        <a href="/article/<?= $model['hrurl'] ?>" class="link2article">
+                            <?= cl_image_tag($model->topimagefile['cloudname'], [
+                                "alt" => $model['topimage_alt'],
+                                "width" => 180,
+                                "height" => 135,
+                                "crop" => "fill"
+                            ]); ?>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-9 col-md-10 listDataBox">

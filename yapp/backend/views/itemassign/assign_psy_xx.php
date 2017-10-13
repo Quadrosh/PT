@@ -19,7 +19,7 @@ if ($type == 'article') {
     $query = \common\models\ItemAssign::find()->where(['item_type'=>'psy','master_id'=>$masterId]);
 }
 
-$proDataProvider = new \yii\data\ActiveDataProvider([
+$psyDataProvider = new \yii\data\ActiveDataProvider([
     'query'=>$query,
 ]);
 ?>
@@ -35,7 +35,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
             ->hiddenInput(['value'=>'psy','id' => 'psy_assign-item_type'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'item_id')
-            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->all(), 'id','name'),['id'=>'psy_assign-item_id'])
+            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->orderBy('name')->all(), 'id','name'),['id'=>'psy_assign-item_id'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'article_id')
             ->hiddenInput(['value' => $articleId,'id' => 'psy_assign-article_id'])
@@ -43,6 +43,7 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
         <?= $form->field($itemAssign, 'master_id')
             ->hiddenInput(['value' => $masterId,'id' => 'psy_assign-master_id'])
             ->label(false) ?>
+        <?= Html::a('Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
@@ -50,7 +51,8 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
 
         <?php
         echo yii\grid\GridView::widget([
-            'dataProvider' => $proDataProvider,
+            'dataProvider' => $psyDataProvider,
+            'emptyText' => '',
             'columns'=>[
 //                        'item_id',
                 [

@@ -3,6 +3,7 @@ namespace backend\controllers;
 
 use common\models\AdminLoginForm;
 use Yii;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -62,6 +63,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $this->layout = 'main';
         return $this->render('index');
     }

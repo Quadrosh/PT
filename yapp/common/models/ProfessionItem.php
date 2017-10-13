@@ -27,7 +27,8 @@ class ProfessionItem extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 255],
+            [['name'], 'unique'],
+            [['name','hrurl'], 'string', 'max' => 255],
         ];
     }
 
@@ -39,6 +40,17 @@ class ProfessionItem extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'hrurl' => 'hrurl',
         ];
+    }
+    /**
+     * Мастера
+     */
+    public function getMasters()
+    {
+        return $this->hasMany(Master::className(),['id'=>'master_id'])
+            ->viaTable('item_assign',['item_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'pro']);
+            });
     }
 }
