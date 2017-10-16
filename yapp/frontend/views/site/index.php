@@ -21,8 +21,8 @@ use \yii\widgets\ListView;
                     <div class="imageBox">
                         <?= cl_image_tag($quote->imagefile['cloudname'], [
                             "alt" => $quote['image_alt'],
-                            "width" => 200,
-                            "height" => 200,
+                            "width" => 300,
+                            "height" => 300,
                             "crop" => "fit",
                         ]); ?>
                     </div>

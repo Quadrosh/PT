@@ -785,8 +785,15 @@ a:hover{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-
+.topFilter{
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-left: 0px;
+}
+.noPaddingTopObjectBody .navbar {
+    margin-bottom: 0;
+}
 
 
 

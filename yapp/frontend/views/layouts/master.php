@@ -33,8 +33,6 @@ AppAsset::register($this);
 
 <div class="wrap">
 
-
-
     <section id="masterBody"
              class="master_body"
              style=" background-image: url(http://res.cloudinary.com/ddw31jew8/<?= Yii::$app->view->params['background_image'] ?>)">

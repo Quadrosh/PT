@@ -7,6 +7,7 @@ use common\models\DailyCount;
 use common\models\ItemAssign;
 use common\models\Master;
 use common\models\MasterpageItem;
+use common\models\MasterSearch;
 use common\models\ProfessionItem;
 use common\models\PsychotherapyItem;
 use common\models\SiteItem;
@@ -51,15 +52,13 @@ class MasterController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'index_nopadding';
         $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
 
         $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
-
-
         $masterDataProvider = new ArrayDataProvider([
-//            'allModels'=>$mastersData,
             'allModels'=>$mastersQ,
             'pagination' => [
                 'pageSize' => 10,
@@ -68,8 +67,16 @@ class MasterController extends Controller
 //                'attributes' => ['id', 'username'],
 //            ],
         ]);
+
+
+        $searchModel = new MasterSearch();
+        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
+
+//        var_dump(Yii::$app->request->post()); die;
+
         return $this->render('index', [
             'dataProvider' => $masterDataProvider,
+            'searchDataProvider' => $searchDataProvider,
         ]);
     }
 

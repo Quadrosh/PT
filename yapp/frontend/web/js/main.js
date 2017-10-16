@@ -27,7 +27,7 @@ $(document).on('click', '.pjax_btn', function(e){
 $(document).ready(function() {
 
     //Slick
-    $('.popularArticles').slick({
+    var popArticles = $('.popularArticles').slick({
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -49,6 +49,11 @@ $(document).ready(function() {
             }
         ],
     });
+
+
+
+
+
 
 
     //$('.masterListItem').match_height().parent('.popularMasters').slick({

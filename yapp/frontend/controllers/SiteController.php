@@ -80,7 +80,23 @@ class SiteController extends Controller
         $this->view->params['title'] = 'Психотера - все о психотерапии';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
-        $quote = Quote::find()->where(['id'=>1])->one();
+
+        //Quote counter
+        $session = Yii::$app->session;
+        if ($session['quote']!=null) {
+            $session['quote']+=1;
+        } else {
+            $session['quote']=1;
+        }
+        $quote = Quote::find()->where(['id'=>$session['quote']])->one();
+        if ($quote == null) {
+            $session['quote']+=1;
+            $quote = Quote::find()->where(['id'=>$session['quote']])->one();
+            if ($quote == null) {
+                $session['quote']=1;
+                $quote = Quote::find()->where(['id'=>$session['quote']])->one();
+            }
+        }
 
 //        popular
         $popArtQuery = Article::find()

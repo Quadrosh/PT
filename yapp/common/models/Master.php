@@ -134,14 +134,14 @@ class Master extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'ФИО',
             'hrurl' => 'Hrurl',
-            'name' => 'Name',
-            'middlename' => 'Middlename',
-            'surname' => 'Surname',
+            'name' => 'Имя',
+            'middlename' => 'Отчество',
+            'surname' => 'Фамилия',
             'image' => 'Image',
             'image_alt' => 'Image Alt',
-            'city' => 'City',
+            'city' => 'Город',
             'phone' => 'Phone',
             'other_contacts' => 'Other Contacts',
             'address' => 'Address',
@@ -159,5 +159,9 @@ class Master extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+    public static function find()
+    {
+        return new MasterQuery(get_called_class());
     }
 }
