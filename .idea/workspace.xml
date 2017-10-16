@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/MasterQuery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/MasterSearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Master.php" afterPath="$PROJECT_DIR$/yapp/common/models/Master.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/article/index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/article/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/site/index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/site/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/js/main.js" afterPath="$PROJECT_DIR$/yapp/frontend/web/js/main.js" />
-    </list>
+    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="" />
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
