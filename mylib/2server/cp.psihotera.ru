@@ -3,9 +3,9 @@
 	ServerName cp.psihotera.ru
 	AddDefaultCharset UTF-8
 	AssignUserID psihotera psihotera
-	DocumentRoot /var/www/psihotera/data/www/cp.psihotera.ru/yapp/backend/web
+	DocumentRoot /var/www/psihotera/data/www/psihotera.ru/yapp/backend/web
 
-	<Directory /var/www/psihotera/data/www/cp.psihotera.ru/yapp/backend/web>
+	<Directory /var/www/psihotera/data/www/psihotera.ru/yapp/backend/web>
 		Options +Includes -ExecCGI
 		<IfModule php5_module>
 			php_admin_flag engine on
