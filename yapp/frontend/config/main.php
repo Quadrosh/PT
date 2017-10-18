@@ -51,6 +51,7 @@ return [
                 'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
                 'article/bypsy/<hrurl:[0-9a-z\-\_]+>' => 'article/bypsy',
 
+                'master/index' => 'master/index',
                 'master/<hrurl:[0-9a-z\-\_]+>' => 'master/view',
                 'master/<hrurl:[0-9a-z\-\_]+>/<article:[0-9a-z\-\_]+>' => 'master/view',
                 'master/otziv/<hrurl:[0-9a-z\-\_]+>' => 'master/reviews',

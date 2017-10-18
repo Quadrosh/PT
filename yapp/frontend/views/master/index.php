@@ -54,22 +54,23 @@ use \yii\widgets\ActiveForm;
 
 
             <div class="col-sm-12">
-<!--                --><?php //echo \yii\grid\GridView::widget([
-//                    'dataProvider' => $searchDataProvider,
-//                    'columns'=>[
-//                        'username',
-//                        'name',
-//                        'surname',
-//                        [
-//                            'attribute'=>'pros',
-//                            'value'=>'pros.name'
-//                        ],
-//                        [
-//                            'attribute'=>'psys',
-//                            'value'=>'psys.name'
-//                        ],
-//                    ]
-//                ]);?>
+                <?php echo \yii\grid\GridView::widget([
+                    'dataProvider' => $searchDataProvider,
+                    'columns'=>[
+                        'username',
+                        'name',
+                        'surname',
+                        'fio',
+                        [
+                            'attribute'=>'pros',
+                            'value'=>'pros.name'
+                        ],
+                        [
+                            'attribute'=>'psys',
+                            'value'=>'psys.name'
+                        ],
+                    ]
+                ]);?>
             </div>
 
 

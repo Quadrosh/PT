@@ -158,10 +158,14 @@ class Master extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'fio' => 'ФИО',
         ];
     }
     public static function find()
     {
         return new MasterQuery(get_called_class());
+    }
+    public function getFio(){
+        return $this['name'].' '.$this['middlename'].' '.$this['surname'];
     }
 }
