@@ -20,7 +20,6 @@ $feedback = new \common\models\Feedback;
         </div>
         <div class="col-xs-3 col-sm-4 more480">
             <div class="masterImageBox">
-                <?= Html::img('/img/th-'.$master['image'],['class'=>'masterPageAvatar']) ?>
                 <?= cl_image_tag($master->imagefile['cloudname'], [
                     "alt" => $master['image_alt'],
                     "width" => 167,
