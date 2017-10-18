@@ -38,9 +38,14 @@ AppAsset::register($this);
              style=" background-image: url(http://res.cloudinary.com/ddw31jew8/<?= Yii::$app->view->params['background_image'] ?>)">
 
         <div class="container">
-            <a class="navbar-brand" href="/master">
-                <img class="masterPtLogo" src="/img/pt_logo_glob_w.png" alt="Психотера - мастер">
-            </a>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a class="navbar-brand" href="/master">
+                        <img class="masterPtLogo" src="/img/pt_logo_glob_w.png" alt="Психотера - мастер">
+                    </a>
+                </div>
+            </div>
+
 
             <?= Alert::widget() ?>
             <?= $content ?>

@@ -149,16 +149,16 @@ class Master extends \yii\db\ActiveRecord
             'site_link' => 'Site Link',
             'site_id' => 'Site ID',
             'comment' => 'Comment',
-            'background_image' => 'Background Image',
+            'background_image' => 'Background Image on masterpage',
             'stylekey' => 'Stylekey',
-            'hello' => 'Hello',
+            'hello' => 'Приветствие на странице мастера',
             'view' => 'View',
             'layout' => 'Layout',
-            'list_add' => 'List Add',
+            'list_add' => 'Добавочный текст в списке (помошь в проблемах...)',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'fio' => 'ФИО',
+            'fio' => '_ФИО (в разработке)',
         ];
     }
     public static function find()

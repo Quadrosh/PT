@@ -341,8 +341,9 @@ a:hover{
 }
 
 .master_body .navbar-brand{
-    position: absolute;
+    position: relative;
     z-index:1000;
+    height: 80px;
 }
 .masterPtLogo {
     height: 70px;
@@ -355,7 +356,7 @@ a:hover{
     width: 167px;
 }
 .masterImageBox {
-    margin-top: 100px;
+    margin-top: 20px;
     /*margin-bottom: 50px;*/
     margin-left: 120px;
     background-color: #fff;
@@ -367,7 +368,7 @@ a:hover{
     font-family: "MyriadProRegular", sans-serif;
     font-size: 38px;
     font-weight:normal;
-    margin-top: 150px;
+    margin-top: 70px;
     margin-bottom: 0;
 }
 .master_body .masterProfession {
@@ -874,7 +875,10 @@ a:hover{
     .navbar-brand {
         padding-left: 0;
     }
-
+    .master_body .links{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
     .masterListItem .masterPsychotherapy{
         text-align: left;
     }
@@ -932,7 +936,7 @@ a:hover{
         width: 117px;
     }
     .masterPageUsername {
-        margin-top: 110px;
+        margin-top: 30px;
     }
 
 }
