@@ -308,7 +308,7 @@ a:hover{
     margin-bottom: 0px;
 }
 .masterListItem.premium .masterAddress {
-    height: 67px;
+    /*height: 67px;*/
     margin-bottom: 0;
 }
 .masterListItem .masterAddress .masterPhone{
