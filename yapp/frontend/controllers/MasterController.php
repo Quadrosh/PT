@@ -59,6 +59,7 @@ class MasterController extends Controller
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
         $current =[];
         $current['headLine']='';
+        $current['city']=1;
         if (Yii::$app->request->isPost) {
             $data = Yii::$app->request->post('FilterForm');
             if (isset($data['city'])) {

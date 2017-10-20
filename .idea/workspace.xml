@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_city_xx.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/FilterForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/ItemassignController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/ItemassignController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/SiteitemController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/SiteitemController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/article/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_btn_xx.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_btn_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_masterpage_xx.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_masterpage_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_pro_xx.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_pro_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_psy_xx.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_psy_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_site_xx.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_site_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/assignjax.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assignjax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/master/_form.php" afterPath="$PROJECT_DIR$/yapp/backend/views/master/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/master/index.php" afterPath="$PROJECT_DIR$/yapp/backend/views/master/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/master/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/master/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/web/css/site.css" afterPath="$PROJECT_DIR$/yapp/backend/web/css/site.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Article.php" afterPath="$PROJECT_DIR$/yapp/common/models/Article.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Master.php" afterPath="$PROJECT_DIR$/yapp/common/models/Master.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" afterPath="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/config/main.php" afterPath="$PROJECT_DIR$/yapp/frontend/config/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6032172">
+            <state vertical-scroll-proportion="0.0">
               <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
               <folding>
                 <element signature="e#1820#1855#0#PHP" expanded="true" />
@@ -138,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MasterController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MasterController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.34316355">
+              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -304,8 +279,8 @@
         <option value="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
-        <option value="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/index.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
       </list>
     </option>
   </component>
@@ -1019,21 +994,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6032172">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
             <element signature="e#1820#1855#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34316355">
+          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
