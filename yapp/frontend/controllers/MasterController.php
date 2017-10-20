@@ -64,9 +64,15 @@ class MasterController extends Controller
             $data = Yii::$app->request->post('FilterForm');
             if (isset($data['city'])) {
                 $current['city']=$data['city'];
-                $city = CityItem::find()->where(['id'=>$data['city']])->one();
-                $current['headLine'] = 'Отбор по городу '.$city['name'];
-                $mastersQ = $city->masters;
+                if ($current['city']!=1) {
+                    $city = CityItem::find()->where(['id'=>$data['city']])->one();
+                    $current['headLine'] = 'Отбор по городу '.$city['name'];
+                    $mastersQ = $city->masters;
+                } else {
+                    $current['headLine']='';
+                    $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+                }
+
 //                $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
             }
         } else {
