@@ -51,6 +51,28 @@ use yii\widgets\ActiveForm;
 
         <div class="col-sm-4">
 <!--            --><?//= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
+           <h5>Город</h5>
+            <p>
+                <?php
+
+                        if(isset($model->cities)){
+                            $cities='';
+                            $i = 0;
+                            foreach ($model->cities as $city) {
+                                if ($i == 0) {
+                                    $cities.=$city['name'];
+                                } else {
+                                    $cities.=', '.$city['name'];
+                                }
+                                $i++;
+                            }
+                            echo $cities;
+                        };
+
+
+                ?>
+            </p>
+
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>

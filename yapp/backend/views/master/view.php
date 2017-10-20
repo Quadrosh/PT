@@ -57,9 +57,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'surname',
             'image',
             'image_alt',
-//            'city',
+
             'phone',
             'other_contacts:ntext',
+            //            'city',
+            [
+                'attribute'=>'city',
+                'value' => function($data)
+                {
+                    if(isset($data->cities)){
+                        $cities='';
+                        $i = 0;
+                        foreach ($data->cities as $city) {
+                            if ($i == 0) {
+                                $cities.=$city['name'];
+                            } else {
+                                $cities.=', '.$city['name'];
+                            }
+                            $i++;
+                        }
+                        return $cities;
+                    }
+                },
+                'format'=> 'html',
+            ],
             'address:ntext',
             'email:email',
 //            'site_link',
