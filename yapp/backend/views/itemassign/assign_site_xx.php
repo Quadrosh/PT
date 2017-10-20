@@ -43,8 +43,8 @@ $siteDataProvider = new \yii\data\ActiveDataProvider([
         <?= $form->field($itemAssign, 'master_id')
             ->hiddenInput(['value' => $masterId,'id' => 'site_assign-master_id'])
             ->label(false) ?>
-        <?= Html::a('Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
-        <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+        <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
+        <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
     <div class="col-sm-6">

@@ -50,7 +50,7 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-sm-4">
-            <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
+<!--            --><?//= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>

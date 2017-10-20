@@ -91,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ->label(false) ?>
         </div>
         <div class="col-xs-3 text-right">
-            <?= Html::submitButton('назначить', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary']) ?>
         </div>
             <?php ActiveForm::end() ?>
     </div>
@@ -113,7 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ->label(false) ?>
         </div>
         <div class="col-xs-3 text-right">
-            <?= Html::submitButton('назначить', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary']) ?>
         </div>
         <?php ActiveForm::end() ?>
     </div>
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ->label(false) ?>
         </div>
         <div class="col-xs-3 text-right">
-            <?= Html::submitButton('назначить', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary']) ?>
         </div>
         <?php ActiveForm::end() ?>
     </div>
@@ -164,7 +164,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
             <?= $form->field($model, 'status',[
                 'inputTemplate' => '<div class="input-group"><span class="lRound">{input}</span><span class="input-group-btn">'.
-                    '<button type="submit" class="btn rRound btn-primary">Назначить</button></span></div>',
+                    '<button type="submit" class="btn rRound btn-primary">Назначить <i class="fa fa-share" aria-hidden="true"></i></button></span></div>',
             ])->dropDownList([
                 'unread'=>'Непроверено',
                 'in_process'=>'В работе',
@@ -202,7 +202,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
 
 
-            <?= Html::submitButton('Cloud', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('<i class="fa fa-cloud-upload" aria-hidden="true"></i> Cloud', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>
         </div>
     </div>
@@ -225,8 +225,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'))->label(false) ?>
             <?= $form->field($tagAssign, 'article_id')->hiddenInput(['value' => $model['id']])->label(false) ?>
             <?= $form->field($tagAssign, 'master_id')->hiddenInput()->label(false) ?>
-            <?= Html::a('Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
-            <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
+            <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
             <?php ActiveForm::end() ?>
         </div>
         <div class="col-sm-6">
@@ -292,8 +292,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($itemAssign, 'master_id')
                 ->hiddenInput(['value' => '','id' => 'psy_assign-master_id'])
                 ->label(false) ?>
-            <?= Html::a('Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
-            <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
+            <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
             <?php ActiveForm::end() ?>
         </div>
         <div class="col-sm-6">
@@ -374,8 +374,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($itemAssign, 'master_id')
                 ->hiddenInput(['value' => '','id' => 'site_assign-master_id'])
                 ->label(false) ?>
-            <?= Html::a('Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
-            <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
+            <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
             <?php ActiveForm::end() ?>
         </div>
         <div class="col-sm-6">

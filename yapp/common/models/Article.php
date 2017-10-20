@@ -268,4 +268,15 @@ class Article extends \yii\db\ActiveRecord
                 $query->andWhere(['item_type'=>'site']);
             });
     }
+
+    /**
+     * Города
+     */
+    public function getCities()
+    {
+        return $this->hasMany(CityItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['article_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'city']);
+            });
+    }
 }

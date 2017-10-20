@@ -7,38 +7,42 @@ $itemAssign = new \common\models\ItemAssign();
 
 ?>
 <?php Pjax::begin([
-    'id' => 'professionAssignPjax',
+    'id' => 'cityAssignPjax',
     'timeout' => 2000,
     'enablePushState' => false
 ]); ?>
 <?php
-// профессия - дата во вьюху
-$query = \common\models\ItemAssign::find()->where(['item_type'=>'pro','master_id'=>$model['id']]);
-$proDataProvider = new \yii\data\ActiveDataProvider([
+// город - дата во вьюху
+if ($type == 'article') {
+    $query = \common\models\ItemAssign::find()->where(['item_type'=>'city','article_id'=>$articleId]);
+} else {
+    $query = \common\models\ItemAssign::find()->where(['item_type'=>'city','master_id'=>$masterId]);
+}
+
+$cityDataProvider = new \yii\data\ActiveDataProvider([
     'query'=>$query,
 ]);
 ?>
     <div class=" col-sm-6">
-        <h4>Профессия</h4>
+        <h4>Город</h4>
         <?php $form = ActiveForm::begin([
-            'id'=>'professionAssign',
-            'action' => ['/itemassign/assignproxx?id='.$model['id']],
-//                    'method' => 'post',
+            'id'=>'cityAssign',
+            'action' => ['/itemassign/assign-city-xx?type=master&id='.$masterId],
             'options' => ['data-pjax' => true ]
         ]); ?>
         <?= $form->field($itemAssign, 'item_type')
-            ->hiddenInput(['value'=>'pro','id' => 'pro_assign-item_type'])
+            ->hiddenInput(['value'=>'city','id' => 'city_assign-item_type'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'item_id')
-            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ProfessionItem::find()->orderBy('name')->all(), 'id','name'))
+            ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),['id'=>'city_assign-item_id'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'article_id')
-            ->hiddenInput()
+            ->hiddenInput(['value' => $articleId,'id' => 'city_assign-article_id'])
             ->label(false) ?>
         <?= $form->field($itemAssign, 'master_id')
-            ->hiddenInput(['value' => $model['id']])
+            ->hiddenInput(['value' => $masterId,'id' => 'city_assign-master_id'])
             ->label(false) ?>
-        <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/professionitem/create',['class' => 'btn btn-success btn-xs']) ?>
+        <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/city-item/create',['class' => 'btn btn-success btn-xs']) ?>
         <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
@@ -46,15 +50,16 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
 
         <?php
         echo yii\grid\GridView::widget([
-            'dataProvider' => $proDataProvider,
+            'dataProvider' => $cityDataProvider,
             'emptyText' => '',
             'columns'=>[
 //                        'item_id',
                 [
+                    'label' => 'Назначено',
                     'attribute'=>'item_id',
                     'value' => function($data)
                     {
-                        $theData = \common\models\ProfessionItem::find()->where(['id'=>$data['item_id']])->one();
+                        $theData = \common\models\CityItem::find()->where(['id'=>$data['item_id']])->one();
                         return $theData['name'];
                     },
                 ],
@@ -64,7 +69,6 @@ $proDataProvider = new \yii\data\ActiveDataProvider([
                         'delete'=>function($url,$model){
                             $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
                             return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
-//                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => true,]);
                                 ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
                         },
                         'view'=>function($url,$model){

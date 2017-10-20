@@ -2,10 +2,8 @@
 
 namespace backend\controllers;
 
-use common\models\ItemAssign;
-use common\models\Master;
 use Yii;
-use common\models\SiteItem;
+use common\models\CityItem;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -13,9 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SiteitemController implements the CRUD actions for SiteItem model.
+ * CityItemController implements the CRUD actions for CityItem model.
  */
-class SiteitemController extends Controller
+class CityItemController extends Controller
 {
     /**
      * @inheritdoc
@@ -33,14 +31,14 @@ class SiteitemController extends Controller
     }
 
     /**
-     * Lists all SiteItem models.
+     * Lists all CityItem models.
      * @return mixed
      */
     public function actionIndex()
     {
         Url::remember();
         $dataProvider = new ActiveDataProvider([
-            'query' => SiteItem::find(),
+            'query' => CityItem::find(),
         ]);
 
         return $this->render('index', [
@@ -49,7 +47,7 @@ class SiteitemController extends Controller
     }
 
     /**
-     * Displays a single SiteItem model.
+     * Displays a single CityItem model.
      * @param integer $id
      * @return mixed
      */
@@ -62,59 +60,25 @@ class SiteitemController extends Controller
     }
 
     /**
-     * Creates a new SiteItem model.
+     * Creates a new CityItem model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SiteItem();
+        $model = new CityItem();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Url::previous());
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
         }
-    }
 
-    public function actionCreatejax()
-    {
-        $model = new SiteItem();
-        $model['name'] = Yii::$app->request->post('name');
-        $model['link'] = Yii::$app->request->post('link');
-        $masterId = Yii::$app->request->post('master_id');
-        $modelM = Master::find()->where(['id'=>$masterId])->one();
-        $itemAssign = new ItemAssign();
-
-//        if ( $model->save()) {
-//            return $this->render('createjax', [
-//                'itemAssign' => $itemAssign,
-//                'model'=>$modelM
-//            ]);
-//        } else {
-//            echo 'FaLsE from Siteitem -> Createjax';
-//        }
-        $model->save();
-//        $this->layout = 'none';
-        return $this->render('createjax', [
-            'itemAssign' => $itemAssign,
-            'model'=>$modelM
+        return $this->render('create', [
+            'model' => $model,
         ]);
-
-
-
-
-//        else {
-//            return $this->render('createjax', [
-//                'model' => $model,
-//            ]);
-//        }
     }
 
     /**
-     * Updates an existing SiteItem model.
+     * Updates an existing CityItem model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -125,15 +89,15 @@ class SiteitemController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Url::previous());
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing SiteItem model.
+     * Deletes an existing CityItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -146,18 +110,18 @@ class SiteitemController extends Controller
     }
 
     /**
-     * Finds the SiteItem model based on its primary key value.
+     * Finds the CityItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SiteItem the loaded model
+     * @return CityItem the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SiteItem::findOne($id)) !== null) {
+        if (($model = CityItem::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Article;
 use common\models\BtnItem;
+use common\models\CityItem;
 use common\models\DailyCount;
 use common\models\ItemAssign;
 use common\models\Master;
@@ -56,8 +57,22 @@ class MasterController extends Controller
         $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+        $current =[];
+        $current['headLine']='';
+        if (Yii::$app->request->isPost) {
+            $data = Yii::$app->request->post('FilterForm');
+            if (isset($data['city'])) {
+                $current['city']=$data['city'];
+                $city = CityItem::find()->where(['id'=>$data['city']])->one();
+                $current['headLine'] = 'Отбор по городу '.$city['name'];
+                $mastersQ = $city->masters;
+//                $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+            }
+        } else {
+            $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
 
-        $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+        }
+
         $masterDataProvider = new ArrayDataProvider([
             'allModels'=>$mastersQ,
             'pagination' => [
@@ -68,15 +83,26 @@ class MasterController extends Controller
 //            ],
         ]);
 
+//        $cities = [];
+//        foreach ($mastersQ as $master ) {
+//            $masterCities = explode(',',$master['city']);
+//            foreach ($masterCities as $masterCity) {
+//                if (!isset($cities[$masterCity])) {
+//                    $cities[$masterCity]=$masterCity;
+//                }
+//            }
+//        }
+
+
 
         $searchModel = new MasterSearch();
         $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
 
-//        var_dump(Yii::$app->request->post()); die;
 
         return $this->render('index', [
             'dataProvider' => $masterDataProvider,
             'searchDataProvider' => $searchDataProvider,
+            'current' => $current,
         ]);
     }
 

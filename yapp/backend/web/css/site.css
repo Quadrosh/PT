@@ -201,3 +201,6 @@ a.desc:after {
 .grey {
     color: #ccc;
 }
+.grid-view .summary {
+    color: lightgrey;
+}

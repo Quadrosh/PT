@@ -53,6 +53,30 @@ class ItemassignController extends Controller
     }
 
 
+    public function actionAssignCityXx()
+    {
+        $type = Yii::$app->request->get('type');
+        $id = Yii::$app->request->get('id');
+
+        $itemAssignModel = new ItemAssign();
+        if (Yii::$app->request->isPost) {
+            $data=Yii::$app->request->post('ItemAssign');
+//            var_dump($data); die;
+            $itemAssignModel['item_type'] = $data['item_type'];
+            $itemAssignModel['item_id'] = $data['item_id'];
+            $itemAssignModel['article_id'] = $data['article_id'];
+            $itemAssignModel['master_id'] = $data['master_id'];
+            $itemAssignModel->save();
+
+            return $this->render('assign_city_xx',[
+                'type'=>$type,
+                'id'=>$id,
+                'articleId'=>$data['article_id'],
+                'masterId'=>$data['master_id'],
+            ]);
+        }
+    }
+
     public function actionAssignproxx()
     {
         $itemAssignModel = new ItemAssign();

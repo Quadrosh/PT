@@ -8,27 +8,30 @@ use \yii\widgets\ActiveForm;
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <?= Html::beginForm(['/master', 'id' => 'asdfa'], 'post', ['enctype' => 'multipart/form-data']); $model = new \common\models\Master();  ?>
-                <!--            --><?php //$form = ActiveForm::begin([
-                //                'id'=>'psyAssign',
-                //                'action' => ['/master'],
-                //                'method' => 'post',
-                //            ]); $model = new \common\models\Master(); ?>
 
-                <!--            --><?//= $form->field($model, 'name')->textInput() ?>
-                <?= Html::input('text', 'name', '', ['class' => 'someclass']) ?>
+                <?php $form = ActiveForm::begin([
+                                'id'=>'filterForm',
+                                'action' => ['/master'],
+                                'method' => 'post',
+                            ]); $filterForm = new \common\models\FilterForm(); ?>
 
+                <?= $form->field($filterForm, 'city')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),[
+                        'id'=>'city_assign-item_id',
+                        'class'=>'selectpicker',
+                        'value'=>$current['city'],
+                    ])
+                    ->label(false) ?>
 
-
-                <!--            --><?php //ActiveForm::end(); ?>
 
             </div>
             <div class="col-sm-3">
-                <?= Html::submitButton('Поиск', ['class' => 'btn btn-default btn-xs']) ?>
+                <?= Html::submitButton('<i class="fa fa-refresh" aria-hidden="true"></i>', ['class' => 'btn btn-default ']) ?>
             </div>
             <div class="col-sm-3"></div>
             <div class="col-sm-3"></div>
-            <?= Html::endForm() ?>
+            <?php ActiveForm::end(); ?>
+
         </div>
     </div>
 
@@ -39,6 +42,7 @@ use \yii\widgets\ActiveForm;
         <div class="row">
             <div class="col-sm-12 ">
                 <h2 class="indexHead">Психотерапевты</h2>
+                <p> <?= $current['headLine'] ?></p>
             </div>
 
 

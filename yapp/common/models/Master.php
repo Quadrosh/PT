@@ -50,66 +50,7 @@ class Master extends \yii\db\ActiveRecord
             TimestampBehavior::className(),
         ];
     }
-    public function getAssigns()
-    {
-        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
-    }
-    public function getPros()
-    {
-        return $this->hasMany(ProfessionItem::className(),['id'=>'item_id'])
-            ->viaTable('item_assign',['master_id'=>'id'],function($query){
-                $query->andWhere(['item_type'=>'pro']);
-            });
-    }
-    public function getPsys()
-    {
-        return $this->hasMany(PsychotherapyItem::className(),['id'=>'item_id'])
-            ->viaTable('item_assign',['master_id'=>'id'],function($query){
-                $query->andWhere(['item_type'=>'psy']);
-            });
-    }
-    public function getSites()
-    {
-        return $this->hasMany(SiteItem::className(),['id'=>'item_id'])
-            ->viaTable('item_assign',['master_id'=>'id'],function($query){
-                $query->andWhere(['item_type'=>'site']);
-            });
-    }
-    public function getBtns()
-    {
-        return $this->hasMany(BtnItem::className(),['id'=>'item_id'])
-            ->viaTable('item_assign',['master_id'=>'id'],function($query){
-                $query->andWhere(['item_type'=>'btn']);
-            });
-    }
-    public function getMtexts()
-    {
-        return $this->hasMany(Article::className(),['master_id'=>'id'])->where(['link2original'=>'masterpage','status'=>'publish']);
 
-    }
-
-
-    public function getTags()
-    {
-        return $this->hasMany(Tag::className(),['id'=>'tag_id'])
-            ->viaTable('tag_assign',['master_id'=>'id']);
-    }
-
-    /**
-     * image cloud
-     */
-    public function getImagefile()
-    {
-        return $this->hasOne(Imagefiles::className(),['name'=>'image']);
-    }
-
-    /**
-     * Background image cloud
-     */
-    public function getBackgroundImagefile()
-    {
-        return $this->hasOne(Imagefiles::className(),['name'=>'background_image']);
-    }
 
     /**
      * @inheritdoc
@@ -161,10 +102,107 @@ class Master extends \yii\db\ActiveRecord
             'fio' => '_ФИО (в разработке)',
         ];
     }
+
     public static function find()
     {
         return new MasterQuery(get_called_class());
     }
+
+    /**
+     * Назначения
+     */
+    public function getAssigns()
+    {
+        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
+    }
+
+    /**
+     * Профессии
+     */
+    public function getPros()
+    {
+        return $this->hasMany(ProfessionItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'pro']);
+            });
+    }
+
+    /**
+     * Виды психотерапии
+     */
+    public function getPsys()
+    {
+        return $this->hasMany(PsychotherapyItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'psy']);
+            });
+    }
+
+    /**
+     * Сайты
+     */
+    public function getSites()
+    {
+        return $this->hasMany(SiteItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'site']);
+            });
+    }
+
+    /**
+     * Кнопки
+     */
+    public function getBtns()
+    {
+        return $this->hasMany(BtnItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'btn']);
+            });
+    }
+    public function getMtexts()
+    {
+        return $this->hasMany(Article::className(),['master_id'=>'id'])->where(['link2original'=>'masterpage','status'=>'publish']);
+
+    }
+
+    /**
+     * Города
+     */
+    public function getCities()
+    {
+        return $this->hasMany(CityItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+                $query->andWhere(['item_type'=>'city']);
+            });
+    }
+
+    /**
+     * Метки
+     */
+    public function getTags()
+    {
+        return $this->hasMany(Tag::className(),['id'=>'tag_id'])
+            ->viaTable('tag_assign',['master_id'=>'id']);
+    }
+
+    /**
+     * image cloud
+     */
+    public function getImagefile()
+    {
+        return $this->hasOne(Imagefiles::className(),['name'=>'image']);
+    }
+
+    /**
+     * Background image cloud
+     */
+    public function getBackgroundImagefile()
+    {
+        return $this->hasOne(Imagefiles::className(),['name'=>'background_image']);
+    }
+
+
+
     public function getFio(){
         return $this['name'].' '.$this['middlename'].' '.$this['surname'];
     }

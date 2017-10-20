@@ -301,6 +301,12 @@ a:hover{
     vertical-align: bottom;
 
 }
+.masterListItem .city{
+    color: #808285;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    margin-bottom: 0px;
+}
 .masterListItem.premium .masterAddress {
     height: 67px;
     margin-bottom: 0;
@@ -314,6 +320,7 @@ a:hover{
 .masterListItem .masterAddress .site_icon{
     font-size: 10px;
 }
+
 .masterListItem .masterPhone{
     /*word-wrap: normal;*/
 }
@@ -796,6 +803,16 @@ a:hover{
     margin-bottom: 0;
 }
 
+#filterForm .form-group{
+    margin-bottom: 0;
+}
+#filterForm .help-block{
+    margin: 0;
+}
+
+
+
+
 
 
 
@@ -885,6 +902,8 @@ a:hover{
     .masterListItem .masterProfession{
         color: #000;
     }
+
+
     .masterListItem.premium .masterAddress{
         height:auto;
         /*margin-top: 10px;*/

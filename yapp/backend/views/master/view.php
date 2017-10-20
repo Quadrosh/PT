@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'surname',
             'image',
             'image_alt',
-            'city',
+//            'city',
             'phone',
             'other_contacts:ntext',
             'address:ntext',
@@ -131,13 +131,92 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
 
 
-                <?= Html::submitButton('Cloud', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('<i class="fa fa-cloud-upload" aria-hidden="true"></i> Cloud', ['class' => 'btn btn-primary']) ?>
                 <?php ActiveForm::end() ?>
             </div>
 
         </div>
         <!-- /image cloud -->
 
+        <!-- назначение города -->
+        <div class="row mt20 bt pt20">
+            <?php Pjax::begin([
+                'id' => 'cityAssignPjax',
+                'timeout' => 2000,
+                'enablePushState' => false,
+            ]); ?>
+            <?php
+            // город - дата во вьюху
+            $query = \common\models\ItemAssign::find()->where(['item_type'=>'city','master_id'=>$model['id']]);
+            $cityDataProvider = new \yii\data\ActiveDataProvider([
+                'query'=>$query,
+            ]);
+            ?>
+            <div class=" col-sm-6">
+                <h4>Город</h4>
+                <?php $form = ActiveForm::begin([
+                    'id'=>'cityAssign',
+                    'action' => ['/itemassign/assign-city-xx?type=master&id='.$model['id']],
+                    'options' => ['data-pjax' => true ]
+                ]); ?>
+                <?= $form->field($itemAssign, 'item_type')
+                    ->hiddenInput(['value'=>'city','id' => 'city_assign-item_type'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'item_id')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),['id'=>'city_assign-item_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'article_id')
+                    ->hiddenInput(['value' => '','id' => 'city_assign-article_id'])
+                    ->label(false) ?>
+                <?= $form->field($itemAssign, 'master_id')
+                    ->hiddenInput(['value' => $model['id'],'id' => 'city_assign-master_id'])
+                    ->label(false) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/city-item/create',['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+            <div class="col-sm-6">
+
+                <?php
+                echo yii\grid\GridView::widget([
+                    'dataProvider' => $cityDataProvider,
+                    'emptyText' => '',
+                    'columns'=>[
+//                        'item_id',
+                        [
+                            'label' => 'Назначено',
+                            'attribute'=>'item_id',
+                            'value' => function($data)
+                            {
+                                $theData = \common\models\CityItem::find()->where(['id'=>$data['item_id']])->one();
+                                return $theData['name'];
+                            },
+                        ],
+                        [
+                            'class' => \yii\grid\ActionColumn::className(),
+                            'buttons' => [
+                                'delete'=>function($url,$model){
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
+                                    return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
+                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                                },
+                                'view'=>function($url,$model){
+                                    return false;
+                                },
+                                'update'=>function($url,$model){
+                                    return false;
+                                },
+
+                            ]
+                        ],
+                    ],
+                ]);
+                ?>
+
+            </div>
+            <?php Pjax::end(); ?>
+        </div>
+        <!-- /назначение города -->
 
         <!-- назначение профессии -->
         <div class="row mt20 bt pt20">
@@ -173,8 +252,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id']])
                     ->label(false) ?>
-                <?= Html::a('Создать', '/professionitem/create',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/professionitem/create',['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
             <div class="col-sm-6">
@@ -242,8 +321,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($tagAssign, 'tag_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'))->label(false) ?>
                 <?= $form->field($tagAssign, 'article_id')->hiddenInput()->label(false) ?>
                 <?= $form->field($tagAssign, 'master_id')->hiddenInput(['value' => $model['id']])->label(false) ?>
-                <?= Html::a('Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/tag/create',['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
             <div class="col-sm-6">
@@ -330,8 +409,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id'],'id' => 'psy_assign-master_id'])
                     ->label(false) ?>
-                <?= Html::a('Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/psychotherapyitem/create',['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
             <div class="col-sm-6">
@@ -414,8 +493,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id'],'id' => 'site_assign-master_id'])
                     ->label(false) ?>
-                <?= Html::a('Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
-                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать', '/siteitem/create',['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
             <div class="col-sm-6">
@@ -503,7 +582,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($itemAssign, 'master_id')
                     ->hiddenInput(['value' => $model['id'],'id' => 'btn_assign-master_id'])
                     ->label(false) ?>
-                <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
                 <?php ActiveForm::end() ?>
             </div>
             <div class="col-sm-6">
@@ -571,7 +650,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class=" col-sm-2">
                 <h4>Тексты мастера</h4>
 
-                <?= Html::a('Создать текст','/article/mtextcreate?master_id='.$model['id'], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i> Создать текст','/article/mtextcreate?master_id='.$model['id'], ['class' => 'btn btn-success btn-xs']) ?>
 
             </div>
             <div class="col-sm-10">

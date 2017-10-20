@@ -24,7 +24,7 @@ use \yii\helpers\Html;
         ->label(false) ?>
 
 
-    <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+    <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
     <?php ActiveForm::end() ?>
 
 </div>

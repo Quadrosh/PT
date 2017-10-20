@@ -44,7 +44,7 @@ $btnDataProvider = new \yii\data\ActiveDataProvider([
         <?= $form->field($itemAssign, 'master_id')
             ->hiddenInput(['value' => $masterId,'id' => 'btn_assign-master_id'])
             ->label(false) ?>
-        <?= Html::submitButton('Назначить', ['class' => 'btn btn-primary btn-xs']) ?>
+        <?= Html::submitButton('Назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
         <?php ActiveForm::end() ?>
     </div>
     <div class="col-sm-6">

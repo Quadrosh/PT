@@ -14,6 +14,20 @@ return [
     'name' => 'Психотера',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'assetManager' => [
+            'assetMap' => [
+                'jquery.js' => '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
+            ],
+//            'bundles' => [
+//                'yii\web\JqueryAsset' => [
+//                    'sourcePath' => null,   // do not publish the bundle
+//                    'js' => [
+////                        '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+//                        '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
+//                    ]
+//                ],
+//            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'cookieValidationKey' => 'DgaujypcSnGWPqwdtwTo'

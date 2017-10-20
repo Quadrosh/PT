@@ -21,6 +21,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <?php $this->head() ?>
 </head>
 <body>
@@ -53,6 +54,7 @@ AppAsset::register($this);
                 ['label' => 'Цитаты', 'url' => ['/quote']],
                 ['label' => 'Страницы Мастера', 'url' => ['/masterpageitem']],
                 ['label' => 'кнопки Мастера', 'url' => ['/btnitem']],
+                ['label' => 'Города', 'url' => ['/city-item']],
             ],
         ],
         ['label' => 'Метки',
