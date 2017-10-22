@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_session_xx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/ItemassignController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/ItemassignController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/_form.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/index.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/itemassign/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/itemassign/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/master/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/master/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/ItemAssign.php" afterPath="$PROJECT_DIR$/yapp/common/models/ItemAssign.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Master.php" afterPath="$PROJECT_DIR$/yapp/common/models/Master.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/order.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/order.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/view.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/BtnitemController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/BtnitemController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/SessionTypeItemController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/SessionTypeItemController.php" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/CityItemController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="29" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <caret line="71" column="31" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -199,8 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/yapp/backend/controllers/QuoteController.php" />
-        <option value="$PROJECT_DIR$/yapp/common/models/Quote.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/quote/view.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/SiteController.php" />
@@ -250,6 +236,8 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/order.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/view.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
+        <option value="$PROJECT_DIR$/yapp/backend/controllers/SessionTypeItemController.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/controllers/BtnitemController.php" />
       </list>
     </option>
   </component>
@@ -438,6 +426,46 @@
               <option name="myItemId" value="psihotera" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psihotera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psihotera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psihotera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psihotera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -571,30 +599,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/MasterSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -853,14 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/CityItemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="29" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ItemassignController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -979,6 +975,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.5185184">
           <caret line="405" column="58" selection-start-line="405" selection-start-column="46" selection-end-line="405" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/CityItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="31" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/BtnitemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5849582">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2144847">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/SessionTypeItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2506964">
+          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
           <folding />
         </state>
       </provider>
