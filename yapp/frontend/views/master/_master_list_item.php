@@ -114,7 +114,26 @@ use yii\helpers\HtmlPurifier;
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
-
+                            </div>
+                            <div class="sessionTypes">
+                                <?php if (isset($model->sessionAssighs)) : ?>
+                                    <?php $count = 1?>
+                                    <p class="sessionsInfo">
+                                        <?php foreach ($model->sessionAssighs as $session) {
+                                            if ($count != count($model->sessionAssighs)) {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                                echo count($model->sessionAssighs)>1 ? ', ':'';
+                                            } else {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                            }
+                                            $count++;
+                                        } ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="col-xs-12 text-center less768">
@@ -245,7 +264,26 @@ use yii\helpers\HtmlPurifier;
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
-
+                            </div>
+                            <div class="sessionTypes">
+                                <?php if (isset($model->sessionAssighs)) : ?>
+                                    <?php $count = 1?>
+                                    <p class="sessionsInfo">
+                                        <?php foreach ($model->sessionAssighs as $session) {
+                                            if ($count != count($model->sessionAssighs)) {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                                echo count($model->sessionAssighs)>1 ? ', ':'';
+                                            } else {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                            }
+                                            $count++;
+                                        } ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="col-xs-12 text-center less768">
@@ -361,7 +399,26 @@ use yii\helpers\HtmlPurifier;
                                 <?php endif; ?>
 
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
-
+                            </div>
+                            <div class="sessionTypes">
+                                <?php if (isset($model->sessionAssighs)) : ?>
+                                    <?php $count = 1?>
+                                    <p class="sessionsInfo">
+                                        <?php foreach ($model->sessionAssighs as $session) {
+                                            if ($count != count($model->sessionAssighs)) {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                                echo count($model->sessionAssighs)>1 ? ', ':'';
+                                            } else {
+                                                echo '<span class="';
+                                                echo $count==1 ?' capital':' lowercase';
+                                                echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                            }
+                                            $count++;
+                                        } ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

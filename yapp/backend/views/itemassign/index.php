@@ -48,6 +48,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         $theData = \common\models\MasterpageItem::find()->where(['id'=>$data['item_id']])->one();
                         return $theData['name'];
                     }
+                    elseif ($data['item_type']== 'city') {
+                        $theData = \common\models\CityItem::find()->where(['id'=>$data['item_id']])->one();
+                        return $theData['name'];
+                    }
+                    elseif ($data['item_type']== 'session') {
+                        $theData = \common\models\SessionTypeItem::find()->where(['id'=>$data['item_id']])->one();
+                        return $theData['name'];
+                    }
                     else{
                         return $data['item_id'];
                     }
@@ -89,6 +97,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 },
             ],
+            'value',
+            'comment',
             // 'updated_at',
             // 'created_at',
 

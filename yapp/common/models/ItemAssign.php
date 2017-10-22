@@ -40,7 +40,7 @@ class ItemAssign extends \yii\db\ActiveRecord
         return [
             [['item_type', 'item_id'], 'required'],
             [['item_id', 'article_id', 'master_id', 'updated_at', 'created_at'], 'integer'],
-            [['item_type'], 'string', 'max' => 255],
+            [['item_type','value','comment'], 'string', 'max' => 255],
         ];
     }
 
@@ -58,5 +58,34 @@ class ItemAssign extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * Тип сессии
+     */
+    public function getSessionType()
+    {
+        if ($this['item_type']=='session') {
+            return $this->hasOne(SessionTypeItem::className(), ['id' => 'item_id']);
+        }
+    }
+
+    /**
+     * Мастер
+     */
+    public function getMaster()
+    {
+         return $this->hasOne(Master::className(), ['id' => 'master_id']);
+
+    }
+
+
+    /**
+     * Статья
+     */
+    public function getArticle()
+    {
+        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+
     }
 }

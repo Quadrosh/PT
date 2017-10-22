@@ -108,13 +108,7 @@ class Master extends \yii\db\ActiveRecord
         return new MasterQuery(get_called_class());
     }
 
-    /**
-     * Назначения
-     */
-    public function getAssigns()
-    {
-        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
-    }
+
 
     /**
      * Профессии
@@ -174,6 +168,62 @@ class Master extends \yii\db\ActiveRecord
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'city']);
             });
+    }
+
+    /**
+     * Назначения
+     */
+    public function getAssigns()
+    {
+        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
+    }
+
+//    public function getAssignJoin()
+//    {
+//        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id'])
+//                        ->joinWith(['assigns'])
+//            ;
+//    }
+
+    public function getSessionAssighs()
+    {
+        return $this->getAssigns()->where(['item_type'=>'session'])->all();
+    }
+
+    /**
+     * Виды приема
+     */
+    public function getSessionTypes()
+    {
+//        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+//            ->viaTable('item_assign',['master_id'=>'id'],function($query){
+//                $query->andWhere(['item_type'=>'session']);
+//            });
+
+
+//        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+//            ->via('assigns',function($q){
+//                $q->andWhere(['item_type'=>'session']);
+//            })
+
+
+
+//            ->joinWith(['assigns']);
+
+
+
+         return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+            ->viaTable('item_assign',['master_id'=>'id'],function($q){
+                $q->andWhere(['item_type'=>'session']);
+            })
+             ->leftJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
+//             ->rightJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
+//             ->innerJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
+
+//             ->asArray()
+
+
+            ;
     }
 
     /**

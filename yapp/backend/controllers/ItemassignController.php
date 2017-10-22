@@ -61,7 +61,6 @@ class ItemassignController extends Controller
         $itemAssignModel = new ItemAssign();
         if (Yii::$app->request->isPost) {
             $data=Yii::$app->request->post('ItemAssign');
-//            var_dump($data); die;
             $itemAssignModel['item_type'] = $data['item_type'];
             $itemAssignModel['item_id'] = $data['item_id'];
             $itemAssignModel['article_id'] = $data['article_id'];
@@ -69,6 +68,31 @@ class ItemassignController extends Controller
             $itemAssignModel->save();
 
             return $this->render('assign_city_xx',[
+                'type'=>$type,
+                'id'=>$id,
+                'articleId'=>$data['article_id'],
+                'masterId'=>$data['master_id'],
+            ]);
+        }
+    }
+
+    public function actionAssignSessionXx()
+    {
+        $type = Yii::$app->request->get('type');
+        $id = Yii::$app->request->get('id');
+
+        $itemAssignModel = new ItemAssign();
+        if (Yii::$app->request->isPost) {
+            $data=Yii::$app->request->post('ItemAssign');
+            $itemAssignModel['item_type'] = $data['item_type'];
+            $itemAssignModel['item_id'] = $data['item_id'];
+            $itemAssignModel['value'] = $data['value'];
+            $itemAssignModel['comment'] = $data['comment'];
+            $itemAssignModel['article_id'] = $data['article_id'];
+            $itemAssignModel['master_id'] = $data['master_id'];
+            $itemAssignModel->save();
+
+            return $this->render('assign_session_xx',[
                 'type'=>$type,
                 'id'=>$id,
                 'articleId'=>$data['article_id'],
@@ -248,8 +272,17 @@ class ItemassignController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => ItemAssign::find(),
+            'pagination'=> [
+                'pageSize' => 100,
+            ],
+            'sort' =>[
+                'defaultOrder'=> [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [
@@ -264,6 +297,7 @@ class ItemassignController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -279,7 +313,7 @@ class ItemassignController extends Controller
         $model = new ItemAssign();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -298,7 +332,7 @@ class ItemassignController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
                 'model' => $model,

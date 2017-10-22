@@ -12,17 +12,34 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'item_type')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-xs-6">
+            <?= $form->field($model, 'item_type')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-xs-2">
+            <?= $form->field($model, 'item_id')->textInput() ?>
+        </div>
+        <div class="col-xs-2">
+            <?= $form->field($model, 'article_id')->textInput() ?>
+        </div>
+        <div class="col-xs-2">
+            <?= $form->field($model, 'master_id')->textInput() ?>
+        </div>
+        <div class="col-xs-6">
+            <?= $form->field($model, 'value')->textInput() ?>
+        </div>
+        <div class="col-xs-6">
+            <?= $form->field($model, 'comment')->textInput() ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'item_id')->textInput() ?>
 
-    <?= $form->field($model, 'article_id')->textInput() ?>
 
-    <?= $form->field($model, 'master_id')->textInput() ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+<!--    --><?//= $form->field($model, 'updated_at')->textInput() ?>
+<!---->
+<!--    --><?//= $form->field($model, 'created_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

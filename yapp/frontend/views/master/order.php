@@ -12,7 +12,29 @@ $feedback = new \common\models\Feedback;
     'enablePushState' => false
 ]); ?>
 
-    <i>Прием осуществляется по адресу:<br>  <?= nl2br($master['address']) ?> </i>
+    <p class="address">Прием осуществляется по адресу:<br>  <?= nl2br($master['address']) ?> </p>
+    <div class="sessionTypes">
+        <?php if (isset($master->sessionAssighs)) : ?>
+            <?php $count = 1?>
+            <p class="sessionsInfo">Стоимость:
+                <?php foreach ($master->sessionAssighs as $session) {
+                    if ($count != count($master->sessionAssighs)) {
+                        echo '<span class="';
+//                        echo $count==1 ?' capital':' lowercase';
+                        echo ' lowercase';
+                        echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                        echo count($master->sessionAssighs)>1 ? ', ':'';
+                    } else {
+                        echo '<span class="';
+//                        echo $count==1 ?' capital':' lowercase';
+                        echo ' lowercase';
+                        echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                    }
+                    $count++;
+                } ?>
+            </p>
+        <?php endif; ?>
+    </div>
     <p>Записаться на сессию можно потелефону <?= $master['phone'] ?> </p>
     <p>Или отправив заявку в форме </p>
     <div class="row">

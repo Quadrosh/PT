@@ -72,12 +72,6 @@ $feedback = new \common\models\Feedback;
             <?php endif; ?>
 
 
-<!--            --><?php //if (isset($masterData['psys'])) : ?>
-<!--                --><?php //foreach ($masterData['psys'] as $psychotherapyType) : ?>
-<!--                    <i class="masterPsychotherapy">--><?//= Html::encode($psychotherapyType['name']) ?><!--</i> <br>-->
-<!--                --><?php //endforeach; ?>
-<!--            --><?php //endif; ?>
-
         </div>
     </div>
     <div class="row">
@@ -95,15 +89,35 @@ $feedback = new \common\models\Feedback;
 
                 <?php Pjax::begin([
                     'id' => 'masterArticleText',
-//                'container'=>'masterArticleTextContainer',
-
                     'timeout' => 2000,
                     'enablePushState' => false,
                 ]); ?>
 
                 <?php if ($article!=null) : ?>
                     <?php if($article=='go') : ?>
-                        <p>Прием осуществляется по адресу:<br>  <?= nl2br($master['address']) ?> </p>
+                        <p class="address">Прием осуществляется по адресу:<br>  <?= nl2br($master['address']) ?> </p>
+                        <div class="sessionTypes">
+                            <?php if (isset($master->sessionAssighs)) : ?>
+                                <?php $count = 1?>
+                                <p class="sessionsInfo">Стоимость:
+                                    <?php foreach ($master->sessionAssighs as $session) {
+                                        if ($count != count($master->sessionAssighs)) {
+                                            echo '<span class="';
+//                                            echo $count==1 ?' capital':' lowercase';
+                                            echo ' lowercase';
+                                            echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                            echo count($master->sessionAssighs)>1 ? ', ':'';
+                                        } else {
+                                            echo '<span class="';
+//                                            echo $count==1 ?' capital':' lowercase';
+                                            echo ' lowercase';
+                                            echo '">'.$session->sessionType['name'].'</span> - '.$session['value'].$session['comment'];
+                                        }
+                                        $count++;
+                                    } ?>
+                                </p>
+                            <?php endif; ?>
+                        </div>
                         <p>Записаться на сессию можно потелефону <?= $master['phone'] ?> </p>
                         <p>Или отправив заявку в форме </p>
                         <div class="row">

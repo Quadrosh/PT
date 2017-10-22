@@ -55,6 +55,7 @@ AppAsset::register($this);
                 ['label' => 'Страницы Мастера', 'url' => ['/masterpageitem']],
                 ['label' => 'кнопки Мастера', 'url' => ['/btnitem']],
                 ['label' => 'Города', 'url' => ['/city-item']],
+                ['label' => 'Типы сессий', 'url' => ['/session-type-item']],
             ],
         ],
         ['label' => 'Метки',

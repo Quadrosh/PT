@@ -336,6 +336,13 @@ a:hover{
     text-transform: lowercase;
 
 }
+.masterListItem .sessionsInfo{
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: right;
+    font-family: "MyriadProRegular", sans-serif;
+
+}
 .masterListItem .masterAddress .phone_icon,
 .masterListItem .masterAddressIcon{
     margin-right: 5px;
@@ -454,8 +461,6 @@ a:hover{
 .master_body .form-group  {
     width: 100%;
     color: grey;
-
-
 }
 
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
@@ -485,7 +490,9 @@ a:hover{
     color: #D3C9C6;
     text-decoration: none;
 }
-
+.master_body .address{
+    margin-bottom: 0;
+}
 /* Articles */
 
 .articleListItem {
