@@ -12,10 +12,12 @@ use common\models\MasterSearch;
 use common\models\ProfessionItem;
 use common\models\PsychotherapyItem;
 use common\models\SiteItem;
+use common\models\Tag;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
+use yii\db\Query;
 use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -59,22 +61,58 @@ class MasterController extends Controller
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
         $current =[];
         $current['headLine']='';
-        $current['city']=1;
+
         if (Yii::$app->request->isPost) {
             $data = Yii::$app->request->post('FilterForm');
-            if (isset($data['city'])) {
-                $current['city']=$data['city'];
-                if ($current['city']!=1) {
-                    $city = CityItem::find()->where(['id'=>$data['city']])->one();
-                    $current['headLine'] = 'Отбор по городу '.$city['name'];
-                    $mastersQ = $city->masters;
-                } else {
-                    $current['headLine']='';
-                    $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
-                }
 
-//                $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
-            }
+
+            $current['city']=$data['city'];
+            $current['tag']=$data['tag'];
+            $current['psy']=$data['psy'];
+            $current['pro']=$data['pro'];
+            $current['session']=$data['session'];
+
+            $cityQ = $data['city']
+                ? (new Query())
+                ->from('item_assign')
+                ->where(['item_id'=>$data['city'],'item_type'=>'city'])
+                ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $tagQ = $data['tag']
+                ? (new Query())
+                ->from('tag_assign')
+                ->where(['tag_id'=>$data['tag']])
+                ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $psyQ = $data['psy']
+                ? (new Query())
+                ->from('item_assign')
+                ->where(['item_id'=>$data['psy'],'item_type'=>'psy'])
+                ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $proQ = $data['pro']
+                ? (new Query())
+                ->from('item_assign')
+                ->where(['item_id'=>$data['pro'],'item_type'=>'pro'])
+                ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $sessionQ = $data['pro']
+                ? (new Query())
+                ->from('item_assign')
+                ->where(['item_id'=>$data['session'],'item_type'=>'session'])
+                ->select('master_id')
+                : (new Query())->from('master')->select('id');
+
+            $mastersQ = Master::find()
+                ->where(['id' => $cityQ])
+                ->andWhere(['id' => $tagQ])
+                ->andWhere(['id' => $psyQ])
+                ->andWhere(['id' => $proQ])
+                ->andWhere(['id' => $sessionQ])
+                ->all();
+
+
+
         } else {
             $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
 
@@ -89,17 +127,6 @@ class MasterController extends Controller
 //                'attributes' => ['id', 'username'],
 //            ],
         ]);
-
-//        $cities = [];
-//        foreach ($mastersQ as $master ) {
-//            $masterCities = explode(',',$master['city']);
-//            foreach ($masterCities as $masterCity) {
-//                if (!isset($cities[$masterCity])) {
-//                    $cities[$masterCity]=$masterCity;
-//                }
-//            }
-//        }
-
 
 
         $searchModel = new MasterSearch();

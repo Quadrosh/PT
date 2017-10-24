@@ -113,6 +113,16 @@ use yii\helpers\HtmlPurifier;
                                         <?= Html::a($mtext['list_name'],'/master/'.$model['hrurl'].'/'.$mtext['hrurl'],['class'=>'btn btn-xs masterBtn']) ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
+
+                                <?php $count = count($model->tags)?>
+                                <?php if (isset($model->tags)) : ?>
+                                    <p>
+                                        <?php foreach ($model->tags as $tag) : ?>
+                                            <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
+                                        <?php endforeach; ?>
+                                    </p>
+                                <?php endif; ?>
+
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
                             </div>
                             <div class="sessionTypes">
@@ -263,6 +273,16 @@ use yii\helpers\HtmlPurifier;
                                         <?= Html::a($mtext['list_name'],'/master/'.$model['hrurl'].'/'.$mtext['hrurl'],['class'=>'btn btn-xs masterBtn']) ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
+
+                                <?php $count = count($model->tags)?>
+                                <?php if (isset($model->tags)) : ?>
+                                    <p>
+                                        <?php foreach ($model->tags as $tag) : ?>
+                                            <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
+                                        <?php endforeach; ?>
+                                    </p>
+                                <?php endif; ?>
+
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
                             </div>
                             <div class="sessionTypes">

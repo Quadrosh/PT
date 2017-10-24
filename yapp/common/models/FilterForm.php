@@ -5,13 +5,15 @@ use Yii;
 use yii\base\Model;
 
 /**
- * Login form
+ * Filter form
  */
 class FilterForm extends Model
 {
     public $city;
     public $psy;
     public $pro;
+    public $tag;
+    public $session;
 
 
     /**
@@ -20,24 +22,17 @@ class FilterForm extends Model
     public function rules()
     {
         return [
-            [['city', 'psy', 'pro'], 'string'],
+            [[
+                'city',
+                'tag',
+                'psy',
+                'session',
+                'pro'
+            ], 'string'],
         ];
     }
 
 
 
 
-//    /**
-//     * Finds user by [[username]]
-//     *
-//     * @return User|null
-//     */
-//    protected function getUser()
-//    {
-//        if ($this->_user === null) {
-//            $this->_user = User::findByUsername($this->username);
-//        }
-//
-//        return $this->_user;
-//    }
 }

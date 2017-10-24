@@ -195,34 +195,30 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getSessionTypes()
     {
+        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+            ->via('assigns',function($q){
+                $q->andWhere(['item_type'=>'session']);
+            })
 //        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
 //            ->viaTable('item_assign',['master_id'=>'id'],function($query){
 //                $query->andWhere(['item_type'=>'session']);
 //            });
 
 
-//        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
-//            ->via('assigns',function($q){
-//                $q->andWhere(['item_type'=>'session']);
-//            })
 
 
 
 //            ->joinWith(['assigns']);
 
-
-
-         return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
-            ->viaTable('item_assign',['master_id'=>'id'],function($q){
-                $q->andWhere(['item_type'=>'session']);
-            })
-             ->leftJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
+//         return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+//            ->viaTable('item_assign',['master_id'=>'id'],function($q){
+//                $q->andWhere(['item_type'=>'session']);
+//            })
+//             ->leftJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
 //             ->rightJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
 //             ->innerJoin('item_assign', 'item_assign.master_id='.$this['id'].' AND item_assign.item_type="session"')
 
 //             ->asArray()
-
-
             ;
     }
 

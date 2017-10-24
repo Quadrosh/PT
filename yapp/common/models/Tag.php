@@ -52,6 +52,15 @@ class Tag extends \yii\db\ActiveRecord
             ->viaTable('tag_assign',['tag_id'=>'id']);
     }
 
+    /**
+     * Мастера
+     */
+    public function getMasters()
+    {
+        return $this->hasMany(Master::className(),['id'=>'master_id'])
+            ->viaTable('tag_assign',['tag_id'=>'id']);
+    }
+
 
 
 

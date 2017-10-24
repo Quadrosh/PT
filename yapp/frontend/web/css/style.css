@@ -816,6 +816,15 @@ a:hover{
 #filterForm .help-block{
     margin: 0;
 }
+#filterForm .submit-btn{
+    color: #2376A5;
+}
+
+.bootstrap-select > .dropdown-toggle {
+    width: 150px;
+}
+
+
 
 
 
@@ -842,6 +851,9 @@ a:hover{
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) {
+    .bootstrap-select > .dropdown-toggle {
+        width: 120px;
+    }
     .popularArticles {
         width: 640px;
         margin-left: -320px;
@@ -884,7 +896,12 @@ a:hover{
         display: block;
     }
 
-
+    .bootstrap-select > .dropdown-toggle {
+        width: 150px;
+        margin-bottom: 10px;
+        left: 50%;
+        margin-left: -75px !important;
+    }
     .popularArticles {
         width: 320px;
         margin-left: -160px;

@@ -7,29 +7,67 @@ use \yii\widgets\ActiveForm;
 <div class="row topFilter">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <?php $form = ActiveForm::begin([
+                'id'=>'filterForm',
+                'action' => ['/master'],
+                'method' => 'post',
+            ]); $filterForm = new \common\models\FilterForm(); ?>
 
-                <?php $form = ActiveForm::begin([
-                                'id'=>'filterForm',
-                                'action' => ['/master'],
-                                'method' => 'post',
-                            ]); $filterForm = new \common\models\FilterForm(); ?>
-
+            <div class="col-sm-2  text-center">
                 <?= $form->field($filterForm, 'city')
                     ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),[
                         'id'=>'city_assign-item_id',
                         'class'=>'selectpicker',
-                        'value'=>$current['city'],
+                        'value'=>isset($current['city'])?$current['city']:'',
+                        'prompt'=>'Город'
                     ])
                     ->label(false) ?>
 
 
             </div>
-            <div class="col-sm-3">
-                <?= Html::submitButton('<i class="fa fa-refresh" aria-hidden="true"></i>', ['class' => 'btn btn-default ']) ?>
+            <div class="col-sm-2 text-center">
+                <?= $form->field($filterForm, 'tag')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'),[
+                        'id'=>'tag_assign-item_id',
+                        'class'=>'selectpicker',
+                        'value'=>isset($current['tag'])?$current['tag']:'',
+                        'prompt'=>'Метка'
+                    ])
+                    ->label(false) ?>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-2 text-center">
+                <?= $form->field($filterForm, 'psy')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\PsychotherapyItem::find()->orderBy('name')->all(), 'id','name'),[
+                        'id'=>'psy_assign-item_id',
+                        'class'=>'selectpicker',
+                        'value'=>isset($current['psy'])?$current['psy']:'',
+                        'prompt'=>'Психотерапия'
+                    ])
+                    ->label(false) ?>
+            </div>
+            <div class="col-sm-2 text-center">
+                <?= $form->field($filterForm, 'pro')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ProfessionItem::find()->orderBy('name')->all(), 'id','name'),[
+                        'id'=>'pro_assign-item_id',
+                        'class'=>'selectpicker',
+                        'value'=>isset($current['pro'])?$current['pro']:'',
+                        'prompt'=>'Профессия'
+                    ])
+                    ->label(false) ?>
+            </div>
+            <div class="col-sm-2 text-center">
+                <?= $form->field($filterForm, 'session')
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\SessionTypeItem::find()->orderBy('name')->all(), 'id','name'),[
+                        'id'=>'session_assign-item_id',
+                        'class'=>'selectpicker',
+                        'value'=>isset($current['session'])?$current['session']:'',
+                        'prompt'=>'Вид приема'
+                    ])
+                    ->label(false) ?>
+            </div>
+            <div class="col-sm-2 text-center">
+                <?= Html::submitButton('<i class="fa fa-refresh" aria-hidden="true"></i>', ['class' => 'btn btn-default submit-btn ']) ?>
+            </div>
             <?php ActiveForm::end(); ?>
 
         </div>
