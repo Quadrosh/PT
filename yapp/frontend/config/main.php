@@ -14,19 +14,16 @@ return [
     'name' => 'Психотера',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'sphinx' => [
+            'class' => 'yii\sphinx\Connection',
+            'dsn' => 'mysql:host=127.0.0.1;port=9306;',
+            'username' => '',
+            'password' => '',
+        ],
         'assetManager' => [
             'assetMap' => [
                 'jquery.js' => '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
             ],
-//            'bundles' => [
-//                'yii\web\JqueryAsset' => [
-//                    'sourcePath' => null,   // do not publish the bundle
-//                    'js' => [
-////                        '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-//                        '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
-//                    ]
-//                ],
-//            ],
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -65,7 +62,9 @@ return [
                 'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
                 'article/bypsy/<hrurl:[0-9a-z\-\_]+>' => 'article/bypsy',
 
+                'master/filter' => 'master/filter',
                 'master/index' => 'master/index',
+                'master/search' => 'master/search',
                 'master/<hrurl:[0-9a-z\-\_]+>' => 'master/view',
                 'master/<hrurl:[0-9a-z\-\_]+>/<article:[0-9a-z\-\_]+>' => 'master/view',
                 'master/otziv/<hrurl:[0-9a-z\-\_]+>' => 'master/reviews',

@@ -9,7 +9,7 @@ use \yii\widgets\ActiveForm;
         <div class="row">
             <?php $form = ActiveForm::begin([
                 'id'=>'filterForm',
-                'action' => ['/master'],
+                'action' => ['/master/filter'],
                 'method' => 'post',
             ]); $filterForm = new \common\models\FilterForm(); ?>
 

@@ -140,6 +140,157 @@ class MasterController extends Controller
         ]);
     }
 
+    /**
+     * filter.
+     * @return mixed
+     */
+    public function actionFilter()
+    {
+        $this->layout = 'index_nopadding';
+        $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
+        $this->view->params['description'] = 'описание';
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+        $current =[];
+        $current['headLine']='';
+
+        if (Yii::$app->request->isPost) {
+            $data = Yii::$app->request->post('FilterForm');
+
+
+            $current['city']=$data['city'];
+            $current['tag']=$data['tag'];
+            $current['psy']=$data['psy'];
+            $current['pro']=$data['pro'];
+            $current['session']=$data['session'];
+
+            $cityQ = $data['city']
+                ? (new Query())
+                    ->from('item_assign')
+                    ->where(['item_id'=>$data['city'],'item_type'=>'city'])
+                    ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $tagQ = $data['tag']
+                ? (new Query())
+                    ->from('tag_assign')
+                    ->where(['tag_id'=>$data['tag']])
+                    ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $psyQ = $data['psy']
+                ? (new Query())
+                    ->from('item_assign')
+                    ->where(['item_id'=>$data['psy'],'item_type'=>'psy'])
+                    ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $proQ = $data['pro']
+                ? (new Query())
+                    ->from('item_assign')
+                    ->where(['item_id'=>$data['pro'],'item_type'=>'pro'])
+                    ->select('master_id')
+                : (new Query())->from('master')->select('id');
+            $sessionQ = $data['pro']
+                ? (new Query())
+                    ->from('item_assign')
+                    ->where(['item_id'=>$data['session'],'item_type'=>'session'])
+                    ->select('master_id')
+                : (new Query())->from('master')->select('id');
+
+            $mastersQ = Master::find()
+                ->where(['id' => $cityQ])
+                ->andWhere(['id' => $tagQ])
+                ->andWhere(['id' => $psyQ])
+                ->andWhere(['id' => $proQ])
+                ->andWhere(['id' => $sessionQ])
+                ->all();
+
+
+
+        } else {
+            $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+
+        }
+
+        $masterDataProvider = new ArrayDataProvider([
+            'allModels'=>$mastersQ,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+//            'sort' => [
+//                'attributes' => ['id', 'username'],
+//            ],
+        ]);
+
+
+        $searchModel = new MasterSearch();
+        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
+
+
+        return $this->render('index', [
+            'dataProvider' => $masterDataProvider,
+            'searchDataProvider' => $searchDataProvider,
+            'current' => $current,
+        ]);
+    }
+
+
+    /**
+     * filter.
+     * @return mixed
+     */
+    public function actionSearch()
+    {
+        $this->layout = 'index_nopadding';
+        $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
+        $this->view->params['description'] = 'описание';
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+        $current =[];
+        $current['headLine']='';
+
+//        if (Yii::$app->request->isPost) {
+//            $data = Yii::$app->request->post('FilterForm');
+//
+//            $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+//
+//        }
+        $query = new \yii\sphinx\Query();
+
+        $rows = (new \yii\sphinx\Query())
+            ->from('master')
+            ->match(
+            // produces '((@title "Yii") (@author "Paul")) | (@content "Sphinx")' :
+                (new \yii\sphinx\MatchExpression())
+                    ->match(['name' => 'Михаил'])
+//                    ->andMatch(['author' => 'Paul'])
+//                    ->orMatch(['content' => 'Sphinx'])
+            )
+            ->all();
+        var_dump($rows);
+//        $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+
+//        $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+
+        $masterDataProvider = new ArrayDataProvider([
+            'allModels'=>$mastersQ,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+//            'sort' => [
+//                'attributes' => ['id', 'username'],
+//            ],
+        ]);
+
+
+        $searchModel = new MasterSearch();
+        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
+
+
+        return $this->render('index', [
+            'dataProvider' => $masterDataProvider,
+            'searchDataProvider' => $searchDataProvider,
+            'current' => $current,
+        ]);
+    }
+
+
     public function actionView($hrurl)
     {
         $this->layout = 'master';
