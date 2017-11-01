@@ -2,76 +2,135 @@
 
 namespace common\models;
 
+use Yii;
 
+/**
+ * This is the search model class for model "master".
+ *
 
-use yii\data\ActiveDataProvider;
-
-class MasterSearch extends Master
+ */
+class MasterSearch extends \yii\elasticsearch\ActiveRecord
 {
-    public $username;
-    public $name;
-    public $surname;
-    public $middlename;
-    public $city;
-    public $psys;
-    public $pros;
-    public $psy_id;
-    public $pro_id;
-    public $fio;
+    public static function index() {
+        return 'psihotera';
+    }
 
-    public function rules()
+    public static function type() {
+        return 'master';
+    }
+
+
+
+    /**
+     * @inheritdoc
+     */
+    public function attributes()
     {
         return [
-          [['psys','pros','fio'],'safe'],
-          [['psy_id','pro_id'],'integer'],
+            'id',
+            'username',
+            'hrurl',
+            'name',
+            'middlename',
+            'surname',
+            'image',
+            'image_alt',
+            'city',
+            'phone',
+            'other_contacts',
+            'address',
+            'email',
+            'site_link',
+            'site_id',
+            'comment',
+            'background_image',
+            'stylekey',
+            'hello',
+            'view',
+            'layout',
+            'list_add',
+            'status',
+            'created_at',
+            'updated_at',
+            'psys',
+            'tags',
+            'mtexts',
+            'sessions',
+
         ];
     }
-    public function search ($params=[])
+
+
+
+    /**
+     * @return array This model's mapping for elastic search
+     */
+    public static function mapping()
     {
-        $query = Master::find();
-//        $query->joinWith(['pros','psys']);
-        $dataProvider = new ActiveDataProvider([
-            'query'=>$query,
-        ]);
-        $dataProvider->setSort([
-            'attributes'=>[
-                'id',
-                'name',
-                'fio'=>[
-                    'asc'=>['name'=>SORT_ASC,'surname'=>SORT_ASC],
-                    'desc'=>['name'=>SORT_DESC,'surname'=>SORT_DESC],
-                    'label'=>'Ф.И.О.',
-                    'default'=>SORT_ASC
+        return [
+            static::type() => [
+                'properties' => [
+                    'id' => ['type' => 'long'],
+                    'username' => ['type' => 'string'],
+                    'hrurl' => ['type' => 'string'],
+                    'name' => ['type' => 'string'],
+                    'middlename' => ['type' => 'string'],
+                    'surname' => ['type' => 'string'],
+                    'city' => ['type' => 'string'],
+                    'phone' => ['type' => 'string'],
+                    'other_contacts'  => ['type' => 'string'],
+                    'site_link' => ['type' => 'string'],
+                    'address' => ['type' => 'string'],
+                    'site_id' => ['type' => 'long'],
+                    'hello'  => ['type' => 'string'],
+                    'list_add' => ['type' => 'string'],
+                    'status' => ['type' => 'string'],
+                    'psys' => ['type' => 'string'],
+                    'created_at' => ['type' => 'long'],
+                    'updated_at' => ['type' => 'long'],
+                    'tags' => ['type' => 'string'],
+                    'mtexts' => ['type' => 'string'],
+                    'sessions' => ['type' => 'string'],
+
+
                 ]
-            ]
+            ],
+        ];
+    }
+
+    /**
+     * Set (update) mappings for this model
+     */
+    public static function updateMapping()
+    {
+        $db = static::getDb();
+        $command = $db->createCommand();
+        $command->setMapping(static::index(), static::type(), static::mapping());
+    }
+
+    /**
+     * Create this model's index
+     */
+    public static function createIndex()
+    {
+        $db = static::getDb();
+        $command = $db->createCommand();
+        $command->createIndex(static::index(), [
+            'settings' => [ /* ... */ ],
+            'mappings' => static::mapping(),
+            //'warmers' => [ /* ... */ ],
+            //'aliases' => [ /* ... */ ],
+            //'creation_date' => '...'
         ]);
+    }
 
-
-//        $dataProvider->sort->attributes['pros'] = [
-//            'asc' => ['profession_item'=> SORT_ASC],
-//            'desc' => ['profession_item'=> SORT_DESC],
-//        ];
-//        $dataProvider->sort->attributes['psys'] = [
-//            'asc' => ['psychotherapy_item'=> SORT_ASC],
-//            'desc' => ['psychotherapy_item'=> SORT_DESC],
-//        ];
-        if (!($this->load($params) && $this->validate())) {
-            return $dataProvider;
-        }
-        $this->addCondition($query,'id');
-        $this->addCondition($query,'name',true);
-        $this->addCondition($query,'surname',true);
-
-        if ($this->pro_id){
-            $query->byPros($this->pro_id);
-        }
-
-        $query->andWhere('name LIKE "%'.$this['name'].'%" '.'OR surname LIKE "%'.$this['surname'].'%"');
-
-//        $query
-//            ->andFilterWhere(['like','profession_item.name',$this->pros])
-//            ->andFilterWhere(['like','psychotherapy_item.name',$this->psys]);
-
-        return $dataProvider;
+    /**
+     * Delete this model's index
+     */
+    public static function deleteIndex()
+    {
+        $db = static::getDb();
+        $command = $db->createCommand();
+        $command->deleteIndex(static::index(), static::type());
     }
 }

@@ -68,6 +68,7 @@ class Master extends \yii\db\ActiveRecord
         ];
     }
 
+
     /**
      * @inheritdoc
      */
@@ -103,10 +104,10 @@ class Master extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function find()
-    {
-        return new MasterQuery(get_called_class());
-    }
+//    public static function find()
+//    {
+//        return new MasterQuery(get_called_class());
+//    }
 
 
 
@@ -178,12 +179,7 @@ class Master extends \yii\db\ActiveRecord
         return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
     }
 
-//    public function getAssignJoin()
-//    {
-//        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id'])
-//                        ->joinWith(['assigns'])
-//            ;
-//    }
+
 
     public function getSessionAssighs()
     {
@@ -252,4 +248,7 @@ class Master extends \yii\db\ActiveRecord
     public function getFio(){
         return $this['name'].' '.$this['middlename'].' '.$this['surname'];
     }
+
+
+
 }

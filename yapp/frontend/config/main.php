@@ -14,12 +14,6 @@ return [
     'name' => 'Психотера',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'sphinx' => [
-            'class' => 'yii\sphinx\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;port=9306;',
-            'username' => '',
-            'password' => '',
-        ],
         'assetManager' => [
             'assetMap' => [
                 'jquery.js' => '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
@@ -58,6 +52,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',
                 'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
                 'article/bypsy/<hrurl:[0-9a-z\-\_]+>' => 'article/bypsy',

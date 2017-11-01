@@ -51,6 +51,9 @@ body {
     /*min-height: 100%;*/
 
 }
+.wrap {
+    position: relative;
+}
 .master_body {
     background-color: #30353b;
     /*background-color: #DDB09E;*/
@@ -331,9 +334,11 @@ a:hover{
 .masterListItem .disease{
     padding: 5px;
     min-height: 35px;
-    background-color: #eee;
+    /*background-color: #eee;*/
+    background-color: rgba(233,235,237,0.5);
     font-size: 12px;
     text-transform: lowercase;
+    border: 1px #e9ebed solid;
 
 }
 .masterListItem .sessionsInfo{
@@ -347,6 +352,8 @@ a:hover{
 .masterListItem .masterAddressIcon{
     margin-right: 5px;
 }
+
+
 .master_body .dark {
     color: #fff;
 }
@@ -820,8 +827,93 @@ a:hover{
     color: #2376A5;
 }
 
+#filterForm .btn-default:hover {
+    color: #333;
+    background-color: #f4f5f6;
+    /*border-color: grey;*/
+    border-color: #adadad;
+}
+#filterForm .btn-default:active,
+#filterForm .btn-default.active,
+#filterForm .open > .dropdown-toggle.btn-default {
+    color: #333;
+    /*background-color: #e6e6e6;*/
+    background-color: #f4f5f6;
+    border-color: #adadad;
+}
+
 .bootstrap-select > .dropdown-toggle {
     width: 150px;
+}
+
+.searchForm {
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left:-150px;
+    margin-top: 22px;
+}
+
+#searchFormNarrow{
+    position: absolute;
+    width: 200px;
+    left: 66%;
+    margin-left:-100px;
+    margin-top: 2px;
+    /*height: 30px;*/
+    z-index:10;
+}
+
+.search-input {
+    position: relative;
+    display: inline;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid  #2376A5;
+    text-align: left;
+
+    -moz-user-select: text;
+    -webkit-user-select: text;
+
+}
+.search-input:valid,
+.search-input:valid:hover {
+    background-color: white;
+}
+.search-input:invalid,
+.search-input:invalid:hover {
+    box-shadow: none;
+}
+
+.search-input:hover {
+    background-color: transparent;
+    border: 1px solid  #2376A5;
+
+}
+
+.search-input:active:hover,
+.search-input:focus {
+    background-color: white;
+    border: 1px solid  #2376A5;
+    box-shadow: none;
+
+}
+.search-submit,
+.search-submit:active:hover,
+.search-submit:focus{
+    position: absolute;
+    display: inline;
+    top: 0px;
+    right: 0px;
+    border: none;
+    color: #2376A5;
+    background-color: transparent;
+    box-shadow: none;
+
+}
+
+.search-submit:hover{
+    background-color: transparent;
 }
 
 
@@ -851,6 +943,11 @@ a:hover{
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) {
+    .searchForm {
+        width: 160px;
+        margin-left:-80px;
+        margin-top: 22px;
+    }
     .bootstrap-select > .dropdown-toggle {
         width: 120px;
     }
@@ -1001,6 +1098,19 @@ a:hover{
         right: 20px;
     }
 }
+@media only screen and (max-width : 550px) {
+    #searchFormNarrow{
+        width: 200px;
+        left: 50%;
+        margin-left:-100px;
+    }
+    .brandName{
+        display: none;
+    }
+    .brandMotto{
+        display: none;
+    }
+}
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 479px) {
     .noPaddingLess480 {
@@ -1100,6 +1210,9 @@ a:hover{
     .masterListItem.premium .listDataBox,
     .masterListItem.regular .listDataBox{
         padding-left: 60px;
+    }
+    #searchFormNarrow{
+        display: none;
     }
 }
 

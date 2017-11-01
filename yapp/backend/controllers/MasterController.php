@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Imagefiles;
 use common\models\ItemAssign;
+use common\models\MasterSearch;
 use common\models\ProfessionItem;
 use common\models\PsychotherapyItem;
 use common\models\SiteItem;
@@ -301,5 +302,40 @@ class MasterController extends Controller
             return $this->redirect(Url::previous());
         }
 
+    }
+
+    /**
+     * Creates a search Index
+     *
+     * @return mixed
+     */
+    public function actionSearchIndex($id)
+    {
+        $source = Master::find()->where(['id'=>$id])->one();
+
+        $searchItem = MasterSearch::find()->where(['id'=>$id])->one();
+
+        if (!$searchItem) {
+            $searchItem = new MasterSearch();
+            $searchItem->setPrimaryKey($id);
+        }
+
+        $searchItem['id'] = $source['id'];
+        $searchItem['username'] = $source['username'];
+        $searchItem['hrurl'] = $source['hrurl'];
+        $searchItem['other_contacts'] = $source['other_contacts'];
+        $searchItem['hello'] = $source['hello'];
+        $searchItem['name'] = $source['name'];
+        $searchItem['middlename'] = $source['middlename'];
+        $searchItem['surname'] = $source['surname'];
+        $searchItem['phone'] = $source['phone'];
+        $searchItem['address'] = $source['address'];
+
+        if ($searchItem->save()) {
+            Yii::$app->session->setFlash('success', 'объект проиндексирован для поиска');
+        } else {
+            Yii::$app->session->setFlash('error', 'индексирование не получилось');
+        };
+        return $this->redirect(Url::previous());
     }
 }

@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use \yii\widgets\ActiveForm;
 
 AppAsset::register($this);
 ?>
@@ -33,8 +34,28 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
+    <!-- поиск < 768 -->
+    <?php $form = ActiveForm::begin([
+        'id'=>'searchFormNarrow',
+        'action' => ['/master/search'],
+        'method' => 'post',
+    ]); $seachForm = new \common\models\SearchForm(); ?>
+    <div class="searchForm">
+        <?= $form->field($seachForm, 'search')
+            ->textInput([
+                'class' => 'btn btn-default search-input ',
+                'value' => isset(Yii::$app->view->params['search'])?Yii::$app->view->params['search']:'' ,
+                'required'=>true,
+                'id'=>'searchFormNarrow-search',
+            ])
+            ->label(false) ?>
+
+        <?= Html::submitButton('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn btn-default search-submit ']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+    <!-- /поиск < 768 -->
+
+    <?php NavBar::begin([
         'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
@@ -64,6 +85,30 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
     ]);
+    ?>
+    <!-- поиск -->
+    <?php $form = ActiveForm::begin([
+        'id'=>'searchForm',
+        'action' => ['/master/search'],
+        'method' => 'post',
+    ]); $seachForm = new \common\models\SearchForm(); ?>
+
+    <div class="searchForm">
+        <?= $form->field($seachForm, 'search')
+            ->textInput([
+                'class' => 'btn btn-default search-input ',
+                'value' => isset(Yii::$app->view->params['search'])?Yii::$app->view->params['search']:'' ,
+                'required'=>true,
+                'id'=>'searchForm-search',
+            ])
+            ->label(false) ?>
+
+        <?= Html::submitButton('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn btn-default search-submit ']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
+    <?
     NavBar::end();
     ?>
 

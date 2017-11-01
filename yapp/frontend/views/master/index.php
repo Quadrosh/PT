@@ -22,8 +22,6 @@ use \yii\widgets\ActiveForm;
                         'prompt'=>'Город'
                     ])
                     ->label(false) ?>
-
-
             </div>
             <div class="col-sm-2 text-center">
                 <?= $form->field($filterForm, 'tag')

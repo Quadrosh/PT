@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Article;
+use common\models\ArticleSearch;
 use common\models\DailyCount;
 use common\models\PsychotherapyItem;
 use common\models\ReadWithIt;
@@ -20,6 +21,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\elasticsearch\Query;
 
 /**
  * Site controller
@@ -195,5 +197,78 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function actionSearch()
+    {
+        Url::remember();
+        $this->layout = 'article_index';
+        $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
+        $this->view->params['description'] = 'описание';
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт';
+        $current = [];
+        $current['headLine'] = '';
 
+        $request = Yii::$app->request->post('SearchForm');
+        $search = $request['search'];
+        $current['search'] = $search;
+        $this->view->params['search'] = $search;
+        $rows = ArticleSearch::find()->query(['multi_match'=>['query'=>$search,'fields'=>[
+            'list_name',
+            'hrurl',
+            'pagehead',
+            'text',
+            'excerpt',
+            'excerpt_big',
+            'author',
+            'psys',
+            'tags',
+            'sites',
+            'master_id',
+
+        ]]])->all();
+
+        $articles=[];
+        foreach ($rows as $row) {
+            $article = Article::find()->where(['id'=>$row['id']])->one();
+            $articles[] = $article;
+        }
+//        $rows = ArticleSearch::find()->where(['match','text', $search])->all();
+//        var_dump($search['search']); die;
+
+//        $query = new \yii\elasticsearch\Query();
+//        $query
+////            ->query(['match'=>['text'=>$search]])
+////            ->fields('id, text')
+////            ->source($search['search'])
+//            ->from('psihotera','article')
+////            ->query(['match'=>['text'=>$search]])
+////                ->search()
+////            ->match(['text'=>$search])
+//            ->limit(10);
+//        $command = $query->createCommand();
+//        $rows = $command->search();
+
+//        var_dump($rows); die;
+
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => Article::find(),
+//            'pagination'=> [
+//                'pageSize' => 100,
+//            ],
+//            'sort' =>[
+//                'defaultOrder'=> [
+//                    'id' => SORT_DESC
+//                ]
+//            ]
+//        ]);
+        $articleDataProvider = new ArrayDataProvider([
+            'allModels'=>$articles,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        return $this->render('search', [
+            'dataProvider' => $articleDataProvider,
+        ]);
+    }
 }

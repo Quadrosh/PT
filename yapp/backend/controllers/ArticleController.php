@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\ArticleSearch;
 use common\models\Imagefiles;
 use common\models\ItemAssign;
 use common\models\PsychotherapyItem;
@@ -9,6 +10,7 @@ use common\models\SiteItem;
 use common\models\Tag;
 use common\models\Tagassign;
 use common\models\UploadForm;
+use console\models\ArticleElastic;
 use Yii;
 use common\models\Article;
 use yii\data\ActiveDataProvider;
@@ -365,4 +367,36 @@ class ArticleController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionSearchIndex($id)
+    {
+        $source = Article::find()->where(['id'=>$id])->one();
+        $searchItem = ArticleSearch::find()->where(['id'=>$id])->one();
+        if (!$searchItem) {
+        $searchItem = new ArticleSearch();
+        $searchItem->setPrimaryKey($id);
+        }
+//        $searchItem->attributes = $source->attributes;
+        $searchItem['id'] = $source['id'];
+        $searchItem['list_name'] = $source['list_name'];
+        $searchItem['hrurl'] = $source['hrurl'];
+        $searchItem['pagehead'] = $source['pagehead'];
+        $searchItem['text'] = $source['text'];
+        $searchItem['excerpt'] = $source['excerpt'];
+        $searchItem['excerpt_big'] = $source['excerpt_big'];
+        $searchItem['author'] = $source['author'];
+        if ($source['status'] != 'publish') {
+            Yii::$app->session->setFlash('error', 'индексация невозможна, объект не в стадии публикации');
+            return $this->redirect(Url::previous());
+        }
+
+        if ($searchItem->save()) {
+            Yii::$app->session->setFlash('success', 'объект проиндексирован для поиска');
+        } else {
+            Yii::$app->session->setFlash('error', 'индексирование не получилось');
+        };
+        return $this->redirect(Url::previous());
+    }
+
+
 }

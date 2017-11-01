@@ -129,13 +129,9 @@ class MasterController extends Controller
         ]);
 
 
-        $searchModel = new MasterSearch();
-        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
-
 
         return $this->render('index', [
             'dataProvider' => $masterDataProvider,
-            'searchDataProvider' => $searchDataProvider,
             'current' => $current,
         ]);
     }
@@ -156,12 +152,11 @@ class MasterController extends Controller
         if (Yii::$app->request->isPost) {
             $data = Yii::$app->request->post('FilterForm');
 
-
-            $current['city']=$data['city'];
-            $current['tag']=$data['tag'];
-            $current['psy']=$data['psy'];
-            $current['pro']=$data['pro'];
-            $current['session']=$data['session'];
+            $current['city'] = $data['city'];
+            $current['tag'] = $data['tag'];
+            $current['psy'] = $data['psy'];
+            $current['pro'] = $data['pro'];
+            $current['session'] = $data['session'];
 
             $cityQ = $data['city']
                 ? (new Query())
@@ -187,7 +182,7 @@ class MasterController extends Controller
                     ->where(['item_id'=>$data['pro'],'item_type'=>'pro'])
                     ->select('master_id')
                 : (new Query())->from('master')->select('id');
-            $sessionQ = $data['pro']
+            $sessionQ = $data['session']
                 ? (new Query())
                     ->from('item_assign')
                     ->where(['item_id'=>$data['session'],'item_type'=>'session'])
@@ -201,7 +196,6 @@ class MasterController extends Controller
                 ->andWhere(['id' => $proQ])
                 ->andWhere(['id' => $sessionQ])
                 ->all();
-
 
 
         } else {
@@ -220,73 +214,61 @@ class MasterController extends Controller
         ]);
 
 
-        $searchModel = new MasterSearch();
-        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
-
-
         return $this->render('index', [
             'dataProvider' => $masterDataProvider,
-            'searchDataProvider' => $searchDataProvider,
             'current' => $current,
         ]);
     }
 
 
-    /**
-     * filter.
-     * @return mixed
-     */
     public function actionSearch()
     {
+        Url::remember();
         $this->layout = 'index_nopadding';
         $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
-        $current =[];
-        $current['headLine']='';
+        $current = [];
+        $current['headLine'] = '';
 
-//        if (Yii::$app->request->isPost) {
-//            $data = Yii::$app->request->post('FilterForm');
-//
-//            $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
-//
-//        }
-        $query = new \yii\sphinx\Query();
+        $request = Yii::$app->request->post('SearchForm');
+        $search = $request['search'];
 
-        $rows = (new \yii\sphinx\Query())
-            ->from('master')
-            ->match(
-            // produces '((@title "Yii") (@author "Paul")) | (@content "Sphinx")' :
-                (new \yii\sphinx\MatchExpression())
-                    ->match(['name' => 'Михаил'])
-//                    ->andMatch(['author' => 'Paul'])
-//                    ->orMatch(['content' => 'Sphinx'])
-            )
-            ->all();
-        var_dump($rows);
-//        $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+        $current['search'] = $search;
+        $this->view->params['search'] = $search;
+        $rows = MasterSearch::find()->query(['multi_match'=>['query'=>$search,'fields'=>[
+            'username',
+            'name',
+            'middlename',
+            'surname',
+            'hrurl',
+            'other_contacts',
+            'hello',
+            'phone',
+            'address',
+            'city',
+            'psys',
+            'tags',
+            'mtexts',
+            'sessions',
+            'list_add',
 
-//        $mastersQ = Master::find()->with('pros', 'psys', 'sites', 'btns')->limit(100)->all();
+        ]]])->all();
+        $masters=[];
+        foreach ($rows as $row) {
+            $master = Master::find()->where(['id'=>$row['id']])->one();
+            $masters[] = $master;
+        }
 
-        $masterDataProvider = new ArrayDataProvider([
-            'allModels'=>$mastersQ,
+        $DataProvider = new ArrayDataProvider([
+            'allModels'=>$masters,
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 20,
             ],
-//            'sort' => [
-//                'attributes' => ['id', 'username'],
-//            ],
         ]);
 
-
-        $searchModel = new MasterSearch();
-        $searchDataProvider = $searchModel->search(Yii::$app->request->post());  // data from filter form
-
-
-        return $this->render('index', [
-            'dataProvider' => $masterDataProvider,
-            'searchDataProvider' => $searchDataProvider,
-            'current' => $current,
+        return $this->render('search', [
+            'dataProvider' => $DataProvider,
         ]);
     }
 

@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Index2search', ['search-index', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+
     </p>
 
     <?php Pjax::begin([
@@ -159,6 +161,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /image cloud -->
 
+
         <!-- назначение города -->
         <div class="row mt20 bt pt20">
             <?php Pjax::begin([
@@ -238,6 +241,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php Pjax::end(); ?>
         </div>
         <!-- /назначение города -->
+
 
         <!-- назначение профессии -->
         <div class="row mt20 bt pt20">
@@ -320,6 +324,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php Pjax::end(); ?>
         </div>
         <!-- /назначение профессии -->
+
 
         <!-- назначение вида сессии и цены  -->
         <div class="row mt20 bt pt20">
@@ -424,6 +429,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /назначение вида сессии и цены -->
 
+
         <!-- назначение меток -->
         <div class="row mt20 bt pt20">
 
@@ -494,7 +500,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php Pjax::end(); ?>
         </div>
         <!-- /назначение меток -->
-
 
 
         <!-- назначение вида психотерапии -->
@@ -578,7 +583,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php Pjax::end(); ?>
         </div>
         <!-- /назначение вида психотерапии -->
-
 
 
         <!-- назначение сайта -->
@@ -669,7 +673,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- /назначение сайта -->
 
 
-
         <!-- назначение кнопок -->
         <div class="row mt20 bt pt20">
             <?php Pjax::begin([
@@ -750,7 +753,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php Pjax::end(); ?>
         </div>
         <!-- /назначение кнопок -->
-
 
 
         <!-- назначение текстов мастера -->

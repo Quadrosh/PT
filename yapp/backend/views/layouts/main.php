@@ -56,6 +56,8 @@ AppAsset::register($this);
                 ['label' => 'кнопки Мастера', 'url' => ['/btnitem']],
                 ['label' => 'Города', 'url' => ['/city-item']],
                 ['label' => 'Типы сессий', 'url' => ['/session-type-item']],
+                ['label' => 'Поиск -> индексация', 'url' => ['/site/search-index']],
+                ['label' => 'Поиск -> удалить индекс', 'url' => ['/site/search-index-delete']],
             ],
         ],
         ['label' => 'Метки',

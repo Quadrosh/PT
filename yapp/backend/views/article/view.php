@@ -28,6 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Index2search', ['search-index', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+
     </p>
 
     <?= DetailView::widget([
@@ -168,7 +170,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ])->dropDownList([
                 'unread'=>'Непроверено',
                 'in_process'=>'В работе',
-                'publish'=>'Опупликовано',
+                'publish'=>'Опубликовано',
             ]) ?>
             <?php yii\bootstrap\ActiveForm::end() ?>
         </div>
