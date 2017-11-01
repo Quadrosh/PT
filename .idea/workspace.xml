@@ -2,30 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/ArticleSearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/SearchForm.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/console/controllers/ElasticController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/console/models/InitElastic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/SearchController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/frontend/views/article/search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/search.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/yapp/common/models/MasterQuery.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/MasterController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/MasterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/article/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/master/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/master/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/config/main.php" afterPath="$PROJECT_DIR$/yapp/common/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Master.php" afterPath="$PROJECT_DIR$/yapp/common/models/Master.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/MasterSearch.php" afterPath="$PROJECT_DIR$/yapp/common/models/MasterSearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/config/main.php" afterPath="$PROJECT_DIR$/yapp/frontend/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
     </list>
     <ignored path="psihotera.iws" />
@@ -197,10 +173,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article_index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article_index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5890411">
+            <state vertical-scroll-proportion="0.0">
               <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
               <folding>
                 <element signature="e#2867#2971#1#PHP" expanded="false" />
@@ -210,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.222222">
-              <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.4428224">
+              <caret line="881" column="21" selection-start-line="881" selection-start-column="21" selection-end-line="881" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -291,11 +267,11 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/article/search.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/search.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
         <option value="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
       </list>
     </option>
   </component>
@@ -1023,14 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.222222">
-          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1065,12 +1033,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5890411">
+        <state vertical-scroll-proportion="0.0">
           <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
           <folding>
             <element signature="e#2867#2971#1#PHP" expanded="false" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4428224">
+          <caret line="881" column="21" selection-start-line="881" selection-start-column="21" selection-end-line="881" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -879,6 +879,7 @@ a:hover{
 .search-input:valid,
 .search-input:valid:hover {
     background-color: white;
+    box-shadow: none;
 }
 .search-input:invalid,
 .search-input:invalid:hover {
