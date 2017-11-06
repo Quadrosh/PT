@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" />
     </list>
     <ignored path="psihotera.iws" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="_master_list_item.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33193278">
-              <caret line="102" column="56" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.8046219">
+              <caret line="92" column="43" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -446,7 +445,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -863,8 +862,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33193278">
-          <caret line="102" column="56" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.8046219">
+          <caret line="92" column="43" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
           <folding />
         </state>
       </provider>
