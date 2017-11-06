@@ -187,7 +187,7 @@ $feedback = new \common\models\Feedback;
                 <?php endif; ?>
 
                 <?php if($article==null) : ?>
-                    <p><?= $master['hello'] ?></p>
+                    <p><?= nl2br($master['hello']) ?></p>
                 <?php endif; ?>
 
 

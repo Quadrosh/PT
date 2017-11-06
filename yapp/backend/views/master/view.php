@@ -89,7 +89,16 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'site_id',
             'background_image',
             'stylekey',
-            'hello',
+//            'hello:html',
+            [
+                'attribute'=>'hello',
+                'value'=> function($data)
+                {
+                    return nl2br($data['hello']);
+
+                },
+                'format'=> 'html',
+            ],
             'view',
             'layout',
             'list_add',
