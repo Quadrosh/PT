@@ -54,6 +54,9 @@ body {
 .wrap {
     position: relative;
 }
+*:focus {
+    outline: none;
+}
 .master_body {
     background-color: #30353b;
     /*background-color: #DDB09E;*/
@@ -808,7 +811,8 @@ a:hover{
     margin-bottom: 10px;
 }
 .topFilter{
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: transparent;
     width: 100%;
     padding: 10px;
     margin-left: 0px;
@@ -826,20 +830,85 @@ a:hover{
 #filterForm .submit-btn{
     color: #2376A5;
 }
+#filterForm .btn-default{
+    background-color: transparent;
+    /*background-color: #2376A5;*/
+    border-color: #2376A5;
+    /*border-color: #4F84A1;*/
+    /*border-color: #7BC8F0;*/
+    border:none;
+    border-radius: 0;
+    /*color: #2376A5;*/
 
-#filterForm .btn-default:hover {
+}
+#filterForm .filterSelect{
+    background-color: transparent;
+    border-color: #2376A5;
+    border:none;
+    border-radius: 0;
+    /*color: #808285;*/
+    /*color: #adadad;*/
+    color: #999;
+    /*width: 150px;*/
+    padding: 5px 0 5px ;
+}
+
+
+#filterForm .bootstrap-select.btn-group .dropdown-toggle .caret {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+#filterForm .btn-default:focus {
     color: #333;
-    background-color: #f4f5f6;
-    /*border-color: grey;*/
+    /*color: red;*/
+    background-color: transparent;
     border-color: #adadad;
 }
+#filterForm .has-success .btn-default,
+#filterForm .has-success .btn-default:focus {
+    outline:none !important;
+}
+
+
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default.bs-placeholder,
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default.bs-placeholder:hover {
+    color: #999;
+    border:none;
+}
+
+/* selected dropdown */
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default,
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default:hover,
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default:active,
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default:focus {
+    color: #2376A5;
+    border-bottom: 1px #2376A5 solid;
+    padding-right: 0;
+}
+
+/* hoovered submit */
+#filterForm .btn-default:hover {
+    color: red;
+    background-color: transparent;
+    border-color: #adadad;
+}
+
+/* hovered filter item */
+#filterForm .bootstrap-select > .dropdown-toggle.btn-default.bs-placeholder:hover {
+    color: #2376A5;
+    border: none;
+}
+
+#filterForm .btn-default:focus,
 #filterForm .btn-default:active,
-#filterForm .btn-default.active,
 #filterForm .open > .dropdown-toggle.btn-default {
     color: #333;
-    /*background-color: #e6e6e6;*/
-    background-color: #f4f5f6;
+    background-color: transparent;
     border-color: #adadad;
+    box-shadow: none;
 }
 
 .bootstrap-select > .dropdown-toggle {
@@ -876,8 +945,20 @@ a:hover{
     -webkit-user-select: text;
 
 }
+/*.search-input:focus,*/
+/*.search-input:active,*/
+/*.search-input:hover,*/
+/*.search-input:focus input,*/
+/*.search-input input,*/
+/*.searchForm input:focus,*/
+/*.searchForm .has-success:valid,*/
+/*.search-input input:active,*/
+/*.search-input input:hover {*/
+    /*box-shadow: none !important;*/
+/*}*/
 .search-input:valid,
-.search-input:valid:hover {
+.search-input:valid:hover,
+.search-input:valid:focus {
     background-color: white;
     box-shadow: none;
 }

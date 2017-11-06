@@ -28,8 +28,15 @@ use \yii\widgets\ActiveForm;
                     ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Tag::find()->orderBy('name')->all(), 'id','name'),[
                         'id'=>'tag_assign-item_id',
                         'class'=>'selectpicker',
+//                        'class'=>'filterSelect',
                         'value'=>isset($current['tag'])?$current['tag']:'',
                         'prompt'=>'Метка'
+//                        'prompt'=>[
+//                            'label' => 'Метка',
+//                            'text' => 'Метка текст',
+//                            'class' => 'selectpicker_prompt',
+//                            'value' => '-1'
+//                        ]
                     ])
                     ->label(false) ?>
             </div>
