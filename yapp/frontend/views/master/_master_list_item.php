@@ -100,7 +100,11 @@ use yii\helpers\HtmlPurifier;
                                 ?>
                             </p>
                             <p class="masterAddress"><?= nl2br($model['address']) ?>
-                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?><?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
+                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?>
+                                    <?php if ($model['other_contacts']) : ?>
+                                        <?php echo ', '.$model['other_contacts'] ?>
+                                    <?php endif; ?>
+                                    <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                         <?php foreach ($model->sites as $site) : ?>
                                             <?= Html::a($site['name'],$site['link']) ?></span>
                                         <?php endforeach; ?>
@@ -260,7 +264,11 @@ use yii\helpers\HtmlPurifier;
                                 ?>
                             </p>
                             <p class="masterAddress"><?= nl2br($model['address']) ?>
-                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?><?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
+                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?>
+                                    <?php if ($model['other_contacts']) : ?>
+                                        <?php echo ', '.$model['other_contacts'] ?>
+                                    <?php endif; ?>
+                                    <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                     <?php foreach ($model->sites as $site) : ?>
                                     <?= Html::a($site['name'],$site['link']) ?></span>
                             <?php endforeach; ?>
@@ -403,7 +411,11 @@ use yii\helpers\HtmlPurifier;
                                 ?>
                             </p>
                             <p class="masterAddress"><?= nl2br($model['address']) ?>
-                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?><?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
+                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?>
+                                    <?php if ($model['other_contacts']) : ?>
+                                        <?php echo ', '.$model['other_contacts'] ?>
+                                    <?php endif; ?>
+                                    <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                     <?php foreach ($model->sites as $site) : ?>
                                         <span><?= Html::a($site['name'],$site['link']) ?> </span>
                                     <?php endforeach; ?>
