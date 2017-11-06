@@ -27,17 +27,21 @@ use yii\helpers\HtmlPurifier;
 
 
                             <?php if (isset($model->pros)) : ?>
-                                <?php $count = 0?>
+                                <?php $count = 1?>
                                <p class="masterProfession">
-                                <?php foreach ($model->pros as $profession) : ?>
-                                    <?php if (!$count == count($model->pros)) : ?>
-                                        <span class=" <?php if($count==0){echo' capital';} else {echo ' lowercase';} ?>"><?= Html::encode($profession['name']) ?><?php if(count($model->pros)>1){echo', ';}  ?></span>
-
-                                    <?php else : ?>
-                                        <span class=" lowercase"><?= Html::encode($profession['name']) ?></span>
-                                    <?php endif; ?>
-                                    <?php $count++?>
-                                <?php endforeach; ?>
+                                   <?php foreach ($model->pros as $pro) {
+                                       if ($count != count($model->pros)) {
+                                           echo '<span class="';
+                                           echo $count==1 ?' capital':' lowercase';
+                                           echo '">'.$pro['name'].'</span>';
+                                           echo count($model->pros)>1 ? ', ':'';
+                                       } else {
+                                           echo '<span class="';
+                                           echo $count==1 ?' capital':' lowercase';
+                                           echo '">'.$pro['name'].'</span>';
+                                       }
+                                       $count++;
+                                   } ?>
                                </p>
                             <?php endif; ?>
 
@@ -209,17 +213,21 @@ use yii\helpers\HtmlPurifier;
 
 
                             <?php if (isset($model->pros)) : ?>
-                                <?php $count = 0?>
+                                <?php $count = 1?>
                                 <p class="masterProfession">
-                                    <?php foreach ($model->pros as $profession) : ?>
-                                        <?php if (!$count == count($model->pros)) : ?>
-                                            <span class=" <?php if($count==0){echo' capital';} else {echo ' lowercase';} ?>"><?= Html::encode($profession['name']) ?><?php if(count($model->pros)>1){echo', ';}  ?></span>
-
-                                        <?php else : ?>
-                                            <span class=" lowercase"><?= Html::encode($profession['name']) ?></span>
-                                        <?php endif; ?>
-                                        <?php $count++?>
-                                    <?php endforeach; ?>
+                                    <?php foreach ($model->pros as $pro) {
+                                        if ($count != count($model->pros)) {
+                                            echo '<span class="';
+                                            echo $count==1 ?' capital':' lowercase';
+                                            echo '">'.$pro['name'].'</span>';
+                                            echo count($model->pros)>1 ? ', ':'';
+                                        } else {
+                                            echo '<span class="';
+                                            echo $count==1 ?' capital':' lowercase';
+                                            echo '">'.$pro['name'].'</span>';
+                                        }
+                                        $count++;
+                                    } ?>
                                 </p>
                             <?php endif; ?>
 
@@ -389,16 +397,22 @@ use yii\helpers\HtmlPurifier;
             <div class="row">
             <div class="col-sm-1">
                 <?php if (isset($model->pros)) : ?>
-                    <?php $count = 0?>
-                    <?php foreach ($model->pros as $profession) : ?>
-                        <?php if (!$count == count($model->pros)) : ?>
-                            <span class="masterProfession <?php if($count==0){echo' capital';} else{echo ' lowercase';} ?>"><?= Html::encode($profession['name']) ?><?php if(count($model->pros)>1){echo', ';}  ?></span>
-
-                        <?php else : ?>
-                            <span class="masterProfession lowercase"><?= Html::encode($profession['name']) ?></span>
-                        <?php endif; ?>
-                        <?php $count++?>
-                    <?php endforeach; ?>
+                    <?php $count = 1?>
+                    <p class="masterProfession">
+                        <?php foreach ($model->pros as $pro) {
+                            if ($count != count($model->pros)) {
+                                echo '<span class="';
+                                echo $count==1 ?' capital':' lowercase';
+                                echo '">'.$pro['name'].'</span>';
+                                echo count($model->pros)>1 ? ', ':'';
+                            } else {
+                                echo '<span class="';
+                                echo $count==1 ?' capital':' lowercase';
+                                echo '">'.$pro['name'].'</span>';
+                            }
+                            $count++;
+                        } ?>
+                    </p>
                 <?php endif; ?>
 
                 <div class="less768">
