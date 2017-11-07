@@ -85,7 +85,7 @@ class SendController extends Controller
                     ->setData([
                         'api_id' => '4940EAEB-EAD2-89D5-E5CE-F61C7FC262EE',
                         'to' => '79853461615, '.$master['order_phone'],
-                        'text'=> 'Psihotera'.$master['id'].'- заявка с сайта, имя - '.$feedback['name'].', телефон - '.$feedback['phone'],
+                        'text'=> 'Psihotera'.$master['id'].' - заявка с сайта, имя - '.$feedback['name'].', телефон - '.$feedback['phone'],
                     ])
                     ->send();
                 if ($response->isOk) {
