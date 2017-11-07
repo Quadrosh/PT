@@ -111,7 +111,7 @@ class SiteController extends Controller
 
         $popMasterQuery = Master::find()
             ->select(['master.*', 'SUM(daily_count.count) AS countviews'])
-            ->where(['status'=>'premium'])
+//            ->where(['status'=>'premium'])
             ->join('LEFT JOIN', DailyCount::tableName(), 'master.id=daily_count.master_id')
             ->groupBy('master.id')
             ->orderBy(['countviews' => SORT_DESC])
