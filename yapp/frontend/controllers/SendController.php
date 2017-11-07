@@ -75,6 +75,7 @@ class SendController extends Controller
         $master = Master::find()->where(['id'=>$feedback['master_id']])->one();
 
         if ($feedback->save()) {
+
             if ($feedback->sendEmail( 'PSIHOTERA.RU: Заявка',$master['email'])) {
                 Yii::$app->session->setFlash('success', 'Ваша заявка отправлена. <br> Мы свяжемся с Вами в ближайшее время.');
                 return $this->redirect(Url::previous());

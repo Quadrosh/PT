@@ -62,7 +62,7 @@ class Master extends \yii\db\ActiveRecord
             [['username'], 'required'],
             [['other_contacts', 'comment', 'hello'], 'string'],
             [['site_id', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'hrurl', 'name', 'middlename', 'surname', 'image', 'city', 'phone', 'address', 'email', 'stylekey', 'view', 'layout', 'status'], 'string', 'max' => 255],
+            [['username', 'hrurl', 'name', 'middlename', 'surname', 'image', 'city', 'phone', 'address', 'email', 'stylekey', 'view', 'layout', 'status', 'order_phone'], 'string', 'max' => 255],
             [['image_alt', 'site_link', 'background_image', 'list_add'], 'string', 'max' => 510],
             [['username'], 'unique'],
         ];
@@ -98,6 +98,7 @@ class Master extends \yii\db\ActiveRecord
             'layout' => 'Layout',
             'list_add' => 'Добавочный текст в списке (помошь в проблемах...)',
             'status' => 'Status',
+            'order_phone' => 'Order Phone',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'fio' => '_ФИО (в разработке)',

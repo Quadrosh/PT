@@ -94,6 +94,7 @@ $feedback = new \common\models\Feedback;
                 ]); ?>
 
                 <?php if ($article!=null) : ?>
+<!--   Записаться     -->
                     <?php if($article=='go') : ?>
                         <p class="address">Прием осуществляется по адресу:<br>  <?= nl2br($master['address']) ?> </p>
                         <div class="sessionTypes">
@@ -176,23 +177,24 @@ $feedback = new \common\models\Feedback;
                             </div>
                         </div>
                     <?php endif; ?>
+<!--   отзывы -->
                     <?php if($article=='otziv') : ?>
                         <p>Отзывы</p>
                     <?php endif; ?>
-
+<!--   текст мастера -->
                     <?php if($article!='otziv' && $article!='go') : ?>
-                        <h2 class="articleName"><?= $article['pagehead']?></h2>
-                        <p><?= $article['text']?></p>
+                        <h2 class="articleName"><?= nl2br($article['pagehead'])?></h2>
+                        <p><?= nl2br($article['text'])?></p>
                     <?php endif; ?>
                 <?php endif; ?>
-
+<!--   hello -->
                 <?php if($article==null) : ?>
                     <p><?= nl2br($master['hello']) ?></p>
                 <?php endif; ?>
 
-
                 <?php Pjax::end(); ?>
             </div>
+<!--    footer -->
             <div class="masterFooter text-center">
                 <div class="button">
                     <?=  Html::a( 'Записаться', '/master/'.$master['hrurl'].'/go',

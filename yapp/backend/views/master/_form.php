@@ -104,8 +104,11 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-4">
             <?= $form->field($model, 'stylekey')->dropDownList(['dark' => 'Dark','bright'=>'Bright']) ?>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <?= $form->field($model, 'comment')->textarea(['rows' => 2]) ?>
+        </div>
+        <div class="col-sm-6">
+            <?= $form->field($model, 'order_phone')->textInput() ?>
         </div>
     </div>
 

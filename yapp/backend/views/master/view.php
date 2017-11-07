@@ -103,6 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout',
             'list_add',
             'comment:ntext',
+            'order_phone',
             'status',
 //            'created_at',
             [
