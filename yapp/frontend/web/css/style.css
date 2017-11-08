@@ -71,6 +71,9 @@ body {
 .noPB {
     padding-bottom: 0 !important;
 }
+.fl {
+    float: left;
+}
 /* позиционирование*/
 .mt10{
     margin-top: 10px;
@@ -296,6 +299,29 @@ a:hover{
     margin-left: 0;
     padding-left: 0;
 }
+.masterListItem .disease .masterMText.capital {
+    display: inline-block;
+    /*margin: auto 0;*/
+    /*padding: 0 0;*/
+    width: auto;
+    padding-right: 0;
+    margin-right: 0;
+    /*-moz-margin-start: 0;*/
+    /*-webkit-padding-start: -5px;*/
+    /*-moz-padding-start: -5px;*/
+    /*padding-block-end: 5px;*/
+
+}
+.masterListItem .disease .masterMText{
+    display: inline;
+
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
 .masterListAvatar {
     width: 120px;
 }
@@ -343,7 +369,6 @@ a:hover{
     /*background-color: #eee;*/
     background-color: rgba(233,235,237,0.5);
     font-size: 12px;
-    text-transform: lowercase;
     border: 1px #e9ebed solid;
 
 }
@@ -1009,7 +1034,16 @@ a:hover{
     font-size:10px;
     color: #58595b;
 }
-
+.taglabel {
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 12px;
+    position: relative;
+    top:0;
+    /*color: #808285;*/
+    color: #adadad;
+    font-weight: normal;
+    margin: 0 auto;
+}
 
 
 

@@ -95,11 +95,6 @@ use yii\helpers\HtmlPurifier;
                                     } ?>
                                 </p>
                             <?php endif; ?>
-<!--                            --><?php //if (isset($model->psys)) : ?>
-<!--                                --><?php //foreach ($model->psys as $psy) : ?>
-<!--                                    <p class="masterPsychotherapy">--><?//= Html::encode($psy['name']) ?><!--</p>-->
-<!--                                --><?php //endforeach; ?>
-<!--                            --><?php //endif; ?>
                         </div>
                     </div>
                     <div class="row">
@@ -134,15 +129,45 @@ use yii\helpers\HtmlPurifier;
                         </div>
                         <div class="col-sm-8">
                             <div class="disease">
-                                <?php if (isset($model->mtexts)) : ?>
-                                    <?php foreach ($model->mtexts as $mtext) : ?>
-                                        <?= Html::a($mtext['list_name'],'/master/'.$model['hrurl'].'/'.$mtext['hrurl'],['class'=>'btn btn-xs masterBtn']) ?>
-                                    <?php endforeach; ?>
+                                <?php if (isset($model->mtexts) AND $model->mtexts!=null) : ?>
+                                    <h6 class="taglabel">заметки:</h6>
+                                    <?php $count = 1?>
+
+                                    <?php
+                                    foreach ($model->mtexts as $mtext) {
+                                        echo  Html::a($mtext['list_name'],'/master/'.$model['hrurl'].'/'.$mtext['hrurl'],[
+                                            'class'=>$count==1 ?'masterMText ':'masterMText ',
+                                            'style'=> 'padding-right: 0;'
+                                        ]);
+                                        if ($count != count($model->mtexts)) {
+                                            echo count($model->mtexts)>1 ? ', ':'';
+                                        }
+                                        $count++;
+                                    }
+
+                                        ?>
+
+
+
+<!--                                    --><?php //foreach ($model->mtexts as $mtext) {
+//                                        echo '<a href="/master/'.$model['hrurl'].'/'.$mtext['hrurl'].'" class=" masterMText ';
+//                                        echo $count==1 ?'capital':'capital';
+//                                        echo '">'.$mtext['list_name'];
+//                                        if ($count != count($model->mtexts)) {
+//                                            echo count($model->mtexts)>1 ? '</a>, ':'</a>';
+//                                        } else {
+//                                            echo '</a>';
+//                                        }
+//                                        $count++;
+//                                    } ?>
+
                                 <?php endif; ?>
 
-                                <?php $count = count($model->tags)?>
+
                                 <?php if (isset($model->tags)) : ?>
-                                    <p>
+                                    <?php $count = count($model->tags)?>
+                                    <h6 class="taglabel">метки:</h6>
+                                    <p class="lowercase">
                                         <?php foreach ($model->tags as $tag) : ?>
                                             <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
                                         <?php endforeach; ?>
@@ -315,15 +340,10 @@ use yii\helpers\HtmlPurifier;
                         </div>
                         <div class="col-sm-8">
                             <div class="disease">
-                                <?php if (isset($model->mtexts)) : ?>
-                                    <?php foreach ($model->mtexts as $mtext) : ?>
-                                        <?= Html::a($mtext['list_name'],'/master/'.$model['hrurl'].'/'.$mtext['hrurl'],['class'=>'btn btn-xs masterBtn']) ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
                                 <?php $count = count($model->tags)?>
                                 <?php if (isset($model->tags)) : ?>
-                                    <p>
+                                    <h6 class="taglabel">метки:</h6>
+                                    <p class="lowercase">
                                         <?php foreach ($model->tags as $tag) : ?>
                                             <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
                                         <?php endforeach; ?>
@@ -482,11 +502,13 @@ use yii\helpers\HtmlPurifier;
                             <div class="disease">
                                 <?php $count = count($model->tags)?>
                                 <?php if (isset($model->tags)) : ?>
+                                    <h6 class="taglabel">метки:</h6>
+                                <p class="lowercase">
                                     <?php foreach ($model->tags as $tag) : ?>
-                                        <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
+                                            <span><?= $tag['name'] ?><?php if(--$count>0){echo', ';} ?></span>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </p>
                                 <p class="masterListAdd"><?= Html::encode($model['list_add']) ?></p>
                             </div>
                             <div class="sessionTypes">
