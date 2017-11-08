@@ -68,6 +68,9 @@ body {
 .noPadding{
     padding: 0 !important;
 }
+.noPB {
+    padding-bottom: 0 !important;
+}
 /* позиционирование*/
 .mt10{
     margin-top: 10px;
@@ -998,7 +1001,14 @@ a:hover{
     background-color: transparent;
 }
 
-
+.footer {
+    height: auto;
+    background-color: transparent;
+    border-top: none;
+    padding-top: 20px;
+    font-size:10px;
+    color: #58595b;
+}
 
 
 

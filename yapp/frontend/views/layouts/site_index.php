@@ -58,19 +58,19 @@ AppAsset::register($this);
 
         ]
     ];
-//    if (Yii::$app->user->isGuest) {
-//        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-//        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-//    } else {
-//        $menuItems[] = '<li>'
-//            . Html::beginForm(['/site/logout'], 'post')
-//            . Html::submitButton(
-//                'Logout (' . Yii::$app->user->identity->username . ')',
-//                ['class' => 'btn btn-link logout']
-//            )
-//            . Html::endForm()
-//            . '</li>';
-//    }
+    //    if (Yii::$app->user->isGuest) {
+    //        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+    //        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    //    } else {
+    //        $menuItems[] = '<li>'
+    //            . Html::beginForm(['/site/logout'], 'post')
+    //            . Html::submitButton(
+    //                'Logout (' . Yii::$app->user->identity->username . ')',
+    //                ['class' => 'btn btn-link logout']
+    //            )
+    //            . Html::endForm()
+    //            . '</li>';
+    //    }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
@@ -78,25 +78,16 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
-<!--        --><?//= Breadcrumbs::widget([
-//            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-//        ]) ?>
+    <div class="container noPB">
+        <!--        --><?//= Breadcrumbs::widget([
+        //            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        //        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
 
-<!--<footer class="footer">-->
-<!--    <div class="container text-center">-->
-<!--        <p > --><?//= Yii::$app->name ?><!-- --><?//= date('Y') ?><!-- <br>-->
-<!--            По всем вопросам, связанным с работой сайта <br>-->
-<!--            обращайтесь на webmaster@psihotera.ru <br>-->
-<!--            или по тел. +7 (985) 346-16-15-->
-<!--        </p>-->
-<!---->
-<!--    </div>-->
-<!--</footer>-->
+
 
 <?php $this->endBody() ?>
 </body>

@@ -77,6 +77,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'site_index';
         $this->view->params['title'] = 'Психотера - все о психотерапии';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
