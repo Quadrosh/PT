@@ -121,7 +121,7 @@ class MasterController extends Controller
         $masterDataProvider = new ArrayDataProvider([
             'allModels'=>$mastersQ,
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 100,
             ],
 //            'sort' => [
 //                'attributes' => ['id', 'username'],
