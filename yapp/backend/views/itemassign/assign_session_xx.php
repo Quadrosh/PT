@@ -84,6 +84,11 @@ $sessionTypeDataProvider = new \yii\data\ActiveDataProvider([
                 [
                     'class' => \yii\grid\ActionColumn::className(),
                     'buttons' => [
+                        'update'=>function($url,$model){
+                            $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/update','id'=>$model['id']]);
+                            return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', $newUrl,
+                                ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                        },
                         'delete'=>function($url,$model){
                             $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
                             return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
@@ -92,9 +97,7 @@ $sessionTypeDataProvider = new \yii\data\ActiveDataProvider([
                         'view'=>function($url,$model){
                             return false;
                         },
-                        'update'=>function($url,$model){
-                            return false;
-                        },
+
 
                     ]
                 ],
