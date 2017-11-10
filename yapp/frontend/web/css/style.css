@@ -35,6 +35,15 @@ gray back  #E9EBED
     font-weight: normal;
 }
 @font-face {
+    font-family: "HelveticaThin";
+    src: url("fonts/HelveticaThin/HelveticaThin.eot");
+    src: url("fonts/HelveticaThin/HelveticaThin.eot?#iefix") format("embedded-opentype"),
+    url("fonts/HelveticaThin/HelveticaThin.woff") format("woff"),
+    url("fonts/HelveticaThin/HelveticaThin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
     font-family: "CalligraphiaOne";
     src: url("fonts/CalligraphiaOne/CalligraphiaOne.eot");
     src: url("fonts/CalligraphiaOne/CalligraphiaOne.eot?#iefix") format("embedded-opentype"),
@@ -204,8 +213,11 @@ a:hover{
     margin-left: 80px;
     position: relative;
     margin-top: 2px;
-    font-family: "HelveticaRegular", sans-serif;
-    font-size: 18px;
+    /*font-family: "HelveticaRegular", sans-serif;*/
+    /*font-family: "MyriadProRegular", sans-serif;*/
+    font-family: "HelveticaThin", sans-serif;
+    font-size: 20px;
+    font-weight:lighter;
 }
 .navbar-nav {
     /*background-color: #E9EBED;*/
