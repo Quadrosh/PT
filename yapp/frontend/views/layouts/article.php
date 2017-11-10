@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="articleWrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
+        'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob_w.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-default navbar-top',
