@@ -776,10 +776,14 @@ a:hover{
     color: grey;
 }
 .indexHead {
-    color: #58595b;
-    font-family: "MyriadProRegular", sans-serif;
-    font-size: 22px;
+    color: #999;
+    /*font-family: "MyriadProRegular", sans-serif;*/
+    font-family: "Helvetica", sans-serif;
+    font-size: 16px;
     text-transform: uppercase;
+}
+.summary {
+    color: #999;
 }
 .topItem {
     background-color: #fff;
