@@ -56,7 +56,7 @@ AppAsset::register($this);
     <!-- /поиск < 768 -->
 
     <?php NavBar::begin([
-        'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob_w.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
+        'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob_bsh.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-default navbar-top',
@@ -89,6 +89,7 @@ AppAsset::register($this);
     <!-- поиск -->
     <?php $form = ActiveForm::begin([
         'id'=>'searchForm',
+//        'class'=>'more768',
         'action' => ['/master/search'],
         'method' => 'post',
     ]); $seachForm = new \common\models\SearchForm(); ?>
@@ -96,14 +97,14 @@ AppAsset::register($this);
     <div class="searchForm">
         <?= $form->field($seachForm, 'search')
             ->textInput([
-                'class' => 'btn btn-default search-input ',
+                'class' => 'btn btn-default search-input more768',
                 'value' => isset(Yii::$app->view->params['search'])?Yii::$app->view->params['search']:'' ,
                 'required'=>true,
                 'id'=>'searchForm-search',
             ])
             ->label(false) ?>
 
-        <?= Html::submitButton('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn btn-default search-submit ']) ?>
+        <?= Html::submitButton('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn btn-default search-submit more768']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

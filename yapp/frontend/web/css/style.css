@@ -219,6 +219,7 @@ a:hover{
     font-size: 20px;
     font-weight:lighter;
 }
+
 .navbar-nav {
     /*background-color: #E9EBED;*/
     background-color: #2376A5;
@@ -229,6 +230,7 @@ a:hover{
     background-color: #2376A5;
     /*border-color: #e7e7e7;*/
     border-color: #2376A5;
+    border:none;
     border-radius: 0;
     height: 80px;
     /*position: relative;*/
@@ -238,7 +240,8 @@ a:hover{
     border-color: transparent;
 }
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #2376A5;
+    /*background-color: #2376A5;*/
+    background-color: #91bbd2;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
@@ -1079,7 +1082,13 @@ a:hover{
     margin: 0 auto;
 }
 
-
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #91bbd2;
+    background-color: transparent;
+    text-shadow:
+            2px 2px 2px rgba(0,0,0,0.2),
+            4px 4px 4px rgba(0,0,0,0.2);
+}
 
 
 
@@ -1218,9 +1227,16 @@ a:hover{
     .navbar-collapse .navbar-nav {
         /*background-color: #E9EBED;*/
         /*background-color: rgba(255,255,255,0.96);*/
-        background-color: rgba(233,235,237,0.96);
+        /*background-color: rgba(233,235,237,0.96);*/
         position: relative;
         z-index: 100;
+
+    }
+    /* collapse opened */
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border: none;
+        box-shadow: none;
+
     }
     .masterPageAvatar{
         width: 111px;
