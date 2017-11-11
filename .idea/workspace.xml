@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index_nopadding.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index_nopadding.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6020067">
-              <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="74" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -145,13 +143,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article_index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="article_index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.75250834">
+              <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
               <folding>
-                <element signature="e#2869#2973#1#PHP" expanded="false" />
+                <element signature="e#2871#2975#1#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -270,10 +268,10 @@
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/itemassign/assign_session_xx.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
       </list>
     </option>
   </component>
@@ -1043,16 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
-          <folding>
-            <element signature="e#2869#2973#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.2222223">
@@ -1071,9 +1059,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6020067">
-          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="74" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75250834">
+          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+          <folding>
+            <element signature="e#2871#2975#1#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
