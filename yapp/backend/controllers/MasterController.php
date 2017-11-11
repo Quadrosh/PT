@@ -49,6 +49,14 @@ class MasterController extends Controller
         Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => Master::find(),
+            'pagination'=> [
+                'pageSize' => 200,
+            ],
+            'sort' =>[
+                'defaultOrder'=> [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [
