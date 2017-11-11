@@ -1,7 +1,7 @@
 <?php
 use \yii\helpers\Html;
 ?>
-<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 articleBox">
+<div class="col-md-10 mt20 col-md-offset-1 col-lg-10 col-lg-offset-1 articleBox">
     <div class="row">
         <div class="col-sm-12">
             <div class="imageBox text-center">
