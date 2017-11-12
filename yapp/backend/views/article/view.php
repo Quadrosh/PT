@@ -56,7 +56,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'keywords:ntext',
             'pagehead',
-            'text:html',
+//            'text:html',
+            [
+                'attribute'=>'text',
+                'value' => function($model)
+                {
+                    return nl2br($model['text']);
+                },
+                'format'=> 'html',
+            ],
             'excerpt',
             'excerpt_big',
             'topimage',
