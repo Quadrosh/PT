@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Article;
 use Yii;
 use common\models\CityItem;
 use yii\data\ActiveDataProvider;
@@ -68,13 +69,18 @@ class CityItemController extends Controller
     {
         $model = new CityItem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Url::previous());
+        if ($model->load(Yii::$app->request->post()) ) {
+            if ($model['hrurl']==null) {
+                $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
+            }
+            if ($model->save()) {
+                return $this->redirect(Url::previous());
+            }
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**

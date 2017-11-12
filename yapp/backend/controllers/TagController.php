@@ -78,7 +78,9 @@ class TagController extends Controller
         $model = new Tag();
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
+            if ($model['hrurl']==null) {
+                $model['hrurl'] = Article::cyrillicToLatin($model['name'], 210, true);
+            }
             if ($model->save()) {
                 return $this->redirect(Url::previous());
             }
