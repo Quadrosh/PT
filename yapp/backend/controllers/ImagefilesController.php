@@ -105,7 +105,7 @@ class ImagefilesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -140,7 +140,7 @@ class ImagefilesController extends Controller
                 Yii::$app->session->setFlash('error', 'неполучается удалить запись из облака');
             }
         }
-        return $this->redirect(['index']);
+        return $this->redirect(Url::previous());
     }
 
     /**

@@ -125,6 +125,12 @@ body {
 .pt30{
     padding-top: 30px;
 }
+.rot90{
+    transform: rotate(90deg);
+}
+.rot270{
+    transform: rotate(270deg);
+}
 a{
     color: #2376A5;
 }

@@ -196,6 +196,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 "height" => 400,
                 "crop" => "fill"
             ]); ?>
+            <?php if ($model->topimagefile!=null) {
+                echo  Html::a('Delete','/imagefiles/delete?id='.$model->topimagefile['id'], [
+                    'class' => 'btn btn-danger rot90',
+                    'title' => Yii::t('yii', 'Удалить'),
+                    'data-pjax' => '0','data-method'=>'post'
+                ]);
+            } ?>
         </div>
 
         <div class="col-xs-12 col-sm-3 ">
