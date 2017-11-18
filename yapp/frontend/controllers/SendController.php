@@ -83,7 +83,7 @@ class SendController extends Controller
                     ->setMethod('post')
                     ->setUrl('https://sms.ru/sms/send')
                     ->setData([
-                        'api_id' => '4940EAEB-EAD2-89D5-E5CE-F61C7FC262EE',
+                        'api_id' => Yii::$app->params['sms_api_id'],
                         'to' => '79853461615, '.$master['order_phone'],
                         'text'=> 'Psihotera'.$master['id'].' - заявка с сайта, имя - '.$feedback['name'].', телефон - '.$feedback['phone'],
                     ])
