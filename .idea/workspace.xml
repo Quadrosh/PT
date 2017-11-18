@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/SendController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/SendController.php" />
-    </list>
+    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="" />
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
