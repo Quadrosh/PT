@@ -10,7 +10,7 @@ use \common\models\Article;
 /* @var $model common\models\Article */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -155,7 +155,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--    статус состояния -->
     <div class="row mt20 bt pt20">
         <div class="col-xs-6 col-xs-offset-3 ">
-            <h4>Статус</h4>
+            <h4>Статус: <?= $model['status']; ?></h4>
             <?php $form = yii\bootstrap\ActiveForm::begin([
                 'method' => 'post',
                 'action' => ['/article/update?id='.$model['id']],
