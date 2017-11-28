@@ -631,7 +631,7 @@ a:hover{
 }
 .articleListItem .articleTag{
     font-family: "MyriadProRegular", sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #2376A5;
     margin: 0;
     text-transform: lowercase;
@@ -773,7 +773,7 @@ a:hover{
 }
 .popArtItem .articleTag {
     font-family: "MyriadProRegular", sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #2376A5;
     text-transform: lowercase;
 }

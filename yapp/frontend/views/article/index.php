@@ -98,17 +98,17 @@ use \yii\helpers\Html;
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                 </div>
-                                <div class="col-sm-12  text-left">
-                                    <?php if ($popArticle->tags) : ?>
-                                        <p class="articleTag">
-                                            <?php $count = count($popArticle->tags)?>
-                                            <?php foreach ($popArticle->tags as $tag) : ?>
-                                                <span><?= Html::a($tag['name'], '/article/bytag/'.$tag['hrurl'] ) ?><?php if(--$count>0){echo', ';} ?></span>
-                                            <?php endforeach; ?>
-
-                                        </p>
-                                    <?php endif; ?>
-                                </div>
+<!--                                <div class="col-sm-12  text-left">-->
+<!--                                    --><?php //if ($popArticle->tags) : ?>
+<!--                                        <p class="articleTag">-->
+<!--                                            --><?php //$count = count($popArticle->tags)?>
+<!--                                            --><?php //foreach ($popArticle->tags as $tag) : ?>
+<!--                                                <span>--><?//= Html::a($tag['name'], '/article/bytag/'.$tag['hrurl'] ) ?><!----><?php //if(--$count>0){echo', ';} ?><!--</span>-->
+<!--                                            --><?php //endforeach; ?>
+<!---->
+<!--                                        </p>-->
+<!--                                    --><?php //endif; ?>
+<!--                                </div>-->
                             </div>
 
                         </div>
