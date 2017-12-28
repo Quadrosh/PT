@@ -20,10 +20,13 @@ use yii\helpers\HtmlPurifier;
                 <div class="col-sm-9 col-md-10 listDataBox">
                     <div class="row">
                         <div class="col-xs-12">
-                            <?php if (isset($model->psys)) : ?>
+                            <?php if ($model->psys) : ?>
                                 <?php foreach ($model->psys as $psy) : ?>
                                     <h4 class="articlePsychotherapy"><?= Html::a($psy['name'], '/article/bypsy/'.$psy['hrurl'] ) ?></h4>
                                 <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php if ($model->psys == null) : ?>
+                                <div class="articlePsychotherapyEmpty"> </div>
                             <?php endif; ?>
                         </div>
                         <div class="col-sm-12">

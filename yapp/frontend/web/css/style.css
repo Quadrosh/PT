@@ -660,6 +660,9 @@ a:hover{
     font-family: "MyriadProRegular", sans-serif;
     font-size: 16px;
 }
+.articleListItem .articlePsychotherapyEmpty{
+    height: 23px;
+}
 .articleBox .text{
     font-family: "MyriadProRegular", sans-serif;
     font-size: 16px;
@@ -679,6 +682,9 @@ a:hover{
     font-size: 12px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.popArtItem .articlePsychotherapyEmpty{
+    height: 23px;
 }
 .popArtItem .articleName {
     font-family: "MyriadProRegular", sans-serif;
@@ -821,6 +827,10 @@ a:hover{
 }
 .topItem .articleName {
     margin-top: 100px;
+}
+.topItem .articleNameOnEmptyPsy {
+    margin-top: 80px;
+    margin-bottom: 60px;
 }
 
 .topItem .excerpt {
@@ -1306,6 +1316,10 @@ a:hover{
     }
     .topItem .articleName {
         margin-top: 50px;
+    }
+    .topItem .articleNameOnEmptyPsy {
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
     .topItem .excerpt {
         margin-top: 30px;

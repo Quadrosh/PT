@@ -12,17 +12,29 @@ use \yii\helpers\Html;
     </div>
     </a>
     <div class="col-sm-6 col-xs-12">
+        <?php if ($topArticle->psys) : ?>
         <div class="col-xs-12 text-center">
-            <?php if (isset($topArticle->psys)) : ?>
-                <?php foreach ($topArticle->psys as $psy) : ?>
-                    <h4 class="articlePsychotherapy"><?= Html::a($psy['name'], '/article/bypsy/'.$psy['hrurl'] ) ?></h4>
-                <?php endforeach; ?>
-            <?php endif; ?>
+
+            <?php foreach ($topArticle->psys as $psy) : ?>
+                <h4 class="articlePsychotherapy"><?= Html::a($psy['name'], '/article/bypsy/'.$psy['hrurl'] ) ?></h4>
+            <?php endforeach; ?>
+
         </div>
         <a href="/article/<?= $topArticle['hrurl'] ?>" class="link2article">
             <h4 class="articleName text-center"><?= Html::encode($topArticle['list_name']) ?></h4>
             <p class="excerpt"><?= Html::encode($topArticle['excerpt_big']) ?>...</p>
         </a>
+        <?php endif; ?>
+        <?php if ($topArticle->psys == null) : ?>
+
+            <a href="/article/<?= $topArticle['hrurl'] ?>" class="link2article">
+                <h4 class="articleNameOnEmptyPsy text-center"><?= Html::encode($topArticle['list_name']) ?></h4>
+                <p class="excerpt"><?= Html::encode($topArticle['excerpt_big']) ?>...</p>
+            </a>
+
+        <?php endif; ?>
+
+
         <div class="col-sm-12 text-right">
             <h4 class="articleAuthor"><?= Html::encode($topArticle['author']) ?></h4>
         </div>
@@ -76,10 +88,13 @@ use \yii\helpers\Html;
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 text-right">
-                                    <?php if (isset($popArticle->psys)) : ?>
+                                    <?php if ($popArticle->psys) : ?>
                                         <?php foreach ($popArticle->psys as $psy) : ?>
                                             <h4 class="articlePsychotherapy"><?= Html::a($psy['name'], '/article/bypsy/'.$psy['hrurl'] ) ?></h4>
                                         <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    <?php if ($popArticle->psys == null) : ?>
+                                        <div class="articlePsychotherapyEmpty"> </div>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-xs-12">
@@ -98,17 +113,7 @@ use \yii\helpers\Html;
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                 </div>
-<!--                                <div class="col-sm-12  text-left">-->
-<!--                                    --><?php //if ($popArticle->tags) : ?>
-<!--                                        <p class="articleTag">-->
-<!--                                            --><?php //$count = count($popArticle->tags)?>
-<!--                                            --><?php //foreach ($popArticle->tags as $tag) : ?>
-<!--                                                <span>--><?//= Html::a($tag['name'], '/article/bytag/'.$tag['hrurl'] ) ?><!----><?php //if(--$count>0){echo', ';} ?><!--</span>-->
-<!--                                            --><?php //endforeach; ?>
-<!---->
-<!--                                        </p>-->
-<!--                                    --><?php //endif; ?>
-<!--                                </div>-->
+
                             </div>
 
                         </div>

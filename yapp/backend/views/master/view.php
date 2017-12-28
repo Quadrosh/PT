@@ -424,7 +424,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'update'=>function($url,$model){
                                     $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/update','id'=>$model['id']]);
                                     return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', $newUrl,
-                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                                        ['title' => Yii::t('yii', 'Обновить'), 'data-pjax' => '0','data-method'=>'post']);
                                 },
                                 'delete'=>function($url,$model){
                                     $newUrl = Yii::$app->getUrlManager()->createUrl(['/itemassign/delete','id'=>$model['id']]);
