@@ -36,7 +36,7 @@ use \yii\helpers\Html;
 
         </div>
         <div class="col-sm-12 ">
-              <div class="text"><?= nl2br($article['text']) ?>...</div>
+              <div class="text"><?= nl2br($article['text']) ?></div>
 
         </div>
         <div class="col-sm-6 col-sm-offset-6 text-right">

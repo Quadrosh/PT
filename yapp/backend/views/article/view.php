@@ -38,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'list_name',
             'list_num',
-//            'hrurl:url',
             [
                 'attribute'=>'hrurl',
                 'value' => function($model)
@@ -86,6 +85,44 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <section>
+    <!-- изменение текста -->
+    <div class="row mt20 bt pt20">
+
+        <?php $form = ActiveForm::begin([
+            'id'=>'changeText',
+            'action' => ['/article/update?id='.$model['id']],
+            'options' => ['data-pjax' => true ]
+        ]); ?>
+        <div class="col-sm-12">
+            <?= $form->field($model, 'text')
+                ->textarea(['rows' => 4,'maxlength' => true, 'id'=>'changeText-text'])
+                ->label('Изменение текста')
+            ?>
+        </div>
+        <div class="col-sm-3">
+            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary ']) ?>
+        </div>
+        <?php ActiveForm::end() ?>
+
+        <?php $form = ActiveForm::begin([
+            'id'=>'changeSubString',
+            'action' => ['/article/change-sub-str?id='.$model['id']],
+        ]); $fromTo = new \common\models\FromToForm()?>
+        <div class="col-sm-3">
+            <?= $form->field($fromTo, 'from')->textInput(['placeholder' => 'from'])->label(false) ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($fromTo, 'to')->textInput(['placeholder' => 'to'])->label(false) ?>
+        </div>
+        <div class="col-sm-3">
+            <?= Html::submitButton('Заменить', ['class' => 'btn btn-success ']) ?>
+        </div>
+
+        <?php ActiveForm::end() ?>
+
+    </div>
+    <!-- /изменение текста -->
+
 
     <!--   hrurl -->
     <div class="row mt20 bt pt20">

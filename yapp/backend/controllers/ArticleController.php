@@ -398,5 +398,18 @@ class ArticleController extends Controller
         return $this->redirect(Url::previous());
     }
 
+    public function actionChangeSubStr($id)
+    {
+        $model = Article::findOne($id);
+        $form = Yii::$app->request->post('FromToForm');
+        $newText = str_replace($form['from'], $form['to'], $model['text']);
+        $model['text'] = $newText;
+        if ($model->save()) {
+            Yii::$app->session->setFlash('success', 'текст обновлен');
+        } else {
+            Yii::$app->session->setFlash('error', 'не получилось');
+        };
+        return $this->redirect(Url::previous());
+    }
 
 }
