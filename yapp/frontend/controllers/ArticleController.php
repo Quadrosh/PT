@@ -64,7 +64,7 @@ class ArticleController extends Controller
         $articleDataProvider = new ArrayDataProvider([
             'allModels'=>$articles,
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 100,
             ],
 //            'sort' => [
 //                'attributes' => ['id', 'username'],
@@ -80,7 +80,7 @@ class ArticleController extends Controller
             ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
             ->groupBy('article.id')
             ->orderBy(['countviews' => SORT_DESC])
-            ->limit(100);
+            ->limit(6);
         $popularArticles = $query->all();
 
         $topArticle = Article::find()->where(['id'=>7])->one();
