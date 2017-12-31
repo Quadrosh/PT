@@ -80,7 +80,7 @@ class ArticleController extends Controller
             ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
             ->groupBy('article.id')
             ->orderBy(['countviews' => SORT_DESC])
-            ->limit(10);
+            ->limit(100);
         $popularArticles = $query->all();
 
         $topArticle = Article::find()->where(['id'=>7])->one();
