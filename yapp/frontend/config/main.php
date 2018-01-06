@@ -52,9 +52,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-//                $params['lTTGBotPath']=>'master/index',
-                $params['lTTGBotPath']=>'ltb/dialog',
-//                $params['lTTGBotPath']=>'live-through-bot/dialog',
+
+                $params['lTTGBotPath']=>'live-through-bot/dialog',
 
 
                 'article/search' => 'article/search',
