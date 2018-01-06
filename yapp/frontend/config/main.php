@@ -52,6 +52,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                $params['lTTGBotPath']=>'live-through-bot/dialog',
+
                 'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',
                 'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
