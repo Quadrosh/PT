@@ -70,10 +70,10 @@ class LiveThroughController extends \yii\web\Controller
         $query = $inlineQuery['query'];
 
 
-//        $this->sendMessage([
-//            'chat_id' => $message['from']['id'],
-//            'text' => 'liveThrough',
-//        ]);
+        $this->sendMessage([
+            'chat_id' => $message['from']['id'],
+            'text' => 'liveThrough',
+        ]);
 
         return ['message' => 'ok', 'code' => 200];
 
