@@ -21,7 +21,10 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'cookieValidationKey' => 'DgaujypcSnGWPqwdtwTo'
+            'cookieValidationKey' => 'DgaujypcSnGWPqwdtwTo',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -38,6 +41,15 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['info'],
+                    'categories' => ['liveThroughBot'],
+                    'logFile' => '@runtime/bots/livethroughbot/logs/livethroughbot.log',
+                    'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
+                    'maxFileSize' => 1024 * 2,
+                    'maxLogFiles' => 20,
                 ],
             ],
         ],
