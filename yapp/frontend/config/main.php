@@ -53,7 +53,9 @@ return [
             'showScriptName' => false,
             'rules' => [
 //                $params['lTTGBotPath']=>'master/index',
-                $params['lTTGBotPath']=>'live-through-bot/dialog',
+                $params['lTTGBotPath']=>'ltb/dialog',
+//                $params['lTTGBotPath']=>'live-through-bot/dialog',
+
 
                 'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',
