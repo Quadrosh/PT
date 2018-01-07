@@ -37,6 +37,18 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
+        ['label' => 'Боты',
+            'items' => [
+                ['label' => 'Lt Feel', 'url' => ['/lt-feel']],
+                ['label' => 'Lt Feel Vars', 'url' => ['/lt-feel-vars']],
+                ['label' => 'Lt Restriction', 'url' => ['/lt-restriction']],
+                ['label' => 'Lt TG Bot Session', 'url' => ['/lt-tg-bot-session']],
+                ['label' => 'Lt TG Bot Session Vars', 'url' => ['/lt-tg-bot-session-vars']],
+                ['label' => 'TG Bot Use', 'url' => ['/tg-bot-use']],
+                ['label' => 'TG Bot User', 'url' => ['/tg-bot-user']],
+                ['label' => 'TG Bot User Permission', 'url' => ['/tg-bot-user-permission']],
+            ],
+        ],
         ['label' => 'Заявки',
             'items' => [
                 ['label' => 'Заявки', 'url' => ['/feedback']],
