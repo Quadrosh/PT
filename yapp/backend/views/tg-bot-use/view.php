@@ -35,7 +35,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'bot_name',
             'done',
             'user_result:ntext',
-            'created_at',
+//            'created_at',
+            [
+                'attribute'=>'created_at',
+                'value'=> function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data->created_at, 'HH:mm dd/MM/yyyy');
+
+                },
+                'format'=> 'html',
+            ],
         ],
     ]) ?>
 

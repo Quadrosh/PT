@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lt_tg_bot_session_vars".
@@ -22,6 +23,16 @@ class LtTgBotSessionVars extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'lt_tg_bot_session_vars';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'updatedAtAttribute' => false,
+            ],
+        ];
     }
 
     /**

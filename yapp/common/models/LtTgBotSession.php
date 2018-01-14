@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lt_tg_bot_session".
@@ -25,6 +26,16 @@ class LtTgBotSession extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'lt_tg_bot_session';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'updatedAtAttribute' => false,
+            ],
+        ];
     }
 
     /**
@@ -56,5 +67,13 @@ class LtTgBotSession extends \yii\db\ActiveRecord
             'remind_text' => 'Remind Text',
             'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     *
+     */
+    public function getVars()
+    {
+        return $this->hasMany(LtTgBotSessionVars::className(),['lo_bot_session_id'=>'id']);
     }
 }

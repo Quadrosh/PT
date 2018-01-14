@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lt_feel".
@@ -36,6 +37,15 @@ class LtFeel extends \yii\db\ActiveRecord
         return 'lt_feel';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+//                'updatedAtAttribute' => false,
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -74,5 +84,21 @@ class LtFeel extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * получить переменные
+     */
+    public function getVars()
+    {
+        return $this->hasMany(LtFeelVars::className(),['feel_id'=>'id']);
+    }
+
+    /**
+     * получить ограничение
+     */
+    public function getRestriction()
+    {
+        return $this->hasOne(LtRestriction::className(),['item_id'=>'id'])->where(['item_type'=>'feel']);
     }
 }

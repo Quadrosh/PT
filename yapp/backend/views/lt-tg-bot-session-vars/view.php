@@ -33,7 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'step_number',
             'step_text:ntext',
             'user_response:ntext',
-            'created_at',
+//            'created_at',
+            [
+                'attribute'=>'created_at',
+                'value'=> function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data->created_at, 'HH:mm dd/MM/yyyy');
+
+                },
+                'format'=> 'html',
+            ],
         ],
     ]) ?>
 

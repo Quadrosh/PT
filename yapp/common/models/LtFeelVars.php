@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lt_feel_vars".
@@ -21,6 +22,16 @@ class LtFeelVars extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'lt_feel_vars';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'updatedAtAttribute' => false,
+            ],
+        ];
     }
 
     /**

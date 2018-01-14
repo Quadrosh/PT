@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "lt_restriction".
@@ -25,6 +26,16 @@ class LtRestriction extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'lt_restriction';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+//                'updatedAtAttribute' => false,
+            ],
+        ];
     }
 
     /**

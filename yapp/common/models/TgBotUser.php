@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "tg_bot_user".
@@ -24,6 +25,16 @@ class TgBotUser extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'tg_bot_user';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+//                'updatedAtAttribute' => false,
+            ],
+        ];
     }
 
     /**
@@ -53,5 +64,36 @@ class TgBotUser extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
         ];
+    }
+
+
+    public function getPermissions()
+    {
+        return $this->hasMany(TgBotUserPermission::className(),['user_id'=>'id']);
+    }
+
+    public function hasPermission($short)
+    {
+        if (TgBotUserPermission::find()->where(['short'=>$short,'user_id'=>$this['id']])->one()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addPermission($short)
+    {
+        if (TgBotUserPermission::find()->where(['short'=>$short,'user_id'=>$this['id']])->one()) {
+            return true;
+        } else {
+            $permission = new TgBotUserPermission();
+            $permission['user_id'] = $this['id'];
+            $permission['short'] = $short;
+            if ($permission->save()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

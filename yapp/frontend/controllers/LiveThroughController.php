@@ -5,6 +5,7 @@ namespace frontend\controllers;
 
 use common\models\Feedback;
 
+use common\models\TgBotUser;
 use yii\filters\ContentNegotiator;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -70,9 +71,53 @@ class LiveThroughController extends \yii\web\Controller
         $query = $inlineQuery['query'];
 
 
+        if ($message != null) {
+
+//            /start
+            if (trim(strtolower($message['text'])) == '/start') {
+                $user = TgBotUser::find()->where(['tg_user_id'=>$message['from']['id']])->one();
+                if ($user == null) {
+                    $user = new TgBotUser();
+                    $user['tg_user_id'] = $message['from']['id'];
+                    $user['first_name'] = $message['from']['first_name'];
+                    $user['last_name'] = $message['from']['last_name'];
+                    $user['username'] = $message['from']['username'] ? $message['from']['username'] : 'noUsername';
+                    $user['language_code'] = $message['from']['language_code'];
+                    $user->save();
+                }
+                $this->sendMessage([
+                    'chat_id' => $message['chat']['id'],  // $message['from']['id']
+                    'parse_mode' => 'html',
+                    'text' =>
+                        'Я - <b>Переживание бот</b>. '.PHP_EOL.
+                        'Приглашаю в путешествие по твоим эмоциям'.PHP_EOL.
+                        'Прервать упражнение в любой точке можно командой /end '.PHP_EOL.
+                        'Помощь - /help '.PHP_EOL.
+                        'Наше путешествие имеет несколько дорог, выбирай:',
+                    'reply_markup' => json_encode([
+                        'inline_keyboard'=>[
+                            [
+                                ['text'=>"Выбор",'switch_inline_query_current_chat'=> 'play'],
+                            ],
+//                            [
+//                                ['text'=>"настройки",'switch_inline_query_current_chat'=> 'phrase'],
+//                            ],
+
+                        ]
+                    ]),
+                ]);
+                return [
+                    'message' => 'ok',
+                    'code' => 200,
+                ];
+
+
+            }
+        }
+
         $this->sendMessage([
             'chat_id' => $message['from']['id'],
-            'text' => 'liveThrough',
+            'text' => 'end of script',
         ]);
 
         return ['message' => 'ok', 'code' => 200];
