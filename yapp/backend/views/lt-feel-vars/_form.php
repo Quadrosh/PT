@@ -12,7 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'feel_id')->textInput() ?>
+    <div class="row">
+        <div class="col-sm-2"><?= $form->field($model, 'feel_id')->textInput() ?></div>
+        <div class="col-sm-2"><?= $form->field($model, 'sort')->textInput() ?></div>
+    </div>
+
+
+
 
     <?= $form->field($model, 'question')->textarea(['rows' => 6]) ?>
 

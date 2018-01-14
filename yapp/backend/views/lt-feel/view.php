@@ -9,7 +9,7 @@ use \yii\widgets\ActiveForm;
 /* @var $model common\models\LtFeel */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Ch Bot Plays', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Lt Feel', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ch-bot-play-view">
@@ -115,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
             <?php
             $newVar = new \common\models\LtFeelVars();
-            $query = \common\models\LtFeelVars::find()->where(['feel_id'=>$model['id']]);
+            $query = \common\models\LtFeelVars::find()->where(['feel_id'=>$model['id']])->orderBy('sort');
             $varsDataProvider = new \yii\data\ActiveDataProvider([
                 'query'=>$query,
                 'pagination'=> ['pageSize' => 100],

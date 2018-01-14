@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'feel_id',
+            'sort',
             'question:ntext',
             'example',
 //            'created_at',

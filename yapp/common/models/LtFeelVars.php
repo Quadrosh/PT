@@ -40,7 +40,7 @@ class LtFeelVars extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['feel_id', 'created_at'], 'integer'],
+            [['feel_id', 'created_at' , 'sort'], 'integer'],
             [['question'], 'string'],
             [['example'], 'string', 'max' => 510],
         ];
@@ -54,6 +54,7 @@ class LtFeelVars extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'feel_id' => 'Feel ID',
+            'sort' => 'Sort',
             'question' => 'Question',
             'example' => 'Example',
             'created_at' => 'Created At',

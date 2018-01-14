@@ -5,7 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\LtFeelVars */
 
-$this->title = 'Update Lt Feel Vars: {nameAttribute}';
+$this->title = 'Update Lt Feel Vars : '.
+    \common\models\LtFeel::find()->where(['id'=>$model->id])->one()['name'].
+    ', вопрос №'.$model->sort;
 $this->params['breadcrumbs'][] = ['label' => 'Lt Feel Vars', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
