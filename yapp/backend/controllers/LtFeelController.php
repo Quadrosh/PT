@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\LtFeelVars;
 use Yii;
 use common\models\LtFeel;
 use yii\data\ActiveDataProvider;
@@ -56,6 +57,22 @@ class LtFeelController extends Controller
         ]);
     }
 
+    public function actionCreateFeelVar($play)
+    {
+
+        $playVar = new LtFeelVars();
+        $request = Yii::$app->request->post('LtFeelVars');
+
+        $playVar['play_id'] = $play;
+        $playVar['question'] = $request['question'];
+        $playVar->save();
+
+        return $this->render('_view-create_var', [
+            'playId'=>$play,
+
+        ]);
+
+    }
     /**
      * Creates a new LtFeel model.
      * If creation is successful, the browser will be redirected to the 'view' page.

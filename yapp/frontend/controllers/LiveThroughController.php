@@ -5,6 +5,7 @@ namespace frontend\controllers;
 
 use common\models\Feedback;
 
+use common\models\LtFeel;
 use common\models\TgBotUser;
 use yii\filters\ContentNegotiator;
 use yii\helpers\Html;
@@ -71,6 +72,103 @@ class LiveThroughController extends \yii\web\Controller
         $query = $inlineQuery['query'];
 
 
+
+
+
+//        Inline
+        if ($inlineQuery != null) {
+
+//           список сцен feel
+            if ($inlineQuery['query'] == 'feel') {
+                $feels = LtFeel::find()->where('name != :value', ['value' => 'work'])->orderBy('name')->all();
+                $results = [];
+                foreach ($feels as $feel) {
+                    $results[] = [
+                        'type' => 'article',
+                        'id' => $feel['id'],
+                        'title' => $feel['name'],
+                        'description' => $feel['description'],
+                        'input_message_content'=>[
+                            'message_text'=> 'play/' . $feel['hrurl'],
+                            'parse_mode'=> 'html',
+                            'disable_web_page_preview'=> true,
+                        ],
+                    ];
+                };
+                $this->answerInlineQuery([
+                    'inline_query_id' => $inlineQuery['id'],
+//                    'is_personal' => true,
+                    'results'=> json_encode($results)
+                ]);
+            }
+
+
+//           dev
+
+//           список сцен play - все
+            elseif ($inlineQuery['query'] == 'feel_dev') {
+                $plays = LtFeel::find()->orderBy('name')->all();
+                $results = [];
+                foreach ($plays as $play) {
+                    $results[] = [
+                        'type' => 'article',
+                        'id' => $play['id'],
+                        'title' => $play['name'],
+                        'description' => $play['description'],
+                        'input_message_content'=>[
+                            'message_text'=> 'play/' . $play['hrurl'],
+                            'parse_mode'=> 'html',
+                            'disable_web_page_preview'=> true,
+                        ],
+                    ];
+                };
+                $this->answerInlineQuery([
+                    'inline_query_id' => $inlineQuery['id'],
+                    'is_personal' => true,
+                    'results'=> json_encode($results)
+                ]);
+            }
+
+//           остальные $inlineQuery['query']
+            else {
+
+                $plays =  LtFeel::find()->where('name != :value', ['value' => 'work'])->orderBy('name')->all();
+//                $allPlaysAndPhrase = array_push($plays,$phrases);
+                $results = [];
+
+                foreach ($plays as $play) {
+                    $results[] = [
+                        'type' => 'article',
+                        'id' => $play['id'],
+                        'title' => 'чс '.$play['name'],
+                        'description' => $play['description'],
+                        'input_message_content'=>[
+                            'message_text'=> 'play/' . $play['hrurl'],
+                            'parse_mode'=> 'html',
+                            'disable_web_page_preview'=> true,
+                        ],
+                    ];
+                };
+
+
+
+
+                $this->answerInlineQuery([
+                    'inline_query_id' => $inlineQuery['id'],
+                    'is_personal' => true,
+                    'results'=> json_encode($results)
+                ]);
+            }
+
+
+
+
+            return [
+                'message' => 'ok',
+                'code' => 200,
+            ];
+        }
+
         if ($message != null) {
 
 //            /start
@@ -97,7 +195,7 @@ class LiveThroughController extends \yii\web\Controller
                     'reply_markup' => json_encode([
                         'inline_keyboard'=>[
                             [
-                                ['text'=>"Выбор",'switch_inline_query_current_chat'=> 'play'],
+                                ['text'=>"Выбор",'switch_inline_query_current_chat'=> 'feel'],
                             ],
 //                            [
 //                                ['text'=>"настройки",'switch_inline_query_current_chat'=> 'phrase'],

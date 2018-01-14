@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\LtFeelVars;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,6 +36,7 @@ class LtFeelVarsController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember();
         $dataProvider = new ActiveDataProvider([
             'query' => LtFeelVars::find(),
         ]);
@@ -51,6 +53,7 @@ class LtFeelVarsController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,7 +69,7 @@ class LtFeelVarsController extends Controller
         $model = new LtFeelVars();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         }
 
         return $this->render('create', [
@@ -85,7 +88,7 @@ class LtFeelVarsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::previous());
         }
 
         return $this->render('update', [
@@ -103,7 +106,7 @@ class LtFeelVarsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Url::previous());
     }
 
     /**
