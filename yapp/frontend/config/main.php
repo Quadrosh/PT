@@ -21,7 +21,7 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'cookieValidationKey' => 'DgaujypcSnGWPqwdtwTo',
+//            'cookieValidationKey' => $params['cookieValidationKey'],  // main-local
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
