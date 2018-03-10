@@ -980,6 +980,51 @@ a:hover{
     border: none;
 }
 
+
+/* my styled select */
+.styled_select{
+    position: relative;
+    width: 240px;
+    left: 50%;
+    margin-left: -120px;
+}
+.styled_select{
+    background: url(/img/select_tr.png) no-repeat 96% 0;
+    border-radius: 50px;
+    height: 34px;
+    overflow: hidden;
+    width: 240px;
+
+    margin-bottom: 30px;
+}
+.dark .styled_select{
+    border:1px solid #fff;
+
+}
+.dark .form-control {
+    background-color: transparent;
+    color: white;
+
+}
+.dark .form-control option {
+    color: #838e9a;
+}
+.styled_select select {
+    background: transparent;
+    /*background: #fff;*/
+    border: none;
+    font-size: 14px;
+    height: 34px;
+    padding: 5px  6px 5px; /* if too much padding here, the options won't show in IE */
+    width: 268px;
+}
+
+
+
+
+
+
+
 #filterForm .btn-default:focus,
 #filterForm .btn-default:active,
 #filterForm .open > .dropdown-toggle.btn-default {
