@@ -3,15 +3,17 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "feedback".
  *
  * @property int $id
- * @property int $user_id
+ * @property string $user_id
  * @property string $name
  * @property string $city
- * @property string $from_page
+ * @property string $master_id
+ * @property string $session_type
  * @property string $phone
  * @property string $email
  * @property string $contacts
@@ -32,6 +34,16 @@ class Feedback extends \yii\db\ActiveRecord
         return 'feedback';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'date',
+                'updatedAtAttribute' => false,
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -40,7 +52,7 @@ class Feedback extends \yii\db\ActiveRecord
         return [
             [[ 'done'], 'integer'],
             [['text'], 'string'],
-            [['date'], 'safe'],
+            [['date'], 'integer'],
             [['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'], 'string'],
             ['utm_source', 'filter', 'filter' => function ($value) {
                 if (strlen($value)>=509) {
@@ -82,7 +94,15 @@ class Feedback extends \yii\db\ActiveRecord
                 }
                 return $newValue;
             }],
-            [['user_id', 'city', 'master_id', 'phone', 'email', 'contacts'], 'string', 'max' => 255],
+            [[
+                'user_id',
+                'city',
+                'master_id',
+                'phone',
+                'email',
+                'session_type',
+                'contacts'
+            ], 'string', 'max' => 255],
             [['name', ], 'string', 'max' => 100],
             [['name', 'phone'], 'required'],
         ];
@@ -101,6 +121,7 @@ class Feedback extends \yii\db\ActiveRecord
             'name' => 'Имя',
 
             'city' => 'Город',
+            'session_type' => 'Тип сессии',
 
             'utm_source' => 'UTM Source',
             'utm_medium' => 'UTM Medium',

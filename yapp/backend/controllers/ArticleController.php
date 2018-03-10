@@ -10,7 +10,7 @@ use common\models\SiteItem;
 use common\models\Tag;
 use common\models\Tagassign;
 use common\models\UploadForm;
-use console\models\ArticleElastic;
+//use console\models\ArticleElastic;
 use Yii;
 use common\models\Article;
 use yii\data\ActiveDataProvider;

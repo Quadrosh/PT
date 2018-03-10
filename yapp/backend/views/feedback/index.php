@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'phone',
             'master_id',
+            'session_type',
 
 //            'city',
 

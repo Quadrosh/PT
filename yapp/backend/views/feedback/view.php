@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'city',
             'master_id',
+            'session_type',
             'phone',
             'email:email',
             'contacts',
