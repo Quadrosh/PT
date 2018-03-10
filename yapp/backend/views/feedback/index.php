@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'email:email',
             // 'contacts',
-            // 'text:ntext',
+             'text:ntext',
 //             'date',
             [
                 'attribute'=>'date',
