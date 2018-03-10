@@ -79,7 +79,13 @@ AppAsset::register($this);
             ],
         ],
         ['label' => 'Психотерапевты', 'url' => ['/master']],
-        ['label' => 'Статьи', 'url' => ['/article']],
+//        ['label' => 'Статьи', 'url' => ['/article']],
+        ['label' => 'Статьи',
+            'items' => [
+                ['label' => 'Статьи', 'url' => ['/article']],
+                ['label' => 'Article Pic', 'url' => ['/article-pic']],
+            ],
+        ],
 
 
 //        ['label' => 'Статьи',

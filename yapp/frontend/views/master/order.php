@@ -69,6 +69,17 @@ $feedback = new \common\models\Feedback;
                     ->hiddenInput(['value'=>$master['id'],'id' => 'quickorder-form-top-from_page'])
                     ->label(false) ?>
 
+<!--                тип консультации -->
+                <div class="col-sm-12">
+                    <?= $form->field($feedback, 'contacts')
+                        ->dropDownList(\yii\helpers\ArrayHelper::map(
+                            $master->sessionTypes, 'name','name'),[
+                            'id'=>'quickorder-form-top-session',
+//                            'class'=>'selectpicker',
+                            'prompt'=>'Тип сессии'
+                        ])
+                        ->label(false) ?>
+                </div>
                 <div class="col-sm-6">
                     <?= $form->field($feedback, 'phone', [
                         'inputOptions' => [
@@ -83,6 +94,14 @@ $feedback = new \common\models\Feedback;
                             'placeholder' => 'Имя'
                         ]])
                         ->textInput(['maxlength' => true, 'id' => 'quickorder-form-top-name'])
+                        ->label(false) ?>
+                </div>
+                <div class="col-sm-12">
+                    <?= $form->field($feedback, 'text', [
+                        'inputOptions' => [
+                            'placeholder' => 'Комментарий'
+                        ]])
+                        ->textInput(['maxlength' => true, 'id' => 'quickorder-form-top-text'])
                         ->label(false) ?>
                 </div>
 

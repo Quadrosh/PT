@@ -152,6 +152,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return '#'.$data['id'];
                             },
                         ],
+                        [
+                            'attribute'=>'sort',
+                        ],
 
                         [
                             'label' => 'Переменная',

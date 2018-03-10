@@ -993,6 +993,12 @@ a:hover{
     width: 150px;
 }
 
+
+.master_body .bootstrap-select > .dropdown-toggle {
+    width: 100%;
+}
+
+
 .searchForm {
     position: absolute;
     width: 300px;

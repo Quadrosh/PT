@@ -15,7 +15,8 @@ use \yii\widgets\ActiveForm;
 
             <div class="col-sm-2  text-center">
                 <?= $form->field($filterForm, 'city')
-                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),[
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(
+                        \common\models\CityItem::find()->orderBy('name')->all(), 'id','name'),[
                         'id'=>'city_assign-item_id',
                         'class'=>'selectpicker',
                         'value'=>isset($current['city'])?$current['city']:'',
