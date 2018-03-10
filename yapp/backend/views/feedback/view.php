@@ -38,13 +38,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'contacts',
             'text:ntext',
-            'date',
+//            'date',
+            [
+                'attribute'=>'date',
+                'value' => function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data['date'], 'dd/MM/yy HH:mm');
+                },
+                'format'=> 'html',
+            ],
             'done',
             'utm_source',
             'utm_medium',
             'utm_campaign',
             'utm_term',
             'utm_content',
+            'send_time',
+            'send_status',
         ],
     ]) ?>
 

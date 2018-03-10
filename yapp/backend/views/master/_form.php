@@ -95,20 +95,51 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-12">
             <?= $form->field($model, 'hello')->textarea(['rows' => 1]) ?>
         </div>
-        <div class="col-sm-4">
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
             <?= $form->field($model, 'view')->textInput() ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <?= $form->field($model, 'order_view')->textInput() ?>
+        </div>
+        <div class="col-sm-3">
             <?= $form->field($model, 'layout')->textInput() ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'stylekey')->dropDownList(['dark' => 'Dark','bright'=>'Bright']) ?>
         </div>
+
+    </div>
+
+    <div class="row">
+
         <div class="col-sm-6">
-            <?= $form->field($model, 'comment')->textarea(['rows' => 2]) ?>
+            <?= $form->field($model, 'order_messenger')->dropDownList(
+                [
+                    'email'=>'email',
+                    'telegram' => 'telegram'
+                ]) ?>
+
         </div>
         <div class="col-sm-6">
+            <?= $form->field($model, 'order_messenger_id')->textInput() ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
             <?= $form->field($model, 'order_phone')->textInput() ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'order_sms_enable')->textInput() ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'order_sms_count')->textInput() ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <?= $form->field($model, 'comment')->textarea(['rows' => 1]) ?>
         </div>
     </div>
 

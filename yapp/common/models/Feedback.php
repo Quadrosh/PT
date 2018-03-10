@@ -50,9 +50,14 @@ class Feedback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'done'], 'integer'],
+            [
+                [
+                    'done',
+                    'send_time',
+                    'date',
+                ], 'integer'
+            ],
             [['text'], 'string'],
-            [['date'], 'integer'],
             [['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'], 'string'],
             ['utm_source', 'filter', 'filter' => function ($value) {
                 if (strlen($value)>=509) {
@@ -94,15 +99,18 @@ class Feedback extends \yii\db\ActiveRecord
                 }
                 return $newValue;
             }],
-            [[
-                'user_id',
-                'city',
-                'master_id',
-                'phone',
-                'email',
-                'session_type',
-                'contacts'
-            ], 'string', 'max' => 255],
+            [
+                [
+                    'user_id',
+                    'city',
+                    'master_id',
+                    'phone',
+                    'email',
+                    'session_type',
+                    'send_status',
+                    'contacts'
+                ], 'string', 'max' => 255
+            ],
             [['name', ], 'string', 'max' => 100],
             [['name', 'phone'], 'required'],
         ];
@@ -136,11 +144,10 @@ class Feedback extends \yii\db\ActiveRecord
 
             'text' => 'Комментарий',
 
-
-
-
             'date' => 'Дата',
             'done' => 'Done',
+            'send_time' => 'Время отправки',
+            'send_status' => 'Статус отправки',
         ];
     }
     /**
@@ -158,8 +165,10 @@ class Feedback extends \yii\db\ActiveRecord
                 ->setSubject($subject)
                 ->setHtmlBody(
                     "Данные запроса <br>".
+                    " <br/> Тип сессии: ".$this->session_type .
                     " <br/> Имя: ".$this->name .
-                    " <br/> Телефон: ".$this->phone )
+                    " <br/> Телефон: ".$this->phone .
+                    " <br/> Комментарий: ".$this->text )
                 ->send();
 
     }

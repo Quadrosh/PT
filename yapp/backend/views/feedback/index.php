@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'user_id',
+//            'user_id',
             'name',
             'phone',
             'master_id',
@@ -33,13 +33,23 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'email:email',
             // 'contacts',
             // 'text:ntext',
-            // 'date',
+//             'date',
+            [
+                'attribute'=>'date',
+                'value' => function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data['date'], 'dd/MM/yy HH:mm');
+                },
+                'format'=> 'html',
+            ],
             // 'done',
              'utm_source',
              'utm_medium',
              'utm_campaign',
              'utm_term',
              'utm_content',
+             'send_time',
+             'send_status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

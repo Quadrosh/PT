@@ -104,6 +104,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'list_add',
             'comment:ntext',
             'order_phone',
+            'order_view',
+            'order_messenger',
+            'order_messenger_id',
+            'order_sms_enable',
+            'order_sms_count',
             'status',
 //            'created_at',
             [

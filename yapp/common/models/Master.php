@@ -31,6 +31,12 @@ use yii\behaviors\TimestampBehavior;
  * @property string $layout
  * @property string $list_add
  * @property string $status
+ * @property string $order_view
+ * @property string $order_messenger
+ * @property string $order_messenger_id
+ * @property string $order_phone
+ * @property string $order_sms_enable
+ * @property integer $order_sms_count
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -61,8 +67,37 @@ class Master extends \yii\db\ActiveRecord
             [['hrurl'],'unique'],
             [['username'], 'required'],
             [['other_contacts', 'comment', 'hello'], 'string'],
-            [['site_id', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'hrurl', 'name', 'middlename', 'surname', 'image', 'city', 'phone', 'address', 'email', 'stylekey', 'view', 'layout', 'status', 'order_phone'], 'string', 'max' => 255],
+            [
+                [
+                    'site_id',
+                    'created_at',
+                    'order_sms_count',
+                    'updated_at'
+                ], 'integer'
+            ],
+            [
+                [
+                    'username',
+                    'hrurl',
+                    'name',
+                    'middlename',
+                    'surname',
+                    'image',
+                    'city',
+                    'phone',
+                    'address',
+                    'email',
+                    'stylekey',
+                    'view',
+                    'layout',
+                    'status',
+                    'order_view',
+                    'order_messenger',
+                    'order_messenger_id',
+                    'order_phone',
+                    'order_sms_enable',
+                ], 'string', 'max' => 255
+            ],
             [['image_alt', 'site_link', 'background_image', 'list_add'], 'string', 'max' => 510],
             [['username'], 'unique'],
         ];
@@ -99,6 +134,11 @@ class Master extends \yii\db\ActiveRecord
             'list_add' => 'Добавочный текст в списке (помошь в проблемах...)',
             'status' => 'Status',
             'order_phone' => 'Order Phone',
+            'order_view' => 'Order View',
+            'order_messenger' => 'Order Messenger',
+            'order_messenger_id' => 'Order Messenger ID',
+            'order_sms_enable' => 'Order SMS Статус',
+            'order_sms_count' => 'Order SMS Осталось',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'fio' => '_ФИО (в разработке)',
