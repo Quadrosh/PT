@@ -48,7 +48,7 @@ class NotificationController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
-        if (in_array($action->id, ['do'])) {
+        if (in_array($action->id, ['telegin'])) {
             $this->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
@@ -145,6 +145,7 @@ class NotificationController extends \yii\web\Controller
      * */
     private function textMessageAction($message){
         $bot = new BotTelega;
+        $bot->request = $this->request;
         return $bot->sendPTOrderNotification([
             'chat_id' => $this->request['user_id'],
 //            'chat_id' => $this->user['telegram_user_id'],

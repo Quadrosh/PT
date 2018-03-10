@@ -26,7 +26,7 @@ class NotificationRequest extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'notification_request';
+        return 'notification_bot_request';
     }
 
     public function behaviors()
