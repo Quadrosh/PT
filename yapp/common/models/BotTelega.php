@@ -13,7 +13,10 @@ use yii\web\Response;
 
 class BotTelega extends Model
 {
-
+    /**
+     * @var $request NotificationRequest
+     */
+    public $request;
     public $name;
 
     public function behaviors() {
@@ -43,9 +46,9 @@ class BotTelega extends Model
 
     public function sendPTOrderNotification(array $options, $dataInBody = false)
     {
-//        $this->request['answer'] = $options['text'];
-//        $this->request['answer_time'] = time();
-//        $this->request->save();
+        $this->request['answer'] = $options['text'];
+        $this->request['answer_time'] = time();
+        $this->request->save();
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .

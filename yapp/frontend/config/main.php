@@ -45,6 +45,15 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['info'],
+                    'categories' => ['psihoteraBot'],
+                    'logFile' => '@runtime/logs/psihoteraBot.log',
+                    'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
+                    'maxFileSize' => 1024 * 2,
+                    'maxLogFiles' => 20,
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['info'],
                     'categories' => ['liveThroughBot'],
                     'logFile' => '@runtime/bots/livethroughbot/logs/livethroughbot.log',
                     'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
@@ -64,6 +73,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                $params['ptTGBotPath']=>'notification/telegin',
+
 //                $params['lTTGBotPath']=>'master/index',
 //                $params['lTTGBotPath']=>'ltb/dialog',
                 $params['lTTGBotPath']=>'live-through/dialog',
