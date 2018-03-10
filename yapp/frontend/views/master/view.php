@@ -159,7 +159,6 @@ $feedback = new \common\models\Feedback;
                                                 ->dropDownList(\yii\helpers\ArrayHelper::map(
                                                     $master->sessionTypes, 'name','name'),[
                                                     'id'=>'quickorder-form-top-session',
-    //                                                'class'=>'selectpicker',
                                                     'prompt'=>'Тип сессии'
                                                 ])
                                                 ->label(false) ?>

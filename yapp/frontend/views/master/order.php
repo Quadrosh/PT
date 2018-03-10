@@ -71,14 +71,15 @@ $feedback = new \common\models\Feedback;
 
 <!--                тип консультации -->
                 <div class="col-sm-12">
-                    <?= $form->field($feedback, 'contacts')
-                        ->dropDownList(\yii\helpers\ArrayHelper::map(
-                            $master->sessionTypes, 'name','name'),[
-                            'id'=>'quickorder-form-top-session',
-//                            'class'=>'selectpicker',
-                            'prompt'=>'Тип сессии'
-                        ])
-                        ->label(false) ?>
+                    <div class="styled_select">
+                        <?= $form->field($feedback, 'contacts')
+                            ->dropDownList(\yii\helpers\ArrayHelper::map(
+                                $master->sessionTypes, 'name','name'),[
+                                'id'=>'quickorder-form-top-session',
+                                'prompt'=>'Тип сессии'
+                            ])
+                            ->label(false) ?>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <?= $form->field($feedback, 'phone', [
