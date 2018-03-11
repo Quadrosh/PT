@@ -52,7 +52,7 @@ class BotTelega extends Model
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
-            Yii::$app->params['ptTGBotToken'].
+            Yii::$app->params['ptOrderTGBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, $dataInBody);
         return Json::decode($jsonResponse);
@@ -76,18 +76,18 @@ class BotTelega extends Model
         }
         $r = curl_exec($ch);
         if($r == false){
-            $text = 'curl error '.curl_error($ch);
-            Yii::info($text, 'b2bBot');
+            $text = 'curl TG error '.curl_error($ch);
+            Yii::info($text, 'psihoteraOrderBot');
         } else {
             $info = curl_getinfo($ch);
             $info['url'] = str_replace(Yii::$app->params['ptTGBotToken'],'_ptTGBotToken_',  $info['url']);
             $info['url'] = str_replace(Yii::$app->params['lTTGBotToken'],'_lTTGBotToken_',  $info['url']);
             $info = [
-                    'action'=>'curl to User',
+                    'action'=>'curl to TG User',
                     'options'=>$options,
                     'dataInBody'=>$dataInBody,
                 ] + $info;
-            Yii::info($info, 'b2bBot');
+            Yii::info($info, 'psihoteraOrderBot');
         }
         curl_close($ch);
         return $r;

@@ -45,8 +45,8 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['info'],
-                    'categories' => ['psihoteraBot'],
-                    'logFile' => '@runtime/logs/psihoteraBot.log',
+                    'categories' => ['psihoteraOrderBot'],
+                    'logFile' => '@runtime/logs/psihoteraOrderBot.log',
                     'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
                     'maxFileSize' => 1024 * 2,
                     'maxLogFiles' => 20,
@@ -73,7 +73,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                $params['ptTGBotPath']=>'notification/telegin',
+                $params['ptOrderTGBotPath']=>'notification/telegin',
 
 //                $params['lTTGBotPath']=>'master/index',
 //                $params['lTTGBotPath']=>'ltb/dialog',
