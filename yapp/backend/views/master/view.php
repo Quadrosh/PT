@@ -172,6 +172,26 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!--   / статус состояния -->
 
+        <!--    Приветствие (excerpt big)-->
+        <div class="row mt20 bt pt20">
+            <h6 class="text-center"><span class="grey">Приветствие:</span><br><?= $model['hello'] ? nl2br($model['hello']):'<span class="label label-warning">не заполнено</span>'; ?></h6>
+            <div class="col-xs-9">
+                <?php $form = ActiveForm::begin([
+                    'method' => 'post',
+                    'action' => ['/master/update?id='.$model['id']],
+                    'options' => ['enctype' => 'multipart/form-data'],
+                ]); ?>
+
+                <?= $form->field($model, 'hello')
+                    ->textArea(['rows' => 3])
+                    ->label(false) ?>
+            </div>
+            <div class="col-xs-3 text-center">
+                <?= Html::submitButton('назначить <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary']) ?>
+            </div>
+            <?php ActiveForm::end() ?>
+        </div>
+        <!--    !Приветствие-->
 
 
         <!-- image cloud -->
