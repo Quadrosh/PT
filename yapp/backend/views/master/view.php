@@ -139,6 +139,41 @@ $this->params['breadcrumbs'][] = $this->title;
 <section>
     <div class="container">
 
+        <!--    статус состояния -->
+        <div class="row mt20 bt pt20">
+            <div class="col-xs-6 col-xs-offset-3 ">
+                <h4>Статус: <?= $model['status']; ?></h4>
+                <?php $form = yii\bootstrap\ActiveForm::begin([
+                    'method' => 'post',
+                    'action' => ['/master/update?id='.$model['id']],
+                    'layout' => 'horizontal',
+                    'fieldConfig' => [
+                        'template' => "{beginWrapper}\n{input}\n{error}\n{endWrapper}",
+                        'horizontalCssClasses' => [
+//                         'label' => 'col-sm-4',
+//                        'offset' => 'col-sm-offset-3',
+                            'wrapper' => 'col-sm-12',
+                            'error' => '',
+                            'hint' => 'статус',
+                        ],
+                    ],
+                    'options' => ['enctype' => 'multipart/form-data'],
+                ]); ?>
+                <?= $form->field($model, 'status',[
+                    'inputTemplate' => '<div class="input-group"><span class="lRound">{input}</span><span class="input-group-btn">'.
+                        '<button type="submit" class="btn rRound btn-primary">Назначить <i class="fa fa-share" aria-hidden="true"></i></button></span></div>',
+                ])->dropDownList([
+                    'regular'=>'regular',
+                    'draft'=>'draft',
+                    'premium' => 'premium',
+                ]) ?>
+                <?php yii\bootstrap\ActiveForm::end() ?>
+            </div>
+        </div>
+        <!--   / статус состояния -->
+
+
+
         <!-- image cloud -->
         <div class="row mt20 bt pt20">
             <div class="col-xs-12 text-center">

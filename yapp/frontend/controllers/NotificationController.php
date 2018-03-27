@@ -85,13 +85,13 @@ class NotificationController extends \yii\web\Controller
             $userTgId = null;
         }
 
-        $user = Master::find()->where([
-            'order_messenger'=>'telegram',
-            'order_messenger_id'=>$userTgId
-        ])->one();
-
-
-        $this->user = $user;
+//        $user = Master::find()->where([
+//            'order_messenger'=>'telegram',
+//            'order_messenger_id'=>$userTgId
+//        ])->one();
+//
+//
+//        $this->user = $user;
 
 
         // request save
@@ -145,11 +145,19 @@ class NotificationController extends \yii\web\Controller
      * */
     private function textMessageAction($message){
         $bot = new BotTelega;
+        $bot->name = Yii::$app->params['ptOrderTGBotName'];
         $bot->request = $this->request;
-        return $bot->sendPTOrderNotification([
+
+
+        if ($bot->auth()) {
+            $text = 'Авторизация прошла успешно';
+        } else {
+            $text = 'Нет мастера с таким телефоном, если это не так, обратитесь в тех. поддержку.';
+        }
+
+        return $bot->sendMessage([
             'chat_id' => $this->request['user_id'],
-//            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'чек чек',
+            'text' => $text,
         ]);
 
 //        if (trim(strtolower($message['text'])) == '/start') {

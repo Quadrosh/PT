@@ -18,11 +18,19 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'hrurl')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-sm-2">
+            <?= $form->field($model, 'status')->dropDownList([
+                'regular'=>'regular',
+                'draft'=>'draft',
+                'premium' => 'premium',
+            ]) ?>
+        </div>
 
-
+    </div>
+    <div class="row">
         <div class="col-sm-4">
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
         </div>
@@ -32,13 +40,9 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-4">
             <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
         </div>
+    </div>
 
-
-        <div class="col-sm-12">
-            <?= $form->field($model, 'status')->dropDownList(['regular'=>'обычный','premium' => 'премиум']) ?>
-        </div>
-
-
+    <div class="row">
         <div class="col-sm-4">
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
         </div>
@@ -48,7 +52,8 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-4">
             <?= $form->field($model, 'background_image')->textInput(['maxlength' => true]) ?>
         </div>
-
+    </div>
+    <div class="row">
         <div class="col-sm-4">
 <!--            --><?//= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
            <h5>Город</h5>
@@ -80,14 +85,16 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-4">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
         </div>
-
+    </div>
+    <div class="row">
         <div class="col-sm-6">
             <?= $form->field($model, 'address')->textarea(['rows' => 2,'maxlength' => true]) ?>
         </div>
         <div class="col-sm-6">
             <?= $form->field($model, 'other_contacts')->textarea(['rows' => 2]) ?>
         </div>
-
+    </div>
+    <div class="row">
 
         <div class="col-sm-12">
             <?= $form->field($model, 'list_add')->textarea(['rows' => 1]) ?>

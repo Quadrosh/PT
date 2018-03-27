@@ -44,15 +44,38 @@ class BotTelega extends Model
 //        ];
 //    }
 
-    public function sendPTOrderNotification(array $options, $dataInBody = false)
+    public function auth(){
+        if ($this->name == Yii::$app->params['ptOrderTGBotName']) {
+            $user = Master::find()->where([
+                'order_messenger'=>'telegram',
+                'order_messenger_id'=>$this->request['user_id'],
+            ])->one();
+            if ($user) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function sendMessage(array $options, $dataInBody = false)   //sendPTOrderNotification
     {
         $this->request['answer'] = $options['text'];
         $this->request['answer_time'] = time();
         $this->request->save();
+        $token = '';
+        if ($this->name == Yii::$app->params['ptOrderTGBotName']) {
+            $token =  Yii::$app->params['ptOrderTGBotToken'];
+        } else {
+            return 'error, not specified bot name';
+        }
+
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
-            Yii::$app->params['ptOrderTGBotToken'].
+            $token .
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, $dataInBody);
         return Json::decode($jsonResponse);

@@ -47,6 +47,8 @@ AppAsset::register($this);
                 ['label' => 'TG Bot Use', 'url' => ['/tg-bot-use']],
                 ['label' => 'TG Bot User', 'url' => ['/tg-bot-user']],
                 ['label' => 'TG Bot User Permission', 'url' => ['/tg-bot-user-permission']],
+                ['label' => 'Notification Bot User', 'url' => ['/notification-bot-user']],
+
             ],
         ],
         ['label' => 'Заявки',

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "MontserratRegular";
+    src: url("fonts/Montserrat/Montserrat-Regular.eot");
+    src: url("fonts/Montserrat/Montserrat-Regular.eot?#iefix") format("embedded-opentype"),
+        /*url("fonts/MontserratRegular/MontserratRegular.woff") format("woff"),*/
+    url("fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 html,
 body {
     height: 100%;
@@ -180,8 +190,9 @@ a.desc:after {
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-brand,
 .nav > li > form > button.logout{
-    color: lightgrey;
-    /*color: #eee;*/
+    /*color: lightgrey;*/
+    color: #91bbd2;
+    font-family: 'MontserratRegular', sans-serif;
 }
 .btn-danger{
     background-color: #FF5B2B;
