@@ -9,24 +9,28 @@ $feedback = new \common\models\Feedback;
     <div class="row ">
         <div class="col-xs-12 less480">
             <div class="masterImageBox">
-                <?= cl_image_tag($master->imagefile['cloudname'], [
-                    "alt" => $master['image_alt'],
-                    "width" => 167,
-                    "height" => 180,
-                    "crop" => "fill",
-                    "gravity" => "face"
-                ]); ?>
+                <a href="/master/<?= $master['hrurl'] ?>">
+                    <?= cl_image_tag($master->imagefile['cloudname'], [
+                        "alt" => $master['image_alt'],
+                        "width" => 167,
+                        "height" => 180,
+                        "crop" => "fill",
+                        "gravity" => "face"
+                    ]); ?>
+                </a>
             </div>
         </div>
         <div class="col-xs-3 col-sm-4 more480">
             <div class="masterImageBox">
-                <?= cl_image_tag($master->imagefile['cloudname'], [
-                    "alt" => $master['image_alt'],
-                    "width" => 167,
-                    "height" => 180,
-                    "crop" => "fill",
-                    "gravity" => "face"
-                ]); ?>
+                <a href="/master/<?= $master['hrurl'] ?>">
+                    <?= cl_image_tag($master->imagefile['cloudname'], [
+                        "alt" => $master['image_alt'],
+                        "width" => 167,
+                        "height" => 180,
+                        "crop" => "fill",
+                        "gravity" => "face"
+                    ]); ?>
+                </a>
             </div>
         </div>
         <div class="col-xs-9 col-sm-8">
