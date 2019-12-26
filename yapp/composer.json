@@ -14,14 +14,14 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0",
-        "yiisoft/yii2": "2.0.12",
+        "php": "7.0.0 - 7.0.99",
+        "yiisoft/yii2": "2.0.12 - 2.0.15",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "cloudinary/cloudinary_php": "dev-master",
         "yiisoft/yii2-elasticsearch": "~2.1.0",
         "yiisoft/yii2-httpclient": "^2.0",
-        "phpunit/phpunit": "5.7.*"
+        "creocoder/yii2-nested-sets": "0.9.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

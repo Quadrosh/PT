@@ -17,11 +17,12 @@ class m191226_124806_alter_article_table extends Migration
         $this->addColumn('article', 'call2action_name', $this->string());
         $this->addColumn('article', 'call2action_link', $this->string());
         $this->addColumn('article', 'call2action_class', $this->string());
-        $this->addColumn('article', 'call2action_comment', $this->string());
+        $this->addColumn('article', 'call2action_comment', $this->text());
         $this->addColumn('article', 'object_type', $this->string());
         $this->addColumn('article', 'object_id', $this->integer());
         $this->addColumn('article', 'created_at', $this->integer());
         $this->addColumn('article', 'updated_at', $this->integer());
+        $this->alterColumn('article', 'text', $this->text());
 
     }
 
@@ -43,6 +44,7 @@ class m191226_124806_alter_article_table extends Migration
         $this->dropColumn('article', 'object_id');
         $this->dropColumn('article', 'created_at');
         $this->dropColumn('article', 'updated_at');
+        $this->alterColumn('article', 'text', $this->text()->notNull());
 
     }
 

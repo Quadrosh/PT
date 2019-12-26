@@ -3,6 +3,9 @@
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
+        'helpers' => [
+            'class' => 'common\components\Helpers',
+        ],
         'elasticsearch' => [
             'class' => 'yii\elasticsearch\Connection',
             'nodes' => [

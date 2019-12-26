@@ -26,9 +26,52 @@ use Yii;
  * @property string $author
  * @property integer $master_id
  * @property string $status
+ * @property string $type
+ * @property string $topimage_title
+ * @property string $background_image
+ * @property string $background_image_title
+ * @property string $thumbnail_image
+ * @property string $thumbnail_image_alt
+ * @property string $thumbnail_image_title
+ * @property string $call2action_description
+ * @property string $call2action_name
+ * @property string $call2action_link
+ * @property string $call2action_class
+ * @property string $call2action_comment
+ * @property string $object_type
+ * @property integer $object_id
+ * @property integer $created_at
+ * @property integer $updated_at
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const STATUS_PUBLISHED = 'publish';
+    const STATUS_IN_PROCESS = 'in_process';
+    const STATUS_UNREAD = 'unread';
+
+    const TEXT_CLASS_OPTIONS = [
+        'text-center',
+        'text-left',
+        'text-right',
+        'text_blue_center',
+        'text_small',
+        'text-grey',
+        'mt_auto',
+        'mb_auto',
+        'flex_grow',
+    ];
+//    const HEADER_CLASS_OPTIONS = [
+//        'text-center',
+//        'text-left',
+//        'text-right',
+//        'blue_circle',
+//        'text-uppercase',
+//        'strong',
+//        'text-center strong',
+//        'text-grey',
+//    ];
+
+
     /**
      * @inheritdoc
      */
@@ -44,11 +87,53 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['hrurl'],'unique'],
-            [['list_num', 'master_id'], 'integer'],
-            [['description', 'keywords', 'text', 'excerpt','excerpt_big'], 'string'],
-            [['text'], 'required'],
-            [['view', 'layout','list_name', 'hrurl', 'title', 'pagehead', 'topimage', 'promolink', 'promoname', 'imagelink', 'imagelink_alt', 'author', 'status', 'topimage_alt'], 'string', 'max' => 255],
-            [['link2original'], 'string', 'max' => 510],
+            [[
+                'list_num',
+                'master_id',
+                'object_id',
+                'created_at',
+                'updated_at',
+            ], 'integer'],
+            [[
+                'description',
+                'keywords',
+                'text',
+                'excerpt',
+                'excerpt_big',
+                'topimage_title',
+                'background_image',
+                'background_image_title',
+                'thumbnail_image',
+                'thumbnail_image_title',
+            ], 'string'],
+            [[
+                'view',
+                'layout',
+                'list_name',
+                'hrurl',
+                'title',
+                'pagehead',
+                'topimage',
+                'promolink',
+                'promoname',
+                'imagelink',
+                'imagelink_alt',
+                'author',
+                'status',
+                'topimage_alt',
+                'type',
+                'thumbnail_image_alt',
+                'call2action_name',
+                'call2action_link',
+                'call2action_class',
+                'call2action_comment',
+                'object_type',
+
+            ], 'string', 'max' => 255],
+            [[
+                'link2original',
+                'call2action_description',
+            ], 'string', 'max' => 510],
         ];
     }
 
@@ -83,6 +168,7 @@ class Article extends \yii\db\ActiveRecord
             'status' => 'Status (mt)',
         ];
     }
+
     static public function cyrillicToLatin($text, $maxLength, $toLowCase)
     {
         $dictionary = array(
