@@ -170,9 +170,9 @@ class ImagefilesController extends Controller
             $model = Imagefiles::find()->where(['id'=>$data['toModelId']])->one();
             if ($uploadmodel->change($model->name)) {
 
-                Yii::$app->session->setFlash('success', 'Файл обновлен успешно');
+                Yii::$app->session->addFlash('success', 'Файл обновлен успешно');
             } else {
-                Yii::$app->session->setFlash('error', 'Что то пошло не так');
+                Yii::$app->session->addFlash('error', 'Что то пошло не так');
             }
             return $this->redirect(Url::previous());
         }
@@ -365,6 +365,47 @@ class ImagefilesController extends Controller
 
 
 
+
+    public function actionDownloadFromCloud($id)
+    {
+       $oImg = Imagefiles::findOne($id);
+//       $url = 'https://'.
+//           Yii::$app->params['cloudinary']['api_key'].':'.
+//           Yii::$app->params['cloudinary']['api_secret'].'@api.cloudinary.com/v1_1/'.
+//           Yii::$app->params['cloudinary']['cloud_name'].'/resources/image';
+
+       $url = 'https://res.cloudinary.com/'.
+           Yii::$app->params['cloudinary']['cloud_name'].
+           '/image/upload/'.
+           $oImg->cloudname;
+
+
+        Yii::$app->session->addFlash('success', $url);
+
+        $saveto = Yii::getAlias('@webroot/img/' . $oImg->name);
+
+       $this->grabImage($url,$saveto);
+
+        Yii::$app->session->addFlash('success', $saveto);
+
+        return $this->redirect(Url::previous());
+    }
+
+    private function grabImage($url,$saveto){
+        $ch = curl_init ($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+        $raw=curl_exec($ch);
+        curl_close ($ch);
+        if(file_exists($saveto)){
+            unlink($saveto);
+        }
+        error_reporting(E_ALL ^ E_WARNING);
+        $fp = fopen($saveto,'x');
+        fwrite($fp, $raw);
+        fclose($fp);
+    }
 
 }
 

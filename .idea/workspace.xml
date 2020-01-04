@@ -2,14 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/yapp/common/components/Helpers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yapp/common/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/psihotera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/psihotera.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/config/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/web/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/web/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yapp/common/models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-1024x1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-1024x1024.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-114x114.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-256x256.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-256x256.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-72x72.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon.png" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +56,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="77">
+                <state relative-caret-position="211">
                   <caret line="52" selection-start-line="52" selection-end-line="52" />
                 </state>
               </provider>
@@ -52,42 +65,48 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/common/models/Article.php">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="107">
-                  <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+                <state relative-caret-position="38">
+                  <caret line="28" selection-start-line="28" selection-end-line="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="46" column="54" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="54" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="81">
+                  <caret line="426" selection-start-line="426" selection-end-line="426" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/yapp/composer.json">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="59">
-                  <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+                <state relative-caret-position="30">
+                  <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/backend/views/article/_form.php">
+            <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="119" column="14" selection-start-line="119" selection-start-column="14" selection-end-line="119" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#7#33#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="58">
-                  <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+                <state relative-caret-position="112">
+                  <caret line="17" column="19" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -104,22 +123,17 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>cloud</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session/_form.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session/view.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session-vars/view.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session-vars/index.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-use/_form.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-use/index.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-use/view.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user/_form.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user/index.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user/view.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user-permission/_form.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user-permission/index.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session/index.php" />
@@ -147,7 +161,6 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/feedback/index.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/NotificationRequest.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/config/main.php" />
-        <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/BotTelega.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/NotificationController.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/NotificationBotUser.php" />
@@ -158,17 +171,102 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/view.php" />
         <option value="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
+        <option value="$PROJECT_DIR$/yapp/composer.json" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/_form.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/Article.php" />
-        <option value="$PROJECT_DIR$/yapp/composer.json" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
+        <option value="$PROJECT_DIR$/yapp/common/.gitignore" />
+        <option value="$PROJECT_DIR$/yapp/backend/web/.gitignore" />
+        <option value="$PROJECT_DIR$/yapp/frontend/web/.gitignore" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" />
+        <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="PhpServers">
     <servers />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/yapp/vendor/bower/bootstrap" />
+      <path value="$PROJECT_DIR$/yapp/vendor/bower/jquery" />
+      <path value="$PROJECT_DIR$/yapp/vendor/bower/punycode" />
+      <path value="$PROJECT_DIR$/yapp/vendor/bower/yii2-pjax" />
+      <path value="$PROJECT_DIR$/yapp/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/yapp/vendor/bower/inputmask" />
+      <path value="$PROJECT_DIR$/yapp/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpspec/php-diff" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/yapp/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-bootstrap" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-faker" />
+      <path value="$PROJECT_DIR$/yapp/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-httpclient" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-elasticsearch" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-debug" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-composer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-gii" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-swiftmailer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/yapp/vendor/creocoder/yii2-nested-sets" />
+      <path value="$PROJECT_DIR$/yapp/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/yapp/vendor/cloudinary/cloudinary_php" />
+      <path value="$PROJECT_DIR$/yapp/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/yapp/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/yapp/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/stub" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/verify" />
+      <path value="$PROJECT_DIR$/yapp/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/phpunit-wrapper" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/base" />
+      <path value="$PROJECT_DIR$/yapp/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/yapp/vendor/composer" />
+      <path value="$PROJECT_DIR$/yapp/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/yapp/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/yapp/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/yapp/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/yapp/vendor/cebe/markdown" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
+    <option name="x" value="17" />
     <option name="y" value="43" />
     <option name="width" value="1324" />
     <option name="height" value="857" />
@@ -181,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,70 +291,11 @@
               <item name="psihotera" type="462c0819:PsiDirectoryNode" />
               <item name="yapp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="console" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
-              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
-              <item name="yapp" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,6 +313,9 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/yapp/frontend/web" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/yapp/common" />
       <recent name="$PROJECT_DIR$/yapp/common/models" />
@@ -321,12 +362,14 @@
       <workItem from="1565617609144" duration="475000" />
       <workItem from="1577347665175" duration="600000" />
       <workItem from="1577363583655" duration="4000" />
-      <workItem from="1577363670675" duration="10213000" />
+      <workItem from="1577363670675" duration="14119000" />
+      <workItem from="1577399118382" duration="851000" />
+      <workItem from="1578132984164" duration="9440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12727000" />
+    <option name="totallyTimeSpent" value="26924000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -338,7 +381,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="43" width="1324" height="857" extended-state="0" />
+    <frame x="17" y="43" width="1324" height="857" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
       <window_info id="Structure" order="1" show_stripe_button="false" weight="0.24819624" />
@@ -349,7 +393,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.46666667" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30588236" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -359,7 +403,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22640061" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.20798159" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" weight="0.3299566" />
@@ -394,209 +438,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/feedback/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/feedback/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/LiveThroughController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="304" selection-start-line="304" selection-end-line="305" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/FeedbackController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="170" column="56" selection-start-line="170" selection-start-column="56" selection-end-line="170" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="24" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/BotTelega.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/NotificationBotUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/NotificationRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/NotificationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/site.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="189" selection-start-line="189" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/SendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/CityItemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/master/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/web/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="219" column="1" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Imagefiles.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/article/_article_list_item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/article/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="165" column="55" selection-start-line="165" selection-start-column="55" selection-end-line="165" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/ArticleSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="124" column="7" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/article/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/SearchController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -611,13 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
           <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/article/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3975">
-          <caret line="269" column="30" selection-start-line="269" selection-start-column="30" selection-end-line="269" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -661,13 +495,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m130524_201442_init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m130524_201442_init.php" />
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/MasterController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -682,41 +510,229 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php">
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/Article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="1155">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/views/article/_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="119" column="14" selection-start-line="119" selection-start-column="14" selection-end-line="119" selection-end-column="14" />
+        <state relative-caret-position="1950">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
           <folding>
             <element signature="e#7#33#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Article.php">
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/tmp-m1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/pt_logo_glob_bsh.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/apple-touch-icon-256x256.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/apple-touch-icon-72x72.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-256x256.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/article/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        <state relative-caret-position="116">
+          <caret line="258" column="32" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/none.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/master.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="22" selection-start-line="22" selection-end-line="25" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="25" column="94" selection-start-line="25" selection-start-column="94" selection-end-line="25" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="26" column="94" selection-start-line="26" selection-start-column="94" selection-end-line="26" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/web/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-577" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="54">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/Imagefiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-466">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/main-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/params.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/UploadForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/params.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/vendor/cloudinary/cloudinary_php/src/AuthToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/vendor/cloudinary/cloudinary_php/src/Cloudinary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1582">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="46" column="54" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="426" selection-start-line="426" selection-end-line="426" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>

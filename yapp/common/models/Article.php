@@ -49,27 +49,14 @@ class Article extends \yii\db\ActiveRecord
     const STATUS_IN_PROCESS = 'in_process';
     const STATUS_UNREAD = 'unread';
 
-    const TEXT_CLASS_OPTIONS = [
-        'text-center',
-        'text-left',
-        'text-right',
-        'text_blue_center',
-        'text_small',
-        'text-grey',
-        'mt_auto',
-        'mb_auto',
-        'flex_grow',
-    ];
-//    const HEADER_CLASS_OPTIONS = [
-//        'text-center',
-//        'text-left',
-//        'text-right',
-//        'blue_circle',
-//        'text-uppercase',
-//        'strong',
-//        'text-center strong',
-//        'text-grey',
-//    ];
+
+    const TYPE_ARTICLE = 'article';
+    const TYPE_MASTER_TEXT = 'master_text';
+    const TYPE_PAGE = 'page';
+
+    const OBJECT_TYPE_MASTER = 'master';
+
+
 
 
     /**
@@ -78,6 +65,15 @@ class Article extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'article';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\TimestampBehavior::class,
+            ],
+        ];
     }
 
     /**

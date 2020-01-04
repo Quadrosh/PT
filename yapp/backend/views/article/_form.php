@@ -15,12 +15,20 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-sm-4">
+            <?= $form->field($model, 'type')->dropDownList(Yii::$app->helpers->value2KeyValue([
+                Article::TYPE_ARTICLE,
+                Article::TYPE_MASTER_TEXT,
+                Article::TYPE_PAGE,
+            ]),['prompt' => 'Выбери']) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
             <?= $form->field($model, 'status')->dropDownList(Yii::$app->helpers->value2KeyValue([
                 Article::STATUS_PUBLISHED,
                 Article::STATUS_IN_PROCESS,
                 Article::STATUS_UNREAD
-            ]),['prompt' => 'Выбери статус']) ?>
-
+            ]),['prompt' => 'Выбери']) ?>
         </div>
         <div class="col-sm-2">
             <?= $form->field($model, 'list_num')->textInput() ?>
@@ -30,7 +38,9 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-sm-2">
-            <?= $form->field($model, 'object_type')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'object_type')->dropDownList(Yii::$app->helpers->value2KeyValue([
+                Article::OBJECT_TYPE_MASTER,
+            ]),['prompt' => 'Выбери']) ?>
         </div>
         <div class="col-sm-2">
             <?= $form->field($model, 'object_id')->textInput(['maxlength' => true]) ?>
@@ -122,57 +132,35 @@ use yii\widgets\ActiveForm;
 
 
 
+    <div class="row">
+        <div class="col-sm-4">
+            <?= $form->field($model, 'promoname')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'promolink')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'link2original')->textInput(['maxlength' => true]) ?>
+        </div>
+
+    </div>
+
 
     <div class="row">
         <div class="col-sm-4">
             <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
         </div>
-
         <div class="col-sm-4">
             <?= $form->field($model, 'view')->dropDownList([
 
-            ],['prompt' => 'Выбери вьюху']) ?>
+            ],['prompt' => 'Выбери ']) ?>
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'layout')->dropDownList([
 
-            ],['prompt' => 'Выбери layout']) ?>
+            ],['prompt' => 'Выбери']) ?>
         </div>
-
     </div>
-
-
-    <div class="row">
-
-        <div class="col-sm-12"></div>
-        <div class="col-sm-12"></div>
-        <div class="col-sm-12"></div>
-        <div class="col-sm-12"></div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <?= $form->field($model, 'promolink')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'promoname')->textInput(['maxlength' => true]) ?>
-
-
-
-    <?= $form->field($model, 'link2original')->textInput(['maxlength' => true]) ?>
-
-<!--    --><?//= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
-<!--    --><?//= $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
-<!--    --><?//= $form->field($model, 'layout')->textInput(['maxlength' => true]) ?>
 
 
 

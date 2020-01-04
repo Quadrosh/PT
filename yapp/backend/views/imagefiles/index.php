@@ -39,25 +39,31 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=> 'Image',
                 'value' => function($data){
-                    if (!$data['cloudname']) {
-                        return '<img class="adminTableImg" src="/img/'.$data['name'].'" alt="">';
-                    } else {
-                        return cl_image_tag($data['cloudname'], [
+
+                        return '<img class="adminTableImg" src="/img/'.$data['name'].'" alt="">'
+
+                            .'|'.
+
+                         cl_image_tag($data['cloudname'], [
                             "alt" => $data['name'] ,
-//                            "width" => 70,
                             "height" => 70,
-//        "gravity" => "south_east",
-//                            "gravity" => "face",
-//        "crop" => "thumb",
                             "crop" => "fill"
                         ]);
+                },
+                'format'=> 'html',
+            ],
+            'name',
+//            'cloudname',
+            [
+                'attribute'=> 'cloudname',
+                'value' => function($data){
+                    if ($data->cloudname) {
+                        return $data->cloudname .' '. Html::a('<i class="glyphicon glyphicon-arrow-down"></i>','/imagefiles/download-from-cloud?id='.$data->id);
                     }
 
                 },
                 'format'=> 'html',
             ],
-            'name',
-            'cloudname',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

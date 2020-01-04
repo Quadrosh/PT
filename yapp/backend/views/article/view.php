@@ -36,14 +36,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+            'type',
+            'status',
             'list_name',
             'list_num',
             [
                 'attribute'=>'hrurl',
                 'value' => function($model)
                 {
-                    if (Yii::$app->request->getHostName() == 'cp.psihotera.dev') {
-                        $theData = '<a  href="http://psihotera.dev/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                    if (Yii::$app->request->getHostName() == 'cp.psihotera.local') {
+                        $theData = '<a  href="http://psihotera.local/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
                     } else {
                         $theData = '<a  href="http://psihotera.ru/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
                     }
@@ -55,7 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'keywords:ntext',
             'pagehead',
-//            'text:html',
             [
                 'attribute'=>'text',
                 'value' => function($model)
@@ -68,6 +69,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'excerpt_big',
             'topimage',
             'topimage_alt',
+            'topimage_title',
+            'background_image',
+            'background_image_title',
+            'thumbnail_image',
+            'thumbnail_image_alt',
+            'thumbnail_image_title',
+            'call2action_description',
+            'call2action_name',
+            'call2action_link',
+            'call2action_class',
+            'call2action_comment',
+            'object_type',
+            'object_id',
+
             'promolink',
             'promoname',
             'imagelink',
@@ -77,7 +92,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout',
             'view',
             'master_id',
-            'status',
+            [
+                'attribute'=>'created_at', 'format'=> 'html',
+                'value' => function($data)
+                {return \Yii::$app->formatter->asDatetime($data['created_at'], 'dd/MM/yy HH:mm');},
+            ],
+            [
+                'attribute'=>'updated_at','format'=> 'html',
+                'value' => function($data)
+                {return \Yii::$app->formatter->asDatetime($data['updated_at'], 'dd/MM/yy HH:mm');},
+            ],
         ],
     ]) ?>
 
@@ -213,14 +237,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'inputTemplate' => '<div class="input-group"><span class="lRound">{input}</span><span class="input-group-btn">'.
                     '<button type="submit" class="btn rRound btn-primary">Назначить <i class="fa fa-share" aria-hidden="true"></i></button></span></div>',
             ])->dropDownList([
-                'unread'=>'Непроверено',
-                'in_process'=>'В работе',
-                'publish'=>'Опубликовано',
+                Article::STATUS_UNREAD =>'Непроверено',
+                Article::STATUS_IN_PROCESS =>'В работе',
+                Article::STATUS_PUBLISHED =>'Опубликовано',
             ]) ?>
             <?php yii\bootstrap\ActiveForm::end() ?>
         </div>
     </div>
     <!--   / статус состояния -->
+
 
 
     <!--    Назначение картинки -->
