@@ -2,27 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/yapp/common/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/psihotera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/psihotera.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/config/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/web/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/web/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-1024x1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-1024x1024.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-114x114.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-256x256.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-256x256.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-512x512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon-72x72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/favicon/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/favicon/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/common/models/Imagefiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Imagefiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/common/models/UploadForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/UploadForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/img/_m1.jpg" beforeDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,14 +41,44 @@
     <favorites_list name="psihotera" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.5254902">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="65">
+                  <caret line="129" column="48" selection-start-line="129" selection-start-column="48" selection-end-line="129" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#39#68#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/common/models/UploadForm.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="282">
+                  <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="296">
+                  <caret line="53" selection-start-line="53" selection-end-line="53" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="52" selection-start-line="52" selection-end-line="52" />
+                <state relative-caret-position="37">
+                  <caret line="50" selection-start-line="50" selection-end-line="50" />
                 </state>
               </provider>
             </entry>
@@ -67,46 +88,42 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="38">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="46" column="54" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="54" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="81">
-                  <caret line="426" selection-start-line="426" selection-end-line="426" />
+                <state relative-caret-position="78">
+                  <caret line="42" column="121" selection-start-line="42" selection-start-column="121" selection-end-line="42" selection-end-column="121" />
+                  <folding>
+                    <element signature="e#7#36#0#PHP" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
+            <entry file="file://$PROJECT_DIR$/yapp/common/models/Imagefiles.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                <state relative-caret-position="135">
+                  <caret line="183" column="20" lean-forward="true" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#33#72#0#PHP" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/runtime/logs/app.log">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
-                  <caret line="17" column="19" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="19" />
+                <state relative-caret-position="31">
+                  <caret line="44" selection-start-line="44" selection-end-line="44" />
+                  <folding>
+                    <element signature="e#7#28#0#PHP" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -134,11 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user-permission/_form.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/tg-bot-user-permission/index.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-tg-bot-session/index.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/lt-restriction/index.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/controllers/LiveThroughController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/controllers/LtFeelController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/controllers/LtFeelVarsController.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/LtFeelVars.php" />
@@ -171,7 +183,6 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/view.php" />
         <option value="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
-        <option value="$PROJECT_DIR$/yapp/composer.json" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/_form.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/Article.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
@@ -181,10 +192,16 @@
         <option value="$PROJECT_DIR$/yapp/common/.gitignore" />
         <option value="$PROJECT_DIR$/yapp/backend/web/.gitignore" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/.gitignore" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/yapp/composer.json" />
+        <option value="$PROJECT_DIR$/yapp/common/models/UploadForm.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/config/main.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/runtime/logs/app.log" />
+        <option value="$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php" />
+        <option value="$PROJECT_DIR$/yapp/common/models/Imagefiles.php" />
       </list>
     </option>
   </component>
@@ -263,10 +280,11 @@
       <path value="$PROJECT_DIR$/yapp/vendor/behat/gherkin" />
       <path value="$PROJECT_DIR$/yapp/vendor/psr/log" />
       <path value="$PROJECT_DIR$/yapp/vendor/cebe/markdown" />
+      <path value="$PROJECT_DIR$/yapp/vendor/imagine/imagine" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-imagine" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
     <option name="y" value="43" />
     <option name="width" value="1324" />
     <option name="height" value="857" />
@@ -279,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,11 +310,103 @@
               <item name="psihotera" type="462c0819:PsiDirectoryNode" />
               <item name="yapp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="imagefiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="psihotera" type="b2602c69:ProjectViewProjectNode" />
+              <item name="psihotera" type="462c0819:PsiDirectoryNode" />
+              <item name="yapp" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,12 +475,14 @@
       <workItem from="1577363583655" duration="4000" />
       <workItem from="1577363670675" duration="14119000" />
       <workItem from="1577399118382" duration="851000" />
-      <workItem from="1578132984164" duration="9440000" />
+      <workItem from="1578132984164" duration="24139000" />
+      <workItem from="1578214364907" duration="20000" />
+      <workItem from="1578388335627" duration="8273000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26924000" />
+    <option name="totallyTimeSpent" value="49916000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -381,7 +494,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="43" width="1324" height="857" extended-state="0" />
+    <frame x="0" y="43" width="1324" height="857" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -393,7 +506,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30588236" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24183007" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -406,24 +519,26 @@
       <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.20798159" />
     </layout>
     <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" weight="0.3299566" />
-      <window_info id="Structure" order="1" weight="0.24944812" />
+      <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
+      <window_info id="Structure" order="1" show_stripe_button="false" weight="0.24819624" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24183007" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32965416" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="right" id="Database" order="0" show_stripe_button="false" weight="0.3292061" />
       <window_info anchor="right" id="Remote Host" order="1" show_stripe_button="false" weight="0.32965416" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.20911722" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.20798159" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,26 +553,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/SearchController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/ArticlePic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/TagassignController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/tagassign/assignxx.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
@@ -604,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-174" />
@@ -622,25 +710,6 @@
     <entry file="file://$PROJECT_DIR$/yapp/backend/config/main-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-159" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-577" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Imagefiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
@@ -659,13 +728,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/config/params.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/UploadForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/config/params-local.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -701,38 +763,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="30">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/art_p_bad-mood-good-mood.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/q_viktor-frankl.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/img/q_carl-rogers.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="37">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/UploadForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#7#28#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="46" column="54" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="54" />
+        <state relative-caret-position="78">
+          <caret line="42" column="121" selection-start-line="42" selection-start-column="121" selection-end-line="42" selection-end-column="121" />
+          <folding>
+            <element signature="e#7#36#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/runtime/logs/app.log">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ImagefilesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="426" selection-start-line="426" selection-end-line="426" />
+        <state relative-caret-position="65">
+          <caret line="129" column="48" selection-start-line="129" selection-start-column="48" selection-end-line="129" selection-end-column="48" />
+          <folding>
+            <element signature="e#39#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/Imagefiles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="135">
+          <caret line="183" column="20" lean-forward="true" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="20" />
+          <folding>
+            <element signature="e#33#72#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

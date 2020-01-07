@@ -21,6 +21,7 @@
         "cloudinary/cloudinary_php": "dev-master",
         "yiisoft/yii2-elasticsearch": "~2.1.0",
         "yiisoft/yii2-httpclient": "^2.0",
+        "yiisoft/yii2-imagine": "~2.0",
         "creocoder/yii2-nested-sets": "0.9.*"
     },
     "require-dev": {

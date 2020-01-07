@@ -9,7 +9,12 @@ use Yii;
 use common\models\Imagefiles;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
+use Imagine\Image\ManipulatorInterface;
+
+
 use yii\imagine\Image;
+
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -122,16 +127,11 @@ class ImagefilesController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        if(!$model['cloudname']){
-            if(file_exists(Yii::$app->basePath.'/web/img/'.$model->name)){
-                if(!unlink(Yii::$app->basePath.'/web/img/'.$model->name)) {
-                    Yii::$app->session->setFlash('error', 'неполучается удалить файл');
-                }
-            }
+        if(!$model['cloudname']){  // local file
             if(!$model->delete()) {
                 Yii::$app->session->setFlash('error', 'неполучается удалить запись');
             }
-        } else {
+        } else {  // Cloudinary
             if (\Cloudinary\Uploader::destroy($model->cloudname)) {
                 if(!$model->delete()) {
                     Yii::$app->session->setFlash('error', 'неполучается удалить запись из базы');
@@ -169,7 +169,6 @@ class ImagefilesController extends Controller
             $data=Yii::$app->request->post('UploadForm');
             $model = Imagefiles::find()->where(['id'=>$data['toModelId']])->one();
             if ($uploadmodel->change($model->name)) {
-
                 Yii::$app->session->addFlash('success', 'Файл обновлен успешно');
             } else {
                 Yii::$app->session->addFlash('error', 'Что то пошло не так');
@@ -365,32 +364,28 @@ class ImagefilesController extends Controller
 
 
 
-
+    /**
+     * Перенос изображения с инета на сервер
+     * @var $oImg Imagefiles
+     */
     public function actionDownloadFromCloud($id)
     {
        $oImg = Imagefiles::findOne($id);
-//       $url = 'https://'.
-//           Yii::$app->params['cloudinary']['api_key'].':'.
-//           Yii::$app->params['cloudinary']['api_secret'].'@api.cloudinary.com/v1_1/'.
-//           Yii::$app->params['cloudinary']['cloud_name'].'/resources/image';
-
        $url = 'https://res.cloudinary.com/'.
            Yii::$app->params['cloudinary']['cloud_name'].
            '/image/upload/'.
            $oImg->cloudname;
-
-
         Yii::$app->session->addFlash('success', $url);
-
         $saveto = Yii::getAlias('@webroot/img/' . $oImg->name);
-
        $this->grabImage($url,$saveto);
-
         Yii::$app->session->addFlash('success', $saveto);
-
         return $this->redirect(Url::previous());
     }
 
+
+    /**
+     * Перенос изображения с инета на сервер
+     */
     private function grabImage($url,$saveto){
         $ch = curl_init ($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -405,6 +400,21 @@ class ImagefilesController extends Controller
         $fp = fopen($saveto,'x');
         fwrite($fp, $raw);
         fclose($fp);
+    }
+
+
+
+    /**
+     * Создание изображения для просмотра
+     * @throws BadRequestHttpException
+     * @throws  NotFoundHttpException
+     */
+    public function actionGetImage($name){
+
+        if (Imagefiles::constructImage($name)) {
+            $this->refresh();
+        }
+
     }
 
 }

@@ -29,14 +29,19 @@ class UploadForm extends Model
     {
         $imageRecord = new Imagefiles();
 
-        if ($this->validate() && $imageRecord->addNew($add1.$this->imageFile->baseName . $add2.'.' . $this->imageFile->extension)) {
-            if ($this->imageFile->saveAs('img/' . $add1 . $this->imageFile->baseName . $add2 .'.' . $this->imageFile->extension)) {
+        $name = str_replace([' ','.',',','-'],'_',$this->imageFile->baseName);
+
+        if ($this->validate() && $imageRecord->addNew($add1 . $name . $add2.'.' . $this->imageFile->extension)) {
+            if ($this->imageFile->saveAs('img/' . $add1 . $name . $add2 .'.' . $this->imageFile->extension)) {
                 return true;
             } else {
                 return false;
             }
         }
+
     }
+
+
     public function uploadtmp()
     {
         if ($this->validate()) {
@@ -47,6 +52,7 @@ class UploadForm extends Model
             }
         }
     }
+
 
     public function change($filename)
     {

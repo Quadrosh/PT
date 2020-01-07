@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use \yii\widgets\ActiveForm;
-
+use \common\models\Imagefiles;
 /* @var $this yii\web\View */
 /* @var $model common\models\Imagefiles */
 
@@ -36,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'cloudname',
             ],
         ]) ?>
+
+
+        <h2>ORIGINAL</h2>
         <?= Html::img('/img/'. $model->name, ['class'=>'img']) ?>
+
+        <h2>SHOW</h2>
+        <?= Html::img('/img/view/'.Imagefiles::SIZE_WIDTH_300_HEIGHT_AUTO. $model->name, ['class'=>'img']) ?>
 
 
     </div>
@@ -50,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h4>Image Change</h4>
                 <?php $form = ActiveForm::begin([
                     'method' => 'post',
-                    'action' => ['/admin/imagefiles/change'],
+                    'action' => ['/imagefiles/change'],
                     'options' => ['enctype' => 'multipart/form-data'],
                 ]); ?>
 

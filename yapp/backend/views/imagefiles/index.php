@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use \yii\widgets\ActiveForm;
@@ -39,16 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=> 'Image',
                 'value' => function($data){
-
-                        return '<img class="adminTableImg" src="/img/'.$data['name'].'" alt="">'
-
-                            .'|'.
-
-                         cl_image_tag($data['cloudname'], [
-                            "alt" => $data['name'] ,
-                            "height" => 70,
-                            "crop" => "fill"
-                        ]);
+                    return Html::img('/img/view/' . '0x100_' . $data->name, ['class' => 'img','style'=>'height:50px;']) ;
                 },
                 'format'=> 'html',
             ],

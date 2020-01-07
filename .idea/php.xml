@@ -72,6 +72,8 @@
       <path value="$PROJECT_DIR$/yapp/vendor/behat/gherkin" />
       <path value="$PROJECT_DIR$/yapp/vendor/psr/log" />
       <path value="$PROJECT_DIR$/yapp/vendor/cebe/markdown" />
+      <path value="$PROJECT_DIR$/yapp/vendor/imagine/imagine" />
+      <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-imagine" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
