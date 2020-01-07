@@ -1,4 +1,6 @@
 <?php
+
+use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 ?>
@@ -9,13 +11,15 @@ use yii\helpers\HtmlPurifier;
 
                     <div class="imageBox">
                         <a href="/master/<?= $model['hrurl'] ?>" class="link2master">
-                            <?= cl_image_tag($model->imagefile['cloudname'], [
-                                "alt" => $model['image_alt'],
-                                "width" => 120,
-                                "height" => 120,
-                                "crop" => "fill",
-                                "gravity" => "face"
-                            ]); ?>
+                            <?=  Html::img('/img/view/'
+                                . Imagefiles::TERM_CUT_OVERFLOW
+                                . Imagefiles::SIZE_240_240
+                                . $model->imagefile['name'],
+                                [
+                                    'class' => 'img',
+                                    'alt' => $model['image_alt'],
+                                    'style'=>'width:120px;'
+                                ]) ;?>
                         </a>
                     </div>
 
@@ -123,7 +127,7 @@ use yii\helpers\HtmlPurifier;
                                     <?php endif; ?>
                                     <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                         <?php foreach ($model->sites as $site) : ?>
-                                            <?= Html::a($site['name'],$site['link']) ?></span>
+                                            <?= Html::a($site['name'],$site['link'],['rel' => 'nofollow']) ?></span>
                                         <?php endforeach; ?>
                                     <?php endif; ?></p>
                         </div>
@@ -149,17 +153,6 @@ use yii\helpers\HtmlPurifier;
 
 
 
-<!--                                    --><?php //foreach ($model->mtexts as $mtext) {
-//                                        echo '<a href="/master/'.$model['hrurl'].'/'.$mtext['hrurl'].'" class=" masterMText ';
-//                                        echo $count==1 ?'capital':'capital';
-//                                        echo '">'.$mtext['list_name'];
-//                                        if ($count != count($model->mtexts)) {
-//                                            echo count($model->mtexts)>1 ? '</a>, ':'</a>';
-//                                        } else {
-//                                            echo '</a>';
-//                                        }
-//                                        $count++;
-//                                    } ?>
 
                                 <?php endif; ?>
 
@@ -210,6 +203,7 @@ use yii\helpers\HtmlPurifier;
     </div>
 <?php endif; ?>
 
+
 <!-- regular -->
 <?php if ($model['status']== 'regular') : ?>
     <?php if ($model['image']!= null) : ?>
@@ -220,13 +214,15 @@ use yii\helpers\HtmlPurifier;
 
                     <div class="imageBox">
                         <a href="/master/<?= $model['hrurl'] ?>" class="link2master">
-                            <?= cl_image_tag($model->imagefile['cloudname'], [
-                                "alt" => $model['image_alt'],
-                                "width" => 120,
-                                "height" => 120,
-                                "crop" => "fill",
-                                "gravity" => "face"
-                            ]); ?>
+                            <?=  Html::img('/img/view/'
+                                . Imagefiles::TERM_CUT_OVERFLOW
+                                . Imagefiles::SIZE_240_240
+                                . $model->imagefile['name'],
+                                [
+                                    'class' => 'img',
+                                    'alt' => $model['image_alt'],
+                                    'style'=>'width:120px;'
+                                ]) ;?>
                         </a>
                     </div>
 
@@ -334,7 +330,7 @@ use yii\helpers\HtmlPurifier;
                                     <?php endif; ?>
                                     <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                     <?php foreach ($model->sites as $site) : ?>
-                                    <?= Html::a($site['name'],$site['link']) ?></span>
+                                    <?= Html::a($site['name'],$site['link'],['rel' => 'nofollow']) ?></span>
                             <?php endforeach; ?>
                             <?php endif; ?></p>
                         </div>
@@ -494,7 +490,7 @@ use yii\helpers\HtmlPurifier;
                                     <?php endif; ?>
                                     <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                     <?php foreach ($model->sites as $site) : ?>
-                                        <span><?= Html::a($site['name'],$site['link']) ?> </span>
+                                        <span><?= Html::a($site['name'],$site['link'],['rel' => 'nofollow']) ?> </span>
                                     <?php endforeach; ?>
                                 <?php endif; ?></span></p>
                         </div>

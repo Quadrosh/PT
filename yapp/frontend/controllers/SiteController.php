@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Article;
 use common\models\DailyCount;
+use common\models\Imagefiles;
 use common\models\Master;
 use common\models\Quote;
 use Yii;
@@ -17,6 +18,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -131,7 +133,7 @@ class SiteController extends Controller
 
 
 
-        return $this->render('index', [
+        return $this->render('homepage', [
             'quote' => $quote,
             'popularArticles' => $popularArticles,
             'popMasterDataProvider' => $masterDataProvider,
@@ -272,5 +274,19 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+
+    /**
+     * Создание изображения для просмотра
+     * @throws BadRequestHttpException
+     * @throws  NotFoundHttpException
+     */
+    public function actionGetImage($name){
+
+        if (Imagefiles::constructImage($name)) {
+            $this->refresh();
+        }
+
     }
 }

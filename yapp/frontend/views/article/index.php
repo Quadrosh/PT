@@ -1,6 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
+
+use common\models\Imagefiles;
 use \yii\helpers\Html;
 ?>
 
@@ -8,7 +10,11 @@ use \yii\helpers\Html;
 
 <div class="row topItem">
     <a href="/article/<?= $topArticle['hrurl'] ?>" class="link2article">
-    <div class="col-sm-6 imageBox more768" style=" background-image: url(http://res.cloudinary.com/ddw31jew8/c_fill,h_480,w_690/<?= $topArticle->topimagefile['cloudname'] ?>)">
+    <div class="col-sm-6 imageBox more768" style=" background-image: url(<?= '/img/view/'
+    . Imagefiles::TERM_CUT_OVERFLOW
+    . Imagefiles::SIZE_690_480
+    . $topArticle->topimagefile['name'] ?>)"
+           >
     </div>
     </a>
     <div class="col-sm-6 col-xs-12">
@@ -74,15 +80,16 @@ use \yii\helpers\Html;
                             <div class="row">
                                 <div class="col-xs-12">
                                     <a href="/article/<?= $popArticle['hrurl'] ?>" class="link2article">
-                                        <?= cl_image_tag($popArticle->topimagefile['cloudname'], [
-                                            "alt" => $popArticle['topimage_alt'],
-    //                                "width" => 180,
-    //                                "height" => 135,
-                                            "width" => 280,
-                                            "height" => 180,
-    //                                        "height" => 210,
-                                            "crop" => "fill"
-                                        ]); ?>
+
+                                        <?=  Html::img('/img/view/'
+                                            . Imagefiles::TERM_CUT_OVERFLOW
+                                            . Imagefiles::SIZE_560_360
+                                            . $popArticle->topimagefile['name'],
+                                            [
+                                                'class' => 'img',
+                                                'alt' => $popArticle['topimage_alt'],
+                                                'style'=>'width:280px;'
+                                            ]) ;?>
                                     </a>
                                 </div>
                             </div>

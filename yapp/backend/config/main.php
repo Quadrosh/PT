@@ -46,7 +46,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'img/view/<name:([A-Za-z0-9\.\-\_])+>' => 'imagefiles/get-image',
+                'img/view/<name:([A-Za-z0-9\.\-\_])+>' => 'imagefiles/get-image', // картинки - создание на лету если файла нет
                 'article/parse/<targetname:[0-9a-z\-\_]+>' => 'article/parse',
 //                '<controller:\w+>/<action:\w+>/<targetname:\w+>' => '<controller>/<action>',
             ],

@@ -1,4 +1,6 @@
 <?php
+
+use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 ?>
@@ -8,12 +10,16 @@ use yii\helpers\HtmlPurifier;
                 <div class="col-sm-3 col-md-2">
                     <div class="imageBox">
                         <a href="/article/<?= $model['hrurl'] ?>" class="link2article">
-                            <?= cl_image_tag($model->topimagefile['cloudname'], [
-                                "alt" => $model['topimage_alt'],
-                                "width" => 180,
-                                "height" => 135,
-                                "crop" => "fill"
-                            ]); ?>
+
+                            <?=  Html::img('/img/view/'
+                                . Imagefiles::TERM_CUT_OVERFLOW
+                                . Imagefiles::SIZE_360_270
+                                . $model->topimagefile['name'],
+                                [
+                                    'class' => 'img',
+                                    'alt' => $model['topimage_alt'],
+                                    'style'=>'width:180px;'
+                                ]) ;?>
                         </a>
                     </div>
                 </div>

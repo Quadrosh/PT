@@ -74,12 +74,9 @@ return [
             'showScriptName' => false,
             'rules' => [
                 $params['ptOrderTGBotPath']=>'notification/telegin',
-
-//                $params['lTTGBotPath']=>'master/index',
-//                $params['lTTGBotPath']=>'ltb/dialog',
                 $params['lTTGBotPath']=>'live-through/dialog',
-//                $params['lTTGBotPath']=>'live-through-bot/dialog',
 
+                'img/view/<name:([A-Za-z0-9\.\-\_])+>' => 'site/get-image', // картинки - создание на лету если файла нет
 
                 'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',

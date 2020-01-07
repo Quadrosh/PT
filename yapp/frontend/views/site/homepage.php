@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 use \yii\helpers\Html;
 use \yii\widgets\ListView;
+use \common\models\Imagefiles;
 ?>
 <div class="home">
     <div class="row">
@@ -19,12 +20,9 @@ use \yii\widgets\ListView;
             <div class="row">
                 <div class="col-sm-6 text-center">
                     <div class="imageBox">
-                        <?= cl_image_tag($quote->imagefile['cloudname'], [
-                            "alt" => $quote['image_alt'],
-                            "width" => 300,
-                            "height" => 300,
-                            "crop" => "fit",
-                        ]); ?>
+                        <?=  Html::img('/img/view/' . Imagefiles::SIZE_WIDTH_600_HEIGHT_AUTO .$quote->imagefile['name'],
+                            ['class' => 'img','style'=>'width:300px;']) ;?>
+
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -50,15 +48,16 @@ use \yii\widgets\ListView;
                         <div class="row">
                             <div class="col-xs-12">
                                 <a href="/article/<?= $popArticle['hrurl'] ?>" class="link2article">
-                                    <?= cl_image_tag($popArticle->topimagefile['cloudname'], [
-                                        "alt" => $popArticle['topimage_alt'],
-                                        //                                "width" => 180,
-                                        //                                "height" => 135,
-                                        "width" => 280,
-                                        "height" => 180,
-                                        //                                        "height" => 210,
-                                        "crop" => "fill"
-                                    ]); ?>
+                                    <?=  Html::img('/img/view/'
+                                        . Imagefiles::TERM_CUT_OVERFLOW
+                                        . Imagefiles::SIZE_560_360
+                                        . $popArticle->topimagefile['name'],
+                                        [
+                                            'class' => 'img',
+                                            'alt' => $popArticle['topimage_alt'],
+                                            'style'=>'width:280px;'
+                                        ]) ;?>
+
                                 </a>
                             </div>
                         </div>

@@ -1,4 +1,6 @@
 <?php
+
+use common\models\Imagefiles;
 use \yii\helpers\Html;
 ?>
 <div class="col-md-10 mt20 col-md-offset-1 col-lg-10 col-lg-offset-1 articleBox">
@@ -7,15 +9,20 @@ use \yii\helpers\Html;
             <div class="imageBox text-center">
                 <div class="less768">
                     <div class="backgroundImage"
-                         style=" background-image: url(http://res.cloudinary.com/ddw31jew8/c_fill,h_480,w_690/<?= $article->topimagefile['cloudname'] ?>)"></div>
+                         style=" background-image: url(<?= '/img/view/'
+                         . Imagefiles::TERM_CUT_OVERFLOW
+                         . Imagefiles::SIZE_690_480
+                         . $article->topimagefile['name'] ?>)"></div>
                 </div>
                 <div class="more768">
-                    <?= cl_image_tag($article->topimagefile['cloudname'], [
-                        'alt' => $article['topimage_alt']==null?$article['title']:$article['topimage_alt'],
-                        "width" => 690,
-                        "height" => 480,
-                        'crop' => 'fill',
-                    ]); ?>
+                    <?=  Html::img('/img/view/'
+                        . Imagefiles::TERM_CUT_OVERFLOW
+                        . Imagefiles::SIZE_690_480
+                        . $article->topimagefile['name'],
+                        [
+                            'class' => 'img',
+                            'alt' => $article['topimage_alt']==null?$article['title']:$article['topimage_alt'],
+                        ]) ;?>
                 </div>
 
 

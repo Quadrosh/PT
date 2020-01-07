@@ -21,6 +21,12 @@ class Imagefiles extends \yii\db\ActiveRecord
     const TERM_SAVE_OVERFLOW = 'saveoverflow_';
     const SIZE_200_200 = '200x200_';
     const SIZE_WIDTH_300_HEIGHT_AUTO = '300x0_';
+    const SIZE_WIDTH_600_HEIGHT_AUTO = '600x0_';
+    const SIZE_560_360 = '560x360_';
+    const SIZE_360_270 = '360x270_';
+    const SIZE_240_240 = '240x240_';
+    const SIZE_690_480 = '690x480_';
+
 
     /**
      * @inheritdoc
