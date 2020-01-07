@@ -43,38 +43,18 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <?= $form->field($model, 'image')->textarea(['rows' => 1,'maxlength' => true]) ?>
+
+        </div>
+        <div class="col-sm-3">
             <?= $form->field($model, 'image_alt')->textarea(['rows' => 1,'maxlength' => true]) ?>
 
-
-            <!--            --><?//= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
-<!--           <h5>Город</h5>-->
-<!--            <p>-->
-<!--                --><?php
-//
-//                        if(isset($model->cities)){
-//                            $cities='';
-//                            $i = 0;
-//                            foreach ($model->cities as $city) {
-//                                if ($i == 0) {
-//                                    $cities.=$city['name'];
-//                                } else {
-//                                    $cities.=', '.$city['name'];
-//                                }
-//                                $i++;
-//                            }
-//                            echo $cities;
-//                        };
-//
-//
-//                ?>
-<!--            </p>-->
-
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
