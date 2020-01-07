@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
@@ -42,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'hrurl',
                 'value' => function($data)
                 {
-                    if (Yii::$app->request->getHostName() == 'cp.psihotera.dev') {
-                        $theData = '<a  href="http://psihotera.dev/master/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                    if (Yii::$app->request->getHostName() == 'cp.psihotera.local') {
+                        $theData = '<a  href="http://psihotera.local/master/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
                     } else {
                         $theData = '<a  href="http://psihotera.ru/master/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
                     }
@@ -110,26 +111,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'order_sms_enable',
             'order_sms_count',
             'status',
-//            'created_at',
             [
-                'attribute'=>'created_at',
+                 'attribute'=>'created_at', 'format'=> 'html',
                 'value'=> function($data)
-                {
-                    return \Yii::$app->formatter->asDatetime($data->created_at, 'HH:mm dd/MM/yyyy');
-
-                },
-                'format'=> 'html',
+                {return \Yii::$app->formatter->asDatetime($data->created_at, 'HH:mm dd/MM/yyyy');},
             ],
-//            'updated_at',
             [
-                'attribute'=>'updated_at',
+                'attribute'=>'updated_at', 'format'=> 'html',
                 'value'=> function($data)
-                {
-//                    return \Yii::$app->formatter->asDatetime($data->updated_at. \Yii::$app->getTimeZone(), 'HH:mm dd/MM/yy');
-                    return \Yii::$app->formatter->asDatetime($data->updated_at, 'HH:mm dd/MM/yyyy');
-
-                },
-                'format'=> 'html',
+                {return \Yii::$app->formatter->asDatetime($data->updated_at, 'HH:mm dd/MM/yyyy');},
             ],
         ],
     ]) ?>
@@ -199,14 +189,21 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-xs-12 text-center">
                 <h4>Master image</h4>
                 <!--                --><?//= Html::img('/img/th-big-'. $model->topimage, ['class'=>'articleThumb']) ?>
-                <?= cl_image_tag($model->imagefile['cloudname'], [
-                    "alt" => $model['image_alt'],
-                    "width" => 200,
-                    "height" => 200,
-                    "crop" => "fill",
-//                    "crop" => "thumb",
-                    "gravity" => "face"
-                ]); ?>
+<!--                --><?//= cl_image_tag($model->imagefile['cloudname'], [
+//                    "alt" => $model['image_alt'],
+//                    "width" => 200,
+//                    "height" => 200,
+//                    "crop" => "fill",
+////                    "crop" => "thumb",
+//                    "gravity" => "face"
+//                ]); ?>
+
+                <?=  Html::img('/img/view/'
+                    . Imagefiles::TERM_CUT_OVERFLOW
+                    . Imagefiles::SIZE_200_200
+                    .$model->imagefile['name'],
+                    ['class' => 'img','style'=>'width:200px;']) ;?>
+
                 <?php if ($model->imagefile!=null) {
                     echo  Html::a('Delete','/imagefiles/delete?id='.$model->imagefile['id'], [
                         'class' => 'btn btn-danger rot90',
@@ -218,10 +215,10 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="col-xs-12 col-sm-3 ">
-                <h4>Image Cloud</h4>
+                <h4>Image Upload</h4>
                 <?php $form = ActiveForm::begin([
                     'method' => 'post',
-                    'action' => ['/master/cloud'],
+                    'action' => ['/master/upload-image'],
                     'options' => ['enctype' => 'multipart/form-data'],
                 ]); ?>
                 <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
@@ -232,7 +229,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
 
 
-                <?= Html::submitButton('<i class="fa fa-cloud-upload" aria-hidden="true"></i> Cloud', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('<i class="fa fa-upload" aria-hidden="true"></i> Upload', ['class' => 'btn btn-primary']) ?>
                 <?php ActiveForm::end() ?>
             </div>
 

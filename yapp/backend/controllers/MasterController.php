@@ -197,18 +197,31 @@ class MasterController extends Controller
     /**
      * Upload images with autofill corresponding model property
      */
-    public function actionUpload()
+    public function actionUploadImage()
     {
         $uploadmodel = new UploadForm();
         if (Yii::$app->request->isPost) {
             $uploadmodel->imageFile = UploadedFile::getInstance($uploadmodel, 'imageFile');
             $data=Yii::$app->request->post('UploadForm');
             $toModelProperty = $data['toModelProperty'];
-            $model = Master::find()->where(['id'=>$data['toModelId']])->one();
-            if ($uploadmodel->upload()) {
-                $model->$toModelProperty = $uploadmodel->imageFile->baseName . '.' . $uploadmodel->imageFile->extension;
-                $model->save();
-                Yii::$app->session->setFlash('success', 'Файл загружен успешно');
+
+            $master = Master::find()->where(['id'=>$data['toModelId']])->one();
+            if ($master->$toModelProperty) {
+                $image = Imagefiles::findOne(['name'=>$master->$toModelProperty]);
+                if ($image) {
+                    $image->delete();
+                }
+
+            }
+
+            $filename = 'master'.$master->id.''.$toModelProperty;
+
+            if ($uploadmodel->uploadAndSetName($filename)) {
+                $master->$toModelProperty = $filename . '.' . $uploadmodel->imageFile->extension;
+                $master->save();
+                Yii::$app->session->addFlash('success', 'Файл загружен успешно');
+            } else {
+                Yii::$app->session->addFlash('error', 'Ошибка загрузки файла');
             }
             return $this->redirect(Url::previous());
         }
