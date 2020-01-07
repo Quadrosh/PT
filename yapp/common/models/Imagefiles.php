@@ -23,6 +23,7 @@ class Imagefiles extends \yii\db\ActiveRecord
     const SIZE_WIDTH_300_HEIGHT_AUTO = '300x0_';
     const SIZE_WIDTH_600_HEIGHT_AUTO = '600x0_';
     const SIZE_560_360 = '560x360_';
+    const SIZE_334_360 = '334x360_';
     const SIZE_360_270 = '360x270_';
     const SIZE_240_240 = '240x240_';
     const SIZE_690_480 = '690x480_';

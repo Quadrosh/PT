@@ -1,4 +1,6 @@
 <?php
+
+use common\models\Imagefiles;
 use \yii\helpers\Html;
 use yii\widgets\Pjax;
 use \yii\widgets\ActiveForm;
@@ -10,26 +12,31 @@ $feedback = new \common\models\Feedback;
         <div class="col-xs-12 less480">
             <div class="masterImageBox">
                 <a href="/master/<?= $master['hrurl'] ?>">
-                    <?= cl_image_tag($master->imagefile['cloudname'], [
-                        "alt" => $master['image_alt'],
-                        "width" => 167,
-                        "height" => 180,
-                        "crop" => "fill",
-                        "gravity" => "face"
-                    ]); ?>
+
+                    <?=  Html::img('/img/view/'
+                        . Imagefiles::TERM_CUT_OVERFLOW
+                        . Imagefiles::SIZE_334_360
+                        . $master->imagefile['name'],
+                        [
+                            'class' => 'img',
+                            'alt' => $master['image_alt'],
+                            'style'=>'width:167px;'
+                        ]) ;?>
                 </a>
             </div>
         </div>
         <div class="col-xs-3 col-sm-4 more480">
             <div class="masterImageBox">
                 <a href="/master/<?= $master['hrurl'] ?>">
-                    <?= cl_image_tag($master->imagefile['cloudname'], [
-                        "alt" => $master['image_alt'],
-                        "width" => 167,
-                        "height" => 180,
-                        "crop" => "fill",
-                        "gravity" => "face"
-                    ]); ?>
+                    <?=  Html::img('/img/view/'
+                        . Imagefiles::TERM_CUT_OVERFLOW
+                        . Imagefiles::SIZE_334_360
+                        . $master->imagefile['name'],
+                        [
+                            'class' => 'img',
+                            'alt' => $master['image_alt'],
+                            'style'=>'width:167px;'
+                        ]) ;?>
                 </a>
             </div>
         </div>
