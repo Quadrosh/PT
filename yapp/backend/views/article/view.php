@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
@@ -248,16 +249,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
+
+
+
+
     <!--    Назначение картинки -->
     <div class="row mt20 bt pt20">
         <div class="col-xs-12 text-center">
             <h4>article image</h4>
-       <?= cl_image_tag($model->topimagefile['cloudname'], [
-                "alt" => $model['topimage_alt'],
-//                            "width" => 70,
-                "height" => 400,
-                "crop" => "fill"
-            ]); ?>
+<!--       --><?//= cl_image_tag($model->topimagefile['cloudname'], [
+//                "alt" => $model['topimage_alt'],
+////                            "width" => 70,
+//                "height" => 400,
+//                "crop" => "fill"
+//            ]); ?>
+
+            <?php if ($model->topimagefile) {
+               echo Html::img('/img/view/'
+                    . Imagefiles::TERM_CUT_OVERFLOW
+                    . Imagefiles::SIZE_200_200
+                    .$model->topimagefile['name'],
+                    ['class' => 'img','style'=>'width:200px;']) ;
+            } ?>
+
             <?php if ($model->topimagefile!=null) {
                 echo  Html::a('Delete','/imagefiles/delete?id='.$model->topimagefile['id'], [
                     'class' => 'btn btn-danger rot90',
@@ -268,24 +282,28 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
         <div class="col-xs-12 col-sm-3 ">
-            <h4>Image Cloud</h4>
+            <h4>Image Upload</h4>
             <?php $form = ActiveForm::begin([
                 'method' => 'post',
-                'action' => ['/article/cloud'],
+                'action' => ['/article/upload-image'],
                 'options' => ['enctype' => 'multipart/form-data'],
             ]); ?>
             <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
                 'topimage'=>'Top Image',
+                'background_image'=>'Background Image',
+                'thumbnail_image'=>'Thumbnail Image',
             ])->label(false) ?>
             <?= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
             <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$model->id])->label(false) ?>
 
-
-            <?= Html::submitButton('<i class="fa fa-cloud-upload" aria-hidden="true"></i> Cloud', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('<i class="fa fa-upload" aria-hidden="true"></i> Upload', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>
         </div>
     </div>
     <!--   /Назначение картинки -->
+
+
+
 
 
     <!--    Назначение меток-->
@@ -503,4 +521,450 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!--    </div>-->
 
+
+
+    <?= Html::a('Добавить секцию '.'<i class="glyphicon glyphicon-menu-right"></i>','/article-section/create?article_id='.$model->id, ['class' => 'mt50 btn btn-success']) ?>
+
 </section>
+
+
+    <section class="mt50 article-sections">
+
+        <?php if ($model->sections) : ?>
+            <ol class="breadcrumb">
+                <li>Управление - секции <?php if ($model->view) {echo ' | article view => '.$model->view;} ?> </li>
+            </ol>
+            <?php $sectionNum=1; foreach ($model->sections as $section) : ?>
+                <div class="row admin_section_head">
+                    <div class="col-sm-4">
+                        Секция: <?= $sectionNum ?>. <?= $section->sort?'<span style="color:rgba(0,0,0,.3);"><sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$section->sort.'</span>':'' ?> <span class="text-danger"><?= $section->code_name ?></span> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-up"></span>', '/article-section/move-up?id='.$section->id,
+                            [
+                                'title' => Yii::t('yii', 'Переместить вверх'),
+                                'data-method'=>'post'
+                            ]); ?> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-down"></span>', '/article-section/move-down?id='.$section->id,
+                            [
+                                'title' => Yii::t('yii', 'Переместить вниз'),
+                                'data-method'=>'post'
+                            ]); ?> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section/update?id='.$section->id,
+                            [
+                                'title' => Yii::t('yii', 'Редактировать секцию'),
+                                'data-method'=>'post'
+                            ]); ?> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-open-file"></span>', '/article-section-block/create?section_id='.$section->id,
+                            [
+                                'title' => Yii::t('yii', 'Добавить блок'),
+                                'data-method'=>'post'
+                            ]); ?>
+                        <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', '/article-section/delete?id='.$section->id,
+                            [
+                                'title' => Yii::t('yii', 'Удалить секцию'),
+                                'data-confirm' =>'Точно удалить секцию со всеми блоками и block items?',
+                                'data-method'=>'post'
+                            ]); ?>
+                    </div>
+                    <div class="col-sm-8">
+                        <?php $form = ActiveForm::begin([
+                            'method' => 'post',
+                            'action' => ['/article-section/upload'],
+                            'options' => ['enctype' => 'multipart/form-data'],
+                        ]); ?>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
+                                    'image'=>'Image',
+                                    'background_image'=>'Background Image',
+                                    'thumbnail_image'=>'Thumbnail Image',
+
+                                ])->label(false) ?>
+                            </div>
+                            <div class="col-sm-4">
+                                <?= $form->field($uploadmodel, 'imageFile')
+                                    ->fileInput(['class'=>'fileField'])->label(false) ?>
+                                <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$section->id])->label(false) ?>
+                            </div>
+                            <div class="col-sm-4">
+                                <?= Html::submitButton('Upload', ['class' => 'btn btn-success btn-xs']) ?>
+                            </div>
+                        </div>
+                        <?php ActiveForm::end() ?>
+                    </div>
+                </div>
+
+                <ul class="admin_section_ul">
+                    <li>ID - <?= $section->id ?><?= $section->sort?', Sort - '.$section->sort:'' ?></li>
+                    <?= $section->header?'<li> Header - '.$section->header.'</li>':'' ?>
+                    <?= $section->header_class?'<li> Header - '.$section->header_class.'</li>':'' ?>
+                    <?= $section->description?'<li> Description - '.$section->description.'</li>':'' ?>
+                    <?= $section->raw_text?'<li> Raw Text - '.\common\models\Article::excerpt($section->raw_text,100).'</li>':'' ?>
+
+                    <?= $section->image?'<li>Image - '
+                        .Html::img('/img/view/'
+                            . Imagefiles::TERM_CUT_OVERFLOW
+                            . Imagefiles::SIZE_50_50
+                            .$section->image,
+                            ['class' => 'gridThumb'])
+                        .'<sup>'.$section->image.'</sup>'
+                        .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                            '/article-section/delete-image?id='.$section->id.'&propertyName=image',
+                            [
+                                'title' => Yii::t('yii', 'Удалить image'),
+                                'data-confirm' =>'Точно удалить?',
+                                'data-method'=>'post'
+                            ])
+                        .'</li>':'' ?>
+                    <?= $section->image_alt?'<li class="text-success"> Image Alt - '.$section->image_alt.'</li>':'' ?>
+                    <?= $section->image_title?'<li class="text-warning"> Image Title - '.$section->image_title.'</li>':'' ?>
+                    <?= $section->background_image?'<li> Background Image - '
+                        .Html::img('/img/view/'
+                            . Imagefiles::TERM_CUT_OVERFLOW
+                            . Imagefiles::SIZE_50_50
+                            .$section->background_image,
+                            ['class' => 'gridThumb'])
+                        .'<sup>'.$section->background_image.'</sup>'
+                        .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                            '/article-section/delete-image?id='.$section->id.'&propertyName=background_image',
+                            [
+                                'title' => Yii::t('yii', 'Удалить background_image'),
+                                'data-confirm' =>'Точно удалить?',
+                                'data-method'=>'post'
+                            ])
+                        .'</li>':'' ?>
+                    <?= $section->background_image_title?'<li class="text-warning">Background Image Title - '.$section->background_image_title.'</li>':'' ?>
+
+                    <?= $section->thumbnail_image?'<li> Thumbnail Image - '
+                        .Html::img('/img/view/'
+                            . Imagefiles::TERM_CUT_OVERFLOW
+                            . Imagefiles::SIZE_50_50
+                            .$section->thumbnail_image,
+                            ['class' => 'gridThumb'])
+                        .'<sup>'.$section->thumbnail_image.'</sup>'
+                        .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                            '/article-section/delete-image?id='.$section->id.'&propertyName=thumbnail_image',
+                            [
+                                'title' => Yii::t('yii', 'Удалить thumbnail_image'),
+                                'data-confirm' =>'Точно удалить?',
+                                'data-method'=>'post'
+                            ])
+                        .'</li>':'' ?>
+                    <?= $section->thumbnail_image_alt?'<li class="text-success">Thumbnail Image Alt - '.$section->thumbnail_image_alt.'</li>':'' ?>
+                    <?= $section->thumbnail_image_title?'<li class="text-warning">Thumbnail Image Title - '.$section->thumbnail_image_title.'</li>':'' ?>
+                    <?= $section->call2action_name?'<li> Call2Action Name - '.$section->call2action_name.'</li>':'' ?>
+                    <?= $section->call2action_link?'<li> Call2Action Link - '.$section->call2action_link.'</li>':'' ?>
+                    <?= $section->call2action_class?'<li> Call2Action Class - '.$section->call2action_class.'</li>':'' ?>
+                    <?= $section->call2action_description?'<li> Call2Action Description - '.$section->call2action_description.'</li>':'' ?>
+                    <?= $section->call2action_comment?'<li> Call2Action Comment - '.$section->call2action_comment.'</li>':'' ?>
+                    <?= $section->view?'<li> View - '.$section->view.'</li>':'' ?>
+                    <?= $section->color_key?'<li> Color Key - '.$section->color_key.'</li>':'' ?>
+                    <?= $section->structure?'<li> Structure - '.$section->structure.'</li>':'' ?>
+                    <?= $section->custom_class?'<li> Custom Class - '.$section->custom_class.'</li>':'' ?>
+
+                    <?php if ($section->blocks) : ?>
+                        <li>Блоки
+                            <?php $blockNum=1; foreach ($section->blocks as $block) : ?>
+                                <ul>
+                                    <div class="row mt20">
+                                        <div class="col-sm-4">
+                                            Блок <?= $blockNum ?>. <?= $block->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$block->sort:'' ?> <span class="text-danger"><?= $block->code_name ?></span> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block/update?id='.$block->id,
+                                                [
+                                                    'title' => Yii::t('yii', 'Редактировать блок'),
+                                                    'data-method'=>'post'
+                                                ]); ?> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-open-file"></span>', '/article-section-block-item/create?block_id='.$block->id,
+                                                [
+                                                    'title' => Yii::t('yii', 'Добавить block item'),
+                                                    'data-method'=>'post'
+                                                ]); ?>
+                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', '/article-section-block/delete?id='.$block->id,
+                                                [
+                                                    'title' => Yii::t('yii', 'Удалить блок'),
+                                                    'data-confirm' =>'Точно удалить со всеми block items?',
+                                                    'data-method'=>'post'
+                                                ]); ?>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <?php $form = ActiveForm::begin([
+                                                'method' => 'post',
+                                                'action' => ['/article-section-block/upload'],
+                                                'options' => ['enctype' => 'multipart/form-data'],
+                                            ]); ?>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <?= $form->field($uploadmodel, 'toModelProperty')->dropDownList([
+                                                        'image'=>'Image',
+                                                        'background_image'=>'Background Image',
+                                                        'thumbnail_image'=>'Thumbnail Image',
+
+                                                    ])->label(false) ?>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <?= $form->field($uploadmodel, 'imageFile')
+                                                        ->fileInput(['class'=>'fileField'])->label(false) ?>
+                                                    <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$block->id])->label(false) ?>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <?= Html::submitButton('Upload', ['class' => 'btn btn-success btn-xs']) ?>
+                                                </div>
+                                            </div>
+                                            <?php ActiveForm::end() ?>
+                                        </div>
+                                    </div>
+
+
+                                    <?= $block->header?'<li> Header - '.$block->header.'</li>':'' ?>
+                                    <?= $block->header_class?'<li> Header - '.$block->header_class.'</li>':'' ?>
+                                    <?= $block->description?'<li> Description - '.$block->description.'</li>':'' ?>
+                                    <?= $block->raw_text?'<li> Raw Text '.
+                                        Html::a( '<span class="glyphicon glyphicon-fullscreen"></span>',
+                                            '/article-section-block/raw-text-to-items?id='.$block->id,
+                                            [
+                                                'title' => Yii::t('yii', 'raw text to items (each line to item)'),
+                                                'data-confirm' =>'Точно конвертировать текст в items построчно?',
+                                                'data-method'=>'post'
+                                            ]).' '.
+                                        Html::a( '<span class="glyphicon glyphicon-th-list"></span>',
+                                            ['/article-section-block/raw-text-to-items',
+                                                'id'=>$block->id,
+                                                'mode'=>2,
+                                            ],
+                                            [
+                                                'title' => Yii::t('yii', 'raw text to items mode 2 (1-st line - head, next lines - text, delimeter - empty string)'),
+                                                'data-confirm' =>'Точно конвертировать текст в items режим 2? (1 строка заголовок, 1 строка тело, разделитель пустая строка.) ?',
+                                                'data-method'=>'post'
+                                            ]).
+                                        ' - '.\common\models\Article::excerpt($block->raw_text,100).'</li>':'' ?>
+                                    <?php
+                                    $blockImageLi='';
+                                    if ($block->image) {
+                                        if (substr(trim($block->image),0,4)=='<svg') {
+                                            $blockImageLi = '<li class="viewImageSvg"> Image <sup>svg</sup> - '.$block->image.'</li>';
+                                        } else {
+                                            $blockImageLi = '<li> Image - '
+                                                .Html::img('/img/view/'
+                                                    . Imagefiles::TERM_CUT_OVERFLOW
+                                                    . Imagefiles::SIZE_50_50
+                                                    . $block->image,
+                                                    ['class' => 'gridThumb'])
+                                                .'<sup>'.$block->image.'</sup>'
+                                                .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                                                    '/article-section-block/delete-image?id='.$block->id.'&propertyName=image',
+                                                    [
+                                                        'title' => Yii::t('yii', 'Удалить image'),
+                                                        'data-confirm' =>'Точно удалить?',
+                                                        'data-method'=>'post'
+                                                    ])
+                                                .'</li>';
+                                        }
+                                    }
+                                    ?>
+                                    <?= $block->image?$blockImageLi:'' ?>
+                                    <?= $block->image_alt?'<li class="text-success"> Image Alt - '.$block->image_alt.'</li>':'' ?>
+                                    <?= $block->image_title?'<li class="text-warning"> Image Title - '.$block->image_title.'</li>':'' ?>
+
+                                    <?= $block->background_image?'<li> Background Image - '
+                                        .Html::img('/img/view/'
+                                            . Imagefiles::TERM_CUT_OVERFLOW
+                                            . Imagefiles::SIZE_50_50
+                                            . $block->background_image,
+                                            ['class' => 'gridThumb'])
+                                        .'<sup>'.$block->background_image.'</sup>'
+                                        .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                                            '/article-section-block/delete-image?id='.$block->id.'&propertyName=background_image',
+                                            [
+                                                'title' => Yii::t('yii', 'Удалить background_image'),
+                                                'data-confirm' =>'Точно удалить?',
+                                                'data-method'=>'post'
+                                            ])
+                                        .'</li>':'' ?>
+                                    <?= $block->background_image_title?'<li class="text-warning"> Background Image Title - '.$block->background_image_title.'</li>':'' ?>
+
+                                    <?= $block->thumbnail_image?'<li> Thumbnail Image - '
+                                        .Html::img('/img/view/'
+                                            . Imagefiles::TERM_CUT_OVERFLOW
+                                            . Imagefiles::SIZE_50_50
+                                            . $block->thumbnail_image,
+                                            ['class' => 'gridThumb'])
+                                        .'<sup>'.$block->thumbnail_image.'</sup>'
+                                        .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                                            '/article-section-block/delete-image?id='.$block->id.'&propertyName=thumbnail_image',
+                                            [
+                                                'title' => Yii::t('yii', 'Удалить thumbnail_image'),
+                                                'data-confirm' =>'Точно удалить?',
+                                                'data-method'=>'post'
+                                            ])
+                                        .'</li>':'' ?>
+                                    <?= $block->thumbnail_image_alt?'<li class="text-success"> Thumbnail Image Alt - '.$block->thumbnail_image_alt.'</li>':'' ?>
+                                    <?= $block->thumbnail_image_title?'<li class="text-warning"> Thumbnail Image Title - '.$block->thumbnail_image_title.'</li>':'' ?>
+                                    <?= $block->call2action_name?'<li> Call2Action Name - '.$block->call2action_name.'</li>':'' ?>
+                                    <?= $block->call2action_link?'<li> Call2Action Link - '.$block->call2action_link.'</li>':'' ?>
+                                    <?= $block->call2action_class?'<li> Call2Action Class - '.$block->call2action_class.'</li>':'' ?>
+                                    <?= $block->call2action_description?'<li> Call2Action Description - '.$block->call2action_description.'</li>':'' ?>
+                                    <?= $block->call2action_comment?'<li> Call2Action Comment - '.$block->call2action_comment.'</li>':'' ?>
+                                    <?= $block->view?'<li> View - '.$block->view.'</li>':'' ?>
+                                    <?= $block->color_key?'<li> Color Key - '.$block->color_key.'</li>':'' ?>
+                                    <?= $block->structure?'<li> Structure - '.$block->structure.'</li>':'' ?>
+                                    <?= $block->custom_class?'<li> Custom Class - '.$block->custom_class.'</li>':'' ?>
+                                    <?= $block->accent?'<li> Accent - '.$block->accent.'</li>':'' ?>
+                                    <?php if ($block->items) : ?>
+                                        <li> Block Items
+                                            <?php $itemNum=1; foreach ($block->items as $item) : ?>
+                                                <ul>
+                                                    <div class="row mt20">
+                                                        <div class="col-sm-4">
+                                                            Пункт <?= $itemNum ?> <?= $item->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$item->sort:'' ?> <span class="text-danger"><?= $item->code_name ?></span> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block-item/update?id='.$item->id,
+                                                                [
+                                                                    'title' => Yii::t('yii', 'Редактировать item'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', '/article-section-block-item/delete?id='.$item->id,
+                                                                [
+                                                                    'title' => Yii::t('yii', 'Удалить item'),
+                                                                    'data-confirm' =>'Точно удалить?',
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-asterisk">2</span>', '/article-section-block-item/multiply?id='.$item->id.'&qnt=2',
+                                                                [
+                                                                    'title' => Yii::t('yii', 'добавить 1 item'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-asterisk">3</span>', '/article-section-block-item/multiply?id='.$item->id.'&qnt=3',
+                                                                [
+                                                                    'title' => Yii::t('yii', 'добавить 3 items'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-asterisk">5</span>', '/article-section-block-item/multiply?id='.$item->id.'&qnt=5',
+                                                                [
+                                                                    'title' => Yii::t('yii', 'добавить 5 items'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <?php $form = ActiveForm::begin([
+                                                                'method' => 'post',
+                                                                'action' => ['/article-section-block-item/upload'],
+                                                                'options' => ['enctype' => 'multipart/form-data'],
+                                                            ]); ?>
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <?= $form->field($uploadmodel, 'toModelProperty')->hiddenInput([
+                                                                        'value'=>'image',
+                                                                    ])->label(false) ?>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <?= $form->field($uploadmodel, 'imageFile')->fileInput(['class'=>'fileField'])->label(false) ?>
+                                                                    <?= $form->field($uploadmodel, 'toModelId')->hiddenInput(['value'=>$item->id])->label(false) ?>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <?= Html::submitButton('Image Upload', ['class' => 'btn btn-success btn-xs']) ?>
+                                                                </div>
+                                                            </div>
+                                                            <?php ActiveForm::end() ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <?= $item->header?'<li> Header - '.$item->header.'</li>':'' ?>
+                                                    <?= $item->header_class?'<li> Header - '.$item->header_class.'</li>':'' ?>
+                                                    <?= $item->sort?'<li> Sort - '.$item->sort.'</li>':'' ?>
+                                                    <?= $item->description?'<li> Description - '.$item->description.'</li>':'' ?>
+                                                    <?= $item->text?'<li> Text - '.\common\models\Article::excerpt($item->text,100).'</li>':'' ?>
+                                                    <?= $item->comment?'<li> Comment - '.\common\models\Article::excerpt($item->comment,100).'</li>':'' ?>
+                                                    <?php
+                                                    if ($item->image) {
+                                                        if (substr(trim($item->image),0,4)=='<svg') {
+                                                            $itemImageLi = '<li class="viewImageSvg"> Image <sup>svg</sup> - '.$item->image.'</li>';
+                                                        } else {
+                                                            $itemImageLi = '<li> Image - '
+                                                                .Html::img('/img/view/'
+                                                                    . Imagefiles::TERM_CUT_OVERFLOW
+                                                                    . Imagefiles::SIZE_50_50
+                                                                    . $item->image,
+                                                                    ['class' => 'gridThumb'])
+                                                                .'<sup>'.$item->image.'</sup>'
+                                                                .Html::a( '<span class="glyphicon glyphicon-trash"></span>',
+                                                                    '/article-section-block-item/delete-image?id='.$item->id.'&propertyName=image',
+                                                                    [
+                                                                        'title' => Yii::t('yii', 'Удалить image'),
+                                                                        'data-confirm' =>'Точно удалить?',
+                                                                        'data-method'=>'post'
+                                                                    ])
+                                                                .'</li>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <?= $item->image?$itemImageLi:'' ?>
+                                                    <?= $item->image_alt?'<li class="text-success"> Image Alt - '.$item->image_alt.'</li>':'' ?>
+                                                    <?= $item->image_title?'<li class="text-warning"> Image Title - '.$item->image_title.'</li>':'' ?>
+                                                    <?= $item->link_name?'<li> Link Name - '.$item->link_name.'</li>':'' ?>
+                                                    <?= $item->link_url?'<li> Link Url - '.$item->link_url.'</li>':'' ?>
+                                                    <?= $item->link_class?'<li> Link Class - '.$item->link_class.'</li>':'' ?>
+                                                    <?= $item->link_description?'<li> Link Description - '.$item->link_description.'</li>':'' ?>
+                                                    <?= $item->link_comment?'<li> Link Comment - '.$item->link_comment.'</li>':'' ?>
+                                                    <?= $item->view?'<li> View - '.$item->view.'</li>':'' ?>
+                                                    <?= $item->color_key?'<li> Color Key - '.$item->color_key.'</li>':'' ?>
+                                                    <?= $item->structure?'<li> Structure - '.$item->structure.'</li>':'' ?>
+                                                    <?= $item->custom_class?'<li> Custom Class - '.$item->custom_class.'</li>':'' ?>
+                                                    <?= $item->accent?'<li> Accent - '.$item->accent.'</li>':'' ?>
+                                                    <?= $item->type?'<li> Type - '.$item->type.'</li>':'' ?>
+                                                </ul>
+                                                <?php $itemNum++; endforeach; ?>
+                                        </li>
+                                    <?php endif; ?>
+                                    <?= $block->conclusion?'<li> Conclusion - '.\common\models\Article::excerpt($block->conclusion,100).'</li>':'' ?>
+                                    <?= $block->conclusion_class?'<li> Conclusion Class - '.$block->conclusion_class.'</li>':'' ?>
+                                </ul>
+                                <?php $blockNum++; endforeach; ?>
+                        </li>
+                    <?php endif; ?>
+
+                    <?= $section->conclusion?'<li> Conclusion - '.\common\models\Article::excerpt($section->conclusion,100).'</li>':'' ?>
+                    <?= $section->conclusion_class?'<li> Conclusion Class - '.$section->conclusion_class.'</li>':'' ?>
+                </ul>
+
+                <?php $sectionNum++; endforeach; ?>
+        <?php endif; ?>
+
+    </section>
+
+
+
+
+<section class="mt50">
+    <ol class="breadcrumb">
+        <li>Article Preview <?php if ($model->view) {echo ' | view => '.$model->view;} ?></li>
+    </ol>
+</section>
+
+<?php if ($model->view) : ?>
+    <?= $this->render('/article/part_views/article/'.$model->view, [
+        'article' => $model,
+    ]) ?>
+<?php endif; ?>
+
+<?php if (!$model->view) : // если вюхи нет  ?>
+    <?php $article = $model; ?>
+    <h1 class="text-center"><?= Html::encode($article->pagehead) ?></h1>
+
+    <?php if ($article->excerpt) : ?>
+        <p><?= $article->excerpt ?></p>
+    <?php endif; ?>
+    <?php if ($article->excerpt_big) : ?>
+        <p><?= $article->excerpt_big ?></p>
+    <?php endif; ?>
+    <?php if ($article->text) : ?>
+        <p><?= nl2br($article->text)  ?></p>
+    <?php endif; ?>
+
+    <?php if ($article->sections) : ?>
+        <?php foreach ($article->sections as $section) : ?>
+            <?php if ($section->view) : ?>
+                <?= $this->render('/article/part_views/section/'.$section->view, [
+                    'model' => $section,
+                ]) ?>
+            <?php endif; ?>
+
+            <?php if (!$section->view) : ?>
+                <?= $this->render('/article/part_views/section/_as-default', [
+                    'model' => $section,
+                ]) ?>
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+    <?php endif; ?>
+<?php endif; ?>

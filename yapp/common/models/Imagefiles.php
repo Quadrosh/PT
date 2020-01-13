@@ -27,6 +27,12 @@ class Imagefiles extends \yii\db\ActiveRecord
     const SIZE_360_270 = '360x270_';
     const SIZE_240_240 = '240x240_';
     const SIZE_690_480 = '690x480_';
+    const SIZE_50_50 = '50x50_';
+
+    const OBJ_TYPE_ARTICLE = 'article';
+    const OBJ_TYPE_ARTICLE_SECTION = 'article_section';
+    const OBJ_TYPE_ARTICLE_SECTION_BLOCK = 'article_section_block';
+    const OBJ_TYPE_ARTICLE_SECTION_BLOCK_ITEM = 'article_section_block_item';
 
 
     /**

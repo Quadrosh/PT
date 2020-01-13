@@ -32,7 +32,7 @@ class ArticleController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -410,6 +410,40 @@ class ArticleController extends Controller
             Yii::$app->session->setFlash('error', 'не получилось');
         };
         return $this->redirect(Url::previous());
+    }
+
+
+    /**
+     * Upload images with autofill corresponding model property
+     */
+    public function actionUploadImage()
+    {
+        $uploadmodel = new UploadForm();
+        if (Yii::$app->request->isPost) {
+            $uploadmodel->imageFile = UploadedFile::getInstance($uploadmodel, 'imageFile');
+            $data=Yii::$app->request->post('UploadForm');
+            $toModelProperty = $data['toModelProperty'];
+
+            $article = Article::find()->where(['id'=>$data['toModelId']])->one();
+            if ($article->$toModelProperty) {
+                $image = Imagefiles::findOne(['name'=>$article->$toModelProperty]);
+                if ($image) {
+                    $image->delete();
+                }
+
+            }
+
+            $filename = 'article'.$article->id.''.$toModelProperty;
+
+            if ($uploadmodel->uploadAndSetName($filename)) {
+                $article->$toModelProperty = $filename . '.' . $uploadmodel->imageFile->extension;
+                $article->save();
+                Yii::$app->session->addFlash('success', 'Файл загружен успешно');
+            } else {
+                Yii::$app->session->addFlash('error', 'Ошибка загрузки файла');
+            }
+            return $this->redirect(Url::previous());
+        }
     }
 
 }

@@ -184,7 +184,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <!--    !Приветствие-->
 
 
-        <!-- image cloud -->
+        <!-- image upload -->
         <div class="row mt20 bt pt20">
             <div class="col-xs-12 text-center">
                 <h4>Master image</h4>
@@ -234,7 +234,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
         </div>
-        <!-- /image cloud -->
+        <!-- /image upload -->
 
 
         <!-- назначение города -->

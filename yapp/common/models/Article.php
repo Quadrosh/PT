@@ -263,11 +263,12 @@ class Article extends \yii\db\ActiveRecord
         $cutDirtyText = substr($text, 0, $maxLength*3);
         $stripTaggedText = strip_tags($cutDirtyText);
         $cleanText = preg_replace("/&#?[a-z0-9]{2,8};/i"," ",$stripTaggedText);
+        error_reporting(E_ALL ^ E_WARNING);
         $endPosition = strpos($cleanText, ' ', $maxLength);
         if ($endPosition !== false) {
             return substr($cleanText, 0, $endPosition);
         } else {
-            return 'А что тут резать то? Коротко все слишком.';
+            return $text;
         }
     }
 
@@ -360,5 +361,10 @@ class Article extends \yii\db\ActiveRecord
             ->viaTable('item_assign',['article_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'city']);
             });
+    }
+
+    public function getSections()
+    {
+        return $this->hasMany(ArticleSection::class,['article_id'=>'id'])->orderBy(['sort' => SORT_ASC]);
     }
 }

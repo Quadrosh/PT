@@ -221,3 +221,54 @@ a.desc:after {
 .grid-view .summary {
     color: lightgrey;
 }
+
+
+
+.article-view img{
+    max-width: 100%;
+}
+.article-view .gridThumb {
+    max-width:50px;
+}
+h1 {
+    font-size: 28px;
+    color: #5f6973;
+}
+.article-view .viewImageSvg svg {
+    width: 40px;
+    height: 40px;
+}
+
+input [type="file"] {
+    /*text-decoration: underline;*/
+    color: red;
+}
+/*input [aria-invalid="false"] {*/
+/*!*text-decoration: underline;*!*/
+/*color: red;*/
+/*}*/
+/*.article-view #uploadform-imagefile {*/
+/*!*text-decoration: underline;*!*/
+/*color: red;*/
+/*}*/
+
+.fileField {
+    color:gainsboro;
+}
+.has-success .fileField {
+    color:red;
+    /*border:1px red solid;*/
+    background-color: lightyellow;
+}
+.admin_section_head{
+    border-top: 1px solid lightgray;
+    border-left:1px solid lightgray;
+    padding-top: 10px;
+    border-top-left-radius: 20px;
+}
+.admin_section_ul {
+    border-left:1px solid lightgray;
+    margin-left: -15px;
+    margin-bottom: 20px;
+
+}
