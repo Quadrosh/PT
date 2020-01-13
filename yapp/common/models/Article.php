@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\Json;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "article".
@@ -366,5 +368,259 @@ class Article extends \yii\db\ActiveRecord
     public function getSections()
     {
         return $this->hasMany(ArticleSection::class,['article_id'=>'id'])->orderBy(['sort' => SORT_ASC]);
+    }
+
+
+
+
+
+    public function export()
+    {
+        $arr = $this->toArray();
+        $arr['type']=self::class;
+//        $arr['id'] = null;
+        $sections = $this->sections;
+        foreach ($sections as $section) {
+            $arr['sections'][$section->id] = $section->toArray();
+            $arr['sections'][$section->id]['type'] = ArticleSection::class;
+            if ($section->blocks) {
+                $blocks = $section->blocks;
+                foreach ($blocks as $block) {
+                    $arr['sections'][$section->id]['blocks'][$block->id] = $block->toArray();
+
+                    if ($block->items) {
+                        foreach ($block->items as $item) {
+                            $arr['sections'][$section->id]['blocks'][$block->id]['items'][$item->id] = $item->toArray();
+                        }
+                    }
+                }
+            }
+        }
+
+        $json = Json::encode($arr);
+        $jsonfile= Yii::getAlias('@webroot/tmp/export_article-'.str_replace('/','_',$this->hrurl).'.json');
+        $fp = fopen($jsonfile, 'w+');
+        fwrite($fp, $json);
+        fclose($fp);
+        if (file_exists($jsonfile)) {
+            Yii::$app->response->xSendFile($jsonfile)->send();
+//            unlink($jsonfile);
+        }
+        return true;
+    }
+
+
+    public function exportJson()
+    {
+        $arr = $this->toArray();
+        $arr['type']=self::class;
+        $sections = $this->sections;
+        foreach ($sections as $section) {
+            $arr['sections'][$section->id] = $section->toArray();
+            $arr['sections'][$section->id]['type'] = ArticleSection::class;
+            if ($section->blocks) {
+                $blocks = $section->blocks;
+                foreach ($blocks as $block) {
+                    $arr['sections'][$section->id]['blocks'][$block->id] = $block->toArray();
+
+                    if ($block->items) {
+                        foreach ($block->items as $item) {
+                            $arr['sections'][$section->id]['blocks'][$block->id]['items'][$item->id] = $item->toArray();
+                        }
+                    }
+                }
+            }
+        }
+
+        $json = Json::encode($arr);
+        return $json;
+    }
+
+
+
+    public function import($json=null)
+    {
+        if (!$json) {
+
+            $uploadmodel = new UploadForm();
+            $importFile = UploadedFile::getInstance($uploadmodel, 'jsonFile');
+
+            $root= Yii::getAlias('@webroot/');
+            $tempPath = $root.'tmp/temp_import_article.json';
+            if ($importFile->saveAs($tempPath)) {
+                $string = file_get_contents($tempPath,true);
+
+                $obj = json_decode($string);
+
+                $arr = json_decode(json_encode($obj),true);
+
+
+                $arr['id'] = null;
+                $arr['cat_ids'] = null;
+                $arr['topimage'] = null;
+                $arr['background_image'] = null;
+                $arr['thumbnail_image'] = null;
+
+                $oModel = new Article();
+                $oModel->attributes = $arr;
+
+
+                if($oModel->save()) {
+                    $sections = isset($arr['sections'])? $arr['sections']:null;
+                    if ($sections) {
+                        foreach ($sections as $section) {
+                            $newSection = new ArticleSection();
+                            $section['article_id'] = $oModel->id;
+                            $section['image'] = null;
+                            $section['background_image'] = null;
+                            $section['thumbnail_image'] = null;
+
+                            $newSection->attributes = $section;
+                            $newSection->save();
+
+                            $blocks = isset($section['blocks'])? $section['blocks']:null;
+                            if ($blocks) {
+                                foreach ($blocks as $block) {
+                                    $newBlock = new ArticleSectionBlock();
+                                    $block['article_section_id'] = $newSection->id;
+                                    $block['image'] = null;
+                                    $block['background_image'] = null;
+                                    $block['thumbnail_image'] = null;
+                                    $newBlock->attributes = $block;
+                                    $newBlock->save();
+
+                                    $items = isset($block['items'])? $block['items']:null;
+                                    if ($items) {
+                                        foreach ($items as $item) {
+                                            $newItem = new ArticleSectionBlockItem();
+                                            $item['article_section_block_id'] = $newBlock->id;
+                                            $item['image'] = null;
+                                            $newItem->attributes = $item;
+                                            $newItem->save();
+
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    Yii::$app->session->setFlash('success', 'Article import complete');
+
+                    unlink($tempPath);
+                    return true;
+                } else {
+                    Yii::$app->session->setFlash('error', 'Article import failed :'.Json::encode($oModel->errors));
+                    return false;
+                };
+
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка сохранения временного файла');
+                return false;
+            }
+            var_dump($oModel); die;
+
+        }
+
+
+    }
+
+
+
+    public static function structureToArray($string)
+    {
+        if (!$string || $string=='') {
+            return false;
+        }
+        $rows = explode('&', $string);
+        $res = [];
+        if ($rows && isset($rows[0])) {
+            foreach ($rows as $row) {
+                $rowArr = explode("=", $row);
+                if (isset($rowArr[0]) && isset($rowArr[1])) {
+                    $res[$rowArr[0]]=$rowArr[1];
+                }
+            }
+            return $res;
+        } else {
+            return false;
+        }
+
+
+    }
+
+
+
+
+    public function importJson($json)
+    {
+        $string = $json;
+
+        $obj = json_decode($string);
+
+        $arr = json_decode(json_encode($obj),true);
+
+
+        $arr['id'] = null;
+        $arr['cat_ids'] = null;
+        $arr['topimage'] = null;
+        $arr['background_image'] = null;
+        $arr['thumbnail_image'] = null;
+
+        $oModel = new Article();
+        $oModel->attributes = $arr;
+
+
+        if($oModel->save()) {
+            $sections = isset($arr['sections'])? $arr['sections']:null;
+            if ($sections) {
+                foreach ($sections as $section) {
+                    $newSection = new ArticleSection();
+                    $section['article_id'] = $oModel->id;
+                    $section['image'] = null;
+                    $section['background_image'] = null;
+                    $section['thumbnail_image'] = null;
+
+                    $newSection->attributes = $section;
+                    $newSection->save();
+
+                    $blocks = isset($section['blocks'])? $section['blocks']:null;
+                    if ($blocks) {
+                        foreach ($blocks as $block) {
+                            $newBlock = new ArticleSectionBlock();
+                            $block['article_section_id'] = $newSection->id;
+                            $block['image'] = null;
+                            $block['background_image'] = null;
+                            $block['thumbnail_image'] = null;
+                            $newBlock->attributes = $block;
+                            $newBlock->save();
+
+                            $items = isset($block['items'])? $block['items']:null;
+                            if ($items) {
+                                foreach ($items as $item) {
+                                    $newItem = new ArticleSectionBlockItem();
+                                    $item['article_section_block_id'] = $newBlock->id;
+                                    $item['image'] = null;
+                                    $newItem->attributes = $item;
+                                    $newItem->save();
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+            Yii::$app->session->setFlash('success', 'Article import complete');
+
+            return true;
+        } else {
+            Yii::$app->session->setFlash('error', 'Article import failed :'.Json::encode($oModel->errors));
+            return false;
+        };
     }
 }

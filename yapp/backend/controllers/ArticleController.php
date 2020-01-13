@@ -446,4 +446,64 @@ class ArticleController extends Controller
         }
     }
 
+
+
+
+
+    public function actionExport($id)
+    {
+        $article = Article::findOne($id);
+        if ($article->export()) {
+            return $this->redirect(Url::previous());
+        } else {
+            Yii::$app->session->setFlash('error', 'не получается');
+        }
+    }
+
+    public function actionExportJson($id)
+    {
+        $article = Article::findOne($id);
+        $json = $article->exportJson();
+        return $json;
+    }
+
+    public function actionImport()
+    {
+        $article = new Article();
+
+        if ($article->import()) {
+            Yii::$app->session->setFlash('success', 'импорт прошел успешно');
+            return $this->redirect(Url::previous());
+        } else {
+//            Yii::$app->session->setFlash('error', 'не получается');
+            return $this->redirect(Url::previous());
+        }
+    }
+
+    public function actionImportJson()
+    {
+        $article = new Article();
+        $post = Yii::$app->request->post('TextForm');
+        if ($post && $post['text']) {
+
+            if ($article->importJson($post['text'])) {
+                Yii::$app->session->setFlash('success', 'импорт прошел успешно');
+                return $this->redirect(Url::previous());
+            } else {
+                Yii::$app->session->setFlash('error', 'не получается');
+                return $this->redirect(Url::previous());
+            }
+
+        }
+
+        Yii::$app->session->setFlash('error', 'не получается совсем, аж поля формы не вижу');
+        return $this->redirect(Url::previous());
+//        if ($article->importByText()) {
+//            Yii::$app->session->setFlash('success', 'импорт прошел успешно');
+//            return $this->redirect(Url::previous());
+//        } else {
+////            Yii::$app->session->setFlash('error', 'не получается');
+//            return $this->redirect(Url::previous());
+//        }
+    }
 }

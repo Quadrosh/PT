@@ -30,8 +30,33 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
 <!--        --><?//= Html::a('Index2search', ['search-index', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-
     </p>
+    <p>
+        <?= Html::a('Export file', ['/article/export', 'id' => $model->id], [
+            'class' => 'btn btn-success',
+            'data' => [
+                'confirm' => 'Точно уже экспортировать статью?',
+                'method' => 'post',
+            ],
+        ]) ?>
+        <?= Html::a('Export json', ['/article/export-json', 'id' => $model->id], [
+            'class' => 'btn btn-success',
+            'data' => [
+                'confirm' => 'Точно уже экспортировать статью?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+<!--    <p>-->
+<!--        --><?//= Html::a('Создать категорию', ['/menu/create',
+//            'url'=>$model->hrurl,
+//            'name'=>$model->list_name], ['class' => 'btn btn-success btn-xs']) ?>
+<!--        --><?//= Html::a('Создать страницу', ['/pages/create',
+//            'hrurl'=>$model->hrurl,
+//            'status'=>'article'], ['class' => 'btn btn-success btn-xs']) ?>
+<!--    </p>-->
+
+
 
     <?= DetailView::widget([
         'model' => $model,
