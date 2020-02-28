@@ -117,9 +117,9 @@ $feedback = new \common\models\Feedback;
 
                     <?php endif; ?>
 <!--   отзывы -->
-                    <?php if($article=='otziv') : ?>
-                        <p>Отзывы</p>
-                    <?php endif; ?>
+<!--                    --><?php //if($article=='otziv') : ?>
+<!--                        <p>Отзывы</p>-->
+<!--                    --><?php //endif; ?>
 <!--   текст мастера -->
                     <?php if($article!='otziv' && $article!='go') : ?>
                         <h2 class="articleName"><?= nl2br($article['pagehead'])?></h2>
@@ -139,10 +139,10 @@ $feedback = new \common\models\Feedback;
                     <?=  Html::a( 'Записаться', '/master/'.$master['hrurl'].'/go',
                         ['class'=>'pjax_btn btn-default']); ?>
                 </div>
-                <div class="button">
-                    <?=  Html::a( 'Отзывы', '/master/'.$master['hrurl'].'/otziv',
-                        ['class'=>'pjax_btn btn-link']); ?>
-                </div>
+<!--                <div class="button">-->
+<!--                    --><?//=  Html::a( 'Отзывы', '/master/'.$master['hrurl'].'/otziv',
+//                        ['class'=>'pjax_btn btn-link']); ?>
+<!--                </div>-->
 
                 <p class="address"><?= nl2br($master['address']) ?></p>
             </div>
