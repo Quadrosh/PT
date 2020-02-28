@@ -74,7 +74,7 @@ use yii\helpers\HtmlPurifier;
                             <div class="more768">
                                 <?php if (isset($model->btns)) : ?>
                                     <?php foreach ($model->btns as $btn) : ?>
-                                        <?= Html::a($btn['name'], '/master/'.$model['hrurl'].$btn['link'],['class'=>'btn btn-xs masterBtn']) ?>
+                                        <?= Html::a($btn['name'], $model->root?'/'.$model->root.$btn['link']:'/master/'.$model['hrurl'].$btn['link'],['class'=>'btn btn-xs masterBtn']) ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
