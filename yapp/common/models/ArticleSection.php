@@ -45,9 +45,23 @@ class ArticleSection extends \yii\db\ActiveRecord
     const VIEW_OPTIONS = [
         '_as-default' => 'default',
         '_as-full_width' => 'full_width',
-        '_as-h1_head' => 'h1_head',
+        '_as-back_img_fw' => 'back_img_fw',
         '_as-head-descr-blocks-text' => 'head-descr-blocks-text',
+        '_as-order_form' => 'order_form',
     ];
+
+    const TEXT_CLASS_OPTIONS = [
+        'text-center',
+        'text-left',
+        'text-right',
+        'text-uppercase',
+        'strong',
+        'text-center strong',
+        'text-center line-top line-bottom',
+    ];
+
+    const DEFAULT_VIEW = '_as-default';
+
     /**
      * {@inheritdoc}
      */
@@ -125,6 +139,30 @@ class ArticleSection extends \yii\db\ActiveRecord
     {
         return $this->hasMany(ArticleSectionBlock::class,['article_section_id'=>'id'])
             ->orderBy(['sort' => SORT_ASC]);
+    }
+
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if ($this->isNewRecord) {
+                if (!$this->sort ) {
+                    $article = Article::findOne($this->article_id);
+                    if ($article->sections) {
+                        $this->sort = count($article->sections)+1;
+                    } else {
+                        $this->sort = 1;
+                    }
+                }
+                if (!$this->view) {
+                    $this->view = static::DEFAULT_VIEW;
+                }
+            }
+
+            return true;
+        }
+        return false;
     }
 
     public function beforeDelete()

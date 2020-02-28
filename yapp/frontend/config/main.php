@@ -83,15 +83,20 @@ return [
                 'article/bytag/<hrurl:[0-9a-z\-\_]+>' => 'article/bytag',
                 'article/bypsy/<hrurl:[0-9a-z\-\_]+>' => 'article/bypsy',
 
+                '<hrurl:she>' => 'article/master-page',
+                '<hrurl:she/about>' => 'article/master-page',
+                '<hrurl:she/contact>' => 'article/master-page',
+
                 'master/filter' => 'master/filter',
                 'master/index' => 'master/index',
                 'master/search' => 'master/search',
                 'master/<hrurl:[0-9a-z\-\_]+>' => 'master/view',
                 'master/<hrurl:[0-9a-z\-\_]+>/<article:[0-9a-z\-\_]+>' => 'master/view',
-                'master/otziv/<hrurl:[0-9a-z\-\_]+>' => 'master/reviews',
-                'master/read/<article:[0-9a-z\-\_]+>' => 'master/read',
-                'master/go/<hrurl:[0-9a-z\-\_]+>' => 'master/order',
-                'master/<hrurl:[0-9a-z\-\_]+>/otziv' => 'master/reviews',
+//                'master/otziv/<hrurl:[0-9a-z\-\_]+>' => 'master/reviews',
+//                'master/read/<article:[0-9a-z\-\_]+>' => 'master/read',
+//                'master/go/<hrurl:[0-9a-z\-\_]+>' => 'master/order',
+//                'master/<hrurl:[0-9a-z\-\_]+>/otziv' => 'master/reviews',
+
 
             ],
         ],

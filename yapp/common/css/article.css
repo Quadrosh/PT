@@ -9,6 +9,24 @@ html,
 body {
     height: 100%;
 }
+.no-gutters,
+.container-fluid.no-gutters{
+    padding-right: 0;
+    padding-left: 0;
+}
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.fz1_4em,.fz1_4em p{
+    font-size: 1.4em;
+}
+
 .absolute{
     position: absolute;
 }
@@ -69,6 +87,9 @@ body {
 .pl0 {
     padding-left: 0 !important;
 }
+.pl10 {
+    padding-left: 10px !important;
+}
 .pl30 {
     padding-left: 30px;
 }
@@ -77,6 +98,9 @@ body {
 }
 .pr0{
     padding-right: 0 !important;
+}
+.pr10{
+    padding-right: 10px !important;
 }
 .pr30{
     padding-right: 30px;
@@ -93,11 +117,39 @@ body {
 .pl10{
     padding-left: 10px;
 }
+.pr10{
+    padding-right: 10px;
+}
+@media only screen and (max-width : 991px) {
+    .plmd10, .plmd10 p{
+        padding-left: 10px;
+    }
+    .prmd10, .prmd10 p{
+        padding-right: 10px;
+    }
+}
+@media only screen and (max-width : 767px) {
+    .plxs10, .plxs10 p{
+        padding-left: 10px;
+    }
+    .prxs10, .prxs10 p{
+        padding-right: 10px;
+    }
+}
 .pl100{
     padding-left: 100px;
 }
 .pt100{
     padding-top: 100px;
+}
+.pt50{
+    padding-top: 50px;
+}
+.pb100{
+    padding-bottom: 100px;
+}
+.pb50{
+    padding-bottom: 50px;
 }
 .pt10rem{
     padding-top: 10rem;
@@ -221,6 +273,28 @@ body {
 }
 .bordered{
     border: 1px solid #c1b8b8;
+}
+.flex{
+    display: flex;
+}
+.flex-column{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (min-width : 769px) {
+    .flex-sm{
+        display: flex;
+    }
+}
+.flex_center_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .article_front_1 h1{
     font-size: 42px;
@@ -821,11 +895,7 @@ img {
         display: none;
     }
 }
-section {
-    /*margin-bottom: 50px;*/
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+
 
 #mainOrderSection .head {
     font-family: Montserrat,sans-serif;
@@ -1544,3 +1614,33 @@ section {
 .text-danger{
     color: #dc3545;
 }
+
+.coverImgWrap{
+    position: relative;
+    width: 100%;
+}
+img.cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.coverImgWrap img{
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.coverImgWrap .header{
+    position: relative;
+    z-index: 1;
+    padding: 6em 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+

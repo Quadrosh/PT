@@ -42,6 +42,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Master extends \yii\db\ActiveRecord
 {
+
+    const HRURL_AIGUL_SHE = 'she';
     /**
      * @inheritdoc
      */

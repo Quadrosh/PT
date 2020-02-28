@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use \common\models\ArticleSectionBlock;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\ArticleSectionBlock */
@@ -34,24 +35,14 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'header_class')
-                ->dropDownList([
-                    'text-center' => 'text-center',
-                    'text-left' => 'text-left',
-                    'text-right' => 'text-right',
-                    'text_small' => 'text_small',
-                ],['prompt' => 'Выбери']) ?>
+                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSectionBlock::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
         </div>
         <div class="col-sm-8">
             <?= $form->field($model, 'description')->textarea(['rows' => 1]) ?>
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'description_class')
-                ->dropDownList([
-                    'text-center' => 'text-center',
-                    'text-left' => 'text-left',
-                    'text-right' => 'text-right',
-                    'text_small' => 'text_small',
-                ],['prompt' => 'Выбери']) ?>
+                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSectionBlock::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
         </div>
         <div class="col-sm-8">
             <?= $form->field($model, 'raw_text')->textarea(['rows' => 1]) ?>
@@ -64,12 +55,7 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="col-sm-3">
             <?= $form->field($model, 'raw_text_class')
-                ->dropDownList([
-                    'text-center' => 'text-center',
-                    'text-left' => 'text-left',
-                    'text-right' => 'text-right',
-                    'text_small' => 'text_small',
-                ],['prompt' => 'Выбери']) ?>
+                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSectionBlock::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
         </div>
 
         <div class="col-sm-8">
@@ -77,12 +63,7 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="col-sm-4">
             <?= $form->field($model, 'conclusion_class')
-                ->dropDownList([
-                    'text-center' => 'text-center',
-                    'text-left' => 'text-left',
-                    'text-right' => 'text-right',
-                    'text_small' => 'text_small',
-                ],['prompt' => 'Выбери']) ?>
+                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSectionBlock::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
         </div>
 
 

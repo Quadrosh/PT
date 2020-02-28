@@ -18,6 +18,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'type')->dropDownList(Yii::$app->helpers->value2KeyValue([
                 Article::TYPE_ARTICLE,
                 Article::TYPE_MASTER_TEXT,
+                Article::TYPE_MASTER_PAGE,
                 Article::TYPE_PAGE,
             ]),['prompt' => 'Выбери']) ?>
         </div>
@@ -151,14 +152,10 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-4">
-            <?= $form->field($model, 'view')->dropDownList([
-
-            ],['prompt' => 'Выбери ']) ?>
+            <?= $form->field($model, 'view')->dropDownList(Article::VIEW_OPTIONS,['prompt' => 'Выбери ']) ?>
         </div>
         <div class="col-sm-4">
-            <?= $form->field($model, 'layout')->dropDownList([
-
-            ],['prompt' => 'Выбери']) ?>
+            <?= $form->field($model, 'layout')->dropDownList(Article::LAYOUT_OPTIONS,['prompt' => 'Выбери']) ?>
         </div>
     </div>
 

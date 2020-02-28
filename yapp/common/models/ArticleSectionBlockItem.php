@@ -48,6 +48,24 @@ class ArticleSectionBlockItem extends \yii\db\ActiveRecord
         '_asbi-h_img_col-text_col' => '-- img_col-text_col',
         '_asbi-h_tbl2_img_head--text__w1-structure' => '-- tbl2_img_head--text__w1-structure',
         '_asbi-h_bs2-img_head--text' => '-- bs2-img_head--text',
+        '_asbi-h_bs2-head_on_img--text' => '-- bs2-head_on_img--text',
+        '_asbi-h_bs2-text--head_on_img' => '-- bs2-text--head_on_img',
+        '_asbi-default' => 'default',
+    ];
+    const TEXT_CLASS_OPTIONS = [
+        'text-center',
+        'text-left',
+        'text-right',
+        'text-uppercase',
+        'strong',
+        'text-center strong',
+        'text-center line-top line-bottom',
+    ];
+
+    const COLOR_KEY_OPTIONS = [
+        'bright',
+        'grey',
+        'dark',
     ];
     /**
      * {@inheritdoc}

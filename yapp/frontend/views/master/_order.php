@@ -46,19 +46,19 @@ use \yii\helpers\Html;
             <?php $session = Yii::$app->session;?>
 
             <?= $form->field($feedback, 'utm_source')
-                ->hiddenInput(['value'=> $session['utmSource'], 'id' => 'quickorder_form_top-utm_source'])
+                ->hiddenInput(['value'=> $session['utm_source'], 'id' => 'quickorder_form_top-utm_source'])
                 ->label(false) ?>
             <?= $form->field($feedback, 'utm_medium')
-                ->hiddenInput(['value'=>$session['utmMedium'], 'id' => 'quickorder_form_top-utm_medium'])
+                ->hiddenInput(['value'=>$session['utm_medium'], 'id' => 'quickorder_form_top-utm_medium'])
                 ->label(false) ?>
             <?= $form->field($feedback, 'utm_campaign')
-                ->hiddenInput(['value'=>$session['utmCampaign'], 'id' => 'quickorder_form_top-utm_campaign'])
+                ->hiddenInput(['value'=>$session['utm_campaign'], 'id' => 'quickorder_form_top-utm_campaign'])
                 ->label(false) ?>
             <?= $form->field($feedback, 'utm_term')
-                ->hiddenInput(['value'=>$session['utmTerm'], 'id' => 'quickorder_form_top-utm_term'])
+                ->hiddenInput(['value'=>$session['utm_term'], 'id' => 'quickorder_form_top-utm_term'])
                 ->label(false) ?>
             <?= $form->field($feedback, 'utm_content')
-                ->hiddenInput(['value'=>$session['utmContent'], 'id' => 'quickorder_form_top-utm_content'])
+                ->hiddenInput(['value'=>$session['utm_content'], 'id' => 'quickorder_form_top-utm_content'])
                 ->label(false) ?>
 
 

@@ -13,6 +13,7 @@ use common\models\ProfessionItem;
 use common\models\PsychotherapyItem;
 use common\models\SiteItem;
 use common\models\Tag;
+use common\models\Visit;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ActiveDataProvider;
@@ -275,8 +276,10 @@ class MasterController extends Controller
 
     public function actionView($hrurl)
     {
+
         $this->layout = 'master';
         Url::remember();
+        $this->getUtm();
         $master = Master::find()->where(['hrurl'=>$hrurl])->one();
 
         // счетчик просмотров за день
@@ -295,15 +298,7 @@ class MasterController extends Controller
         }
         $todayCount->save();
 
-        //UTM
-        $session = Yii::$app->session;
-        if (Yii::$app->request->get('utm_source')!= null) {
-            $session['utmSource'] = Yii::$app->request->get('utm_source');
-            $session['utmMedium'] = Yii::$app->request->get('utm_medium');
-            $session['utmCampaign'] = Yii::$app->request->get('utm_campaign');
-            $session['utmTerm'] = Yii::$app->request->get('utm_term');
-            $session['utmContent'] = Yii::$app->request->get('utm_content');
-        }
+
 
         $masterData=[];
         $masterData['professions'] = $master->pros;
@@ -402,6 +397,61 @@ class MasterController extends Controller
     }
 
 
+
+    public function getUtm()
+    {
+        $utm = [];
+        $session = Yii::$app->session;
+
+        if (Yii::$app->request->get('utm_source')) {
+            // UTM из GET
+            $utm['source'] = Yii::$app->request->get('utm_source');
+            $utm['medium'] = Yii::$app->request->get('utm_medium');
+            $utm['campaign'] = Yii::$app->request->get('utm_campaign');
+            $utm['term'] = Yii::$app->request->get('utm_term');
+            $utm['content'] = Yii::$app->request->get('utm_content');
+
+            // сохранение в сессию
+            if (Yii::$app->request->get('utm_source')!= null) {
+                $session['utm_source'] = $utm['source'];
+                $session['utm_medium'] = $utm['medium'];
+                $session['utm_campaign'] = $utm['campaign'];
+                $session['utm_term'] = $utm['term'];
+                $session['utm_content'] = $utm['content'];
+            }
+        } else {
+            if ($session['utm_source']) {
+                $utm['source'] = $session['utm_source'];
+                $utm['medium'] = $session['utm_medium'];
+                $utm['campaign'] = $session['utm_campaign'];
+                $utm['term'] = $session['utm_term'];
+                $utm['content'] = $session['utm_content'];
+            } else { // если там что то есть
+                $utm['source'] = Yii::$app->request->get('utm_source');
+                $utm['medium'] = Yii::$app->request->get('utm_medium');
+                $utm['campaign'] = Yii::$app->request->get('utm_campaign');
+                $utm['term'] = Yii::$app->request->get('utm_term');
+                $utm['content'] = Yii::$app->request->get('utm_content');
+            }
+        }
+
+        //сохр визита в статистику
+        $visit = new Visit();
+        $visit['ip'] = Yii::$app->request->userIP;
+        $visit['site'] = 'PT';
+        $visit['lp_hrurl'] = '';
+        $visit['url'] = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+        $visit['utm_source']=$utm['source'];
+        $visit['utm_medium']=$utm['medium'];
+        $visit['utm_campaign']=$utm['campaign'];
+        $visit['utm_term']=$utm['term'];
+        $visit['utm_content']=$utm['content'];
+        $visit['qnt']=1;
+        $visit->save();
+
+        return $utm;
+
+    }
 
 
 }

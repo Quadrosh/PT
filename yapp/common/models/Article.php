@@ -54,10 +54,17 @@ class Article extends \yii\db\ActiveRecord
 
     const TYPE_ARTICLE = 'article';
     const TYPE_MASTER_TEXT = 'master_text';
+    const TYPE_MASTER_PAGE = 'master_page';
     const TYPE_PAGE = 'page';
 
     const OBJECT_TYPE_MASTER = 'master';
 
+    const LAYOUT_OPTIONS = [
+        'm_ishe' => 'ishe',
+    ];
+   const VIEW_OPTIONS = [
+        '_a-no_h1' => 'no_h1',
+    ];
 
 
 

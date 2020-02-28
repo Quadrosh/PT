@@ -11,10 +11,10 @@ use yii\helpers\Html;
 
 
 ?>
-<div class="asb-bs_horiz_3 <?= $model->color_key ?> <?= $model->custom_class ?>">
+<div class="asb-default">
 
     <?php if ($model->header) : ?>
-        <h3 <?= $model->header_class?'class="'.$item->header_class.'"':null ?>><?= $model->header ?></h3>
+        <h3 <?= $model->header_class?'class="'.$model->header_class.'"':null ?>><?= $model->header ?></h3>
     <?php endif; ?>
 
     <?php if ($model->description) : ?>
@@ -22,19 +22,13 @@ use yii\helpers\Html;
     <?php endif; ?>
 
     <?php if ($model->raw_text) : ?>
-        <p <?= $model->raw_text_class?'class="'.$model->raw_text_class.'"':null ?>><?= nl2br($model->raw_text)  ?></p>
+        <p <?= $model->raw_text_class?'class="'.$model->raw_text_class.'"':null ?>><?= nl2br($model->raw_text) ?></p>
     <?php endif; ?>
 
     <?php if ($model->items) : ?>
-        <div class="row">
-            <?php $i=0; $count = count($model->items); foreach ( $model->items as $item)  : ?>
-                <?php $i++; if ($i!=1 && $i%3==1) : ?>
-        </div>
-        <div class="row">
-                <?php endif; ?>
-                <div class="col-sm-4 <?php
-                if ($i!=1 && $i%3==1 && $i+1 == $count){echo'col-sm-offset-2';}
-                ?>">
+
+            <?php foreach ($model->items as $item) : ?>
+
 
                     <?php if ($item->view) : ?>
                         <?= $this->render('/article/part_views/block_item/'.$item->view, [
@@ -48,9 +42,10 @@ use yii\helpers\Html;
                         ]) ?>
                     <?php endif; ?>
 
-                </div>
+
             <?php endforeach; ?>
-        </div>
+
+
 
     <?php endif; ?>
 

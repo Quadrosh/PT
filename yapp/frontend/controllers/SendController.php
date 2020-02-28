@@ -133,6 +133,33 @@ class SendController extends Controller
 
 
 
+    public function actionRequestAppointment()
+    {
+
+
+        $feedback = new Feedback();
+        $feedback->load(Yii::$app->request->post());
+        $master = Master::find()->where(['id'=>$feedback['master_id']])->one();
+
+        if ($feedback->save()) {
+            if ($master['order_messenger'] == 'email') {
+                if ($this->sendEmail($master,$feedback)) {
+                    Yii::$app->session->setFlash('success', 'Заявка отправлена. <br> Мастер свяжется с Вами в ближайшее время.');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
+                }
+            }
+
+            if ($master['order_sms_enable'] == true) {
+                $this->sendSms($master,$feedback);
+            }
+        } else {
+            Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
+        }
+        return $this->redirect(Url::previous());
+    }
+
+
 
 
 }

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 ?>
 
 
-<section class="as-image_float_in_text <?= $model->color_key ?> <?= $model->custom_class ?>">
+<section class="as-default <?= $model->color_key ?> <?= $model->custom_class ?>">
     <div class="row">
         <div class="  col-md-10 col-md-offset-1  col-lg-8 col-lg-offset-2">
             <?php if ($model->header) : ?>
@@ -17,7 +17,7 @@ use yii\helpers\Html;
             <?php endif; ?>
 
             <?php if ($model->raw_text) : ?>
-                <p><?php if ($model->image) {
+                <p <?= $model->raw_text_class?'class="'.$model->raw_text_class.'"':null ?>><?php if ($model->image) {
                         echo
                         Html::img('/img/view/'
                             . Imagefiles::TERM_CUT_OVERFLOW
@@ -36,29 +36,13 @@ use yii\helpers\Html;
                             <?= $this->render('/article/part_views/block/'.$block->view, [
                                 'model' => $block,
                                 'article' => $article,
-                                'utm' => isset($utm)?$utm:null,
                             ]) ?>
                         <?php endif; ?>
                         <?php if (!$block->view) : ?>
-                            <?php if ($block->header) : ?>
-                                <h3 class="<?= $block->header_class ?>"><?= $block->header ?></h3>
-                            <?php endif; ?>
-                            <?php if ($block->description) : ?>
-                                <p class="text-center"><?= $block->description ?></p>
-                            <?php endif; ?>
-                            <?php if ($block->items) : ?>
-                                <?php foreach ($block->items as $item) : ?>
-                                    <?php if ($item->header) : ?>
-                                        <h4 class="<?= $item->header_class ?>"><?= $item->header ?></h4>
-                                    <?php endif; ?>
-                                    <?php if ($item->description) : ?>
-                                        <p class="text-center"><?= $item->description ?></p>
-                                    <?php endif; ?>
-                                    <?php if ($item->text) : ?>
-                                        <p class="text-center"><?= $item->text ?></p>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <?= $this->render('/article/part_views/block/_asb-default', [
+                                'model' => $block,
+                                'article' => $article,
+                            ]) ?>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>

@@ -4,9 +4,11 @@ namespace frontend\controllers;
 use common\models\Article;
 use common\models\ArticleSearch;
 use common\models\DailyCount;
+use common\models\Master;
 use common\models\PsychotherapyItem;
 use common\models\ReadWithIt;
 use common\models\Tag;
+use common\models\Visit;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ArrayDataProvider;
@@ -94,6 +96,7 @@ class ArticleController extends Controller
     public function actionView($hrurl)
     {
         Url::remember();
+        $this->getUtm();
         $article = Article::find()->where(['hrurl'=>$hrurl])->with('psys','sites','tags')->one();
 
         // счетчик просмотров
@@ -231,35 +234,7 @@ class ArticleController extends Controller
             $article = Article::find()->where(['id'=>$row['id']])->one();
             $articles[] = $article;
         }
-//        $rows = ArticleSearch::find()->where(['match','text', $search])->all();
-//        var_dump($search['search']); die;
 
-//        $query = new \yii\elasticsearch\Query();
-//        $query
-////            ->query(['match'=>['text'=>$search]])
-////            ->fields('id, text')
-////            ->source($search['search'])
-//            ->from('psihotera','article')
-////            ->query(['match'=>['text'=>$search]])
-////                ->search()
-////            ->match(['text'=>$search])
-//            ->limit(10);
-//        $command = $query->createCommand();
-//        $rows = $command->search();
-
-//        var_dump($rows); die;
-
-//        $dataProvider = new ActiveDataProvider([
-//            'query' => Article::find(),
-//            'pagination'=> [
-//                'pageSize' => 100,
-//            ],
-//            'sort' =>[
-//                'defaultOrder'=> [
-//                    'id' => SORT_DESC
-//                ]
-//            ]
-//        ]);
         $articleDataProvider = new ArrayDataProvider([
             'allModels'=>$articles,
             'pagination' => [
@@ -270,5 +245,119 @@ class ArticleController extends Controller
         return $this->render('search', [
             'dataProvider' => $articleDataProvider,
         ]);
+    }
+
+
+
+    public function actionMasterPage($hrurl)
+    {
+        Url::remember();
+        $this->getUtm();
+
+        if ($hrurl ==  Master::HRURL_AIGUL_SHE ||
+            substr($hrurl,0,3)== Master::HRURL_AIGUL_SHE) {
+            $master = Master::findOne(['hrurl'=> Master::HRURL_AIGUL_SHE]);
+            if ($hrurl ==  Master::HRURL_AIGUL_SHE) {
+                $hrurl = 'home';
+            } else {
+                $nameParts = explode('/',$hrurl);
+                $hrurl = $nameParts[1];
+            }
+            $article = Article::find()
+                ->where([
+                    'hrurl'=>$hrurl,
+                    'object_type'=>Article::OBJECT_TYPE_MASTER,
+                    'object_id'=>$master->id,
+                ])
+                ->with('psys','sites','tags')
+                ->one();
+
+        } else {
+            throw new BadRequestHttpException();
+        }
+
+        if ($article->layout) {
+            $this->layout = $article->layout;
+        }
+        // счетчик просмотров
+        $now = time();
+        $todayStart = $now - ($now % 86400);
+        $todayCount = DailyCount::find()
+            ->where(['article_id'=>$article['id']])
+            ->andWhere('created_at > '.$todayStart)
+            ->one();
+        if (!$todayCount) {
+            $todayCount = new DailyCount;
+            $todayCount['count'] = 1;
+            $todayCount['article_id'] = $article['id'];
+        } else {
+            $todayCount['count'] += 1;
+        }
+        $todayCount->save();
+
+        $this->view->params['title'] = $article->title;
+        $this->view->params['description'] = $article->description;
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
+
+        return $this->render('common_view', [
+            'model' => $article,
+        ]);
+    }
+
+
+
+    public function getUtm()
+    {
+        $utm = [];
+        $session = Yii::$app->session;
+
+        if (Yii::$app->request->get('utm_source')) {
+            // UTM из GET
+            $utm['source'] = Yii::$app->request->get('utm_source');
+            $utm['medium'] = Yii::$app->request->get('utm_medium');
+            $utm['campaign'] = Yii::$app->request->get('utm_campaign');
+            $utm['term'] = Yii::$app->request->get('utm_term');
+            $utm['content'] = Yii::$app->request->get('utm_content');
+
+            // сохранение в сессию
+            if (Yii::$app->request->get('utm_source')!= null) {
+                $session['utm_source'] = $utm['source'];
+                $session['utm_medium'] = $utm['medium'];
+                $session['utm_campaign'] = $utm['campaign'];
+                $session['utm_term'] = $utm['term'];
+                $session['utm_content'] = $utm['content'];
+            }
+        } else {
+            if ($session['utm_source']) {
+                $utm['source'] = $session['utm_source'];
+                $utm['medium'] = $session['utm_medium'];
+                $utm['campaign'] = $session['utm_campaign'];
+                $utm['term'] = $session['utm_term'];
+                $utm['content'] = $session['utm_content'];
+            } else { // если там что то есть
+                $utm['source'] = Yii::$app->request->get('utm_source');
+                $utm['medium'] = Yii::$app->request->get('utm_medium');
+                $utm['campaign'] = Yii::$app->request->get('utm_campaign');
+                $utm['term'] = Yii::$app->request->get('utm_term');
+                $utm['content'] = Yii::$app->request->get('utm_content');
+            }
+        }
+
+        //сохр визита в статистику
+        $visit = new Visit();
+        $visit['ip'] = Yii::$app->request->userIP;
+        $visit['site'] = 'PT';
+        $visit['lp_hrurl'] = '';
+        $visit['url'] = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+        $visit['utm_source']=$utm['source'];
+        $visit['utm_medium']=$utm['medium'];
+        $visit['utm_campaign']=$utm['campaign'];
+        $visit['utm_term']=$utm['term'];
+        $visit['utm_content']=$utm['content'];
+        $visit['qnt']=1;
+        $visit->save();
+
+        return $utm;
+
     }
 }

@@ -2,14 +2,30 @@
 
 use yii\helpers\Html;
 
+$sectionId=null;
+if ($model->structure) {
+    foreach (explode('&', $model->structure) as $chunk) {
+        $param = explode("=", $chunk);
+        if ($param[0]=='id') {
+            $sectionId=$param[1];
+        }
+    }
+}
+
 ?>
 
 
-<section class="as-h1_head <?= $model->color_key ?> <?= $model->custom_class ?>">
+<section class="as-back_img_fw position-relative background_cover  <?= $model->color_key ?> <?= $model->custom_class ?>"
+         style=" background-image: url(/img/<?= $model->background_image ?>)"
+    <?= $sectionId?'id="'.$sectionId.'"':null ?>
+    <?= $model->background_image_title?'title="'.$model->background_image_title.'"':null ?>
+>
+    <div class="color_filter"></div>
     <div class="row">
-        <div class="  col-md-10 col-md-offset-1  col-lg-8 col-lg-offset-2">
+        <div class="col-sm-12 leadBox">
+
             <?php if ($model->header) : ?>
-                <h1 class="<?= $model->header_class ?>"><?= $model->header ?></h1>
+                <h2 class="<?= $model->header_class ?>"><?= nl2br($model->header) ?></h2>
             <?php endif; ?>
             <?php if ($model->description) : ?>
                 <p class="text-left"><?= nl2br($model->description)  ?></p>
@@ -66,21 +82,23 @@ use yii\helpers\Html;
                 <p class="text-center mt50" ><?= nl2br($model->call2action_description)  ?></p>
             <?php endif; ?>
             <?php if ($model->call2action_name) : ?>
+            <div class="link_wrapper">
                 <?php if ($model->call2action_link == 'callMe' || $model->call2action_link == 'call_me') : ?>
-                    <div class="col-sm-12 mt30">
+
                         <?= $this->render('/article/part_views/article/_phone-form', [
                             'section' => $model,
                             'article' => $article,
                             'utm' => isset($utm)?$utm:null,
                         ]) ?>
 
-                    </div>
+
                 <?php endif; ?>
                 <?php if ($model->call2action_link != 'callMe' && $model->call2action_link != 'call_me') : ?>
                     <?=
                     Html::a( $model->call2action_name, [$model->call2action_link],['class'=>$model->call2action_class]);
                     ?>
                 <?php endif; ?>
+            </div>
             <?php endif; ?>
 
         </div>

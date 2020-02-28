@@ -63,6 +63,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             'id',
+            'type',
+            'object_type',
+            'object_id',
+
             'list_name',
 //            'list_num',
 //            'hrurl:url',
@@ -89,8 +93,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'promoname',
             // 'imagelink',
             // 'imagelink_alt',
-             'link2original',
-             'author',
+//             'link2original',
+
+//             'author',
 //             'layout',
 //             'view',
             // 'master_id',

@@ -58,6 +58,17 @@ class ArticleSectionBlock extends \yii\db\ActiveRecord
         '_asb-check_rates' => 'check_rates',
         '_asb-check_rates_room' => 'check_rates_room',
         '_asb-order_form_on_house' => 'order_form_on_house',
+        '_asb-default' => 'default',
+
+    ];
+    const TEXT_CLASS_OPTIONS = [
+        'text-center',
+        'text-left',
+        'text-right',
+        'text-uppercase',
+        'strong',
+        'text-center strong',
+        'text-center line-top line-bottom',
     ];
     /**
      * {@inheritdoc}
@@ -82,7 +93,7 @@ class ArticleSectionBlock extends \yii\db\ActiveRecord
     {
         return [
             [['article_section_id'], 'required'],
-            [['article_section_id', 'accent', 'created_at', 'updated_at'], 'integer'],
+            [['article_section_id', 'accent', 'created_at', 'updated_at','sort'], 'integer'],
             [['description', 'raw_text', 'conclusion', 'image', 'background_image', 'thumbnail_image',
                 'image_title','background_image_title','thumbnail_image_title'], 'string'],
             [['code_name', 'header_class', 'description_class', 'raw_text_class', 'conclusion_class', 'image_alt', 'image_class', 'call2action_name', 'call2action_link', 'call2action_class', 'call2action_comment', 'view', 'color_key', 'structure', 'custom_class','thumbnail_image_alt'], 'string', 'max' => 255],

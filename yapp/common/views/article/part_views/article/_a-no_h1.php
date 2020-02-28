@@ -10,20 +10,9 @@ use common\widgets\Alert;
 
 
 ?>
-<div class="a-article">
+<div class="a-no_h1">
     <?= Alert::widget() ?>
-    <h1 class="text-center"><?= Html::encode($article->pagehead) ?></h1>
 
-    <?php if ($article->excerpt) : ?>
-        <p><?= $article->excerpt ?></p>
-    <?php endif; ?>
-    <?php if ($article->excerpt_big) : ?>
-        <p><?= $article->excerpt_big ?></p>
-    <?php endif; ?>
-
-    <?php if ($article->text) : ?>
-        <p><?= nl2br($article->text)  ?></p>
-    <?php endif; ?>
 
     <?php if ($article->sections) : ?>
         <?php foreach ($article->sections as $section) : ?>
