@@ -38,15 +38,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-//            'hrurl:url',
+            'hrurl',
             [
-                'attribute'=>'hrurl',
+                'attribute'=>'root',
                 'value' => function($data)
                 {
                     if (Yii::$app->request->getHostName() == 'cp.psihotera.local') {
-                        $theData = '<a  href="http://psihotera.local/master/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                        $theData = '<a  href="http://psihotera.local/'.$data['root'].'">'.$data['root'].'</a>';
                     } else {
-                        $theData = '<a  href="http://psihotera.ru/master/'.$data['hrurl'].'">'.$data['hrurl'].'</a>';
+                        $theData = '<a  href="https://psihotera.ru/'.$data['root'].'">'.$data['root'].'</a>';
                     }
                     return $theData;
                 },
@@ -774,7 +774,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ->hiddenInput(['value'=>'btn','id' => 'btn_assign-item_type'])
                     ->label(false) ?>
                 <?= $form->field($itemAssign, 'item_id')
-                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\BtnItem::find()->all(), 'id','name'),['id'=>'btn_assign-item_id'])
+                    ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\BtnItem::find()->all(), 'id',function($data){return $data->name.' '.$data->link;}),['id'=>'btn_assign-item_id'])
                     ->label(false) ?>
                 <?= $form->field($itemAssign, 'article_id')
                     ->hiddenInput(['value' => '','id' => 'btn_assign-article_id'])
@@ -798,8 +798,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute'=>'item_id',
                             'value' => function($data)
                             {
-                                $theData = \common\models\BtnItem::find()->where(['id'=>$data['item_id']])->one();
-                                return $theData['name'];
+                                $btn = \common\models\BtnItem::find()->where(['id'=>$data['item_id']])->one();
+                                return $btn->name . ' ' . $btn->link;
                             },
                         ],
                         [

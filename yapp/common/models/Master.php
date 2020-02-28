@@ -39,6 +39,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $order_sms_count
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $root
  */
 class Master extends \yii\db\ActiveRecord
 {
@@ -98,6 +99,7 @@ class Master extends \yii\db\ActiveRecord
                     'order_messenger_id',
                     'order_phone',
                     'order_sms_enable',
+                    'root',
                 ], 'string', 'max' => 255
             ],
             [['image_alt', 'site_link', 'background_image', 'list_add'], 'string', 'max' => 510],
@@ -115,6 +117,7 @@ class Master extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => 'ФИО',
             'hrurl' => 'Hrurl',
+            'root' => 'Root',
             'name' => 'Имя',
             'middlename' => 'Отчество',
             'surname' => 'Фамилия',

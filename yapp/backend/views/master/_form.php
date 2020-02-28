@@ -14,12 +14,15 @@ use yii\widgets\ActiveForm;
     <div class="row">
 
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'hrurl')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'root')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-2">
             <?= $form->field($model, 'status')->dropDownList([
