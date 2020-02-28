@@ -2,8 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\BtnItem;
 use Yii;
-use common\models\Btnitem;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -38,7 +38,7 @@ class BtnitemController extends Controller
     {
         Url::remember();
         $dataProvider = new ActiveDataProvider([
-            'query' => Btnitem::find(),
+            'query' => BtnItem::find(),
         ]);
 
         return $this->render('index', [
@@ -66,7 +66,7 @@ class BtnitemController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Btnitem();
+        $model = new BtnItem();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Url::previous());
@@ -118,7 +118,7 @@ class BtnitemController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Btnitem::findOne($id)) !== null) {
+        if (($model = BtnItem::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

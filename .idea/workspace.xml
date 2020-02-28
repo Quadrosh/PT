@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/master/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/master/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/master/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/master/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/models/Master.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,15 +47,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="198">
                   <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/frontend/web/js/m_ishe.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1815">
-                  <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -202,11 +188,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="140">
                   <caret line="76" column="109" selection-start-line="76" selection-start-column="109" selection-end-line="76" selection-end-column="109" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/yapp/common/models/BtnItem.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="99">
+                  <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -645,12 +640,12 @@
       <workItem from="1580722716264" duration="18000" />
       <workItem from="1580724906900" duration="861000" />
       <workItem from="1580834934818" duration="1266000" />
-      <workItem from="1582896639777" duration="6012000" />
+      <workItem from="1582896639777" duration="6629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173054000" />
+    <option name="totallyTimeSpent" value="173671000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -721,13 +716,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="60" column="2" lean-forward="true" selection-start-line="60" selection-start-column="2" selection-end-line="72" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/article/common_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1094,6 +1082,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="76" column="109" selection-start-line="76" selection-start-column="109" selection-end-line="76" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/BtnItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
         </state>
       </provider>
     </entry>
