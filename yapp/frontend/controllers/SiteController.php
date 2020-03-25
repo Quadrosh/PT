@@ -104,7 +104,7 @@ class SiteController extends Controller
 //        popular
         $popArtQuery = Article::find()
             ->select(['article.*', 'SUM(daily_count.count) AS countviews'])
-            ->where(['status'=>'publish'])
+            ->where(['type'=>Article::TYPE_ARTICLE,'status'=>'publish'])
             ->andWhere('link2original != :value',['value'=>'masterpage'])
             ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
             ->groupBy('article.id')

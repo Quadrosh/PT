@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Article;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,6 +13,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <div class="row">
+        <div class="col-sm-4">
+            <?= $form->field($model, 'type')->dropDownList(Yii::$app->helpers->value2KeyValue([
+                Article::TYPE_ARTICLE,
+                Article::TYPE_MASTER_TEXT,
+                Article::TYPE_MASTER_PAGE,
+                Article::TYPE_PAGE,
+            ]),['prompt' => 'Выбери']) ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-5">
             <?= $form->field($model, 'list_name')->textarea(['rows'=>1,'maxlength' => true]) ?>

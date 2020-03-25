@@ -56,10 +56,10 @@ class ArticleController extends Controller
         $this->view->params['title'] = 'Психотера - все о психотерапии - Статьи';
         $this->view->params['description'] = 'описание';
         $this->view->params['keywords'] = 'психотерапия, психотерапевт';
-
+//             ->andWhere('type != :value',['value'=>Article::TYPE_MASTER_PAGE])
+//             ->andWhere('link2original != :value',['value'=>'masterpage'])
         $articles = Article::find()
-            ->where(['status'=>'publish'])
-            ->andWhere('link2original != :value',['value'=>'masterpage'])
+            ->where(['type'=>Article::TYPE_ARTICLE,'status'=>'publish'])
             ->with('psys','sites','tags')
             ->limit(100)
             ->all();
@@ -77,12 +77,13 @@ class ArticleController extends Controller
 //        popular
         $query = Article::find()
             ->select(['article.*', 'SUM(daily_count.count) AS countviews'])
-            ->where(['status'=>'publish'])
-            ->andWhere('link2original != :value',['value'=>'masterpage'])
+            ->where(['type'=>Article::TYPE_ARTICLE,'status'=>'publish'])
             ->join('LEFT JOIN', DailyCount::tableName(), 'article.id=daily_count.article_id')
             ->groupBy('article.id')
             ->orderBy(['countviews' => SORT_DESC])
             ->limit(6);
+
+
         $popularArticles = $query->all();
 
         $topArticle = Article::find()->where(['id'=>7])->one();
