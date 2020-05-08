@@ -11,6 +11,9 @@
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/cebe/markdown" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/cloudinary/cloudinary_php" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/base" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/codeception" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/lib-asserts" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/module-db" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/phpunit-wrapper" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/stub" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/codeception/verify" />
@@ -20,6 +23,15 @@
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/ezyang/htmlpurifier" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/fzaninotto/faker" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/consistency" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/console" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/event" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/exception" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/file" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/protocol" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/hoa/ustring" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/imagine/imagine" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/yapp/vendor/opis/closure" />

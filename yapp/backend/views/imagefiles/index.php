@@ -78,19 +78,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::submitButton('Upload', ['class' => 'btn btn-success']) ?>
                 <?php ActiveForm::end() ?>
             </div>
-            <div class="col-xs-6 col-sm-3">
-                <h4>Image Cloud</h4>
-                <?php $form = ActiveForm::begin([
-                    'method' => 'post',
-                    'action' => ['/imagefiles/cloud'],
-                    'options' => ['enctype' => 'multipart/form-data'],
-                ]); ?>
-
-                <?= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
-
-                <?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
-                <?php ActiveForm::end() ?>
-            </div>
+<!--            <div class="col-xs-6 col-sm-3">-->
+<!--                <h4>Image Cloud</h4>-->
+<!--                --><?php //$form = ActiveForm::begin([
+//                    'method' => 'post',
+//                    'action' => ['/imagefiles/cloud'],
+//                    'options' => ['enctype' => 'multipart/form-data'],
+//                ]); ?>
+<!---->
+<!--                --><?//= $form->field($uploadmodel, 'imageFile')->fileInput()->label(false) ?>
+<!---->
+<!--                --><?//= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
+<!--                --><?php //ActiveForm::end() ?>
+<!--            </div>-->
 
         </div>
     </div>

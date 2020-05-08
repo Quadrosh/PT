@@ -127,6 +127,8 @@ AppAsset::register($this);
 
     </div>
     <?= $content ?>
+
+    <?= $this->render('/layouts/footer', []) ?>
 </div>
 
 <!--<footer class="footer">-->

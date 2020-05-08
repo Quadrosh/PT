@@ -33,7 +33,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="articleWrap">
+<div class="articleWrap ">
     <?php
     NavBar::begin([
         'brandLabel' => '<img class="brandLogo" src="/img/pt_logo_glob_w.png" class="pull-left"/>'.'<span class="brandName">Психотера</span>'.'<span class="brandMotto">все о психотерапии</span>',
@@ -51,12 +51,12 @@ AppAsset::register($this);
         [
             'label' => 'Статьи',
             'url' => ['/article'],
-            'active' => in_array(\Yii::$app->controller->id, ['article']),
+            'active' => strpos(Yii::$app->request->url,'/article')!==false,
         ],
         [
             'label' => 'Психотерапевты',
             'url' => ['/master'],
-            'active' => in_array(\Yii::$app->controller->id, ['master']),
+            'active' =>strpos(Yii::$app->request->url,'/master')!==false,
 
         ]
     ];
@@ -75,15 +75,11 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
+    <?= $this->render('/layouts/footer', []) ?>
 </div>
 
-<!--<footer class="footer">-->
-<!--    <div class="container">-->
-<!--        <p class="pull-left">&copy; --><?//= Yii::$app->name ?><!-- --><?//= date('Y') ?><!--</p>-->
-<!---->
-<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
-<!--    </div>-->
-<!--</footer>-->
+
+
 
 <?php $this->endBody() ?>
 </body>

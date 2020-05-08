@@ -74,6 +74,18 @@
       <path value="$PROJECT_DIR$/yapp/vendor/cebe/markdown" />
       <path value="$PROJECT_DIR$/yapp/vendor/imagine/imagine" />
       <path value="$PROJECT_DIR$/yapp/vendor/yiisoft/yii2-imagine" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/lib-asserts" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/codeception" />
+      <path value="$PROJECT_DIR$/yapp/vendor/codeception/module-db" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/ustring" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/event" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/consistency" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/protocol" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/iterator" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/file" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/stream" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/exception" />
+      <path value="$PROJECT_DIR$/yapp/vendor/hoa/console" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

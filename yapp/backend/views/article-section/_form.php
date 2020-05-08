@@ -143,6 +143,7 @@ use \common\models\ArticleSection;
             <?= $form->field($model, 'color_key')
                 ->dropDownList([
                     'bright' => 'bright',
+                    'white_bgr' => 'white_bgr',
                     'dark' => 'dark',
                     'grey' => 'grey',
                 ],['prompt' => 'Выбери']) ?>

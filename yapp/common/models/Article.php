@@ -61,9 +61,11 @@ class Article extends \yii\db\ActiveRecord
 
     const LAYOUT_OPTIONS = [
         'm_ishe' => 'ishe',
+        'article_page' => 'article_page',
     ];
    const VIEW_OPTIONS = [
         '_a-no_h1' => 'no_h1',
+        '_a-top_bgr_image_h1' => 'top_bgr_image_h1',
     ];
 
 
@@ -155,7 +157,7 @@ class Article extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'pagehead' => 'Pagehead (mt)',
+            'pagehead' => 'Pagehead h1 (mt)',
             'text' => 'Text (mt)',
             'excerpt' => 'Excerpt',
             'excerpt_big' => 'Excerpt Big',

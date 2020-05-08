@@ -19,7 +19,6 @@ use yii\helpers\HtmlPurifier;
                                 [
                                     'class' => 'img',
                                     'alt' => $model['image_alt'],
-                                    'style'=>'width:120px;'
                                 ]) ;?>
                         </a>
                     </div>
@@ -221,7 +220,6 @@ use yii\helpers\HtmlPurifier;
                                 [
                                     'class' => 'img',
                                     'alt' => $model['image_alt'],
-                                    'style'=>'width:120px;'
                                 ]) ;?>
                         </a>
                     </div>

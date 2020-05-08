@@ -55,6 +55,9 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'hrurl')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-12">
+            <?= $form->field($model, 'pagehead')->textarea(['maxlength' => true,'rows' => 1]) ?>
+        </div>
+        <div class="col-sm-12">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-12">
@@ -72,9 +75,7 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-12">
             <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
         </div>
-        <div class="col-sm-12">
-            <?= $form->field($model, 'pagehead')->textarea(['maxlength' => true,'rows' => 1]) ?>
-        </div>
+
         <div class="col-sm-5">
             <?= $form->field($model, 'topimage')->textInput(['maxlength' => true]) ?>
         </div>

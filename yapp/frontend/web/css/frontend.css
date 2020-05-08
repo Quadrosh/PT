@@ -4,6 +4,11 @@ main blue   #2376A5
 gray back  #E9EBED
     color: #91bbd2;
 
+seawave   1EACBD
+green    1DB399
+red      A63338
+dark blue 185273
+very dark blue 0A3C59
 
 */
 
@@ -60,11 +65,25 @@ body {
     background-color: #E9EBED;
     overflow-x: hidden;
     /*min-height: 100%;*/
-
+}
+.h100per{
+    height: 100%;
 }
 .wrap {
     position: relative;
 }
+.wrapBeforeFooter{
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    /*height: 100%;*/
+    padding-bottom: 60px;
+    margin: 0 auto -60px;
+}
+.footer{
+    min-height: 60px;
+}
+
 *:focus {
     outline: none;
 }
@@ -299,6 +318,11 @@ a:hover{
     border-radius: 3px;
     width: 128px;
 }
+
+.masterListItem .imageBox img{
+    width: 120px;
+}
+
 .masterListItem .masterProfession{
     color: #808285;
     font-family: "MyriadProRegular", sans-serif;
@@ -1492,16 +1516,90 @@ a:hover{
 }
 
 
+.footer{
+    background-color: #2376A5;
+    color: #91bbd2;
+}
 
+.menu_link:hover{
+    /*color: #1DB399;*/
+    color: #ffffff;
+    text-decoration: underline;
+}
+.menu_link{
+    color: #1EACBD;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
 
+.navbar-transparent{
+    background-color: transparent;
+    color: #ffffff;
+}
+.navbar-transparent .navbar-nav {
+    background-color: transparent;
+}
+.navbar-transparent .navbar-nav > li a {
+    color: #ffffff;
+    transition: color .2s;
+}
+.navbar-transparent .navbar-nav > li a:hover {
+    background-color: transparent;
+    color: #0A3C59;
+    transition: color .2s;
+}
+.navbar-transparent .navbar-brand {
+    color: #ffffff;
+    width: 320px;
+}
 
+.navbar-transparent .brandName {
+    color: #ffffff;
+}
+.navbar-transparent .brandMotto {
+    display: block;
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    margin-left: 80px;
+    position: relative;
+    margin-top: 2px;
+    font-family: "HelveticaThin", sans-serif;
+    font-size: 20px;
+    font-weight:lighter;
+}
+.navbar-absolute-top{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
 
-
-
-
-/*.st0 {*/
-    /*fill:#58595B;*/
-/*}*/
-/*.st0:hover {*/
-    /*fill:red;*/
-/*}*/
+.navbar-transparent .navbar-toggle .icon-bar {
+    background-color: #fff;
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 1px;
+}
+.navbar-transparent .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 5px;
+    transition: margin-top .2s;
+}
+.navbar-transparent .navbar-toggle:hover .icon-bar + .icon-bar {
+    margin-top: 8px;
+    transition: margin-top .2s;
+}
+.navbar-transparent .navbar-collapse {
+    font-size: 1.3em;
+}
+.navbar-transparent .navbar-collapse[aria-expanded="true"] .navbar-nav {
+    background-color: rgba(0,0,0,.3);
+}
+.darkFilter{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+    z-index: 0;
+}

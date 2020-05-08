@@ -454,7 +454,9 @@ body {
 
 
 
-
+.white_bgr{
+    background-color: #ffffff;
+}
 .bright .carouselControl svg{
     fill: #ffffff;
 }
@@ -1318,11 +1320,12 @@ img {
 }
 
 .topSection .content{
-    margin-top: 300px;
+    margin-top: 200px;
+    z-index: 1;
 }
 @media only screen and (max-width : 767px) {
     .topSection .content{
-        margin-top: 200px;
+        margin-top: 150px;
     }
 }
 @media only screen and (max-width : 480px) {
@@ -1330,10 +1333,12 @@ img {
         margin-top: 100px;
     }
 }
-
-.topSection.as-h1_zdorovie_img_back .content{
-    margin-top: 100px;
+.topSection.background_cover .content h1{
+    color: #ffffff;
+    font-size: 4em;
+    font-weight: 400;
 }
+
 
 .h1_home_img_back .logoHeading h1 {
     font-size: 3rem;
@@ -1377,7 +1382,7 @@ img {
 .horizontal_line{
     width: 100%;
     height: 4px;
-    background-color:  #8d6922;;
+    background-color:  #2376A5;;
 }
 .as-2col__text-first_block .head_cursive{
     margin-bottom: 1em;

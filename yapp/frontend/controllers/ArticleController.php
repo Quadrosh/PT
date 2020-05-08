@@ -24,6 +24,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\elasticsearch\Query;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -98,7 +99,15 @@ class ArticleController extends Controller
     {
         Url::remember();
         $this->getUtm();
-        $article = Article::find()->where(['hrurl'=>$hrurl])->with('psys','sites','tags')->one();
+        $article = Article::find()->where([
+            'hrurl'=>$hrurl,
+            'type'=>Article::TYPE_ARTICLE,
+            'status'=>Article::STATUS_PUBLISHED,
+        ])->with('psys','sites','tags')->one();
+
+        if (!$article) {
+            throw new NotFoundHttpException('Страница не найдена или перемещена');
+        }
 
         // счетчик просмотров
         $now = time();
@@ -151,6 +160,78 @@ class ArticleController extends Controller
         $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
 
         return $this->render('view', [
+            'article' => $article,
+        ]);
+    }
+
+
+
+    public function actionPage($hrurl)
+    {
+        Url::remember();
+        $this->getUtm();
+        $article = Article::find()->where([
+            'hrurl'=>$hrurl,
+            'type'=>Article::TYPE_PAGE,
+            'status'=>Article::STATUS_PUBLISHED,
+        ])->with('psys','sites','tags')->one();
+
+        if (!$article) {
+            throw new NotFoundHttpException('Страница не найдена или перемещена');
+        }
+
+        // счетчик просмотров
+        $now = time();
+        $todayStart = $now - ($now % 86400);
+        $todayCount = DailyCount::find()
+            ->where(['article_id'=>$article['id']])
+            ->andWhere('created_at > '.$todayStart)
+            ->one();
+        if (!$todayCount) {
+            $todayCount = new DailyCount;
+            $todayCount['count'] = 1;
+            $todayCount['article_id'] = $article['id'];
+        } else {
+            $todayCount['count'] += 1;
+        }
+        $todayCount->save();
+
+        // с этим читают
+        $session = Yii::$app->session;
+        $articleRead = ['article_id'=>$article['id'],'time'=>$now];
+        if ($session['articles']==null) {
+            $session['articles']=[];
+            $session['articles'] = array_merge($session['articles'], [$articleRead]);
+        } else {
+            $artIds='';
+            foreach ($session['articles'] as $sessArt) {
+                if ($sessArt['article_id']!=$article['id']) {
+                    if ($sessArt['time']>= $now-3*3600) {
+                        if ($artIds == null) {
+                            $artIds = $artIds.$sessArt['article_id'];
+                        } else {
+                            $artIds = $artIds.','.$sessArt['article_id'];
+                        }
+                    }
+                }
+            }
+            if ($artIds!=null) {
+                $readWithIt = new ReadWithIt();
+                $readWithIt['article_id'] = $article['id'];
+                $readWithIt['a_ids'] = $artIds;
+                $readWithIt->save();
+                $session['articles'] = array_merge($session['articles'], [$articleRead]);
+            }
+        }
+
+
+        $this->layout = $article->layout?$article->layout: 'article';
+
+        $this->view->params['title'] = 'Психотера - '. $article['list_name'] .' ('.$article['author'].').';
+        $this->view->params['description'] = $article['list_name'].' - '. $article['excerpt'];
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
+
+        return $this->render($article->view? '/article/part_views/article/'.$article->view:'view', [
             'article' => $article,
         ]);
     }

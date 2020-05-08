@@ -77,6 +77,7 @@ return [
                 $params['lTTGBotPath']=>'live-through/dialog',
 
                 'img/view/<name:([A-Za-z0-9\.\-\_])+>' => 'site/get-image', // картинки - создание на лету если файла нет
+                '<hrurl:uslugi-psihoterapevtu>' => 'article/page', // services-to-master
 
                 'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',

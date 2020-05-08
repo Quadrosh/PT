@@ -70,12 +70,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'hrurl',
                 'value' => function($model)
                 {
+                    $host=null;
                     if (Yii::$app->request->getHostName() == 'cp.psihotera.local') {
-                        $theData = '<a  href="http://psihotera.local/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                        $host = 'http://psihotera.local/';
                     } else {
-                        $theData = '<a  href="http://psihotera.ru/article/'.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                        $host = 'http://psihotera.ru/';
                     }
-                    return $theData;
+                    if ($model->type == Article::TYPE_ARTICLE) {
+                        $host .='article/';
+                    } else if ($model->type == Article::TYPE_MASTER_PAGE) {
+                        $master = \common\models\Master::findOne(['id'=>$model->object_id]);
+                        $host .=$master->root.'/';
+                    }
+
+                    $link = '<a  href="'.$host.$model['hrurl'].'">'.$model['hrurl'].'</a>';
+                    return $link;
                 },
                 'format'=> 'html',
             ],
