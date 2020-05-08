@@ -17,7 +17,7 @@ use yii\helpers\HtmlPurifier;
                                 . $model->imagefile['name'],
                                 [
                                     'class' => 'img',
-                                    'alt' => $model['image_alt'],
+                                    'alt' => $model['image_alt']?$model['image_alt']:'фото '.$model['username'],
                                 ]) ;?>
                         </a>
                     </div>
@@ -220,7 +220,7 @@ use yii\helpers\HtmlPurifier;
                                 . $model->imagefile['name'],
                                 [
                                     'class' => 'img',
-                                    'alt' => $model['image_alt'],
+                                    'alt' => $model['image_alt']?$model['image_alt']:'фото '.$model['username'],
                                 ]) ;?>
                         </a>
                     </div>
