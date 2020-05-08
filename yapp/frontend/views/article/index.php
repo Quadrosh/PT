@@ -87,7 +87,7 @@ use \yii\helpers\Html;
                                             . $popArticle->topimagefile['name'],
                                             [
                                                 'class' => 'img',
-                                                'alt' => $popArticle['topimage_alt'],
+                                                'alt' => $popArticle['topimage_alt']?$popArticle['topimage_alt']:'изображение '.$popArticle['title'],
                                                 'style'=>'width:280px;'
                                             ]) ;?>
                                     </a>

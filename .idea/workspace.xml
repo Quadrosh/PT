@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/article/_article_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/article/_article_list_item.php" afterDir="false" />
-    </list>
+    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="" />
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -72,8 +70,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/common/css/article.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4646">
-                  <caret line="456" column="10" selection-start-line="456" selection-start-column="1" selection-end-line="456" selection-end-column="10" />
+                <state relative-caret-position="136">
+                  <caret line="156" column="9" selection-start-line="456" selection-start-column="1" selection-end-line="456" selection-end-column="10" />
                 </state>
               </provider>
             </entry>
@@ -196,8 +194,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/views/article/_article_list_item.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="89">
-                  <caret line="19" column="104" selection-start-line="19" selection-start-column="104" selection-end-line="19" selection-end-column="104" />
+                <state relative-caret-position="73">
+                  <caret line="19" column="121" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="121" />
                 </state>
               </provider>
             </entry>
@@ -236,8 +234,8 @@
       <find>masterlistitem</find>
       <find>masterListItem .imageBox img</find>
       <find>Imagefiles::SIZE_240_240</find>
-      <find>alt</find>
       <find>'alt'</find>
+      <find>alt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -706,12 +704,12 @@
       <workItem from="1587817403220" duration="58000" />
       <workItem from="1588170227692" duration="19025000" />
       <workItem from="1588780631100" duration="2565000" />
-      <workItem from="1588973314763" duration="4707000" />
+      <workItem from="1588973314763" duration="4988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219817000" />
+    <option name="totallyTimeSpent" value="220098000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -735,7 +733,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30140844" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30140844" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -745,7 +743,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -1085,13 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/css/article.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4646">
-          <caret line="456" column="10" selection-start-line="456" selection-start-column="1" selection-end-line="456" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
@@ -1123,10 +1114,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/css/article.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="156" column="9" selection-start-line="456" selection-start-column="1" selection-end-line="456" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/article/_article_list_item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="19" column="104" selection-start-line="19" selection-start-column="104" selection-end-line="19" selection-end-column="104" />
+        <state relative-caret-position="73">
+          <caret line="19" column="121" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="121" />
         </state>
       </provider>
     </entry>
