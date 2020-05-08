@@ -117,18 +117,11 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
     </div>
     <?= $content ?>
+    <?= $this->render('/layouts/footer', []) ?>
+
 </div>
 
-<!--<footer class="footer">-->
-<!--    <div class="container text-center">-->
-<!--        <p > --><?//= Yii::$app->name ?><!-- --><?//= date('Y') ?><!-- <br>-->
-<!--            По всем вопросам, связанным с работой сайта <br>-->
-<!--            обращайтесь на webmaster@psihotera.ru <br>-->
-<!--            или по тел. +7 (985) 346-16-15-->
-<!--        </p>-->
-<!---->
-<!--    </div>-->
-<!--</footer>-->
+
 
 
 <?php $this->endBody() ?>
