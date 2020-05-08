@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/yapp/common/tests/_data/dump.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yapp/frontend/assets/ArticleAsset.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/psihotera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/psihotera.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article-section/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article-section/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/article/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/article/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/backend/views/imagefiles/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/common/views/article/part_views/article/_a-top_bgr_image.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/console/migrations/m191226_124806_alter_article_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/config/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/index_nopadding.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/site/homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/site/homepage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/frontend.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/css/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/frontend.css" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,8 +55,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/frontend.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="107">
-                  <caret line="320" selection-start-line="320" selection-end-line="320" />
+                <state relative-caret-position="85">
+                  <caret line="1241" selection-start-line="1241" selection-end-line="1241" />
                 </state>
               </provider>
             </entry>
@@ -173,7 +145,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="163">
+                <state relative-caret-position="44">
                   <caret line="222" selection-start-line="222" selection-end-line="222" />
                 </state>
               </provider>
@@ -263,6 +235,7 @@
       <find>bright</find>
       <find>Imagefiles::SIZE_240_240</find>
       <find>masterlistitem</find>
+      <find>masterListItem .imageBox img</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -731,12 +704,12 @@
       <workItem from="1587817403220" duration="58000" />
       <workItem from="1588170227692" duration="19025000" />
       <workItem from="1588780631100" duration="2565000" />
-      <workItem from="1588973314763" duration="418000" />
+      <workItem from="1588973314763" duration="1253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215528000" />
+    <option name="totallyTimeSpent" value="216363000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -748,7 +721,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="195" width="1393" height="701" extended-state="0" />
+    <frame x="34" y="88" width="1393" height="701" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -760,7 +733,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.42200327" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33650795" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -770,7 +743,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -1134,15 +1107,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
+        <state relative-caret-position="44">
           <caret line="222" selection-start-line="222" selection-end-line="222" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/frontend.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="320" selection-start-line="320" selection-end-line="320" />
+        <state relative-caret-position="85">
+          <caret line="1241" selection-start-line="1241" selection-end-line="1241" />
         </state>
       </provider>
     </entry>
