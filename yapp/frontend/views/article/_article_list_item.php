@@ -17,7 +17,7 @@ use yii\helpers\HtmlPurifier;
                                 . $model->topimagefile['name'],
                                 [
                                     'class' => 'img',
-                                    'alt' => $model['topimage_alt'],
+                                    'alt' => $model['topimage_alt']?$model['topimage_alt']:'изображение '.$model['title'],
                                     'style'=>'width:180px;'
                                 ]) ;?>
                         </a>
