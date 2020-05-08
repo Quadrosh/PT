@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -144,16 +145,34 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2074">
-                  <caret line="222" selection-start-line="222" selection-end-line="222" />
+                <state relative-caret-position="-421">
+                  <caret line="12" column="96" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-284">
+                  <caret line="53" column="74" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="74" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="171">
+                  <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1726">
+                <state relative-caret-position="93">
                   <caret line="12" column="96" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="96" />
                 </state>
               </provider>
@@ -279,7 +298,6 @@
         <option value="$PROJECT_DIR$/yapp/frontend/assets/AppAsset.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/site_index.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/article.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/_form.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/part_views/article/_a-topimage_bgr.php" />
@@ -291,9 +309,10 @@
         <option value="$PROJECT_DIR$/yapp/common/css/article.css" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article-section/_form.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/part_views/article/_a-top_bgr_image_h1.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/frontend.css" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php" />
       </list>
     </option>
   </component>
@@ -703,12 +722,12 @@
       <workItem from="1587817403220" duration="58000" />
       <workItem from="1588170227692" duration="19025000" />
       <workItem from="1588780631100" duration="2565000" />
-      <workItem from="1588973314763" duration="1850000" />
+      <workItem from="1588973314763" duration="2234000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216960000" />
+    <option name="totallyTimeSpent" value="217344000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -732,7 +751,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.13098592" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3140845" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -742,7 +761,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.22325915" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -959,13 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="17" column="49" selection-start-line="17" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article_index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -977,13 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="58" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="53" column="74" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -1115,17 +1120,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php">
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2074">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
+        <state relative-caret-position="93">
+          <caret line="12" column="96" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php">
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/site/_master_list_item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1726">
-          <caret line="12" column="96" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="96" />
+        <state relative-caret-position="-421">
+          <caret line="12" column="96" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-284">
+          <caret line="53" column="74" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
         </state>
       </provider>
     </entry>
