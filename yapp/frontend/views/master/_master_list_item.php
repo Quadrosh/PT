@@ -10,7 +10,7 @@ use yii\helpers\HtmlPurifier;
                 <div class="col-sm-1 col-md-1 col-lg-1">
 
                     <div class="imageBox">
-                        <a href="/master/<?= $model['hrurl'] ?>" class="link2master">
+                        <a href="<?= $model->root?'/'.$model->root:'/master/'.$model['hrurl'] ?>" class="link2master">
                             <?=  Html::img('/img/view/'
                                 . Imagefiles::TERM_CUT_OVERFLOW
                                 . Imagefiles::SIZE_240_240
