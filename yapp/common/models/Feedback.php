@@ -269,7 +269,7 @@ class Feedback extends \yii\db\ActiveRecord
                 ->setUrl('https://sms.ru/sms/send')
                 ->setData([
                     'api_id' => Yii::$app->params['sms_api_id'],
-                    'to' => Yii::$app->params['adminPhone'],
+                    'to' => Yii::$app->params['mainAdminPhone'],
                     'text'=> $text,
                 ])
                 ->send();
@@ -290,7 +290,7 @@ class Feedback extends \yii\db\ActiveRecord
                 ->setUrl('https://sms.ru/sms/send')
                 ->setData([
                     'api_id' => Yii::$app->params['sms_api_id'],
-                    'to' => Yii::$app->params['adminPhone'].', '.$this->master->order_phone,
+                    'to' => Yii::$app->params['mainAdminPhone'].', '.$this->master->order_phone,
                     'text'=> $text,
                 ])
                 ->send();
@@ -314,7 +314,7 @@ class Feedback extends \yii\db\ActiveRecord
             'linkName'=>$linkName,
         ]);
         return $mailer->setFrom([Yii::$app->params['noreplyEmail']=>Yii::$app->params['noreplyName']])
-            ->setTo(Yii::$app->params['adminEmail'])
+            ->setTo(Yii::$app->params['mainAdminEmail'])
             ->setSubject($subject)
             ->send();
     }
