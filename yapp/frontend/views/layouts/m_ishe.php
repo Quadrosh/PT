@@ -36,8 +36,8 @@ MsheAsset::register($this);
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Айгуль Ше" />
-    <meta property="og:title" content="<?= Yii::$app->view->params['meta']['title'] ?>" />
-    <meta property="og:description" content="<?= Yii::$app->view->params['meta']['description'] ?>" />
+    <meta property="og:title" content="<?= Yii::$app->view->params['title'] ?>" />
+    <meta property="og:description" content="<?= Yii::$app->view->params['description'] ?>" />
     <meta property="og:url" content="<?= yii\helpers\Url::current(['lg'=>null], true) ?>" />
     <meta property="og:image" content="<?= yii\helpers\Url::base(true) ?>/img/ishe_square.jpg" />
 
