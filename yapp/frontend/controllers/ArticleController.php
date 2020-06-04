@@ -227,9 +227,9 @@ class ArticleController extends Controller
 
         $this->layout = $article->layout?$article->layout: 'article';
 
-        $this->view->params['title'] = 'Психотера - '. $article['list_name'] .' ('.$article['author'].').';
-        $this->view->params['description'] = $article['list_name'].' - '. $article['excerpt'];
-        $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
+        $this->view->params['title'] = $article->title?$article->title:'Психотера - '. $article['list_name'] .' ('.$article['author'].').';
+        $this->view->params['description'] = $article->description?$article->description: $article['list_name'].' - '. $article['excerpt'];
+        $this->view->params['keywords'] = '-';
 
         return $this->render($article->view? '/article/part_views/article/'.$article->view:'view', [
             'article' => $article,
