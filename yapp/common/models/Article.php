@@ -19,6 +19,7 @@ use yii\web\UploadedFile;
  * @property string $text
  * @property string $excerpt
  * @property string $pagehead
+ * @property string $pagehead_class
  * @property string $topimage
  * @property string $promolink
  * @property string $promoname
@@ -44,6 +45,7 @@ use yii\web\UploadedFile;
  * @property integer $object_id
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $custom_class
  */
 class Article extends \yii\db\ActiveRecord
 {
@@ -135,6 +137,8 @@ class Article extends \yii\db\ActiveRecord
                 'call2action_class',
                 'call2action_comment',
                 'object_type',
+                'pagehead_class',
+                'custom_class',
 
             ], 'string', 'max' => 255],
             [[
@@ -158,6 +162,7 @@ class Article extends \yii\db\ActiveRecord
             'description' => 'Description',
             'keywords' => 'Keywords',
             'pagehead' => 'Pagehead h1 (mt)',
+            'pagehead_class' => 'Pagehead (h1) class',
             'text' => 'Text (mt)',
             'excerpt' => 'Excerpt',
             'excerpt_big' => 'Excerpt Big',
@@ -173,6 +178,7 @@ class Article extends \yii\db\ActiveRecord
             'author' => 'Author',
             'master_id' => 'Master ID (mt)',
             'status' => 'Status (mt)',
+            'custom_class' => 'Custom Class',
         ];
     }
 

@@ -92,6 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'keywords:ntext',
             'pagehead',
+            'pagehead_class',
             [
                 'attribute'=>'text',
                 'value' => function($model)
@@ -127,6 +128,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout',
             'view',
             'master_id',
+            'custom_class',
             [
                 'attribute'=>'created_at', 'format'=> 'html',
                 'value' => function($data)

@@ -57,9 +57,9 @@ use yii\helpers\Html;
                 <p class="text-center mt50" ><?= nl2br($model->call2action_description)  ?></p>
             <?php endif; ?>
             <?php if ($model->call2action_name) : ?>
-                <?php if ($model->call2action_link == 'callMe' || $model->call2action_link == 'call_me') : ?>
+                <?php if ($model->call2action_link == 'call2master' || $model->call2action_link == 'callToMaster') : ?>
                     <div class="col-sm-12 mt30">
-                        <?= $this->render('/article/part_views/article/_phone-form', [
+                        <?= $this->render('/article/part_views/article/_phone-form-to-master', [
                             'section' => $model,
                             'article' => $article,
                             'utm' => isset($utm)?$utm:null,
@@ -67,7 +67,25 @@ use yii\helpers\Html;
 
                     </div>
                 <?php endif; ?>
-                <?php if ($model->call2action_link != 'callMe' && $model->call2action_link != 'call_me') : ?>
+
+                <?php if ($model->call2action_link == 'call2psihotera' || $model->call2action_link == 'callToPsihotera') : ?>
+                    <div class="col-sm-12 mt30">
+                        <?= $this->render('/article/part_views/article/_phone-form-to-psihotera', [
+                            'section' => $model,
+                            'article' => $article,
+                            'utm' => isset($utm)?$utm:null,
+                        ]) ?>
+
+                    </div>
+                <?php endif; ?>
+
+
+                <?php if (
+                        $model->call2action_link != 'call2master' &&
+                        $model->call2action_link != 'callToMaster' &&
+                        $model->call2action_link != 'call2psihotera' &&
+                        $model->call2action_link != 'callToPsihotera'
+                ) : ?>
                     <?=
                     Html::a( $model->call2action_name, [$model->call2action_link],['class'=>$model->call2action_class]);
                     ?>

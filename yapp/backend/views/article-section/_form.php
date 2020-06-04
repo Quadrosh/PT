@@ -32,8 +32,29 @@ use \common\models\ArticleSection;
             <?= $form->field($model, 'header')->textarea(['maxlength' => true, 'rows'=>1]) ?>
         </div>
         <div class="col-sm-4">
+            <?php
+            $classOptions = Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS);
+            $classOptions[10001]='другой';
+            ?>
+            <?= $form->field($model, 'header_class_select')
+                ->dropDownList($classOptions,[
+                    'prompt' => 'Выбери',
+                    'onchange' => '
+                        if($(this).val() == 10001) {
+                            $("#'.Html::getInputId($model, 'header_class_select').'").hide();
+                            $("#'.Html::getInputId($model, 'header_class').'").show();
+                        } else {
+                            $("#'.Html::getInputId($model, 'header_class').'").val($(this).val());
+                        }
+                    '])
+                ->label($model->header_class?'header_class value: '.$model->header_class:'Header Class Select')
+            ?>
+
             <?= $form->field($model, 'header_class')
-                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
+                ->textInput(['maxlength' => true ,'style'=>'display: none;'])
+                ->label(false);
+            ?>
+
         </div>
         <div class="col-sm-8">
             <?= $form->field($model, 'description')->textarea(['rows' => 1]) ?>
@@ -47,22 +68,65 @@ use \common\models\ArticleSection;
             <?= $form->field($model, 'raw_text')->textarea(['rows' => 1]) ?>
         </div>
         <div class="col-sm-1">
-            <?= Html::button('b', ['class' => 'btn btn-default',
+            <?= Html::button('b', ['class' => 'btn btn-default mt25',
                 'id'=>'2bold_text',
                 'onClick'=>"addTag('b','#articlesection-raw_text');"
             ]) ?>
         </div>
         <div class="col-sm-3">
+<!--            --><?//= $form->field($model, 'raw_text_class')
+//                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
+
+            <?php
+            $classOptions = Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS);
+            $classOptions[10001]='другой';
+            ?>
+            <?= $form->field($model, 'raw_text_class_select')
+                ->dropDownList($classOptions,[
+                    'prompt' => 'Выбери',
+                    'onchange' => '
+                        if($(this).val() == 10001) {
+                            $("#'.Html::getInputId($model, 'raw_text_class_select').'").hide();
+                            $("#'.Html::getInputId($model, 'raw_text_class').'").show();
+                        } else {
+                            $("#'.Html::getInputId($model, 'raw_text_class').'").val($(this).val());
+                        }
+                    '])
+                ->label($model->raw_text_class?'raw_text_class value: '.$model->raw_text_class:'Raw Text Class Select')
+            ?>
+
             <?= $form->field($model, 'raw_text_class')
-                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
+                ->textInput(['maxlength' => true ,'style'=>'display: none;'])
+                ->label(false);
+            ?>
         </div>
 
         <div class="col-sm-8">
             <?= $form->field($model, 'conclusion')->textarea(['rows' => 1]) ?>
         </div>
         <div class="col-sm-4">
+            <?php
+                $classOptions = Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS);
+                $classOptions[10001]='другой';
+            ?>
+            <?= $form->field($model, 'conclusion_class_select')
+                ->dropDownList($classOptions,[
+                        'prompt' => 'Выбери',
+                    'onchange' => '
+                        if($(this).val() == 10001) {
+                            $("#'.Html::getInputId($model, 'conclusion_class_select').'").hide();
+                            $("#'.Html::getInputId($model, 'conclusion_class').'").show();
+                        } else {
+                            $("#'.Html::getInputId($model, 'conclusion_class').'").val($(this).val());
+                        }
+                    '])
+                ->label($model->conclusion_class?'conclusion_class value: '.$model->conclusion_class:'Conclusion Class Select')
+            ?>
+
             <?= $form->field($model, 'conclusion_class')
-                ->dropDownList(Yii::$app->helpers->value2KeyValue(ArticleSection::TEXT_CLASS_OPTIONS),['prompt' => 'Выбери']) ?>
+                ->textInput(['maxlength' => true ,'style'=>'display: none;'])
+                ->label(false);
+            ?>
         </div>
 
 
@@ -184,3 +248,15 @@ function addTag(tag, sharpedId) {
 ";
 $this->registerJs($script, yii\web\View::POS_BEGIN);
 ?>
+
+
+
+
+<!--'onchange' => 'if($(this).val() == 10001) {-->
+<!--$("#'.Html::getInputId($model, 'sok_id').'").val($(this).val());-->
+<!--}-->
+<!--else if($(this).val() == 2) {-->
+<!--$("#'.Html::getInputId($model, 'sok_id').'").val($(this).val());-->
+<!--} else if($(this).val() == 3){-->
+<!--$("#'.Html::getInputId($model, 'sok_id').'").val($(this).val());-->
+<!--}'-->

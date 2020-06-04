@@ -9,6 +9,7 @@ use common\models\Quote;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\data\ArrayDataProvider;
+use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -288,5 +289,20 @@ class SiteController extends Controller
             $this->refresh();
         }
 
+    }
+
+
+    public function actionReset()
+    {
+        $session = Yii::$app->session;
+        unset($session['utm_source']);
+        unset($session['utm_medium']);
+        unset($session['utm_campaign']);
+        unset($session['utm_term']);
+        unset($session['utm_content']);
+//        echo '<pre>'.print_r($session,true).'</pre>';die;
+
+        Yii::$app->session->addFlash('success','Данные UTM в сессии обнулены');
+        return $this->redirect(Url::previous());
     }
 }

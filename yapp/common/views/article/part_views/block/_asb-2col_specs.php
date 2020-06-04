@@ -11,7 +11,7 @@ use yii\helpers\Html;
 
 
 ?>
-<div class="asb-2col_specs">
+<div class="asb-2col_specs <?= $model->color_key ?> <?= $model->custom_class ?>">
 
     <?php if ($model->header) : ?>
         <h3 class="<?= $model->header_class ?>"><?= $model->header ?></h3>

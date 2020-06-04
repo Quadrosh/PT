@@ -42,6 +42,10 @@ use Yii;
  */
 class ArticleSection extends \yii\db\ActiveRecord
 {
+    public $header_class_select = null;
+    public $raw_text_class_select = null;
+    public $conclusion_class_select = null;
+
     const VIEW_OPTIONS = [
         '_as-default' => 'default',
         '_as-full_width' => 'full_width',

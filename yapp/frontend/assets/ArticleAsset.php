@@ -15,6 +15,7 @@ class ArticleAsset extends AssetBundle
         'libs/slick/slick.css',
         'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css',
+        'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap',
         'css/common/article.css',
         'css/frontend.css',
     ];

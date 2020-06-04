@@ -54,8 +54,11 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-6">
             <?= $form->field($model, 'hrurl')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-9">
             <?= $form->field($model, 'pagehead')->textarea(['maxlength' => true,'rows' => 1]) ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'pagehead_class')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-12">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
@@ -149,14 +152,17 @@ use yii\widgets\ActiveForm;
 
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'view')->dropDownList(Article::VIEW_OPTIONS,['prompt' => 'Выбери ']) ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <?= $form->field($model, 'layout')->dropDownList(Article::LAYOUT_OPTIONS,['prompt' => 'Выбери']) ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'custom_class')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 

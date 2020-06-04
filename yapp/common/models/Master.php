@@ -45,6 +45,14 @@ class Master extends \yii\db\ActiveRecord
 {
 
     const HRURL_AIGUL_SHE = 'she';
+    const ORDER_MESSENGER_TYPE_EMAIL = 'email';
+
+    const ORDER_BY_SMS_ENABLE = 'active';
+    const ORDER_BY_SMS_DISABLE = 'not_active';
+
+
+
+
     /**
      * @inheritdoc
      */
@@ -296,5 +304,19 @@ class Master extends \yii\db\ActiveRecord
     }
 
 
+
+    public  function sendEmailNotification($subject,$text,$link=null,$linkName=null){
+        Yii::$app->mailer->htmlLayout = "layouts/montserrat";
+        $mailer = Yii::$app->mailer->compose('notification', [
+            'name' => $this->username,
+            'text'=>$text,
+            'link'=>$link,
+            'linkName'=>$linkName,
+        ]);
+        return $mailer->setFrom([Yii::$app->params['noreplyEmail']=>Yii::$app->params['noreplyName']])
+            ->setTo($this->email)
+            ->setSubject($subject)
+            ->send();
+    }
 
 }

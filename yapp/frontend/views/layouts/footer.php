@@ -21,7 +21,7 @@ use \yii\helpers\Html;
                 <p >Психотера <?= date('Y') ?></p>
             </div>
             <div class="col-sm-4 text-right">
-<!--                --><?//= Html::a('Услуги психотерапевту','/uslugi-psihoterapevtu',['class'=>'menu_link']) ?>
+                <?= Html::a('Услуги психотерапевту','/uslugi-psihoterapevtu',['class'=>'menu_link']) ?>
             </div>
         </div>
 

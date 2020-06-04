@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 
 ?>
-<div class="asbi-default text-center  <?= $model->color_key ?> <?= $model->custom_class ?>">
+<div class="asbi-default  <?= $model->color_key ?> <?= $model->custom_class ?>">
 
     <?php if ($model->image) {
         echo Html::img('/img/'.$model->image,[ 'alt'=>$model->image_alt, 'class'=>$model->image_class,'title'=>$model->image_title?$model->image_title:null]);

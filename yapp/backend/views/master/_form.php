@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use \common\models\Master;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Master */
@@ -113,7 +114,10 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'order_phone')->textInput() ?>
         </div>
         <div class="col-sm-3">
-            <?= $form->field($model, 'order_sms_enable')->textInput() ?>
+            <?= $form->field($model, 'order_sms_enable')->dropDownList([
+                Master::ORDER_BY_SMS_ENABLE => Master::ORDER_BY_SMS_ENABLE,
+                Master::ORDER_BY_SMS_DISABLE => Master::ORDER_BY_SMS_DISABLE,
+            ]) ?>
         </div>
         <div class="col-sm-3">
             <?= $form->field($model, 'order_sms_count')->textInput() ?>

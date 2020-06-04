@@ -20,7 +20,7 @@ use common\widgets\Alert;
         <?php if ($article->pagehead) : ?>
         <div class="row">
             <div class="col-sm-12 content">
-                <h1 ><?= nl2br($article->pagehead) ?></h1>
+                <h1 <?= $article->pagehead_class ? 'class="'.$article->pagehead_class.'"' : null?>><?= nl2br($article->pagehead) ?></h1>
             </div>
 
         </div>

@@ -18,32 +18,7 @@ use yii\base\ErrorException;
 class SendController extends Controller
 {
     public $layout = 'main';
-//    public $defaultAction = 'index';
-    /**
-     * @inheritdoc
-     */
-//    public function behaviors()
-//    {
-//        return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['logout'],
-//                'rules' => [
-//                    [
-//                        'actions' => ['logout'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-//                ],
-//            ],
-//            'verbs' => [
-//                'class' => VerbFilter::className(),
-//                'actions' => [
-//                    'logout' => ['post'],
-//                ],
-//            ],
-//        ];
-//    }
+
 
     /**
      * @inheritdoc
@@ -73,38 +48,25 @@ class SendController extends Controller
     {
         $feedback = new Feedback();
         $feedback->load(Yii::$app->request->post());
-        $master = Master::find()->where(['id'=>$feedback['master_id']])->one();
+        $master = Master::findOne($feedback['master_id']);
 
         if ($feedback->save()) {
-            if ($master['order_messenger'] == 'email') {
-                if ($this->sendEmail($master,$feedback)) {
-                    Yii::$app->session->setFlash('success', 'Ваша заявка отправлена. <br> Мы свяжемся с Вами в ближайшее время.');
-                } else {
-                    Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
-                }
-            }
-
-            if ($master['order_sms_enable'] == true) {
-                $this->sendSms($master,$feedback);
+            if ($feedback->notifyAboutOrder()) {
+                Yii::$app->session->addFlash('success', 'Ваша заявка отправлена. <br> Мы свяжемся с Вами в ближайшее время.');
+            } else {
+                Yii::$app->session->addFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз.');
             }
         } else {
-            Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
+            Yii::$app->session->addFlash('error', 'Во время сохранения заявки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
         }
         return $this->redirect(Url::previous());
     }
 
-    /*
-     * @var $master common\models\Master
-     * @var $feedback common\models\Feedback
-     * */
-    private function sendEmail($master, $feedback){
-        if ($feedback->sendEmail( 'PSIHOTERA.RU: Заявка',$master['order_messenger_id'])) {
-            return $this->redirect(Url::previous());
-        } else {
-            Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз.');
-            return $this->redirect(Url::previous());
-        }
-    }
+
+
+
+
+
 
 
 
@@ -123,9 +85,9 @@ class SendController extends Controller
                 ])
                 ->send();
             if ($response->isOk) {
-                Yii::$app->session->setFlash('success','сообщение отправлено');
+                Yii::$app->session->addFlash('success','сообщение отправлено');
             } else {
-                Yii::$app->session->setFlash('error','что-то пошло не так');
+                Yii::$app->session->addFlash('error','что-то пошло не так');
             }
         }
 
@@ -139,26 +101,43 @@ class SendController extends Controller
 
         $feedback = new Feedback();
         $feedback->load(Yii::$app->request->post());
-        $master = Master::find()->where(['id'=>$feedback['master_id']])->one();
+        $feedback->type = Feedback::TYPE_TO_MASTER;
 
         if ($feedback->save()) {
-            if ($master['order_messenger'] == 'email') {
-                if ($this->sendEmail($master,$feedback)) {
-                    Yii::$app->session->setFlash('success', 'Заявка отправлена. <br> Мастер свяжется с Вами в ближайшее время.');
-                } else {
-                    Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
-                }
-            }
-
-            if ($master['order_sms_enable'] == true) {
-                $this->sendSms($master,$feedback);
+            if ($feedback->notifyAboutOrder()) {
+                Yii::$app->session->addFlash('success', 'Ваша заявка отправлена. <br> Мы свяжемся с Вами в ближайшее время.');
+            } else {
+                Yii::$app->session->addFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз.');
             }
         } else {
-            Yii::$app->session->setFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
+            Yii::$app->session->addFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
         }
         return $this->redirect(Url::previous());
     }
 
+
+
+
+
+    public function actionOrderToPsihotera()
+    {
+
+
+        $feedback = new Feedback();
+        $feedback->load(Yii::$app->request->post());
+        $feedback->type = Feedback::TYPE_TO_PSIHOTERA;
+
+        if ($feedback->save()) {
+            if ($feedback->notifyAboutOrder()) {
+                Yii::$app->session->addFlash('success', 'Ваша заявка отправлена. <br> Мы свяжемся с Вами в ближайшее время.');
+            } else {
+                Yii::$app->session->addFlash('error', 'Во время отправки произошла ошибка.');
+            }
+        } else {
+            Yii::$app->session->addFlash('error', 'Во время отправки произошла ошибка, попробуйте еще раз. Или отправьте заявку в свободной форме на webmaster@psihotera.ru');
+        }
+        return $this->redirect(Url::previous());
+    }
 
 
 
