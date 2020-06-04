@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="" />
+    <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/common/models/Feedback.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/models/Feedback.php" afterDir="false" />
+    </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,7 +31,7 @@
     <favorites_list name="psihotera" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.47826087">
+    <splitter split-orientation="vertical" split-proportion="0.2541806">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -43,7 +46,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/SendController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="147">
+                <state relative-caret-position="48">
                   <caret line="130" column="43" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="43" />
                   <folding>
                     <element signature="e#41#66#0#PHP" expanded="true" />
@@ -165,8 +168,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/common/models/Feedback.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="643">
-                  <caret line="319" column="1" lean-forward="true" selection-start-line="319" selection-start-column="1" selection-end-line="319" selection-end-column="1" />
+                <state relative-caret-position="321">
+                  <caret line="271" column="73" lean-forward="true" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
                   <folding>
                     <element signature="e#33#41#0#PHP" expanded="true" />
                   </folding>
@@ -769,12 +772,12 @@
       <workItem from="1588973314763" duration="5817000" />
       <workItem from="1589040706610" duration="44000" />
       <workItem from="1590824285445" duration="33349000" />
-      <workItem from="1591264393477" duration="19084000" />
+      <workItem from="1591264393477" duration="20013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273404000" />
+    <option name="totallyTimeSpent" value="274333000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1203,7 +1206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/SendController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="48">
           <caret line="130" column="43" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="43" />
           <folding>
             <element signature="e#41#66#0#PHP" expanded="true" />
@@ -1213,8 +1216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/models/Feedback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="319" column="1" lean-forward="true" selection-start-line="319" selection-start-column="1" selection-end-line="319" selection-end-column="1" />
+        <state relative-caret-position="321">
+          <caret line="271" column="73" lean-forward="true" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
           <folding>
             <element signature="e#33#41#0#PHP" expanded="true" />
           </folding>

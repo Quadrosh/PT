@@ -264,7 +264,12 @@ class Feedback extends \yii\db\ActiveRecord
         $httpClient = new Client();
 
         if ($this->type == Feedback::TYPE_TO_PSIHOTERA) {
-            $text = 'Psihotera'.$this->master_id.' - заявка, имя - '.$this->name.', телефон - '.$this->phone;
+
+            $text = 'Psihotera.ru заявка:' . PHP_EOL;
+            if ($this->phone) $text .= ' телефон: '. $this->phone ;
+            if ($this->name) $text .= ', имя: '. $this->name ;
+
+
             $response = $httpClient->createRequest()
                 ->setMethod('post')
                 ->setUrl('https://sms.ru/sms/send')
@@ -285,7 +290,11 @@ class Feedback extends \yii\db\ActiveRecord
                 Yii::$app->session->addFlash('error', 'Не заполнено поле "master->order_phone"');
                 return false;
             }
-            $text = 'Psihotera'.$this->master_id.' - заявка с сайта, имя - '.$this->name.', телефон - '.$this->phone;
+            $text = 'Psihotera.ru заявка:' . PHP_EOL;
+            if ($this->phone) $text .= ' телефон: '. $this->phone ;
+            if ($this->name) $text .= ', имя: '. $this->name ;
+            if ($this->session_type) $text .= ', тип сессии: '. $this->session_type . PHP_EOL;
+
             $response = $httpClient->createRequest()
                 ->setMethod('post')
                 ->setUrl('https://sms.ru/sms/send')
