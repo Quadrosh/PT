@@ -191,8 +191,6 @@ class Feedback extends \yii\db\ActiveRecord
             if ($this->contacts) $text .= 'Контакты: '. $this->contacts . PHP_EOL;
             if ($this->text) $text .= 'Комментарий: '. $this->text . PHP_EOL;
 
-
-
             if ($master->order_messenger == Master::ORDER_MESSENGER_TYPE_EMAIL) {
                 if (!$master->sendEmailNotification( 'Заявка psihotera.ru',$text)) {
                     Yii::$app->session->addFlash('error', 'Ошибка отправки email оповещения');
@@ -224,15 +222,15 @@ class Feedback extends \yii\db\ActiveRecord
 
             if (!$this->notifyAdminByEmail( 'Заявка psihotera.ru',$text)) {
                 Yii::$app->session->addFlash('error', 'Ошибка отправки email оповещения');
-            } else {
-                Yii::$app->session->addFlash('success', 'email оповещение отправлено');
             }
 
 
             if (!$this->sendSmsOrderNotification()) {
                 Yii::$app->session->addFlash('error', 'Ошибка отправки sms оповещения');
+                return false;
             } else {
-                Yii::$app->session->addFlash('success', 'sms оповещение отправлено');
+//                Yii::$app->session->addFlash('success', 'sms оповещение отправлено');
+                return true;
             }
 
         }
