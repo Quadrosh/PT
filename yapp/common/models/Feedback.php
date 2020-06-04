@@ -191,23 +191,26 @@ class Feedback extends \yii\db\ActiveRecord
             if ($this->contacts) $text .= 'Контакты: '. $this->contacts . PHP_EOL;
             if ($this->text) $text .= 'Комментарий: '. $this->text . PHP_EOL;
 
+            $allSent = true;
             if ($master->order_messenger == Master::ORDER_MESSENGER_TYPE_EMAIL) {
                 if (!$master->sendEmailNotification( 'Заявка psihotera.ru',$text)) {
                     Yii::$app->session->addFlash('error', 'Ошибка отправки email оповещения');
-                } else {
-                    Yii::$app->session->addFlash('success', 'email оповещение отправлено');
+                    $allSent=false;
                 }
             }
 
             if ($master->order_sms_enable == Master::ORDER_BY_SMS_ENABLE) {
                 if (!$this->sendSmsOrderNotification()) {
                     Yii::$app->session->addFlash('error', 'Ошибка отправки sms оповещения');
-                } else {
-                    Yii::$app->session->addFlash('success', 'sms оповещение отправлено');
+                    $allSent=false;
                 }
             }
 
+            if (!$allSent) {
+                return false;
+            }
             return true;
+
         } else {
             $text = 'Поступила заявка:' . PHP_EOL;
             if ($this->phone) $text .= 'Телефон: '. $this->phone . PHP_EOL;
