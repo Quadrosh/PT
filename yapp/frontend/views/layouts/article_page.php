@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -28,6 +29,16 @@ use common\widgets\Alert;
     <title><?= Yii::$app->view->params['title'] ?></title>
     <meta name="description" content="<?= Yii::$app->view->params['description'] ?>">
     <meta name="keywords" content="<?= Yii::$app->view->params['keywords'] ?>">
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Психотера, все о психотерапии" />
+    <meta property="og:title" content="<?= Yii::$app->view->params['meta']['title'] ?>" />
+    <meta property="og:description" content="<?= Yii::$app->view->params['meta']['description'] ?>" />
+    <meta property="og:url" content="<?= yii\helpers\Url::current(['lg'=>null], true) ?>" />
+    <meta property="og:image" content="<?= yii\helpers\Url::base(true) ?>/img/pt_logo_glob_square.jpg" />
+
+
     <?php $this->head() ?>
 </head>
 <body>

@@ -8,6 +8,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\MsheAsset;
 use common\widgets\Alert;
@@ -32,6 +33,13 @@ MsheAsset::register($this);
     <meta name="description" content="<?= Yii::$app->view->params['description'] ?>">
     <meta name="keywords" content="<?= Yii::$app->view->params['keywords'] ?>">
 
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Айгуль Ше" />
+    <meta property="og:title" content="<?= Yii::$app->view->params['meta']['title'] ?>" />
+    <meta property="og:description" content="<?= Yii::$app->view->params['meta']['description'] ?>" />
+    <meta property="og:url" content="<?= yii\helpers\Url::current(['lg'=>null], true) ?>" />
+    <meta property="og:image" content="<?= yii\helpers\Url::base(true) ?>/img/ishe_square.jpg" />
 
     <?php $this->head() ?>
 </head>
