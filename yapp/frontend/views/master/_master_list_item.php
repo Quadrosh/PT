@@ -130,7 +130,7 @@ use yii\helpers\HtmlPurifier;
                                     <?php endif; ?>
                                     <?php if ($model->sites) : ?>, <span class="glyphicon glyphicon-share-alt site_icon"></span>
                                         <?php foreach ($model->sites as $site) : ?>
-                                            <?= Html::a($site['name'],$site['link'],['rel' => 'nofollow']) ?></span>
+                                            <?= Html::a($site['name'],$site['link'],['rel' => 'nofollow','target'=>'_blank']) ?></span>
                                         <?php endforeach; ?>
                                     <?php endif; ?></p>
                         </div>
