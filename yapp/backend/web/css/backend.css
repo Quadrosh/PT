@@ -281,3 +281,9 @@ img {
 .grid-scrollable{
     overflow: auto;
 }
+.text-success {
+    color: #1DB399;
+}
+.text-warning {
+    color: #A63338;
+}

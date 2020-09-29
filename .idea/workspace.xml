@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_text__col_image_fw.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_text__col_image_fw.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -194,11 +194,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_text__col_image_fw.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="130">
                   <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_image__col_text_fw.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -226,19 +235,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="224">
                   <caret line="309" column="31" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/yapp/backend/views/master/view.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6930">
-                  <caret line="478" column="19" selection-start-line="478" selection-start-column="19" selection-end-line="478" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#7#36#0#PHP" expanded="true" />
-                    <element signature="e#16815#16830#0#PHP" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -337,7 +333,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>masterlistitem</find>
       <find>masterListItem .imageBox img</find>
       <find>Imagefiles::SIZE_240_240</find>
       <find>'alt'</find>
@@ -367,6 +362,7 @@
       <find>itemAssign</find>
       <find>h1</find>
       <find>min-h</find>
+      <find>img</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -391,7 +387,6 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/article-section/_form.php" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/article/_a-no_h1.php" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/article/_a-page.php" />
-        <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-back_img_bordered_fw.php" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-default.php" />
         <option value="$PROJECT_DIR$/yapp/backend/controllers/ArticleSectionController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/controllers/ArticleSectionBlockItemController.php" />
@@ -399,7 +394,6 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/article-section-block-item/_form.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/ArticleSectionBlockItem.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/ArticleSectionBlock.php" />
-        <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_image__col_text_fw.php" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/block_item/_asbi-default.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/article/view.php" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-order_form-text_col___form_col.php" />
@@ -426,6 +420,8 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/m_lyalina.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css" />
         <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_text__col_image_fw.php" />
+        <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_image__col_text_fw.php" />
+        <option value="$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-back_img_bordered_fw.php" />
       </list>
     </option>
   </component>
@@ -522,9 +518,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="7" />
-    <option name="y" value="23" />
+    <option name="y" value="66" />
     <option name="width" value="1393" />
-    <option name="height" value="868" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -765,12 +761,12 @@
       <workItem from="1594212775151" duration="770000" />
       <workItem from="1600153810829" duration="26838000" />
       <workItem from="1600584231085" duration="49818000" />
-      <workItem from="1601362328488" duration="19522000" />
+      <workItem from="1601362328488" duration="20075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379251000" />
+    <option name="totallyTimeSpent" value="379804000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -782,7 +778,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="23" width="1393" height="868" extended-state="0" />
+    <frame x="7" y="66" width="1393" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -794,7 +790,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22551547" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23874488" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -804,7 +800,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.266035" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.266035" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -852,23 +848,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4311">
-          <caret line="292" selection-start-line="292" selection-end-line="292" />
-          <folding>
-            <element signature="e#33#41#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-back_img_bordered_fw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/article/_a-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -906,13 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="47" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_image__col_text_fw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1222,6 +1194,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-back_img_fw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-back_img_bordered_fw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/views/article/part_views/section/_as-col_image__col_text_fw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
         </state>
       </provider>
     </entry>
