@@ -33,8 +33,12 @@ if ($model->structure) {
             <?php endif; ?>
 
             <?php if ($model->raw_text) : ?>
-                <p><?php if ($model->section_image) {
-                        echo Html::img('/img/'.$model->section_image,['class'=> $model->image_class, 'alt'=>$model->section_image_alt]);
+                <p><?php if ($model->image) {
+                        echo Html::img('/img/'.$model->image,[
+                                'class'=> $model->image_class,
+                                'alt'=>$model->image_alt,
+                                'title'=>$model->image_title,
+                            ]);
                     } ?><?= nl2br($model->raw_text)  ?></p>
             <?php endif; ?>
 

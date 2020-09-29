@@ -12,7 +12,7 @@ use yii\helpers\Html;
             <?php if ($model->image) {
                 echo Html::img('/img/view/cutoverflow_690x690_'.$model->image,[
                         'alt'=>$model->image_alt,
-                        'tile'=>$model->image_title
+                        'title'=>$model->image_title
                 ]);
             } ?>
         </div>
