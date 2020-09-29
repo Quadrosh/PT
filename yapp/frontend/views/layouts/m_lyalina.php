@@ -183,7 +183,7 @@ echo 'class="brightBody"';
 
         <div class="row">
             <div class="col-xs-4 text-left">
-                <?= Html::a($ptLogoGlob,'/lyalina',
+                <?= Html::a($ptLogoGlob,'/',
                     [
                         'class' => 'footerPtLogo',
                         'alt' => 'Psihotera.ru ',
