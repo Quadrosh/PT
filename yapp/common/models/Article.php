@@ -580,6 +580,7 @@ class Article extends \yii\db\ActiveRecord
         $arr = json_decode(json_encode($obj),true);
 
 
+
         $arr['id'] = null;
         $arr['cat_ids'] = null;
         $arr['topimage'] = null;
