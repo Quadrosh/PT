@@ -153,7 +153,7 @@ use \common\models\Imagefiles;
 
                 <?php echo ListView::widget([
                     'dataProvider' => $popMasterDataProvider,
-                    'itemView' => '_master_list_item',
+                    'itemView' => '/master/_master_list_item',
                 ]);?>
 
             </div>

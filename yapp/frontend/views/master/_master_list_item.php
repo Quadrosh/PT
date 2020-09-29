@@ -4,7 +4,8 @@ use common\models\Imagefiles;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 ?>
-<?php if ($model['status']== 'premium') : ?>
+
+<?php if ($model['status'] == 'premium') : ?>
     <div class="masterListItem premium">
         <div class="row">
                 <div class="col-sm-1 col-md-1 col-lg-1">
@@ -121,7 +122,9 @@ use yii\helpers\HtmlPurifier;
                                 ?>
                             </p>
                             <p class="masterAddress"><?= nl2br($model['address']) ?>
-                                <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?>
+                                <?php if ($model['phone']) : ?>
+                                    <span class="masterPhone"><i class="phone_icon fa fa-phone" aria-hidden="true"></i><?= Html::encode($model['phone']) ?>
+                                <?php endif; ?>
                                     <?php if ($model['other_contacts']) : ?>
                                         <?php echo ', '.$model['other_contacts'] ?>
                                     <?php endif; ?>
@@ -187,6 +190,24 @@ use yii\helpers\HtmlPurifier;
                                             $count++;
                                         } ?>
                                     </p>
+                                <?php endif; ?>
+                                <?php if ($model->services) : ?>
+                                <p class="sessionsInfo">
+                                    <?php $servicesCount = 1?>
+                                    <?php foreach ($model->services as $service) {
+                                        if ($count != count($model->services)) {
+                                            echo '<span class="';
+                                            echo $count==1 ?' capital':' lowercase';
+                                            echo '">'.$service->name.'</span> - '.$service->value.$service->comment;
+                                            echo count($model->services)>1 ? ', ':'';
+                                        } else {
+                                            echo '<span class="';
+                                            echo $count==1 ?' capital':' lowercase';
+                                            echo '">'.$service->name.'</span> - '.$service->value.$service->comment;
+                                        }
+                                        $count++;
+                                    } ?>
+                                </p>
                                 <?php endif; ?>
                             </div>
                         </div>
