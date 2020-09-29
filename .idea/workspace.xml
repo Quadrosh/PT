@@ -846,12 +846,12 @@
       <workItem from="1594212775151" duration="770000" />
       <workItem from="1600153810829" duration="26838000" />
       <workItem from="1600584231085" duration="49818000" />
-      <workItem from="1601362328488" duration="8933000" />
+      <workItem from="1601362328488" duration="9235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368662000" />
+    <option name="totallyTimeSpent" value="368964000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -864,7 +864,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="98" width="1393" height="793" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
       <window_info id="Structure" order="1" show_stripe_button="false" weight="0.24819624" />
@@ -875,7 +874,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.15721649" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22824536" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -885,7 +884,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.30466473" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.30466473" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
