@@ -10,7 +10,7 @@ use yii\helpers\Html;
     <div class="row no-gutters">
         <div class="col-sm-6 imageCol">
             <?php if ($model->image) {
-                echo Html::img('/img/view/cutoverflow_690x690_'.$model->image,[ 'alt'=>$model->image_alt,'tile'=>$model->image_title]);
+                echo Html::img('/img/view/cutoverflow_690x690_'.$model->image,[ 'alt'=>$model->image_alt,'title'=>$model->image_title]);
             } ?>
         </div>
         <div class="col-sm-6 textCol">

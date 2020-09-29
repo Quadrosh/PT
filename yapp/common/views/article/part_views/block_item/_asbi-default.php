@@ -39,7 +39,7 @@ if ($structure) {
         $options = [
             'alt'=>$model->image_alt,
             'class'=>$model->image_class,
-            'tile'=>$model->image_title
+            'title'=>$model->image_title
         ];
 
         if ($imgSize) {

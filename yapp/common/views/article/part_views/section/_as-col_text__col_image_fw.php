@@ -73,9 +73,7 @@ use yii\helpers\Html;
         </div>
         <div class="col-sm-6">
             <?php if ($model->image) {
-                echo Html::img('/img/view/cutoverflow_690x690_'.$model->image,[
-                        'alt'=>$model->image_alt,
-                        'title'=>$model->image_title]);
+                echo Html::img('/img/view/cutoverflow_690x690_'.$model->image,[ 'alt'=>$model->image_alt,'title'=>$model->image_title]);
             } ?>
         </div>
 
