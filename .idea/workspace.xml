@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b355c1d1-e564-4b54-a56a-12c5cda5ce97" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/yapp/frontend/views/layouts/m_lyalina.php" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/views/layouts/m_lyalina.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css" beforeDir="false" afterPath="$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css" afterDir="false" />
     </list>
     <ignored path="psihotera.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -155,11 +155,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="129">
-                  <caret line="488" column="36" selection-start-line="488" selection-start-column="26" selection-end-line="488" selection-end-column="36" />
+                <state relative-caret-position="202">
+                  <caret line="480" column="5" selection-start-line="480" selection-start-column="5" selection-end-line="480" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -185,11 +185,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="505" column="17" lean-forward="true" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
+                <state relative-caret-position="262">
+                  <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -415,8 +415,8 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/site/homepage.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/master/_master_list_item.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/Article.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css" />
         <option value="$PROJECT_DIR$/yapp/frontend/views/layouts/m_lyalina.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css" />
       </list>
     </option>
   </component>
@@ -722,12 +722,12 @@
       <workItem from="1594212775151" duration="770000" />
       <workItem from="1600153810829" duration="26838000" />
       <workItem from="1600584231085" duration="49818000" />
-      <workItem from="1601362328488" duration="16043000" />
+      <workItem from="1601362328488" duration="17371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375772000" />
+    <option name="totallyTimeSpent" value="377100000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -751,7 +751,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3275862" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22551547" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22551547" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -761,7 +761,7 @@
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.266035" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.266035" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" show_stripe_button="false" side_tool="true" weight="0.33431953" />
@@ -1152,20 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="505" column="17" lean-forward="true" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="488" column="36" selection-start-line="488" selection-start-column="26" selection-end-line="488" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ArticleSectionController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1182,6 +1168,20 @@
             <element signature="n#style#0;n#svg#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="480" column="5" selection-start-line="480" selection-start-column="5" selection-end-line="480" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
         </state>
       </provider>
     </entry>
