@@ -357,6 +357,7 @@ p {
     position: absolute;
     top: 2px;
     right: 9px;
+    pointer-events: none;
 }
 .styleSelect .form-group:before{
     content: "";
@@ -367,6 +368,7 @@ p {
     height: 35px;
     background-color: rgba(0,0,0,.2);
     z-index: 1;
+    pointer-events: none;
 }
 .styleSelect .form-control{
     position: relative;

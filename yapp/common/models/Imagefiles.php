@@ -96,7 +96,7 @@ class Imagefiles extends \yii\db\ActiveRecord
                 throw new BadRequestHttpException('Некорректный запрос.');
             }
 
-            Yii::error(['$matches'=>$matches]);
+//            Yii::error(['$matches'=>$matches]);
 
 // высота и ширина из названия
             $width = $matches[1];

@@ -45,6 +45,9 @@ class Master extends \yii\db\ActiveRecord
 {
 
     const HRURL_AIGUL_SHE = 'she';
+    const HRURL_LYALINA = 'lyalina';
+
+
     const ORDER_MESSENGER_TYPE_EMAIL = 'email';
 
     const ORDER_BY_SMS_ENABLE = 'active';
@@ -301,6 +304,13 @@ class Master extends \yii\db\ActiveRecord
 
     public function getFio(){
         return $this['name'].' '.$this['middlename'].' '.$this['surname'];
+    }
+
+
+    public function getServices()
+    {
+        return $this->hasMany(MasterService::class,['master_id'=>'id'])
+            ->orderBy(['sort' => SORT_ASC]);
     }
 
 

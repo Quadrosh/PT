@@ -62,8 +62,10 @@ class Article extends \yii\db\ActiveRecord
     const OBJECT_TYPE_MASTER = 'master';
 
     const LAYOUT_OPTIONS = [
-        'm_ishe' => 'ishe',
+        'm_ishe' => 'm_ishe',
+        'm_lyalina' => 'm_lyalina',
         'article_page' => 'article_page',
+        'empty' => 'empty',
     ];
    const VIEW_OPTIONS = [
         '_a-no_h1' => 'no_h1',

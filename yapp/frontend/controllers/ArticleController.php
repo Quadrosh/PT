@@ -231,9 +231,16 @@ class ArticleController extends Controller
         $this->view->params['description'] = $article->description?$article->description: $article['list_name'].' - '. $article['excerpt'];
         $this->view->params['keywords'] = '-';
 
-        return $this->render($article->view? '/article/part_views/article/'.$article->view:'view', [
+        $viewPath = '/article/view';
+
+        if ($article->view) {
+            $viewPath = '/article/part_views/article/'.$article->view;
+        }
+        return $this->render($viewPath, [
             'article' => $article,
         ]);
+
+
     }
 
     public function actionBytag($hrurl)
@@ -330,7 +337,82 @@ class ArticleController extends Controller
     }
 
 
+    /**
+     * Страница мастера
+     *
+     * @param string $hrurl
+     * @throws BadRequestHttpException
+     */
+    public function actionPremiumMasterPage($root,$page=null)
+    {
+        Url::remember();
+        $this->getUtm();
 
+        if (
+            $root !=  Master::HRURL_AIGUL_SHE &&
+            $root !=  Master::HRURL_LYALINA
+        ) {throw new BadRequestHttpException();}
+
+        $master = Master::findOne(['hrurl'=> $root]);
+
+        if ($page) {
+            $article = Article::find()
+                ->where([
+                    'hrurl'=>$root.'/'.$page,
+                    'object_type'=>Article::OBJECT_TYPE_MASTER,
+                    'object_id'=>$master->id,
+                ])
+                ->with('psys','sites','tags')
+                ->one();
+        } else {
+            $article = Article::find()
+                ->where([
+                    'hrurl'=>$root,
+                    'object_type'=>Article::OBJECT_TYPE_MASTER,
+                    'object_id'=>$master->id,
+                ])
+                ->with('psys','sites','tags')
+                ->one();
+        }
+
+
+
+
+
+        if ($article->layout) {
+            $this->layout = $article->layout;
+        }
+        // счетчик просмотров
+        $now = time();
+        $todayStart = $now - ($now % 86400);
+        $todayCount = DailyCount::find()
+            ->where(['article_id'=>$article['id']])
+            ->andWhere('created_at > '.$todayStart)
+            ->one();
+        if (!$todayCount) {
+            $todayCount = new DailyCount;
+            $todayCount['count'] = 1;
+            $todayCount['article_id'] = $article['id'];
+        } else {
+            $todayCount['count'] += 1;
+        }
+        $todayCount->save();
+
+        $this->view->params['title'] = $article->title;
+        $this->view->params['description'] = $article->description;
+        $this->view->params['keywords'] = 'психотерапия, психотерапевт'.$article['excerpt_big'];
+
+        return $this->render('common_view', [
+            'model' => $article,
+        ]);
+    }
+
+    /**
+     * Страница мастера (старый алгоритм)
+     *
+     * @param string $hrurl
+
+     */
     public function actionMasterPage($hrurl)
     {
         Url::remember();
@@ -355,6 +437,9 @@ class ArticleController extends Controller
                 ->one();
 
         } else {
+
+
+
             throw new BadRequestHttpException();
         }
 

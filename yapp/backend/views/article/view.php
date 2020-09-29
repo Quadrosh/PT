@@ -156,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
         <div class="col-sm-12">
             <?= $form->field($model, 'text')
-                ->textarea(['rows' => 4,'maxlength' => true, 'id'=>'changeText-text'])
+                ->textarea(['rows' => 1,'maxlength' => true, 'id'=>'changeText-text'])
                 ->label('Изменение текста')
             ?>
         </div>
@@ -217,7 +217,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
 
             <?= $form->field($model, 'excerpt')
-                ->textArea(['value'=>Article::excerpt($model['text'], 180),'rows' => 2])
+                ->textArea(['value'=>Article::excerpt($model['text'], 180),'rows' => 1])
                 ->label(false) ?>
         </div>
         <div class="col-xs-3 text-right">
@@ -239,7 +239,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
 
             <?= $form->field($model, 'excerpt_big')
-                ->textArea(['value'=>Article::excerpt($model['text'], 400),'rows' => 3])
+                ->textArea(['value'=>Article::excerpt($model['text'], 400),'rows' => 1])
                 ->label(false) ?>
         </div>
         <div class="col-xs-3 text-right">
@@ -699,7 +699,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <ul>
                                     <div class="row mt20">
                                         <div class="col-sm-4">
-                                            Блок <?= $blockNum ?>. <?= $block->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$block->sort:'' ?> <span class="text-danger"><?= $block->code_name ?></span> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block/update?id='.$block->id,
+                                            Блок <?= $blockNum ?>. <?= $block->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$block->sort:'' ?> <span class="text-danger"><?= $block->code_name ?></span>
+
+                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-up"></span>', '/article-section-block/move-up?id='.$block->id,
+                                                [
+                                                    'title' => Yii::t('yii', 'Переместить вверх'),
+                                                    'data-method'=>'post'
+                                                ]); ?>
+
+                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-down"></span>', '/article-section-block/move-down?id='.$block->id,
+                                                [
+                                                    'title' => Yii::t('yii', 'Переместить вниз'),
+                                                    'data-method'=>'post'
+                                                ]); ?>
+
+
+                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block/update?id='.$block->id,
                                                 [
                                                     'title' => Yii::t('yii', 'Редактировать блок'),
                                                     'data-method'=>'post'
@@ -844,7 +859,26 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <ul>
                                                     <div class="row mt20">
                                                         <div class="col-sm-4">
-                                                            Пункт <?= $itemNum ?> <?= $item->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$item->sort:'' ?> <span class="text-danger"><?= $item->code_name ?></span> <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block-item/update?id='.$item->id,
+                                                            Пункт <?= $itemNum ?> <?= $item->sort?'<sup class="glyphicon glyphicon-sort-by-attributes"></sup>'.$item->sort:'' ?> <span class="text-danger"><?= $item->code_name ?></span>
+
+
+
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-up"></span>', '/article-section-block-item/move-up?id='.$item->id,
+                                                                [
+                                                                    'title' => Yii::t('yii', 'Переместить вверх'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-arrow-down"></span>', '/article-section-block-item/move-down?id='.$item->id,
+                                                                [
+                                                                    'title' => Yii::t('yii', 'Переместить вниз'),
+                                                                    'data-method'=>'post'
+                                                                ]); ?>
+
+
+
+
+                                                            <?= \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', '/article-section-block-item/update?id='.$item->id,
                                                                 [
                                                                     'title' => Yii::t('yii', 'Редактировать item'),
                                                                     'data-method'=>'post'
@@ -992,12 +1026,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if ($section->view) : ?>
                 <?= $this->render('/article/part_views/section/'.$section->view, [
                     'model' => $section,
+                    'article' => $model,
                 ]) ?>
             <?php endif; ?>
 
             <?php if (!$section->view) : ?>
                 <?= $this->render('/article/part_views/section/_as-default', [
                     'model' => $section,
+                    'article' => $model,
                 ]) ?>
             <?php endif; ?>
 

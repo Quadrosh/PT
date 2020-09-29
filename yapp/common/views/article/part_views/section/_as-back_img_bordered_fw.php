@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 
+
 $sectionId=null;
 if ($model->structure) {
     foreach (explode('&', $model->structure) as $chunk) {
@@ -15,7 +16,7 @@ if ($model->structure) {
 ?>
 
 
-<section class="as-back_img_fw position-relative background_cover  <?= $model->color_key ?> <?= $model->custom_class ?>"
+<section class="as-back_img_bordered_fw position-relative background_cover  <?= $model->color_key ?> <?= $model->custom_class ?>"
          style=" background-image: url(/img/<?= $model->background_image ?>)"
     <?= $sectionId?'id="'.$sectionId.'"':null ?>
     <?= $model->background_image_title?'title="'.$model->background_image_title.'"':null ?>

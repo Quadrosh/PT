@@ -46,12 +46,24 @@ class ArticleSection extends \yii\db\ActiveRecord
     public $raw_text_class_select = null;
     public $conclusion_class_select = null;
 
+    const COLOR_KEY_OPTIONS = [
+        'white_bgr' => 'white_bgr',
+        'bright' => 'bright',
+        'grey' => 'grey',
+        'dark_grey' => 'dark_grey',
+        'dark' => 'dark',
+    ];
     const VIEW_OPTIONS = [
         '_as-default' => 'default',
         '_as-full_width' => 'full_width',
+        '_as-col_text__col_image_fw' => 'col_text__col_image_fw',
+        '_as-col_image__col_text_fw' => 'col_image__col_text_fw',
+        '_as-left_image__floating_right_text_fw' => 'left_image__floating_right_text_fw',
         '_as-back_img_fw' => 'back_img_fw',
+        '_as-back_img_bordered_fw' => 'back_img_bordered_fw',
         '_as-head-descr-blocks-text' => 'head-descr-blocks-text',
         '_as-order_form' => 'order_form',
+        '_as-order_form-col_text___col_form_fw' => 'order_form-col_text___col_form_fw',
     ];
 
     const TEXT_CLASS_OPTIONS = [
@@ -150,9 +162,12 @@ class ArticleSection extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
 
+            $article = $this->article;
+            $article->updated_at = time();
+            $article->save();
+
             if ($this->isNewRecord) {
                 if (!$this->sort ) {
-                    $article = Article::findOne($this->article_id);
                     if ($article->sections) {
                         $this->sort = count($article->sections)+1;
                     } else {

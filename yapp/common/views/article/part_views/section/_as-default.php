@@ -10,10 +10,10 @@ use yii\helpers\Html;
     <div class="row">
         <div class="  col-md-10 col-md-offset-1  col-lg-8 col-lg-offset-2">
             <?php if ($model->header) : ?>
-                <h2 class="<?= $model->header_class ?>"><?= $model->header ?></h2>
+                <h2 class="<?= $model->header_class ?>"><?= nl2br($model->header) ?></h2>
             <?php endif; ?>
             <?php if ($model->description) : ?>
-                <p class="text-left"><?= nl2br($model->description)  ?></p>
+                <p  <?= $model->description_class?'class="'.$model->description_class.'"':null ?>><?= nl2br($model->description)  ?></p>
             <?php endif; ?>
 
             <?php if ($model->raw_text) : ?>

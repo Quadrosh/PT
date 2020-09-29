@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
+use \common\models\MasterService;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Master */
@@ -401,7 +402,129 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- /назначение профессии -->
 
 
-        <!-- назначение вида сессии и цены  -->
+
+
+
+
+
+
+        <!-- Услуги -->
+        <div class="row mt20 bt pt20">
+<!--            --><?php //Pjax::begin([
+//                'id' => 'servicesPjax',
+//                'timeout' => 2000,
+//                'enablePushState' => false,
+//            ]); ?>
+            <?php
+
+            $newServiceModel = new MasterService;
+            $query = MasterService::find()
+                ->where(['master_id'=>$model['id']])
+                ->orderBy(['sort'=>SORT_ASC]);
+            $servicesDataProvider = new \yii\data\ActiveDataProvider([
+                'query'=>$query,
+            ]);
+            ?>
+            <div class=" col-sm-6">
+                <h4>Услуги</h4>
+                <?php $form = ActiveForm::begin([
+                    'id'=>'newServiceForm',
+                    'action' => ['/master-service/create'],
+//                    'action' => ['/master-service/create-async?master_id='.$model['id']],
+//                    'options' => ['data-pjax' => true ]
+                ]); ?>
+
+                <?= $form->field($newServiceModel, 'master_id')
+                    ->hiddenInput(['value' => $model['id'],'id' => 'newServiceForm-master_id'])
+                    ->label(false) ?>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <?= $form->field($newServiceModel, 'name')
+                            ->textInput(['id' => 'newServiceForm-name'])
+                            ->label('Название') ?>
+                    </div>
+                    <div class="col-sm-4">
+                        <?= $form->field($newServiceModel, 'value')
+                            ->textInput(['id' => 'newServiceForm-value'])
+                            ->label('цена') ?>
+                    </div>
+                    <div class="col-sm-4">
+                        <?= $form->field($newServiceModel, 'comment')
+                            ->textInput(['id' => 'newServiceForm-comment'])
+                            ->label('коммент - р/2ч') ?>
+                    </div>
+                </div>
+
+                <?= Html::submitButton('Создать <i class="fa fa-share" aria-hidden="true"></i>', ['class' => 'btn btn-primary btn-xs']) ?>
+                <?php ActiveForm::end() ?>
+            </div>
+            <div class="col-sm-6">
+
+
+
+                <?php
+
+
+
+                echo yii\grid\GridView::widget([
+                    'dataProvider' => $servicesDataProvider,
+                    'emptyText' => 'Пока нет',
+                    'columns'=>[
+//
+//                        'name',
+                        [
+                            'label' => 'Название',
+                            'attribute'=>'name','format' => 'raw',
+                            'value' => function($data)
+                            {
+                                $moveUp = Html::a( '<span class="glyphicon glyphicon-arrow-up"></span>', '/master-service/move-up?id='.$data->id,
+                                    [
+                                        'title' => Yii::t('yii', 'Переместить вверх'),
+                                        'data-method'=>'post'
+                                    ]);
+                                $moveDown = Html::a( '<span class="glyphicon glyphicon-arrow-down"></span>', '/master-service/move-down?id='.$data->id,
+                                    [
+                                        'title' => Yii::t('yii', 'Переместить вниз'),
+                                        'data-method'=>'post'
+                                    ]);
+                                $name = $moveUp.$moveDown. $data->name;
+                                return $name;
+                            },
+                        ],
+                        'value',
+                        'comment',
+                        [
+                            'class' => \yii\grid\ActionColumn::class,
+                            'buttons' => [
+                                'update'=>function($url,$model){
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/master-service/update','id'=>$model['id']]);
+                                    return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-pencil"></span>', $newUrl,
+                                        ['title' => Yii::t('yii', 'Изменить'), 'data-pjax' => '0','data-method'=>'post']);
+                                },
+                                'delete'=>function($url,$model){
+                                    $newUrl = Yii::$app->getUrlManager()->createUrl(['/master-service/delete','id'=>$model['id']]);
+                                    return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-trash"></span>', $newUrl,
+                                        ['title' => Yii::t('yii', 'Удалить'), 'data-pjax' => '0','data-method'=>'post']);
+                                },
+                                'view'=>function($url,$model){
+                                    return false;
+                                },
+
+
+                            ]
+                        ],
+                    ],
+                ]);
+                ?>
+
+            </div>
+<!--            --><?php //Pjax::end(); ?>
+        </div>
+        <!-- /Услуги-->
+
+
+
+        <!-- назначение вида сессии и цены  OLD -->
         <div class="row mt20 bt pt20">
             <?php Pjax::begin([
                 'id' => 'sessionAssignPjax',
@@ -416,7 +539,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]);
             ?>
             <div class=" col-sm-6">
-                <h4>Виды сессий и цена</h4>
+                <h4>Виды сессий и цена (OLD)</h4>
                 <?php $form = ActiveForm::begin([
                     'id'=>'sessionAssign',
                     'action' => ['/itemassign/assign-session-xx?type=master&id='.$model['id']],

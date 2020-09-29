@@ -75,6 +75,7 @@ return [
 
                 'img/view/<name:([A-Za-z0-9\.\-\_])+>' => 'site/get-image', // картинки - создание на лету если файла нет
                 '<hrurl:uslugi-psihoterapevtu>' => 'article/page', // services-to-master
+                '<hrurl:disclaimer>' => 'article/page', // services-to-master
 
                 'article/search' => 'article/search',
                 'article/<hrurl:[0-9a-z\-\_]+>' => 'article/view',
@@ -84,6 +85,11 @@ return [
                 '<hrurl:she>' => 'article/master-page',
                 '<hrurl:she/about>' => 'article/master-page',
                 '<hrurl:she/contact>' => 'article/master-page',
+
+                '<root:lyalina>' => 'article/premium-master-page',
+                '<root:lyalina>/<page:[0-9a-z\-\_]+>' => 'article/premium-master-page',
+
+
 
                 'master/filter' => 'master/filter',
                 'master/index' => 'master/index',

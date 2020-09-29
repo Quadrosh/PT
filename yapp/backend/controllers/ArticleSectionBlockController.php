@@ -163,4 +163,24 @@ class ArticleSectionBlockController extends BackController
             return $this->redirect(Url::previous());
         }
     }
+
+
+    /*
+    * Перемещение вверх по сортировке
+    * */
+    public function actionMoveUp($id)
+    {
+        ArticleSectionBlock::moveUpBySort($id);
+        return $this->redirect(Url::previous());
+    }
+
+
+    /*
+     * Перемещение вниз по сортировке
+     * */
+    public function actionMoveDown($id)
+    {
+        ArticleSectionBlock::moveDownBySort($id);
+        return $this->redirect(Url::previous());
+    }
 }

@@ -67,6 +67,7 @@ AppAsset::register($this);
                 ['label' => 'Images', 'url' => ['/imagefiles']],
                 ['label' => 'Цитаты', 'url' => ['/quote']],
                 ['label' => 'Страницы Мастера', 'url' => ['/masterpageitem']],
+                ['label' => 'Услуги Мастера', 'url' => ['/master-service']],
                 ['label' => 'кнопки Мастера', 'url' => ['/btnitem']],
                 ['label' => 'Города', 'url' => ['/city-item']],
                 ['label' => 'Типы сессий', 'url' => ['/session-type-item']],

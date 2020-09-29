@@ -205,12 +205,7 @@ use \common\models\ArticleSection;
         </div>
         <div class="col-sm-3">
             <?= $form->field($model, 'color_key')
-                ->dropDownList([
-                    'bright' => 'bright',
-                    'white_bgr' => 'white_bgr',
-                    'dark' => 'dark',
-                    'grey' => 'grey',
-                ],['prompt' => 'Выбери']) ?>
+                ->dropDownList(ArticleSection::COLOR_KEY_OPTIONS,['prompt' => 'Выбери']) ?>
         </div>
         <div class="col-sm-3">
             <?= $form->field($model, 'structure')->textInput(['maxlength' => true]) ?>

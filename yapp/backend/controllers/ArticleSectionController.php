@@ -158,14 +158,12 @@ class ArticleSectionController extends BackController
     public function actionMoveUp($id)
     {
         ArticleSection::moveUpBySort($id);
-
         return $this->redirect(Url::previous());
     }
 
     public function actionMoveDown($id)
     {
         ArticleSection::moveDownBySort($id);
-
         return $this->redirect(Url::previous());
     }
 }

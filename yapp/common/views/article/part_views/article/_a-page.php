@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Article;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use \yii\widgets\ActiveForm;
@@ -8,12 +9,13 @@ use common\widgets\Alert;
 
 $preorder = new \common\models\Preorders();
 
+/* @var $article common\models\Article */
 
 ?>
 <div class="a-page">
     <?= Alert::widget() ?>
     <?php if ($article->h1) : ?>
-    <h1 class="text-center"><?= Html::encode($article->h1) ?></h1>
+    <h1 class="text-center"><?= Html::encode($article->h1) ?> </h1>
     <?php endif; ?>
 
     <?php if ($article->exerpt) : ?>

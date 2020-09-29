@@ -157,4 +157,23 @@ class ArticleSectionBlockItemController extends BackController
         $this->findModel($id)->multiply($qnt);
         return $this->redirect(Url::previous());
     }
+
+    /*
+     * Перемещение вверх по сортировке
+     * */
+    public function actionMoveUp($id)
+    {
+        ArticleSectionBlockItem::moveUpBySort($id);
+        return $this->redirect(Url::previous());
+    }
+
+
+    /*
+     * Перемещение вниз по сортировке
+     * */
+    public function actionMoveDown($id)
+    {
+        ArticleSectionBlockItem::moveDownBySort($id);
+        return $this->redirect(Url::previous());
+    }
 }

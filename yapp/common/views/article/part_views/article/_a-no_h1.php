@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Article;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use \yii\widgets\ActiveForm;
@@ -8,6 +9,8 @@ use common\widgets\Alert;
 
 //$preorder = new \common\models\Preorders();
 
+/* @var $article common\models\Article */
+/* @var $section \common\models\ArticleSection */
 
 ?>
 <div class="a-no_h1">

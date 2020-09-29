@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "article_section_block_item".
@@ -151,6 +152,33 @@ class ArticleSectionBlockItem extends \yii\db\ActiveRecord
         return true;
     }
 
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $block = $this->block;
+            $section = $block->section;
+            $article = $section->article;
+            $article->updated_at = time();
+            $article->save();
+
+            if ($this->isNewRecord) {
+                if (!$this->sort ) {
+                    $count = count($block->items);
+                    if ($count > 0) {
+                        $this->sort = $count+1;
+                    } else {
+                        $this->sort = 1;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+
+
+
     public function deleteImage($propertyName)
     {
         $imageFile = Imagefiles::find()->where(['name'=>$this->$propertyName])->one();
@@ -180,5 +208,57 @@ class ArticleSectionBlockItem extends \yii\db\ActiveRecord
 
         return true;
 
+    }
+
+
+
+    public static function moveUpBySort($id)
+    {
+        $model = static::findOne($id);
+        if (!$model) throw new NotFoundHttpException('Не найден ArticleSectionBlockItem №'.$id);
+
+        $siblings = ArticleSectionBlockItem::find()->where([
+            'article_section_block_id'=>$model->article_section_block_id
+        ])->orderBy(['sort'=>SORT_ASC])->all();
+
+
+        if (count($siblings)>1) {
+            foreach ($siblings as $key => $child) {
+                if ($child['id'] == $id && $key > 0) {
+                    $item = $child;
+                    $siblings[$key] = $siblings[$key-1];
+                    $siblings[$key-1] = $item;
+                }
+            }
+            foreach ($siblings as $key => $child) {
+                $child->sort = $key+1;
+                $child->save();
+            }
+        }
+    }
+
+    public static function moveDownBySort($id)
+    {
+        $model = static::findOne($id);
+        if (!$model) throw new NotFoundHttpException('Не найден ArticleSectionBlockItem №'.$id);
+
+        $siblings = ArticleSectionBlockItem::find()->where([
+            'article_section_block_id'=>$model->article_section_block_id
+        ])->orderBy(['sort'=>SORT_ASC])->all();
+
+
+        if (count($siblings)>1) {
+            foreach ($siblings as $key => $child) {
+                if ($child['id'] == $id && $key < count($siblings)-1) {
+                    $item = $child;
+                    $siblings[$key] = $siblings[$key+1];
+                    $siblings[$key+1] = $item;
+                }
+            }
+            foreach ($siblings as $key => $child) {
+                $child->sort = $key+1;
+                $child->save();
+            }
+        }
     }
 }

@@ -5,14 +5,18 @@ use yii\widgets\Pjax;
 use \yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 use common\widgets\Alert;
+use \common\models\Article;
+
+
+/* @var $article Article */
+
 
 //$preorder = new \common\models\Preorders();
 
-
 ?>
-<div class="a-article">
+<div class="a-article <?= $article->custom_class ?>">
     <?= Alert::widget() ?>
-    <h1 class="text-center"><?= Html::encode($article->pagehead) ?></h1>
+    <h1 class=" <?= $article->pagehead_class?$article->pagehead_class:'text-center' ?>"><?= Html::encode($article->pagehead) ?></h1>
 
     <?php if ($article->excerpt) : ?>
         <p><?= $article->excerpt ?></p>
