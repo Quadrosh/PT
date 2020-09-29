@@ -338,6 +338,12 @@ p {
     font-weight: 400;
     letter-spacing: .01em;
 }
+@media only screen and (max-width : 991px) {
+    .homeBrightH2 h2{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
 .mb100{
     margin-bottom: 100px;
 }
