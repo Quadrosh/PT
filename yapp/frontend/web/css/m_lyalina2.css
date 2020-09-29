@@ -218,6 +218,15 @@ p {
         font-size: 3rem;
     }
 }
+@media only screen and (max-width : 480px) {
+    .as-back_img_bordered_fw{
+        padding: 1em;
+        border: 1.5rem solid #36182f;
+    }
+    .as-back_img_bordered_fw h2{
+        font-size: 2rem;
+    }
+}
 .bright{
     background-color: #f6eaf3;
     color: #7f5d79;
@@ -338,7 +347,8 @@ p {
 @media only screen and (max-width : 480px) {
     .big_border {
         border: 1rem solid transparent;
-    }}
+    }
+}
 .as-left_image__floating_right_text_fw {
     padding-bottom: 4rem;
 }
