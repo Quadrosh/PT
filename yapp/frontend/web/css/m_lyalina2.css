@@ -335,6 +335,10 @@ p {
 .big_border {
     border: 4rem solid transparent;
 }
+@media only screen and (max-width : 480px) {
+    .big_border {
+        border: 1rem solid transparent;
+    }}
 .as-left_image__floating_right_text_fw {
     padding-bottom: 4rem;
 }

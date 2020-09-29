@@ -188,8 +188,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="262">
-                  <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+                <state relative-caret-position="133">
+                  <caret line="339" column="17" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -722,12 +722,12 @@
       <workItem from="1594212775151" duration="770000" />
       <workItem from="1600153810829" duration="26838000" />
       <workItem from="1600584231085" duration="49818000" />
-      <workItem from="1601362328488" duration="17371000" />
+      <workItem from="1601362328488" duration="17573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="377100000" />
+    <option name="totallyTimeSpent" value="377302000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1180,8 +1180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/web/css/m_lyalina2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+        <state relative-caret-position="133">
+          <caret line="339" column="17" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="17" />
         </state>
       </provider>
     </entry>
