@@ -39,7 +39,7 @@ use common\widgets\Alert;
     <meta property="og:title" content="<?= Yii::$app->view->params['title'] ?>" />
     <meta property="og:description" content="<?= Yii::$app->view->params['description'] ?>" />
     <meta property="og:url" content="<?= yii\helpers\Url::current(['lg'=>null], true) ?>" />
-<!--    <meta property="og:image" content="--><?//= yii\helpers\Url::base(true) ?><!--/img/ishe_square.jpg" />-->
+    <meta property="og:image" content="<?= yii\helpers\Url::base(true) ?>/img/articlesection28image.jpg" />
 
     <?php $this->head() ?>
 </head>
@@ -53,7 +53,7 @@ echo 'class="brightBody"';
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Телесная Психотерапия',
+        'brandLabel' => 'Психотерапия',
         'brandUrl' => '/lyalina',
         'options' => [
             'class' => 'navbar-inverse navbar-top navbar navbar-fixed-top',
