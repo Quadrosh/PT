@@ -40,6 +40,8 @@ use common\widgets\Alert;
 
 
     <?php $this->head() ?>
+    <?php include_once("analytics_google.php") ?>
+    <?php include_once("analytics_yandex.php") ?>
 </head>
 <body>
 <?php $this->beginBody() ?>

@@ -27,6 +27,8 @@ AppAsset::register($this);
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 
     <?php $this->head() ?>
+    <?php include_once("analytics_google.php") ?>
+    <?php include_once("analytics_yandex.php") ?>
 </head>
 <body>
 <?php $this->beginBody() ?>

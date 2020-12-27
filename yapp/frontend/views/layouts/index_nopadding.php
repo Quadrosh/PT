@@ -29,6 +29,8 @@ AppAsset::register($this);
 
 
     <?php $this->head() ?>
+    <?php include_once("analytics_google.php") ?>
+    <?php include_once("analytics_yandex.php") ?>
 </head>
 <body class="noPaddingTopObjectBody">
 <?php $this->beginBody() ?>

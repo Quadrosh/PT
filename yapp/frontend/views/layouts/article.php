@@ -29,6 +29,9 @@ AppAsset::register($this);
     <meta name="description" content="<?= Yii::$app->view->params['description'] ?>">
     <meta name="keywords" content="<?= Yii::$app->view->params['keywords'] ?>">
     <?php $this->head() ?>
+    <?php include_once("analytics_google.php") ?>
+    <?php include_once("analytics_yandex.php") ?>
+
 </head>
 <body>
 <?php $this->beginBody() ?>
