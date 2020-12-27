@@ -40,8 +40,10 @@ use common\widgets\Alert;
 
 
     <?php $this->head() ?>
-    <?php include_once("analytics_google.php") ?>
-    <?php include_once("analytics_yandex.php") ?>
+    <?php if (Url::base('')=='//psihotera.ru') : ?>
+        <?php include_once("analytics_google.php") ?>
+        <?php include_once("analytics_yandex.php") ?>
+    <?php endif; ?>
 </head>
 <body>
 <?php $this->beginBody() ?>

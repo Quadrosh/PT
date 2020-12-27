@@ -44,7 +44,6 @@ MsheAsset::register($this);
     <?php $this->head() ?>
 
 
-<!--    before metrics-->
     <?php if (Url::base('')=='//psihotera.ru') : ?>
         <?php include_once("analytics_google.php") ?>
         <?php include_once("analytics_yandex.php") ?>   <!--    общий  -->

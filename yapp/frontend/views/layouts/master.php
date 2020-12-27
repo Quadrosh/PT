@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -31,8 +32,10 @@ AppAsset::register($this);
 
 
     <?php $this->head() ?>
-    <?php include_once("analytics_google.php") ?>
-    <?php include_once("analytics_yandex.php") ?>
+    <?php if (Url::base('')=='//psihotera.ru') : ?>
+        <?php include_once("analytics_google.php") ?>
+        <?php include_once("analytics_yandex.php") ?>
+    <?php endif; ?>
 </head>
 <body >
 <?php $this->beginBody() ?>
