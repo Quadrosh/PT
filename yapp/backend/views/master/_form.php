@@ -7,14 +7,26 @@ use \common\models\Master;
 /* @var $this yii\web\View */
 /* @var $model common\models\Master */
 /* @var $form yii\widgets\ActiveForm */
+
+
+
 ?>
 
 <div class="master-form">
 
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
+        <div class="col-sm-3">
+            <?= $form->field($model, 'balance_rub')
+                ->textInput([
+                        'maxlength' => true,
+                        'value'=>$model->balanceRub()
+                    ]
+                ) ?>
+        </div>
+    </div>
 
-
+    <div class="row">
         <div class="col-sm-4">
             <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
         </div>

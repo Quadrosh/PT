@@ -51,14 +51,15 @@ AppAsset::register($this);
 
             ],
         ],
-        ['label' => 'Заявки',
+        ['label' => '<i class="glyphicon glyphicon-shopping-cart"></i>',
             'items' => [
+                ['label' => 'Context Ad', 'url' => ['/context-ad']],
                 ['label' => 'Заявки', 'url' => ['/feedback']],
                 ['label' => 'Просмотры', 'url' => ['/count']],
                 ['label' => 'С этим читают', 'url' => ['/read-with-it']],
             ],
         ],
-        ['label' => 'Libs',
+        ['label' => '<i class="glyphicon glyphicon-wrench"></i>',
             'items' => [
                 ['label' => 'Профессия', 'url' => ['/professionitem']],
                 ['label' => 'Виды психотерапии', 'url' => ['/psychotherapyitem']],
@@ -84,7 +85,7 @@ AppAsset::register($this);
                 ['label' => 'Назначение', 'url' => ['/tagassign']],
             ],
         ],
-        ['label' => 'Психотерапевты', 'url' => ['/master']],
+        ['label' => '<i class="glyphicon glyphicon-user"></i>', 'url' => ['/master']],
 //        ['label' => 'Статьи', 'url' => ['/article']],
         ['label' => 'Статьи',
             'items' => [
@@ -115,6 +116,7 @@ AppAsset::register($this);
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => $menuItems,
     ]);
     NavBar::end();

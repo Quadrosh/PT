@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <p><span class="text-secondary">Баланс: </span> <?= $model->account_balance/100 ?> <small>руб.</small> </p>
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -55,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
 
-
+            'account_balance',
             'name',
             'middlename',
             'surname',

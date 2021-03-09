@@ -421,6 +421,10 @@ class ArticleController extends Controller
         if ($hrurl ==  Master::HRURL_AIGUL_SHE ||
             substr($hrurl,0,3)== Master::HRURL_AIGUL_SHE) {
             $master = Master::findOne(['hrurl'=> Master::HRURL_AIGUL_SHE]);
+            if (!$master) {
+                throw new NotFoundHttpException('Страница не найдена');
+            }
+
             if ($hrurl ==  Master::HRURL_AIGUL_SHE) {
                 $hrurl = 'home';
             } else {

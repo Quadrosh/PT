@@ -40,6 +40,8 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $root
+ * @property integer $account_balance   баланс в копейках
+ * @property integer $balance_rub  баланс в рублях - виртуальный, в базе не хранится
  */
 class Master extends \yii\db\ActiveRecord
 {
@@ -54,6 +56,8 @@ class Master extends \yii\db\ActiveRecord
     const ORDER_BY_SMS_DISABLE = 'not_active';
 
 
+
+    public $balance_rub = null;
 
 
     /**
@@ -86,7 +90,8 @@ class Master extends \yii\db\ActiveRecord
                     'site_id',
                     'created_at',
                     'order_sms_count',
-                    'updated_at'
+                    'updated_at',
+                    'account_balance',
                 ], 'integer'
             ],
             [
@@ -157,7 +162,6 @@ class Master extends \yii\db\ActiveRecord
             'order_sms_count' => 'Order SMS Осталось',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'fio' => '_ФИО (в разработке)',
         ];
     }
 
@@ -173,7 +177,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getPros()
     {
-        return $this->hasMany(ProfessionItem::className(),['id'=>'item_id'])
+        return $this->hasMany(ProfessionItem::class,['id'=>'item_id'])
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'pro']);
             });
@@ -184,7 +188,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getPsys()
     {
-        return $this->hasMany(PsychotherapyItem::className(),['id'=>'item_id'])
+        return $this->hasMany(PsychotherapyItem::class,['id'=>'item_id'])
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'psy']);
             });
@@ -195,7 +199,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getSites()
     {
-        return $this->hasMany(SiteItem::className(),['id'=>'item_id'])
+        return $this->hasMany(SiteItem::class,['id'=>'item_id'])
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'site']);
             });
@@ -206,14 +210,14 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getBtns()
     {
-        return $this->hasMany(BtnItem::className(),['id'=>'item_id'])
+        return $this->hasMany(BtnItem::class,['id'=>'item_id'])
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'btn']);
             });
     }
     public function getMtexts()
     {
-        return $this->hasMany(Article::className(),['master_id'=>'id'])->where(['link2original'=>'masterpage','status'=>'publish']);
+        return $this->hasMany(Article::class,['master_id'=>'id'])->where(['link2original'=>'masterpage','status'=>'publish']);
 
     }
 
@@ -222,7 +226,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getCities()
     {
-        return $this->hasMany(CityItem::className(),['id'=>'item_id'])
+        return $this->hasMany(CityItem::class,['id'=>'item_id'])
             ->viaTable('item_assign',['master_id'=>'id'],function($query){
                 $query->andWhere(['item_type'=>'city']);
             });
@@ -233,7 +237,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getAssigns()
     {
-        return $this->hasMany(ItemAssign::className(), ['master_id' => 'id']);
+        return $this->hasMany(ItemAssign::class, ['master_id' => 'id']);
     }
 
 
@@ -248,7 +252,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getSessionTypes()
     {
-        return $this->hasMany(SessionTypeItem::className(),['id'=>'item_id'])
+        return $this->hasMany(SessionTypeItem::class,['id'=>'item_id'])
             ->via('assigns',function($q){
                 $q->andWhere(['item_type'=>'session']);
             })
@@ -280,7 +284,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getTags()
     {
-        return $this->hasMany(Tag::className(),['id'=>'tag_id'])
+        return $this->hasMany(Tag::class,['id'=>'tag_id'])
             ->viaTable('tag_assign',['master_id'=>'id']);
     }
 
@@ -289,7 +293,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getImagefile()
     {
-        return $this->hasOne(Imagefiles::className(),['name'=>'image']);
+        return $this->hasOne(Imagefiles::class,['name'=>'image']);
     }
 
     /**
@@ -297,7 +301,7 @@ class Master extends \yii\db\ActiveRecord
      */
     public function getBackgroundImagefile()
     {
-        return $this->hasOne(Imagefiles::className(),['name'=>'background_image']);
+        return $this->hasOne(Imagefiles::class,['name'=>'background_image']);
     }
 
 
@@ -327,6 +331,10 @@ class Master extends \yii\db\ActiveRecord
             ->setTo($this->email)
             ->setSubject($subject)
             ->send();
+    }
+
+    public function balanceRub(){
+        return $this->account_balance/100;
     }
 
 }

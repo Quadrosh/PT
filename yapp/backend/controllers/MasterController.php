@@ -235,8 +235,18 @@ class MasterController extends Controller
     {
         $model = new Master();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $post = Yii::$app->request->post();
+        if ($model->load($post)) {
+            if ( isset($post['Master']['balance_rub']) &&
+                $post['Master']['balance_rub'] &&
+                $model->account_balance != $post['Master']['balance_rub']*100
+            ) {
+                $model->account_balance = $post['Master']['balance_rub']*100;
+            }
+            if ($model->save()) {
+                return $this->redirect(Url::previous());
+            }
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -254,13 +264,24 @@ class MasterController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+
+        $post = Yii::$app->request->post();
+
+        if ($model->load($post) ) {
+            if ( isset($post['Master']['balance_rub']) &&
+                $post['Master']['balance_rub'] &&
+                $model->account_balance != $post['Master']['balance_rub']*100
+            ) {
+                $model->account_balance = $post['Master']['balance_rub']*100;
+            }
+            if ($model->save()) {
+                return $this->redirect(Url::previous());
+            }
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -273,7 +294,7 @@ class MasterController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Url::previous());
     }
 
     /**
