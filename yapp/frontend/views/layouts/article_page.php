@@ -83,9 +83,7 @@ use common\widgets\Alert;
     ?>
 
     <div class="container-fluid no-gutters h100per">
-<!--        --><?//= Breadcrumbs::widget([
-//            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-//        ]) ?>
+
         <?= Alert::widget() ?>
 
         <?= $content ?>
