@@ -21,7 +21,11 @@ use \common\models\Imagefiles;
                 <div class="col-sm-6 text-center">
                     <div class="imageBox">
                         <?=  Html::img('/img/view/' . Imagefiles::SIZE_WIDTH_600_HEIGHT_AUTO .$quote->imagefile['name'],
-                            ['class' => 'img','style'=>'width:300px;']) ;?>
+                            [
+                                'class' => 'img',
+                                'alt' => $quote->image_alt,
+                                'style'=>'width:300px;'
+                            ]) ;?>
 
                     </div>
                 </div>
