@@ -299,6 +299,10 @@ a:hover{
             4px 4px 4px rgba(0,0,0,0.2);
    transition: letter-spacing .2s;        
 }
+.nav > li > a:hover, 
+.nav > li > a:focus {
+    background-color: transparent;
+  }
 /* main menu active */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
