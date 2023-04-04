@@ -1580,12 +1580,16 @@ a:hover{
 }
 .navbar-transparent .navbar-nav > li a {
     color: #ffffff;
-    transition: color .2s;
+    letter-spacing: 0.01em;
+    transition: letter-spacing .2s;
 }
 .navbar-transparent .navbar-nav > li a:hover {
     background-color: transparent;
-    color: #0A3C59;
-    transition: color .2s;
+    /* color: #0A3C59; */
+    color: white;
+    letter-spacing: 0.05em;
+    transition: letter-spacing .2s;
+
 }
 .navbar-transparent .navbar-brand {
     color: #ffffff;
